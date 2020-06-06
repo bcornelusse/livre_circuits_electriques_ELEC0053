@@ -1,0 +1,44 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (4.83556,2.44889) -- (4.87333,2.57111) -- (4.94889,2.32222) -- (5.02444,2.57111) -- (5.1,2.32222) -- (5.17556,2.57111) -- (5.25111,2.32222) -- (5.32667,2.57111) -- (5.4,2.32222) -- (5.43778,2.44889);
+\draw[black] (3.07111,3.15556) -- (2.57333,3.15556);
+\draw[black] (4.82889,2.44667) -- (3.98222,2.44667) -- (3.98222,3.16222);
+\path (6.48889,4.92667) node[text=black,anchor=base west] {-};
+\path (6.48,3.81333) node[text=black,anchor=base west] {+};
+\path (7.05333,4.4) node[text=black,anchor=base east] {$\bar{U}_2$};
+\path (1.94667,4.09778) node[text=black,anchor=base east] {$\bar{U}_1$};
+\draw[black] (4.88222,3.98222) -- (4.49778,3.98222) -- (4.49778,4.99778);
+\draw[black] (3.68667,3.16889) -- (3.94667,3.16889);
+\draw[black] (3.08889,3.17111) -- (3.12667,3.29333) -- (3.20222,3.04444) -- (3.27778,3.29333) -- (3.35333,3.04444) -- (3.42889,3.29333) -- (3.50444,3.04444) -- (3.58,3.29333) -- (3.65333,3.04444) -- (3.69111,3.17111);
+\draw[black] (2.44222,3.15778) -- (1.92667,3.15778);
+\draw[black] (6.84,5.00667) -- (1.89778,5.00667);
+\path (2.02667,3.47111) node[text=black,anchor=base west] {+};
+\path (2.11333,4.82889) node[text=black,anchor=base west] {-};
+\draw[black] (6.28889,3.57111) -- (6.28889,2.45778) -- (5.43333,2.45778);
+\path (2.51111,2.66222) node[text=black,anchor=base] {$C_i$};
+\path (5.13333,2.00889) node[text=black,anchor=base] {$R_f$};
+\path (3.40889,2.82889) node[text=black,anchor=base] {$R_i$};
+\filldraw[black] (6.86444,3.6) ellipse (0.04889cm and 0.05111cm);
+\filldraw[black] (6.86444,5.00667) ellipse (0.04889cm and 0.05111cm);
+\draw[black] (5.27556,5.01778) -- (5.27556,4.03333);
+\draw[black] (5.90667,3.58) -- (6.83778,3.58);
+\filldraw[black] (6.30222,3.58889) ellipse (0.04889cm and 0.05111cm);
+\filldraw[black] (3.98444,3.18889) ellipse (0.04889cm and 0.05111cm);
+\filldraw[black] (5.85778,3.58889) ellipse (0.04889cm and 0.05111cm);
+\filldraw[black] (4.88889,3.97333) ellipse (0.04889cm and 0.05111cm);
+\filldraw[black] (4.88889,3.18889) ellipse (0.04889cm and 0.05111cm);
+\filldraw[black] (1.90667,3.14222) ellipse (0.04889cm and 0.05111cm);
+\filldraw[black] (1.92444,5.00667) ellipse (0.04889cm and 0.05111cm);
+\path (5.01778,3.24667) node[anchor=base west] {-};
+\path (5.00889,4.03333) node[anchor=base west] {+};
+\draw (3.98444,3.18889) -- (4.84,3.18889);
+\draw (4.72444,2.83556) -- (6.13556,3.58222) -- (4.72444,4.32889) -- cycle;
+\draw (2.47333,3.43556) -- (2.47333,2.93778);
+\draw (2.58889,3.43556) -- (2.58889,2.93778);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

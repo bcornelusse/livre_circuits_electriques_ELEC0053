@@ -1,0 +1,79 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (6.78667,8.06889) -- (6.24889,8.06889);
+\draw[black] (0.91111,8.06889) -- (0.37333,8.06889);
+\draw[black] (5.80889,6.85111) +(-101:0.16082) arc (-101:99:0.16082);
+\draw[black] (5.78889,7.00444) -- (5.78889,8.06667);
+\draw[black] (5.77778,5.77778) -- (5.77778,6.70667);
+\draw[black] (1.36,6.84889) +(-89:0.15557) arc (-89:-271:0.15557);
+\draw[black] (1.37111,7.00667) -- (1.37111,8.02667);
+\draw[black] (1.36222,5.74667) -- (1.36222,6.71111);
+\draw[black] (5.81333,6.86889) -- (6.25333,6.86889) -- (6.25333,9.16889) -- (5.77778,9.16889);
+\draw[black] (1.35556,6.86222) -- (0.91556,6.86222) -- (0.91556,9.16222) -- (1.39111,9.16222);
+\path (3.62889,8.67556) node[text=black,anchor=base] {$Q^b$};
+\path (3.62889,6.37778) node[text=black,anchor=base] {$Q^a$};
+\path (0.19556,5.87333) node[text=black,anchor=base east] {1};
+\path (0.09111,8.21333) node[text=black,anchor=base east] {1'};
+\path (6.96444,5.83556) node[text=black,anchor=base west] {2};
+\path (7.08889,8.21333) node[text=black,anchor=base west] {2'};
+\path (6.95333,6.90222) node[text=black,anchor=base west] {$U_{2}$};
+\path (0.21111,6.90222) node[text=black,anchor=base east] {$U_{1}$};
+\path (6.58889,7.76667) node[text=black,anchor=base] {$I_{2}$};
+\draw[arrows=-triangle 45,black] (6.36444,7.92444) -- (7.02,7.92444);
+\path (6.40667,5.51778) node[text=black,anchor=base] {$I_{2}$};
+\draw[arrows=-triangle 45,black] (6.60667,5.66889) -- (5.95111,5.66889);
+\filldraw[black] (6.78222,5.77111) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (6.78222,8.06444) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (6.24444,8.06444) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (0.91333,8.06444) ellipse (0.06667cm and 0.06667cm);
+\path (0.60667,7.81333) node[text=black,anchor=base] {$I_{1}$};
+\draw[arrows=-triangle 45,black] (0.79333,7.95333) -- (0.13778,7.95333);
+\path (0.67556,5.47556) node[text=black,anchor=base] {$I_{1}$};
+\draw[arrows=-triangle 45,black] (0.43778,5.67556) -- (1.09333,5.67556);
+\filldraw[black] (0.36222,8.06444) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (0.35556,5.78) ellipse (0.06667cm and 0.06667cm);
+\path (1.40889,6.38444) node[text=black,anchor=base west] {$U_{1}^{a}$};
+\path (5.72444,6.38889) node[text=black,anchor=base east] {$U_{2}^{a}$};
+\draw[black] (1.40667,6.85556) -- (2.48889,6.85556);
+\draw[arrows=-triangle 45,black] (4.75111,9.07333) -- (5.40667,9.07333);
+\draw[arrows=-triangle 45,black] (5.56667,7.95111) -- (4.91111,7.95111);
+\draw[black] (4.66667,8.07333) -- (5.74889,8.07333);
+\draw[black] (4.65556,9.16222) -- (5.73778,9.16222);
+\draw[arrows=-triangle 45,black] (1.62222,7.92889) -- (2.27778,7.92889);
+\draw[arrows=-triangle 45,black] (2.36444,9.06889) -- (1.70889,9.06889);
+\draw[black] (1.40667,8.07333) -- (2.48889,8.07333);
+\draw[black] (1.40667,9.15111) -- (2.48889,9.15111);
+\draw[black] (2.5,7.89556) rectangle (4.65778,9.35111);
+\filldraw[black] (5.75556,9.16222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.78,8.06222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,9.16222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,8.05111) ellipse (0.06667cm and 0.06667cm);
+\path (1.88889,7.75111) node[text=black,anchor=base] {$I_{1}^{b}$};
+\path (1.79556,8.73556) node[text=black,anchor=base east] {$U_{1}^{b}$};
+\path (2.13556,8.92889) node[text=black,anchor=base] {$I_{1}^{b}$};
+\path (5.38889,7.80667) node[text=black,anchor=base] {$I_{2}^{b}$};
+\path (4.99778,8.90889) node[text=black,anchor=base] {$I_{2}^{b}$};
+\path (5.34,8.68889) node[text=black,anchor=base west] {$U_{2}^{b}$};
+\filldraw[black] (1.36444,5.76) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,6.86667) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.76667,5.77778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.78222,6.85778) ellipse (0.06667cm and 0.06667cm);
+\draw[black] (2.5,5.6) rectangle (4.65778,7.05556);
+\draw[black] (0.35333,5.77778) -- (2.48889,5.77778);
+\draw[arrows=-triangle 45,black] (2.41333,6.77111) -- (1.75778,6.77111);
+\draw[arrows=-triangle 45,black] (1.62222,5.63333) -- (2.27778,5.63333);
+\draw[black] (4.65556,6.86667) -- (5.73778,6.86667);
+\draw[black] (4.66667,5.77778) -- (6.75333,5.77778);
+\draw[arrows=-triangle 45,black] (5.56667,5.65556) -- (4.91111,5.65556);
+\draw[arrows=-triangle 45,black] (4.78,6.75778) -- (5.43556,6.75778);
+\path (1.88889,5.45556) node[text=black,anchor=base] {$I_{1}^{a}$};
+\path (2.13778,6.64444) node[text=black,anchor=base] {$I_{1}^{a}$};
+\path (5.38889,5.51111) node[text=black,anchor=base] {$I_{2}^{a}$};
+\path (5.00222,6.61333) node[text=black,anchor=base] {$I_{2}^{a}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

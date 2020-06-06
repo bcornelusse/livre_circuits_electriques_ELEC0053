@@ -1,0 +1,36 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (5.51111,1.47778) -- (5.51111,0.87778);
+\draw[black] (4.57778,3.04444) -- (4.08889,3.53333);
+\draw[black] (6.47778,3.06667) -- (6.94444,3.53333);
+\draw[arrows=-triangle 45,black] (5.81111,0.67778) -- (5.81111,1.33333);
+\draw[arrows=-triangle 45,black] (4.05556,3.97778) -- (4.61111,3.42222);
+\draw[arrows=-triangle 45,black] (7.45556,3.74444) -- (6.91111,3.2);
+\draw[arrows=-triangle 45,black] (4.6,2.40667) -- (4.92889,1.84);
+\draw[arrows=triangle 45-,black] (5.33333,3.31111) -- (6.01111,3.31111);
+\draw[arrows=triangle 45-,black] (6.49778,2.48667) -- (6.16,1.89778);
+\path (5.53333,0.66667) node[text=black,anchor=base east] {a};
+\path (3.9,3.9) node[text=black,anchor=base east] {c};
+\path (7.06667,3.93333) node[text=black,anchor=base east] {b};
+\path (5.98889,1.06667) node[text=black,anchor=base west] {$\bar{I}_a$};
+\path (7.37778,3.5) node[text=black,anchor=base west] {$\bar{I}_b$};
+\path (4.35556,4) node[text=black,anchor=base west] {$\bar{I}_c$};
+\path (4.57778,2.16667) node[text=black,anchor=base east] {$\bar{I}_{ca}$};
+\path (5.66667,3.7) node[text=black,anchor=base] {$\bar{I}_{bc}$};
+\path (6.54444,2.23333) node[text=black,anchor=base west] {$\bar{I}_{ab}$};
+\filldraw[black] (5.48889,1.47778) circle (0.06667cm);
+\filldraw[black] (4.56667,3.04444) circle (0.06667cm);
+\filldraw[black] (6.48889,3.04444) circle (0.06667cm);
+\filldraw[black] (5.52222,0.87778) circle (0.06667cm);
+\filldraw[black] (4.06667,3.53333) circle (0.06667cm);
+\filldraw[black] (6.96667,3.55556) circle (0.06667cm);
+\draw[black] (4.54444,3.06667) -- (4.89111,2.45333) -- (5,2.47778) -- (4.85333,2.31556) -- (5.06667,2.36444) -- (4.91778,2.20222) -- (5.13333,2.24667) -- (4.98667,2.08444) -- (5.20222,2.13111) -- (5.05333,1.96889) -- (5.16,1.99111) -- (5.48889,1.45556);
+\draw[black] (4.56667,3.04444) -- (5.34222,3.04889) -- (5.37556,3.15556) -- (5.44222,2.94667) -- (5.50667,3.15556) -- (5.57333,2.94667) -- (5.64222,3.15556) -- (5.70889,2.94667) -- (5.77778,3.15556) -- (5.84222,2.94667) -- (5.87778,3.05111) -- (6.48889,3.05556);
+\draw[black] (5.57778,1.5) -- (5.92889,2.07778) -- (5.85333,2.16) -- (6.06889,2.11333) -- (5.92,2.27333) -- (6.13333,2.22667) -- (5.98667,2.39111) -- (6.20222,2.34444) -- (6.05556,2.50889) -- (6.26889,2.46) -- (6.19556,2.54222) -- (6.44222,3.01778);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

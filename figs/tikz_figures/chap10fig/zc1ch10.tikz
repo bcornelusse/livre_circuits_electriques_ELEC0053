@@ -1,0 +1,29 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (2.98889,3.94444) node[text=black,anchor=base west] {$Z_{c1}$};
+\path (-1.39333,3.96444) node[text=black,anchor=base east] {$Z_{e1}=Z_{c1}$};
+\draw[arrows=-triangle 45,black] (-1.29556,3.93333) -- (-0.84667,3.93333);
+\draw[black] (2.70222,4.33556) -- (2.70222,4.6);
+\draw[black] (2.69778,3.51333) -- (2.69778,3.31333);
+\draw[black] (2.70889,3.51111) -- (2.55111,3.56222) -- (2.86889,3.66444) -- (2.55111,3.76667) -- (2.86889,3.86667) -- (2.55111,3.96889) -- (2.86889,4.07111) -- (2.55111,4.17333) -- (2.86889,4.27333) -- (2.70889,4.32444);
+\path (0.50222,3.91556) node[text=black,anchor=base] {Q};
+\path (2.94889,4.60222) node[text=black,anchor=base west] {2'};
+\path (2.92889,3.27778) node[text=black,anchor=base west] {2};
+\path (-1.94222,4.65778) node[text=black,anchor=base east] {1'};
+\path (-1.89333,3.27778) node[text=black,anchor=base east] {1};
+\draw[black] (1.60667,3.26889) -- (2.68889,3.26889);
+\draw[black] (1.59556,4.58889) -- (2.67778,4.58889);
+\draw[black] (-1.74,3.26889) -- (-0.65778,3.26889);
+\draw[black] (-1.73111,4.60667) -- (-0.64889,4.60667);
+\draw[black] (-0.63778,3.09111) rectangle (1.59778,4.75556);
+\filldraw[black] (2.69556,4.60889) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (2.70667,3.26889) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (-1.70889,4.60889) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (-1.70889,3.24667) ellipse (0.06667cm and 0.06667cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

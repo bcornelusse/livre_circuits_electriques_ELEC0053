@@ -1,0 +1,271 @@
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+% !TeX root = syllabus_ELEC0053.tex
+
+\chapter{Fonctions de transfert et filtres}
+\label{cha:filtres}
+
+\mytodo{Améliorer ce chapitre et articuler autour du démodulateur AM.}
+
+\textit{Ce chapitre, grâce aux notions introduites au Chapitre~\ref{sec:sinusoidal}, permet de porter un regard nouveau sur l'analyse des circuits électriques en utilisant les concepts de "Signaux et Systèmes", qui sont d'abord brièvement rappelées, puis particularisées à des circuits simples et enfin illustrés sur l'exemple de la radio AM.}
+
+\section{Réponse fréquentielle}
+
+La réponse fréquentielle d'un circuit est la fonction qui permet d'analyser l'action du circuit sur un signal
+sinusoïdal donné selon sa fréquence.
+On l'écrit (cf. Figure~\ref{fig:RF})
+\[H(j\omega)=\frac{\bar{Y}(j\omega)}{\bar{X}}\]
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/filtres/FR.pdf}
+	\caption{Réponse fréquentielle d'un circuit.\label{fig:RF}}
+\end{figure}
+
+
+
+%--------------------------------------------------------------------------------
+
+\subsection{Définition des fonctions de transfert d'un quadripôle} Pour un quadripôle on peut définir quatre fonctions de transfert :
+\begin{align*}
+&H(j\omega)=\left.\frac{\bar{U}_2}{\bar{U}_1}\right|_{\bar{I}_2=0} \quad \text{gain en tension}\\
+&H(j\omega)=\left.\frac{\bar{I}_2}{\bar{I}_1}\right|_{\bar{U}_2=0}\quad \text{gain en courant}\\
+&H(j\omega)=\left.\frac{\bar{U}_2}{\bar{I}_1}\right|_{\bar{I}_2=0} \quad \text{impédance de transfert}\\
+&H(j\omega)=\left.\frac{\bar{I}_2}{\bar{U}_1}\right|_{\bar{U}_2=0} \quad \text{admittance de transfert}
+\end{align*}
+\begin{marginfigure}[-3cm]
+	\centering
+	\begin{circuitikz}[american voltages]% or tikzpicture
+		\tikzset{quad/.style={draw, thick, minimum height=2.5cm, minimum width=2cm}}
+		\node[quad] (A) at (0,0) {};
+		\draw ($(A.north west)!.5!(A.west)$) node[right] {$1$} to[short, i<_=$\bar{I}_1$] ++(-.5,0) to[short,-*] ++(-0.2,0) coordinate (A1)
+		($(A.south west)!.5!(A.west)$) node[right] {$1'$} to[short] ++(-.5,0) to[short,-*] ++(-0.2,0) coordinate (A1')
+		($(A.north east)!.5!(A.east)$) node[left] {$2$} to[short, i<=$\bar{I}_2$] ++(.5,0) to[short,-*] ++(0.2,0) coordinate (A2)
+		($(A.south east)!.5!(A.east)$) node[left] {$2'$} to[short] ++(.5,0) to[short,-*] ++(0.2,0) coordinate (A2');
+		\draw (A1) to[open, v=$\bar{U}_1$] (A1');
+		\draw (A2) to[open, v^=$\bar{U}_2$] (A2');
+	\end{circuitikz}
+\end{marginfigure}
+
+\begin{testexample}[Impédance d'un circuit RL série.]
+	Soit $x(t)=i(t)=I_m \cos(\omega t+ \phi_i)$ ou, en notation de phaseurs, 
+	$$ \bar{X}=\bar{I}=I_m  e^{j\phi_i}$$
+	Si on définit 
+	$$\bar{Y}(j\omega)=\bar{U}=Z(j\omega)\bar{I}=(R+j\omega L)\bar{I}$$
+	la réponse fréquentielle est tout simplement égale à l'impédance du circuit :
+	$$H(j\omega)=\frac{\bar{Y}(j\omega)}{\bar{X}}=\frac{\bar{U}}{\bar{I}}=Z(j\omega)=R+j\omega L$$
+	
+	De retour dans le domaines temporel, on peut écrire : 
+	\begin{align*}
+	y(t)=u(t)& = \sqrt{R^2+\omega^2L^2}I_m \cos(\omega t +\phi_i+\arctan \frac{\omega L}{R})\\
+	& = |H(j\omega)|I_m \cos(\omega t +\phi_i+\angle H(j\omega))
+	\end{align*}
+	avec $|H(j\omega)|$ la réponse en amplitude, qui indique la modification de l'amplitude du signal $x(t)$, et 
+	$\angle H(j\omega)$ la réponse en phase, qui indique la modification de la phase du signal $x(t)$.
+\end{testexample}
+
+%--------------------------------------------------------------------------------
+
+\subsection{Forme analytique, pôles et zéros}%
+Toute réponse fréquentielle d'un circuit peut se mettre sous la forme rationnelle:
+\[H(j\omega)=\frac{N(j\omega)}{D(j\omega)}\]
+$N(j\omega)$ et $D(j\omega)$ sont deux polynômes en $j\omega$ à coefficients réels.
+Les racines de $D(j\omega)=0$ sont les {\it pôles} de la fonction. Ils correspondent aux fréquences naturelles du circuit.
+Les racines de $N(j\omega)=0$ sont les {\it zéros} de la fonction. À ces fréquences, $H(j\omega)=0$, donc $Y(j\omega)=0$, il y a atténuation totale.
+Pour éviter des calculs en nombres complexes, il est courant de remplacer la variable $j\omega$ par $s$.
+La fonction 
+\[H(s)=H(j\omega)|_{j\omega=s}\]
+est appelée {\it fonction de transfert}.
+
+%--------------------------------------------------------------------------------
+\begin{testexample}[Quadripôle RC.]
+\begin{center}
+	\begin{circuitikz}[american voltages]% or tikzpicture
+		\draw (0,0) coordinate (A1)
+		to[short, *-*] ++(2,0) coordinate (C)
+		to[short, *-*] ++(1,0) coordinate (A2);
+		\draw (0,2) coordinate (A1')
+		to[R, *-*, l=$R$] ++(2,0) coordinate (C')
+		to[short, *-*] ++(1,0) coordinate (A2');
+		\draw (C) to[C, l_=$C$] (C');
+		\draw (A1') to[open, v=$\bar{U}_1$] (A1);
+		\draw (A2') to[open, v^=$\bar{U}_2$] (A2);
+	\end{circuitikz}
+\end{center}
+
+
+Par application du diviseur de tension, la réponse fréquentielle "gain en tension" est :
+\[H(j\omega)=\left.\frac{\bar{U}_2}{\bar{U}_1}\right|_{\bar{I}_2=0}=
+\frac{1/j\omega C}{R+1/j\omega C}=\frac{1}{1+j\omega RC}\]
+La fonction de transfert correspondante est :
+\[H(s)=\frac{1}{1+sRC}\]
+\begin{itemize}
+	\item zéro : $\quad j\omega = s  \rightarrow \infty \qquad |H(j\omega)|\rightarrow 0 \text{~pour~~} \omega \rightarrow \infty$
+	\item pôle : $\quad j\omega=s= -\frac{1}{RC} \qquad \text{= fréquence naturelle}$
+\end{itemize}
+\end{testexample}
+
+On représente une réponse fréquentielle par sa réponse en amplitude et sa réponse en phase. 
+\begin{testexample}[Représentation de $H(j\omega)$.]
+\begin{align*}
+H &=|H(j\omega)| =\frac{1}{\sqrt{1+(\omega RC)^2}}=\frac{1}{\sqrt{1+(\omega/\omega_0)^2}} \\
+\angle H(j\omega) &=-\arctan \frac{\omega}{\omega_0}
+\end{align*}
+avec
+\[\omega_0=\frac{1}{RC}\qquad |H(j\omega_0)|=\frac{1}{\sqrt{2}}=0.707 \qquad \phi=\angle H(j\omega_0)=-\frac{\pi}{4}\]
+\begin{center}
+	\includegraphics[width=\linewidth]{figs/filtres/filtre_RC}
+\end{center}
+\end{testexample}
+Lorsqu'on utilise une échelle logarithmique pour les fréquences, et qu'on représente l'amplitude en décibels, on parle de \textit{diagramme de Bode}.
+
+%--------------------------------------------------------------------------------
+\subsection{Le décibel ou dB}%
+
+Le décibel est une échelle logarithmique de mesure du rapport entre deux puissances, ou du gain en puissance 
+\[G_{dB}=10\log_{10}\frac{P_2}{P_1}\]
+
+Si l'on exprime ce gain en fonction de $U$ ou $I$, on obtient :
+\[P \propto U^2, I^2 \quad \Rightarrow G_{dB}=20\log_{10}\frac{U_2}{U_1}= 20\log_{10}\frac{I_2}{I_1}\]
+
+Valeurs caractéristiques :
+\begin{center}
+	\begin{tabular}{ll|c}
+		&& $G_{dB}$\\ \hline
+		$P_1=P_2$ &  $U_1=U_2$ & 0\\
+		$P_2=\frac{1}{2}P_1$ & $U_2=\frac{1}{\sqrt{2}}U_1$  & -3\\
+		$P_2=\frac{1}{10}P_1$ & $U_2=\frac{1}{\sqrt{10}}U_1$  & -10\\ \hline
+	\end{tabular} \hspace*{1cm}
+\end{center}
+Dans l'exemple précédent, pour $\omega=\omega_0$, \[20 \log_{10}\frac{|H(\omega_0)|}{|H(0)|}=-3 \, \text{dB}.\]
+
+
+
+%--------------------------------------------------------------------------------
+
+\section{Filtres et définitions}
+\paragraph{Filtre.}
+Un filtre est un circuit qui permet d'éliminer ou atténuer fortement certaines
+fréquences d'un signal tout en affectant le moins possible les autres fréquences.
+
+Un filtre de réponse fréquentielle idéale est impossible à réaliser en pratique.
+
+\paragraph{Pulsation de coupure à -3 dB.}
+On définit la pulsation de coupure à -3 dB qui limite la bande passante :
+\[\omega_c~~ \text{telle que} \quad |H(\omega_c)|=\frac{1}{\sqrt{2}}\]
+
+\paragraph{Catégories de filtres et réponses fréquentielles idéales.}%
+Ils sont illustrés à la Figure~\ref{fig:filtres}.
+\begin{figure}[h]
+\begin{center}
+	\includegraphics[width=0.98\linewidth]{figs/filtres/filtres}
+	\caption{Catégories de filtres et réponses fréquentielles idéales.}\label{fig:filtres}
+\end{center}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+\begin{testexample}[Filtre  passe-bas du premier ordre.]
+Pour le circuit ci-dessous 
+\begin{center}
+\begin{circuitikz}[american voltages, scale=1]% or tikzpicture
+	\ctikzset{bipoles/length=0.5cm}
+	\draw (0,0) coordinate (A1)
+	to[short, *-*] ++(2,0) coordinate (C)
+	to[short, *-*] ++(1,0) coordinate (A2);
+	\draw (0,2) coordinate (A1')
+	to[R, *-*, l=$R$] ++(2,0) coordinate (C')
+	to[short, *-*] ++(1,0) coordinate (A2');
+	\draw (C) to[C, l_=$C$] (C');
+	\draw (A1') to[open, v=$\bar{U}_1$] (A1);
+	\draw (A2') to[open, v^=$\bar{U}_2$] (A2);
+\end{circuitikz}
+\end{center}
+on a 
+$$H(j\omega) = \frac{\bar{U}_2}{\bar{U}_1} = \frac{1}{1+j\omega R C}$$
+La pulsation de coupure à -3 dB est $\omega_c=\frac{1}{RC}=\omega_0$. 
+Le filtre passe bas du premier ordre est loin du filtre idéal : 
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{figs/filtres/filtre_PB_ordre1}
+\end{center}
+\end{testexample}
+
+
+%--------------------------------------------------------------------------------
+
+Si on change les accès de l'exemple précédent, en prenant la tension de sortie aux bornes de la résistance, on obtient tout naturellement un filtre passe haut.
+\begin{testexample}[Filtre passe-haut du premier ordre]%
+Pour le circuit ci-dessous 
+\begin{center}
+\begin{circuitikz}[american voltages, scale=1]% or tikzpicture
+	\ctikzset{bipoles/length=0.5cm}
+	\draw (0,0) coordinate (A1)
+	to[short, *-*] ++(2,0) coordinate (C)
+	to[short, *-*] ++(1,0) coordinate (A2);
+	\draw (0,2) coordinate (A1')
+	to[C, *-*, l=$C$] ++(2,0) coordinate (C')
+	to[short, *-*] ++(1,0) coordinate (A2');
+	\draw (C) to[R, l_=$R$] (C');
+	\draw (A1') to[open, v=$\bar{U}_1$] (A1);
+	\draw (A2') to[open, v^=$\bar{U}_2$] (A2);
+\end{circuitikz}
+\end{center}
+On a 
+$$H(j\omega) = \frac{\bar{U}_2}{\bar{U}_1} = \frac{j\omega R C}{1+j\omega R C}$$
+
+La pulsation de coupure à -3 dB est $\omega_c=\frac{1}{RC}$.
+Le filtre passe haut du premier ordre est loin du filtre idéal : 
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{figs/filtres/filtre_PH_ordre1}
+\end{center}
+\end{testexample}
+
+\section{Circuits résonants}
+Les circuits résonnants sont des circuits du second ordre, constitués d'au moins une bobine et un condensateur.
+On peut grouper les nombreuses applications des circuits résonnants en deux catégories.
+L'une concerne les applications ayant trait à leur qualité de "filtre", elle-même liée à la
+notion de sélectivité. L'autre concerne le transfert de puissance et l'utilisation du circuit
+oscillant en tant qu'adaptateur d'impédances\footnote{Remarquons que le circuit résonnant est en fait un quadripôle.}.  Ces deux fonctions peuvent être remplies par le circuit résonnant série aussi bien que parallèle. Nous abordons uniquement leur utilisation en tant que filtre dans cette section, et l'illustrons directement sur l'exemple de la radio AM.
+La coupe 1 de la Figure~\ref{fig:RadioAM_filtres} illustre l'étage d'entrée de la radio AM.
+\mytodo{circuits résonants Pages 242 à 250 de Pavella.}
+
+\begin{figure*}[p]
+\centering
+\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAM_filtres}
+\caption{Circuit résonant de la radio AM.}
+\label{fig:RadioAM_filtres}
+\end{figure*}
+
+\subsection{Antenne}
+Tout d'abord, il faut capter un signal. Ce signal se trouve dans l'air ambiant et est capté par un simple fil. Celui-ci va en réalité capter des différences de potentiel dues à la présence des ondes qu'on souhaite capter. Ainsi, plus le fil est long, meilleure sera la réception.
+\mytodo{Comme dans Hurwitz, montrer une mesure du signal reçu par l'antenne sans et puis avec le filtre.}
+
+\subsection{Circuit résonant}
+Le signal capté par l'antenne doit ensuite être filtré. L'antenne  capte une multitude de signaux mais seulement une partie nous intéresse. Nous cherchons à ne faire passer qu'une fréquence comprise entre 500 et 1600 kHz en AM. Pour "sélectionner" le signal porteur qui nous intéresse, nous utilisons un filtre passe-bande fait d'un dipôle LC parallèle. 
+L'impédance équivalente du dipôle se calcule aisément: 
+\begin{equation}
+Z_{eq} = \frac{Z_L Z_C}{Z_L + Z_C} = \frac{j\omega L\frac{1}{j \omega C}}{j \omega L + \frac{1}{j \omega C}} = \frac{\frac{L}{C}}{\frac{(1-\omega^2 LC)}{j \omega C}} = \frac{j \omega L}{1- \omega^2 LC}
+\end{equation}
+On remarque que $ Z \rightarrow \infty$ pour $ \omega^2 LC \rightarrow 1 $. 
+La fréquence de résonance $f_0$ est donnée par 
+$$
+f_0 = \frac{1}{2 \pi \sqrt{LC}}
+$$
+La fréquence que l'on souhaite capter peut ainsi être choisie en modifiant L et/ou C.
+
+On peut tout d'abord choisir de changer l'inductance de la bobine en utilisant un noyau en ferrite: en le faisant coulisser dans la bobine, on change la perméabilité magnétique et donc on change L. Pour notre circuit, avec un capacité fixe $C=470$ pF, on a $L\in [21 ; 184]$ $\mu$H. 
+On peut également faire varier C, en utilisant un condensateur à capacité variable. Par exemple, pour un L fixé à $4.7$ mH, on a $C \in [2; 22]$ pF. 
+Pour pouvoir tester ces deux possibilités, nous avons ajouté un switch dans le circuit qui permet de basculer vers un dipôle L - C variable ou vers un dipôle L variable - C. 
+
+\`A la fréquence de résonance, l'impédance du dipôle est (en théorie) infinie, ne laissant donc passer aucun courant vers la prise de terre. Pour des fréquences non voulues, l'impédance sera au contraire très petite et laissera passer les signaux à travers le dipôle inductif pour les envoyer vers la terre.  
+
+\subsection{Prise de Terre}
+
+Il ne faut pas oublier de définir un point de potentiel de référence pour notre système, et de relier celui-ci à la terre. Il s'agit d'un circuit de retour pour le courant. Un courant ne se créera donc dans l'antenne que si celle-ci est reliée au sol. Cette terre permettra donc de "réceptionner" les signaux non voulus qui passent à travers le filtre. 
+Dans le cadre de cette expérience, nous relierons ce point de référence à la terre d'une prise électrique.
+
+\section{Autres filtres du circuit de réception et amplification de la radio AM}
+\subsection{Filtre passe bas pour la démodulation}
+Une façon alternative de comprendre la détection d'enveloppe (cf. Section~\ref{demodu2}), après la rectification du signal, est de considérer le circuit de la coupe 5 de la Figure~\ref{fig:RadioAM_filtres} comme un filtre passe bas. 
+
+\subsection{Filtre passe haut pour le haut-parleur}
+Comme on le verra au chapitre~\ref{cha:AO}, le deuxième amplificateur opérationnel ajoute un \textit{offset} de $4,5$ V au signal. Cependant, un haut-parleur ne peut recevoir qu'un signal alternatif sans composante continue, qui lui serait nuisible. Il faut donc retirer cet offset (composante continue) et c'est à cela que sert le circuit RC série précédant le haut-parleur (coupe 8 de la Figure~\ref{fig:RadioAM_filtres}). Utilisé comme filtre passe-haut, il va éliminer l'offset qui est de fréquence nulle en théorie et de fréquence très faible en pratique.
+

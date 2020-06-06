@@ -1,0 +1,21 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (2.24667,5.37778) -- (2.24667,1.82222);
+\draw[arrows=-triangle 45,black] (2.10222,5.22222) -- (6.51333,5.22222);
+\draw[dashed,black] (2.26889,2.43333) -- (2.91333,5.24444);
+\draw[dotted,black] (2.91333,5.21111) -- (2.91333,4.24444);
+\draw[dotted,black] (2.92444,4.24444) -- (2.23556,4.24444);
+\draw[black] (2.25778,2.46667) -- cycle;
+\draw[black] (2.29111,2.48889) -- (2.39111,2.92222) -- (2.52444,3.34444) -- (2.65778,3.71111) -- (2.83556,4.06667) -- (3.11333,4.46667) -- (3.44667,4.75556) -- (3.80222,4.91111) -- (4.33556,5.05556) -- (4.91333,5.11111) -- (5.68,5.14444) -- (6.25778,5.15556);
+\path (6.35778,5.62222) node[text=black,anchor=base] {$t$};
+\path (2.92444,5.62222) node[text=black,anchor=base west] {$\tau_s$};
+\path (2.08,4.36667) node[text=black,anchor=base east] {$\frac{V_s}{e}$};
+\path (2.15778,2.15556) node[text=black,anchor=base east] {$u$};
+\path (2.14667,2.82222) node[text=black,anchor=base east] {$V_s$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

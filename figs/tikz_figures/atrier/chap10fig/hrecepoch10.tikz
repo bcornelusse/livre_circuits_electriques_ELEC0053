@@ -1,0 +1,24 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (5.2,5.65556) -- (4.54444,5.65556);
+\draw[black] (4.31111,5.77778) -- (5.39333,5.77778);
+\draw[black] (4.31333,6.86667) -- (5.39556,6.86667);
+\draw[arrows=-triangle 45,black] (1.62222,5.63333) -- (2.27778,5.63333);
+\draw[black] (1.40667,5.77778) -- (2.48889,5.77778);
+\draw[black] (1.40667,6.85556) -- (2.48889,6.85556);
+\draw[black] (2.5,5.6) rectangle (4.31333,7.05111);
+\filldraw[black] (5.37556,6.86667) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.4,5.77778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,6.86667) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,5.75556) ellipse (0.06667cm and 0.06667cm);
+\path (1.47333,6.33333) node[text=black,anchor=base east] {$U_1$};
+\path (1.88889,5.45556) node[text=black,anchor=base] {$I_1$};
+\path (4.92444,5.51111) node[text=black,anchor=base] {$I_2$};
+\path (5.33333,6.41778) node[text=black,anchor=base west] {$U_2$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

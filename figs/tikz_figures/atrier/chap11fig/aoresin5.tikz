@@ -1,0 +1,24 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (4.56222,5.22222) node[text=black,anchor=base west] {saturation +};
+\path (2.59556,1.85556) node[text=black,anchor=base east] {saturation -};
+\path (4.42889,2.84444) node[text=black,anchor=base west] {linéaire (résistance négative)};
+\path (3.36667,1.64444) node[text=black,anchor=base east] {$i$};
+\path (2.82222,3.82222) node[text=black,anchor=base east] {$-\beta V_{sat}$};
+\path (4.1,3.46667) node[text=black,anchor=base west] {$\beta V_{sat}$};
+\path (6.07333,3.85556) node[text=black,anchor=base east] {$v$};
+\draw[dashed,arrows=-triangle 45,black] (4.28889,2.72222) -- (3.33333,3.06667);
+\draw[dotted,black] (2.88889,3.54444) -- (2.88889,2.54444);
+\draw[dotted,black] (4.14444,3.44444) -- (4.14444,4.43333);
+\draw[dashed,arrows=-triangle 45,black] (4.48889,5.14444) -- (3.77778,4.87778);
+\draw[dashed,arrows=-triangle 45,black] (2.58889,1.83333) -- (3.27778,2.12222);
+\draw[black] (2.91111,5.65556) -- (4.13333,4.43333) -- (2.90222,2.56667) -- (4.37778,1.09111);
+\draw[arrows=-triangle 45,black] (0.50667,3.51111) -- (6.47333,3.51111);
+\draw[arrows=-triangle 45,black] (3.49556,5.61111) -- (3.49556,1.08889);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

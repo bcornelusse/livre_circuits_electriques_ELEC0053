@@ -1,0 +1,391 @@
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+% !TeX root = syllabus_ELEC0053.tex
+
+
+
+\chapter{Introduction}
+
+\textit{Avant de définir intuitivement et ensuite plus précisément ce qu'est un circuit électrique, ce chapitre introductif rappelle brièvement les notions physiques de base utiles dans ce cours. Le chapitre se termine par une description de l'organisation du cours et une discussion des domaines de l'ingénieur pour lesquels ce cours constitue une introduction.}
+
+\section{Rappels d'électromagnétisme}
+
+\subsection{Charge électrique, champ électrique et potentiel électrique}
+Une charge électrique se mesure en Coulomb (C).
+Deux charges électriques exercent l'une sur l'autre une force 
+\begin{itemize}
+	\item qui les repousse si elles sont de même signe,
+	\item qui les attire si elles sont de signes opposés.
+\end{itemize}
+La loi de Coulomb exprime plus précisément la nature de cette force (ici pour la force induite par la charge 1 sur la charge 2, et dans le vide) :
+$$\vec{F}_{1/2} = \frac{1}{4 \pi \varepsilon_0} \frac{q_1 q_2 \vec{r}_{12}} {{d_{12}}^2}$$
+où 
+\begin{itemize}
+	\item $\varepsilon_0$ est la perméabilité diélectrique du vide
+	\item $q_1$ et $q_2$ sont les quantités de charges signées des charges 1 et 2
+	\item $d_{12} = |\vec{r}_1 - \vec{r}_2|$
+	\item $\vec{r}_{12} = \frac{\vec{r}_2- \vec{r}_1}{d_{12}}$
+\end{itemize}
+
+Considérons une charge ponctuelle. Le champ électrique qui en résulte définit à tout endroit de l'espace la force qu'exercerait la charge ponctuelle sur une charge d'un C placée à cet endroit. Un champ électrique exprime donc une force par unité de charge.
+
+Le potentiel électrique est l'intégrale linéique du champ électrique. Il a donc les dimensions d'une énergie par unité de charge. Il s'exprime en Volt (V). Le plus souvent d'ailleurs c'est le Volt qui est utilisé pour caractériser un champ électrique, exprimé en Volt par mètre.
+
+Dans ce cours nous utiliserons également la notion de tension, qui représente une différence de potentiel entre deux points, et s'exprime donc en Volt également. Dans un système laissé libre, une tension entre deux points d'un conducteur engendre un courant électrique au sein de ce conducteur.
+
+\subsection{Courant électrique et champ magnétique}
+
+Un courant électrique est un déplacement de charge à travers une section. Il se mesure en Coulomb par seconde, ou encore en Ampère (A).
+
+Un déplacement de charge engendre un champ magnétique, qui se mesure en Ampère par mètre. 
+
+Un champ magnétique se traduit par l'existence d'une force agissant sur les charges électriques en mouvement (force de Lorentz). En régime stationnaire, il est soit dû à un courant, soit à un aimant permanent.
+
+\subsection{Les équations de Maxwell}
+
+Plus formellement, les phénomènes décrits plus haut sous forme intuitive sont régis par les équations de Maxwell, qui modélisent les relations entre champ électrique, champ magnétique, charge et courant.
+
+En régime stationnaire, lorsque les champs ne varient pas avec le temps, elles s'écrivent (cf. Table\ref{tab:grandeurs_EM}) : 
+$$
+\begin{array}{rcl}
+\int_S \overrightarrow{E}. \overrightarrow{dS}& =&  \frac{q}{\epsilon}\\
+\int_S \overrightarrow{B}. \overrightarrow{dS}& =&  0\\
+\int_C \overrightarrow{E}. \overrightarrow{d\ell} & = & 0\\
+\int_C \overrightarrow{B}. \overrightarrow{d\ell} & = & \mu I
+\end{array}$$
+ou localement 
+$$
+\begin{array}{rcl}
+\vec{\nabla} . \overrightarrow{D} & = & \rho \\ 
+\vec{\nabla} . \overrightarrow{B} &= & 0 \\ 
+\vec{\nabla} \times \overrightarrow{E} & = & 0 \\
+\vec{\nabla} \times \overrightarrow{H} & = & 
+\overrightarrow{J} 
+\end{array}$$
+En régime non stationnaire :
+\begin{eqnarray*}
+	\vec{\nabla} . \overrightarrow{D} & = & \rho\\ 
+	\vec{\nabla} . \overrightarrow{B} &= & 0 \\ 
+	\vec{\nabla} \times \overrightarrow{E} & = & - \frac{\partial
+		\overrightarrow{B}}{\partial t}\\
+	\vec{\nabla} \times \overrightarrow{H} & = & 
+	\overrightarrow{J} + \frac{\partial \overrightarrow{D}}{\partial t}
+\end{eqnarray*}
+
+
+
+\begin{table}[h]
+	\centering
+	\caption{Grandeurs caractéristiques d'un champ électromagnétique.} \label{tab:grandeurs_EM}
+	\begin{tabular}{lll}
+		\toprule
+		Symbole & Nom & Unité\\
+		\midrule
+		$\overrightarrow{E}$ & Champ  électrique & V/m\\
+		$\overrightarrow{D}=\epsilon \overrightarrow{E}$ & Induction électrique & C/m$^2$\\
+		$\rho$ & Densité de charges & C/m$^3$\\
+		$ \overrightarrow{J}$ & Densité de courant & A/m$^2$\\
+		$\overrightarrow{H}$ & Champ magnétique & A/m\\
+		$\overrightarrow{B}=\mu \overrightarrow{H}$ & Induction magnétique & Tesla\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\section{Qu'est-ce qu'un circuit électrique ?}
+
+Un circuit électrique est un ensemble d'éléments électriques interconnectés et dotés de points accessibles à l'observation, que nous appellerons "bornes".
+
+Le domaine d'application des circuits et l'éventail de leurs caractéristiques sont extrêmement vastes. Ainsi, leur taille varie entre quelques $mm$ (circuits intégrés comportant des centaines de milliers de composants), en passant par celle des circuits radios, TV, instruments électroniques, ou circuits de télécommunications, jusqu'à la taille des grands réseaux de transport d'énergie électrique qui s'étendent sur des continents. De même, on y rencontre des tensions\footnote{Une tension s'exprime en Volt ($V$) et représente une quantité d'énergie par unité de charge électrique. En général, plus le niveau de tension d'un circuit est élevé, plus les quantités d'énergie en jeu sont importantes.} qui varient de quelques $\mu V$ (par exemple dans des études du bruit des instruments de précision) jusqu'à des centaines de $kV$ (voire des $MV$) dans les grands réseaux électriques. D'autre part, les fréquences\footnote{En général, un dispositif électrique fonctionne dans une plage de fréquences restreinte. Cette plage est très spécifique à la fonction du dispositif et peut se réduire à une seule valeur dans les applications de transport et de distribution de l'énergie électrique.} utilisées varient de zéro (régime continu) jusqu'à des dizaines de $GHz$ (circuits micro-ondes). Quant aux niveaux de puissance\footnote{La puissance d'un circuit caractérise en quelque sorte la vitesse à laquelle il est capable de convertir ou d'acheminer de l'énergie.}, ils s'étendent entre quelques $10^{-14} W$ (signaux l'entrée de récepteurs sensibles tels par exemple les signaux provenant de galaxies éloignées) et des dizaines de milliers de $MW$ produits et transportés par les réseaux électriques haute tension. Par exemple, la puissance produite par une centrale nucléaire est de l'ordre de $500$ à $1000$ $MW$, et la puissance installée en Belgique est d'environ $12.000$ $MW$. 
+
+A l'instar de nombreux domaines du physicien et de l'ingénieur, l'étude des circuits électriques fait appel à la modélisation : un circuit est considéré comme l'assemblage d'éléments idéalisés, c'est-à-dire de modèles établis de façon à cerner au mieux le comportement de ses éléments réels. Davantage que dans d'autres domaines, on parvient à rendre leur modélisation proche de la réalité physique, permettant la prédiction de résultats expérimentaux avec une bonne approximation. Un des attraits de la théorie des circuits réside précisément dans l'exactitude et la netteté du modèle mathématique. Il en résulte un intérêt pratique de ramener, par le truchement des analogies, l'étude d'autres phénomènes (hydrauliques, mécaniques, biologiques, etc.) en celle, bien établie, des circuits électriques. 
+
+On distingue deux sortes de circuits : les circuits (à éléments) localisés (ou condensés) et les circuits distribués. La notion d'élément localisé est liée à ses dimensions très petites par rapport à la longueur d'onde du signal utilisé. Une autre façon d'exprimer la même notion est de dire que les circuits sont sollicités par des signaux quasi-stationnaires (voir \ref{sec:circuits_localises}). 
+
+Dans le cadre de ce cours, seuls les circuits à éléments Localisés et en nombre Fini (LF) seront étudiés. 
+
+Les circuits localisés sont régis par les lois de Kirchhoff. Celles-ci sont une approximation des équations de Maxwell, seules équations régissant tous les phénomènes électromagnétiques. Les relations entre courants et tensions aux bornes des différents éléments, issues des lois de l'électromagnétisme, telle la loi de Lenz, sont des équations intégro-différentielles dans le domaine temporel (à l'exception de la résistance idéale qui, régie par la loi d'Ohm donne lieu à une équation algébrique).
+
+% En anticipant, signalons que sous certaines conditions, ces équations fournissent, dans le domaine fréquentiel, des fonctions de réseaux rationnelles. Cette propriété constitue une différence formelle essentielle entre circuits localisés et circuits distribués dont les fonctions réseaux ne sont pas nécessairement rationnelles. 
+
+La théorie des circuits électriques traite de l'analyse et de la synthèse. L'analyse étudie leurs propriétés et comportement électriques. À l'opposé, la synthèse traite de la détermination des éléments d'un circuit appelé à satisfaire certaines spécifications. L'objet de ce cours d'introduction est essentiellement l'analyse, mais il permettra néanmoins déjà, avec un peu d'imagination, de synthétiser quelques circuits d'intérêt pratique. 
+
+\section{Définitions et conventions}
+
+\subsection{Circuits localisés et excitations quasi-stationnaires}
+\label{sec:circuits_localises}
+Un circuit localisé et fini est constitué d'un nombre fini d'éléments localisés et de sources indépendantes d'énergie, elles aussi localisées. Les éléments localisés peuvent avoir deux bornes (ce sont les dipôles), comme par exemple les résistances et les condensateurs, ou plus de deux bornes, comme par exemple les transformateurs, et les transistors. Ces éléments et sources localisés sont interconnectés par l'intermédiaire de fils électriques supposés parfaits, c'est-à-dire infiniment bons conducteurs dépourvus de toute résistance et autres éléments parasites. On utilise souvent le vocable "court-circuit" pour caractériser un fil électrique parfait. Par opposition, on appelle "circuit ouvert" un milieu parfaitement isolant qui ne laisse transiter aucune charge électrique.
+
+La notion d'élément localisé est intimement liée à la notion de signal quasi-stationnaire, elle-même liée au temps de propagation de l'onde électrique et à la longueur d'onde $\lambda$ ou à la fréquence $f$ de celle-ci\footnote{Il s'agit bien entendu de signaux temporellement variables. Lorsque ces signaux sont de forme quelconque, non sinusoïdale, la fréquence considérée dans cette discussion est la plus élevée parmi toutes les fréquences du spectre de Fourier. }. On dit qu'un signal appliqué à un circuit est quasi-stationnaire lorsque sa longueur d'onde est considérablement plus grande que les dimensions du circuit ou, en d'autres termes, que le temps de propagation de ce signal est nettement plus faible que sa période. 
+
+Pour fixer les idées, considérons quelques cas caractéristiques :
+\begin{enumerate}
+	\item source de tension "secteur" : $f = 50$ $Hz$ (en Europe) ; $\lambda = 6000$ $km$
+	\item signal électroacoustique : considérant que sa fréquence la plus élevée est $f = 25$ $kHz$ , on a $\lambda = 12$ $km$ ; 
+	\item signaux utilisés en ordinateurs : par exemple, $f = 500$ $MHz$ c'est-à-dire $T = 2$ $ns$ ou $\lambda = 0,6$ $m$ ; 
+	\item fréquences radio (communications par satellite) : par exemple $f = 1$ $GHz$ c'est-à-dire $\lambda = 3$ $cm$. 
+\end{enumerate}
+Le signal 1 peut être considéré comme quasi-stationnaire pour des réseaux de distribution habituels. Par contre, les grands réseaux de transport d'énergie peuvent s'étendre sur plusieurs centaines de kilomètres; il se peut alors que le signal à fréquence industrielle ne puisse plus être considéré comme "quasi-stationnaire". Le signal 2 peut certainement être considéré comme quasi-stationnaire même pour des circuits de dimensions importantes (une chaîne HI-FI s'étendant habituellement à quelques centaines de mètres au plus). Le signal 3 peut donner lieu à une mauvaise approximation de circuit localisé et les lois de Kirchhoff peuvent se trouver en défaut. Dans le cas 4, il ne peut plus être question de circuit localisé (et d'ailleurs les circuits utilisés dans ce cas ne sont plus des circuits conventionnels) : l'antenne (à l'émission ou à la réception) n'admet pas l'approximation que constituent les lois de Kirchhoff (penser par exemple au cas d'une antenne quart-d'onde : l'onde de courant est distribuée de façon à ce qu'elle soit toujours nulle à son sommet et maximum à sa base).
+
+\section{Dipôles et sens conventionnel}
+Un dipôle (Figure~\ref{fig:dipole}) est une branche, c'est-à-dire une portion d'un circuit contenue entre deux bornes.
+\begin{marginfigure}
+	\centering
+	\begin{circuitikz}[american voltages]
+		\draw (0, 0) node[above] {$A$} to [generic, l=$ $, o-o] ++(0,-2.5) node[below] {$B$};
+	\end{circuitikz}
+\caption[Représentation d'un dipôle.] {Représentation d'un dipôle générique et de ses bornes A et B.}
+\label{fig:dipole}
+\end{marginfigure}
+Par définition, le courant entrant par l'une des bornes est égal au courant sortant par l'autre. On appelle noeud un point du circuit auquel aboutissent plusieurs branches. La différence entre "borne" et "noeud" est que le second est le point où aboutissent plus d'une branche. En général, une branche peut comporter plus d'un élément. D'autre part, on appelle "accès" une paire de bornes telle que le courant entrant par l'une des bornes est égal au courant sortant par l'autre.
+
+\paragraph{Sens conventionnel, convention moteur.} 
+Soient $u$ et $i$ les variables modélisant respectivement la tension aux bornes du dipôle et le courant qui le traverse. Le sens conventionnel de référence est défini par le choix d'orientation relative de $u$ et $i$ (cf. Figure~\ref{fig:convetion_dipole}). 
+L'orientation de la tension $u$ est indiquée soit par les signes $+$ et $-$, soit par une flèche courbe. Cette orientation implique $$u = v_A - v_B,$$ si $v_A$ et $v_B$ sont respectivement les potentiels des bornes $A$ et $B$.
+Le sens du courant est indiqué par la flèche superposée au conducteur.
+
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{figs/intro/sens_conventionnel}
+	\caption[Sens conventionel d'un dipôle.]{Sens conventionnel (convention moteur) d'un dipôle. On indique le sens de la tension soit avec un signe + et un signe -, soit avec une flèche.}
+\label{fig:convetion_dipole}
+\end{marginfigure}
+
+Pour la convention moteur, le courant pénètre par la borne $+$ et sort par la borne $-$.
+Avec cette convention, le courant sera considéré comme "positif' lorsque les charges positives entrent par la borne $+$ et sortent par la borne $-$ ; la d.d.p. $u$ sera considérée comme "positive" lorsque le potentiel du noeud $+$ est supérieur à celui du noeud $-$.
+
+L'adoption d'une convention n'est pas imposée par des raisons physiques. L'utilisation d'une convention est néanmoins importante : on sait que dans le cas de cette convention moteur, le produit $u(t) i(t)$ représente la puissance \textbf{fournie} au dipôle à l'instant $t$.
+
+L'analyse d'un circuit \textbf{commence toujours par l'application d'une convention à chaque branche du circuit}. Mais ce n'est qu'à l'issue de l'analyse que le sens réel des tensions et courants est déterminé en fonction du signe que prennent les variables de modélisation. En utilisant la convention moteur, selon le type de dipôle considéré et la manière dont il est connecté au reste du circuit, la puissance fournie au dipôle est 
+\begin{itemize}
+	\item soit positive : le dipôle consomme de l'énergie ;
+	\item soit négative : le dipôle fournit de l'énergie ;
+	\item soit nulle.
+\end{itemize} 
+
+\subsection{Circuit passifié}
+Une notion importante, qui renviendra très fréquemment dans ce cours, est la notion de circuit \textit{ passifié}.
+On appelle \textit{\textbf{passifié}} un circuit dont on a (par la pensée le plus souvent) enlevé les sources indépendantes d'énergie; il dérive du circuit d'origine (complet) lorsque l'on "court-circuite" tous les générateurs de tension, c'est-à-dire lorsqu'on remplace tous ces générateurs par des conducteurs parfaits, et lorsqu'on ouvre tous les injecteurs de courant, c'est-à-dire lorsqu'on enlève les dipôles sources idéales de courant.
+
+\section{Quadripôles}
+
+Un quadripôle est un (élément de) circuit comportant deux accès (deux paires de bornes), chacun étant caractérisé par deux grandeurs : d.d.p. et courant. 
+\begin{marginfigure}
+	\centering
+	\begin{circuitikz}[american voltages]% or tikzpicture
+		\tikzset{quad/.style={draw, thick, minimum height=2cm, minimum width=2cm}}
+		\node[quad] (A) at (0,0) {};
+		\draw ($(A.north west)!.5!(A.west)$) to[short,-o, i<=$i_1$] ++(-.5,0) to[open] ++(-0.2,0) coordinate (A1)
+		($(A.south west)!.5!(A.west)$) to[short,-o, i=$i_1$] ++(-.5,0) to[open] ++(-0.2,0) coordinate (A1')
+		($(A.north east)!.5!(A.east)$) to[short,-o, i<=$i_2$] ++(.5,0) to[open] ++(0.2,0) coordinate (A2)
+		($(A.south east)!.5!(A.east)$) to[short,-o, i=$i_2$] ++(.5,0) to[open] ++(0.2,0) coordinate (A2');
+		\draw (A1) to[open, v=$u_1$] (A1');
+		\draw (A2) to[open, v^=$u_2$] (A2');
+	\end{circuitikz}
+	\caption[Représentation d'un quardipôle.]{Représentation d'un quardipôle.}
+	\label{fig:quadripole}
+\end{marginfigure}
+Plus précisément, pour chacun des accès, le courant "entrant" par une de ses bornes en "sort" par l'autre. Les sens conventionnels associés sont indiqués sur la Figure~\ref{fig:quadripole}. Avec ces sens, la puissance totale fournie au quadripôle à l'instant $t$ est exprimée par :
+$$p(t) = i_1(t) u_1(t) + i_2(t) u_2(t)$$
+Notons que le quadripôle est un cas particulier du tétrapôle; ce dernier est un circuit à quatre bornes ne constituant pas deux accès (Figure~\ref{fig:tetrapole}), et les courants ne sont soumis qu'à la seule contrainte imposée par la première loi de Kirchhoff (Chapitre~\ref{sec:LK}).
+\begin{marginfigure}
+\centering
+\includegraphics[width=0.7\linewidth]{figs/ch2_figs/tetrapole}
+\caption{Tetrapôle.}
+\label{fig:tetrapole}
+\end{marginfigure}
+
+
+
+\section{Classification des circuits}
+Les propriétés électriques d'un circuit en tant que transmetteur -- ce terme étant pris dans son sens le plus large -- dépendent des propriétés de ses éléments, à l'exclusion des sources indépendantes d'énergie. Pour identifier ces propriétés, nous considérerons donc des circuits \textit{passifiés} et assimilerons ces derniers à des "boîtes" dotées d'accès. Leurs propriétés générales dépendront de la nature des réponses obtenues à certains accès à des excitations appliquées à certains (les mêmes ou non) accès.
+
+
+
+\subsection{Linéarité}
+Soient $e(t)$ l'excitation appliquée à un système\footnote{Dans ce paragraphe, nous utilisons de façon interchangeable les termes "circuit" et "système" pour mettre l'accent sur le fait que les définitions sont générales et ne revêtent pas un caractère spécifiquement "électrique".} supposé initialement relaxé\footnote{Un système est dit \textit{\textbf{initialement relaxé}} lorsqu'il est dépourvu de toute énergie initiale emmagasinée, c'est-à-dire de conditions initiales. Les éléments conventionnels introduisant des conditions initiales dans les circuits sont les inductances et les condensateurs.}, et 
+$w(t)$ la réponse à cette excitation. On dit que le système est linéaire s'il satisfait le principe de superposition suivant lequel la réponse due à plusieurs excitations est égale à la somme des réponses dues à chacune des excitations agissant séparément\footnote{La propriété de superposition est équivalente aux propriétés d'homogénéité et d'additivité réunies.}. Autrement dit, si :
+$w_1(t)$ est la réponse à l'excitation $e_1(t)$ et si
+$w_2(t)$ est la réponse à l'excitation $e_2(t)$,
+alors le circuit sera linéaire si la réponse à l'excitation
+$k_1 e_1(t) + k_2 e_2(t)$ est $k_1 w_1(t) + k_2 w_2(t)$
+avec $k1$ et $k2$ des constantes.
+
+Cette propriété s'étend bien entendu à plus de deux signaux, et ces signaux ne sont pas nécessairement scalaires. En effet, si des  excitations sont appliquées à plusieurs accès du circuit, $e(t)$ et $w(t)$ deviennent des vecteurs.
+
+
+\paragraph{Exemple.}
+Un dérivateur est un système linéaire. En effet, la dérivée d'une combinaison linéaire de fonctions est égale à cette combinaison linéaire de leurs dérivées.
+$$\frac{d}{dt}\left(\sum_{i=1}^n k_i e_i(t)\right) = \sum_{i=1}^n k_i \frac{d e_i(t)}{dt}$$
+
+\subsection{Permanence ou invariance}
+Si $w(t)$ est la réponse d'un système à un signal $e(t)$ agissant à l'instant $t$, la réponse de ce système au même signal mais différé de $r$, $e(t-r)$, sera sa réponse initiale différée de $r$, c'est-à-dire $w(t - r)$.
+Les systèmes qui satisfont le principe de permanence sont dits invariants ou permanents ; sinon ils sont variants.
+
+\paragraph{Contre-exemple.} Le système décrit par la relation $w(t) = t \frac{de(t)}{dt}$ n'est pas invariant.
+
+\subsection{Passivité}
+Les circuits qui ne restituent jamais plus d'énergie qu'ils n'en reçoivent sont appelés passifs. Dans le cas contraire, ils sont appelés actifs.
+Dans le cas d'un dipôle, en désignant par $p(t) = u(t) i(t)$ la puissance qui lui est
+fournie en $t$ (attention au sens de référence associés) et par $W(t)$ l'énergie qui lui est fournie jusqu'à cet instant $t$, la condition de passivité s'exprime par :
+$$ W(t) = \int_{-\infty}^t u(x) i(x) dx \ge 0.$$
+
+Ceci doit être valable pour n'importe quelle d.d.p. et le courant en résultant pour tout $t$.
+Plus généralement, la puissance instantanée fournie à un circuit comportant plusieurs accès vaut :
+$p(t) = \mathbf{u}^T(t)\mathbf{i}(t)$.
+Ce circuit sera passif si pour tout $t$ :
+$$ W(t) = \int_{-\infty}^t \mathbf{u}^T(x) \mathbf{i}(x) dx \ge 0.$$
+
+\paragraph{Remarque.} Les circuits actifs sont définis à partir de l'inégalité stricte $W(t) < 0$,
+les passifs par l'inégalité simple $W(t) \ge 0$ ; ils incluent de la sorte certains éléments idéalisés, comme par exemple le transformateur idéal (Chapitre~\ref{sec:sinusoidal}) qui est effectivement passif.
+
+\subsection{Réciprocité}
+Un circuit (par exemple un quadripôle, Figure~\ref{fig:quadripole}) est dit réciproque s'il a la propriété suivant laquelle la réponse à un de ses accès produite par une excitation agissant à un autre accès reste inchangée lorsque l'on permute ces deux accès (pour autant que l'on définisse de façon consistante réponse et excitation). Un circuit qui ne satisfait pas cette propriété est dit non-réciproque.
+Plus spécifiquement, la propriété de réciprocité requiert la satisfaction d'une des trois conditions énoncées ci-dessous, appliquées à un circuit relaxé, non dégénéré et pourvu de deux accès, $11'$ et $22'$. 
+
+%\paragraph{Propriétés des quadripôles}
+%Avant d'aller plus loin dans la manière de caractériser les relations entre accès, il est intéressant d'énoncer deux propriétés que peuvent avoir certains quadripôles :
+%
+%\begin{enumerate}
+%	\item la propriété de \textbf{réciprocité}: un quadripôle est réciproque s'il satisfait à une des trois conditions énoncées plus bas.
+%	\item la propriété de \textbf{symétrie}: on peut inverser les accès sans que cela ne change quoi que ce soit au comportement du système englobant le quadripôle. Les accès sont indiscernables. Un quadripôle symétrique est réciproque (mais l'inverse pas nécessairement).
+%\end{enumerate}
+
+\paragraph{Ampèremètre et voltmètre}
+Un ampèremètre (Figure~\ref{fig:amperemetre}) mesure le courant.
+Il se place dans la branche du courant mesuré.
+Il présente une résistance très \textbf{faible}, pour ne pas influencer la mesure.
+\begin{marginfigure}
+\begin{center}
+	\begin{circuitikz}[american voltages]% or tikzpicture
+		\draw (0,0) to[ammeter] (2,0);
+	\end{circuitikz}
+\end{center}
+\caption{Symbole de l'ampèremètre.}\label{fig:amperemetre}
+\end{marginfigure}
+
+Un voltmètre (Figure~\ref{fig:voltmetre}) mesure la tension.
+Il se place entre les points dont on veut mesurer la différence de potentiel. Il présente une résistance très \textbf{grande}, pour ne pas influencer la mesure.
+\begin{marginfigure}
+\begin{center}
+	\begin{circuitikz}[american voltages]% or tikzpicture
+		\draw (0,0) to[voltmeter] (2,0);
+	\end{circuitikz}
+\end{center}
+\caption{Symbole du voltmètre.}\label{fig:voltmetre}
+\end{marginfigure}
+
+
+\paragraph{Condition des réciprocité 1: échange de l'ampèremètre et de la source de tension.}
+Connectons pour commencer une source de tension $v_{s1}$
+à l'accès $11'$ ; soit $i_2^a$ le courant apparaissant à l'accès $22'$ court-circuité (Figure~\ref{fig:recipro_1}).
+Ensuite, connectons une source de tension $v_{s2}$ en $22'$ et mesurons le courant $i_1^b$ apparaissant aux bornes $11'$ court-circuitées.
+Le théorème de réciprocité affirme que quelle que soit la topologie du circuit,
+la valeur de ses éléments et la nature des générateur, on doit avoir, si $v_{s1}(t)=v_{s2}(t)$ $\forall t$,
+\[i_1^b(t)=i_2^a(t) \,\, \forall t.\]
+\begin{figure}[h]
+\begin{center}
+	\includegraphics[width=0.98\linewidth]{figs/intro/QP_AvsV}
+\end{center}
+\caption{\'Echange de l'ampèremètre et de la source de tension.}\label{fig:recipro_1}
+\end{figure}
+
+\paragraph{Condition des réciprocité 2: échange du voltmètre et de la source de courant.}
+Connectons pour commencer une source de courant $i_{s1}$ à
+l'accès $11'$ et mesurons la d.d.p. $u_2^a$ apparaissant en $22'$ (Figure~\ref{fig:recipro_2}). Ensuite,
+connectons une source de courant $i_{s2}$ en $22'$ et mesurons la d.d.p. $u_1^b$ apparaissant en
+$11'$. Le théorème de réciprocité affirme que quelle que soit la topologie
+du circuit, la valeur de ses éléments et la nature des injecteurs de courant, on doit
+avoir, si $i_{s1}(t)=i_{s2}(t) \,\, \forall t$, 
+\[u_1^b(t)=u_2^a(t) \,\, \forall t\]
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.98\linewidth]{figs/intro/QP_VvsJ}
+\caption{\'Echange du voltmètre et de la source de courant.}\label{fig:recipro_2}
+\end{figure}
+
+
+
+\paragraph{Condition des réciprocité 3}
+
+Connectons une source de courant $i_{s1}$ à l'accès $11'$ et mesurons
+la valeur du courant parcourant l'accès $22'$ court-circuité (Figure\ref{fig:recipro_3}). Ensuite, connectons une source de tension $u_{s2}$ en $22'$ et mesurons la d.d.p. aux bornes $11'$. Le théorème de réciprocité affirme que, quelle que soit la topologie du circuit,
+la valeur de ses éléments et la nature des sources, on doit avoir
+pour autant que $i_{s1}(t)=u_{s2}(t) \,\, \forall t$,
+\[u_1^b(t)=i_2^a(t) \,\, \forall t\]
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.98\linewidth]{figs/intro/QP_recipro_3}
+\caption{Troisième condition de réciprocité.}\label{fig:recipro_3}
+\end{figure}
+
+
+\section{Organisation du cours}
+
+Dans la suite du cours nous introduirons d'abord les lois fondamentales (Ohm, Kirchhoff) et les composants de base des circuits (résistance, condensateur, bobine, sources d'énergie). Nous commencerons par un fonctionnement en courant continu, puis analyserons les conséquences de changement brutaux de fonctionnement du système, les régimes transitoires, et enfin nous verrons comment fonctionnent les circuits à courant alternatif, essentiellement utilisés pour le transport et la distribution de l'électricité. 
+Les chapitres suivant se focaliseront sur sur les filtres et les différentes utilisations de l'amplificateur opérationnel.
+Ensuite nous énoncerons les théorèmes fondamentaux, dans le but de pouvoir simplifier des circuits complexes (Thévenin et Norton). La dernière partie du cours étudiera les méthodes générales d'analyse qui permettent de systématiser l'étude des circuits, d'en obtenir des équivalents à plusieurs accès, et sont à la base des méthodes d'analyse numérique modernes.
+
+Deux approches transversales seront utilisées pour illustrer et enrichir les concepts étudiés tout au long de ce texte.
+
+\subsection{Réalisations pratiques} 
+\label{sec:pratique}
+Des exemples de réalisations pratiques de circuits relativement complexes seront présentées et analysés au fil des chapitres. 
+
+\paragraph{Radio AM.}
+C'est en réalité un poste de radio appelé récepteur à cristal, où l'on a ajouté des amplificateurs. Le but d'un tel circuit est de produire un son grâce à un signal radio capté de l'extérieur, typiquement en provenance d'une source d'émission d'un groupe de médias. Il existe encore quelques émetteurs pour ce type de radio, mais cette technologie a depuis longtemps été remplacée par d'autres méthodes analogiques d'abord, et maintenant numériques (par exemple le \textit{Digital Audio Broadcasting}). Elle présente cependant l'avantage d'être simple et illustre une grande partie des concepts de ce cours.  Le circuit électrique correspondant est schématisé à la Figure~\ref{fig:radio}.\mytodo{meilleur schéma ? Photo ?}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.45\textwidth]{figs/RadioAM/radio1}  
+\includegraphics[width=0.45\textwidth]{figs/RadioAM/radio2}
+\caption{Schéma d'une radio cristal. Le signal est capté par une antenne, filtré, démodulé pour finalement être écouté via des écouteurs.}
+\label{fig:radio}
+\end{figure}
+La radio cristal est une radio AM (\textit{amplitude modulation}), ce qui signifie qu'elle reçoit des signaux modulés en amplitude (Figure~\ref{fig:mod1}). La modulation peut se voir comme la manière de "coder" un signal sonore. La modulation d'amplitude désigne la variation en amplitude d'un signal de fréquence élevée (signal porteur, Figure~\ref{fig:mod2}) en fonction d'un signal de plus basse fréquence (signal modulant, Figure~\ref{fig:mod3}). Ce dernier contient l'information audio à transmettre. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=7cm]{figs/RadioAM/mod3}
+	\caption{signal modulé}
+	\label{fig:mod1}
+\end{figure}
+\begin{figure}[h!]
+   	\centering
+   	\includegraphics[width=7cm]{figs/RadioAM/mod1}
+   	\caption{signal porteur (fréquence radio)}
+   	\label{fig:mod2}
+\end{figure}
+\begin{figure}[h!]
+   	\centering
+   	\includegraphics[width=7cm]{figs/RadioAM/mod2}
+   	\caption{signal modulant (fréquence audio)}
+   	\label{fig:mod3}
+\end{figure}
+
+Les fréquences audibles sont comprises entre 16Hz et 16kHz (signal modulant BF). Typiquement, les fréquences AM s'étendent de 500 kHz à 1600 kHz (signal porteur basse fréquence). Cependant, l'antenne radio capte tout ce qu'elle peut capter dans l'environnement, y compris du bruit. Pour capter uniquement la bande de fréquences désirée et se débarrasser du reste, il faut un filtre \textit{passe-bande} (cf. Chapitre~\ref{cha:filtres}).
+
+Un autre élément crucial du circuit est le détecteur à cristal (d'où le nom radio "cristal")\footnote{\'Egalement connu sous les noms de poste à galène, ou poste à diode.}. Il s'agit d'une diode (Section~\ref{sec:diode}) qui va contribuer à la démodulation du signal radio pour en extraire le signal audio. Ce type de récepteur a été introduit au début du vingtième siècle et est le moyen le plus simple de construire une radio.
+
+Dans un récepteur de base le son peut finalement être entendu grâce à des écouteurs. Ceux-ci ne fonctionnent que grâce à l'énergie de l'onde radio elle-même, et doivent donc être très sensibles. Dans notre circuit, nous avons donc remplacé les écouteurs par un haut-parleur. En conséquence, il a également fallu ajouter des amplificateurs opérationnels (Chapitre~\ref{cha:AO}) pour amplifier le signal. Ce sont des composants actifs qui ont donc besoin d'une alimentation.
+
+%\mytodo{Un circuit complexe dont on veut identifier les paramètres pour réaliser un équivalent simplifié, comme par exemple une batterie composée de plusieurs cellules}
+
+
+\subsection{Méthodes numériques}
+Des exemples en Python permettent d'automatiser et passer d'analyses de petits systèmes à des systèmes plus complexes, inaccessibles par calcul manuel, comme par exemple :
+\begin{itemize}
+	\item associer des impédances en série, en parallèle
+	\item convertir une association en étoile en une association en triangle
+	\item manipuler les nombres complexes, calculer des puissances 
+	\item manipuler des graphes
+	\item résoudre des systèmes d'équations différentielles pour analyser les régimes transitoires
+	\item implémenter les méthodes générales d'analyse.
+\end{itemize}
+
+Le code source des exemples est disponible à l'adresse
+\begin{center}
+	\small
+\url{https://github.com/bcornelusse/ELEC0053-circuits-electriques}.
+\end{center}
+
+\section{Liens avec d'autres cours}
+Ce cours ouvre la voie à une série importante d'autres cours tels que les cours sur la conception des capteurs, sur les systèmes de mesure, l'électronique analogique, l'électronique de puissance, l'analyse et le contrôle de grands systèmes électriques, les micro-systèmes, l'électro-acoustique, les micro-réseaux, pour ne citer qu'eux.

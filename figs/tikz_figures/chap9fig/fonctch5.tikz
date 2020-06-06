@@ -1,0 +1,26 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (1.70667,2.93333) node[text=black,anchor=base east] {lin\'eaire};
+\path (6.54,3.9) node[text=black,anchor=base east] {$v_d=(v_p-v_n)$};
+\path (2.82222,3.82222) node[text=black,anchor=base east] {$-\epsilon$};
+\path (4.1,3.46667) node[text=black,anchor=base west] {$\epsilon$};
+\path (3.3,2.12222) node[text=black,anchor=base east] {$v_o$};
+\path (4.19556,2.36667) node[text=black,anchor=base west] {saturation};
+\path (1.01778,4.43333) node[text=black,anchor=base west] {saturation};
+\path (3.78444,4.6) node[text=black,anchor=base west] {$-V_{sat}$};
+\path (3.25111,2.66667) node[text=black,anchor=base east] {$V_{sat}$};
+\draw[dotted,black] (4.02222,2.53333) -- (4.02222,3.52222);
+\draw[dotted,black] (3.01111,4.5) -- (3.01111,3.5);
+\draw[dashed,arrows=-triangle 45,black] (1.77333,2.84444) -- (3.71778,3.13333);
+\draw[black] (3.44,4.51111) -- (3.58444,4.51111);
+\draw[black] (3.44,2.51111) -- (3.58444,2.51111);
+\draw[black] (0.88444,4.5) -- (3.00667,4.5) -- (4.00667,2.5) -- (6.00667,2.5);
+\draw[arrows=-triangle 45,black] (0.50667,3.51111) -- (6.47333,3.51111);
+\draw[arrows=-triangle 45,black] (3.49556,5.03333) -- (3.49556,1.82222);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,40 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (3.51556,2.20444) circle (0.33111cm);
+\path (3.51556,2.13333) node[text=black,anchor=base] {+};
+\path (3.52,2.49556) node[text=black,anchor=base] {-};
+\filldraw[black] (5.31111,1.67778) circle (0.06667cm);
+\filldraw[black] (5.35556,2.72889) circle (0.06667cm);
+\draw[black] (5.32444,1.68444) -- (3.50222,1.68444) -- (3.50222,1.85111);
+\draw[black] (5.36889,2.72889) -- (3.49111,2.72889) -- (3.49111,2.51778);
+\path (5.6,1.76667) node[text=black,anchor=base] {+};
+\path (5.66889,2.80667) node[text=black,anchor=base east] {-};
+\draw[black] (3.51556,3.58222) circle (0.33111cm);
+\path (3.51556,3.51111) node[text=black,anchor=base] {+};
+\path (3.52,3.87333) node[text=black,anchor=base] {-};
+\filldraw[black] (5.31111,3.05556) circle (0.06667cm);
+\filldraw[black] (5.35556,4.10667) circle (0.06667cm);
+\draw[black] (5.32444,3.06222) -- (3.50222,3.06222) -- (3.50222,3.22889);
+\draw[black] (5.36889,4.10667) -- (3.49111,4.10667) -- (3.49111,3.89556);
+\path (5.6,3.14444) node[text=black,anchor=base] {+};
+\path (5.66889,4.18444) node[text=black,anchor=base east] {-};
+\filldraw[black] (5.33333,4.51778) circle (0.02222cm);
+\filldraw[black] (5.33333,4.64) circle (0.02222cm);
+\filldraw[black] (5.33333,4.78444) circle (0.02222cm);
+\path (6.6,2.3) node[text=black,anchor=base] {Circuit};
+\path (6.6,2.73333) node[text=black,anchor=base] {passifie};
+\draw[black] (5.06889,1.48889) rectangle (7.76667,5.00667);
+\draw[arrows=-triangle 45,black] (4.11333,1.56222) -- (4.82444,1.56222);
+\draw[arrows=-triangle 45,black] (4.11333,2.96222) -- (4.82444,2.96222);
+\path (3.06889,2.24) node[text=black,anchor=base east] {$v_{sM1}$};
+\path (3.07778,3.7) node[text=black,anchor=base east] {$v_{sM2}$};
+\path (4.39111,2.06222) node[text=black,anchor=base] {$I_{M1}$};
+\path (4.39111,3.39556) node[text=black,anchor=base] {$I_{M2}$};
+\path (6.5,3.8) node[text=black,anchor=base] {${\bf R}_M$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

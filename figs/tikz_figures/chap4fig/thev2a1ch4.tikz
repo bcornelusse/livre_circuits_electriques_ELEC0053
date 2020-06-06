@@ -1,0 +1,40 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (4.00222,2.51556) -- (4.00222,2.82222) -- (3.84444,2.87333) -- (4.16222,2.97556) -- (3.84444,3.07778) -- (4.16222,3.17778) -- (3.84444,3.28) -- (4.16222,3.38222) -- (3.84444,3.48444) -- (4.16222,3.58444) -- (4.00222,3.63556) -- (4.00222,3.94444);
+\draw[black] (5.86222,2.49778) -- (5.11778,2.49778) -- (5.06667,2.65556) -- (4.96444,2.33778) -- (4.86222,2.65556) -- (4.76222,2.33778) -- (4.66,2.65556) -- (4.55778,2.33778) -- (4.45556,2.65556) -- (4.35556,2.33778) -- (4.30444,2.49778) -- (3.99556,2.49778);
+\draw[black] (2.17333,2.49778) -- (2.89556,2.49778) -- (2.94667,2.65556) -- (3.04889,2.33778) -- (3.15111,2.65556) -- (3.25111,2.33778) -- (3.35333,2.65556) -- (3.45556,2.33778) -- (3.55778,2.65556) -- (3.65778,2.33778) -- (3.70889,2.49778) -- (4.01778,2.49778);
+\draw[black] (1.85556,2.52222) circle (0.33111cm);
+\path (1.78444,2.52222) node[text=black,anchor=base,rotate=90.0] {+};
+\path (2.14667,2.51778) node[text=black,anchor=base,rotate=90.0] {-};
+\draw[black] (6.19556,2.49111) circle (0.33111cm);
+\path (6.46667,2.52222) node[text=black,anchor=base,rotate=90.0] {+};
+\path (6.09333,2.49556) node[text=black,anchor=base,rotate=90.0] {-};
+\filldraw[black] (1.20667,2.51111) circle (0.06667cm);
+\filldraw[black] (1.20667,3.93333) circle (0.06667cm);
+\filldraw[black] (6.86222,3.93333) circle (0.06667cm);
+\filldraw[black] (6.86222,2.51111) circle (0.06667cm);
+\draw[black] (1.55111,2.51111) -- (1.26222,2.51111);
+\draw[black] (6.51778,2.51111) -- (6.85111,2.51111);
+\draw[black] (1.28444,3.93333) -- (6.80667,3.93333);
+\draw[arrows=-triangle 45,black] (0.64,2.17778) -- (1.49556,2.17778);
+\draw[arrows=-triangle 45,black] (7.21778,2.27778) -- (6.51778,2.27778);
+\path (1.20667,2.86667) node[text=black,anchor=base] {+};
+\path (6.88444,2.88889) node[text=black,anchor=base] {+};
+\path (1.19556,3.81111) node[text=black,anchor=base] {-};
+\path (6.84,3.8) node[text=black,anchor=base] {-};
+\path (0.89556,3.32222) node[text=black,anchor=base east] {$u_1$};
+\path (7.07333,3.32222) node[text=black,anchor=base east] {$u_2$};
+\path (1.00667,2.12222) node[text=black,anchor=base] {$i_1$};
+\path (6.99556,2.12222) node[text=black,anchor=base] {$i_2$};
+\path (4.31778,3.45556) node[text=black,anchor=base west] {$R_{12}$};
+\path (3.11778,2.23333) node[text=black,anchor=base] {$R_{11}-R_{12}$};
+\path (5.04,2.21111) node[text=black,anchor=base] {$R_{22}-R_{12}$};
+\path (1.79556,3.2) node[text=black,anchor=base] {$v_{Th1}$};
+\path (6.26222,3.1) node[text=black,anchor=base] {$v_{Th2}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

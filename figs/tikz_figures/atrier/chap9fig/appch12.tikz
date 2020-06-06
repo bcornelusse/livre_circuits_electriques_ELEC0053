@@ -1,0 +1,34 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (1.97778,2.48889) node[text=black,anchor=base] {Equations };
+\path (1.97778,2.92222) node[text=black,anchor=base] {integro-differentielles};
+\path (1.97778,3.35556) node[text=black,anchor=base] {du circuit};
+\path (6.51556,2.68889) node[text=black,anchor=base] {Resolution classique};
+\path (6.51556,3.12222) node[text=black,anchor=base] {dans le domaine temporel};
+\path (10.9,2.7) node[text=black,anchor=base] {Solution du circuit};
+\path (10.9,3.13333) node[text=black,anchor=base] {dans le domaine temporel};
+\path (2.01556,6.17778) node[text=black,anchor=base] {Relations algebriques};
+\path (2.01556,6.61111) node[text=black,anchor=base] {entre $\bar{U(s)},\bar{I(s)}$};
+\draw[arrows=-triangle 45,black] (1.9,3.45556) -- (1.9,4.31556);
+\draw[arrows=-triangle 45,black] (1.88222,5.11556) -- (1.88222,5.81111);
+\draw[arrows=-triangle 45,black] (11,4.16667) -- (11,3.43333);
+\draw[arrows=-triangle 45,black] (3.61556,2.84444) -- (4.74889,2.84444);
+\draw[arrows=-triangle 45,black] (8.24889,2.83333) -- (9.14889,2.83333);
+\draw[arrows=-triangle 45,black] (4.11556,6.27778) -- (5.56667,6.27778);
+\draw[arrows=-triangle 45,black] (8.4,6.31111) -- (9.56667,6.31111);
+\draw[arrows=-triangle 45,black] (10.98889,6.04444) -- (10.98889,5.47778);
+\draw[rounded corners=5.4bp,blue] (12.74889,6.92222) rectangle (0.18222,4.11556);
+\path (11.04889,4.8) node[text=black,anchor=base] {Calcul de la transformee};
+\path (11.01556,5.33333) node[text=black,anchor=base] {inverse de Laplace};
+\path (1.98889,4.52667) node[text=black,anchor=base] {Application de la};
+\path (1.94444,5.02222) node[text=black,anchor=base] {transformee de Laplace};
+\path (7,6.38222) node[text=black,anchor=base] {Calcul algebrique};
+\path (11.03333,6.4) node[text=black,anchor=base] {Solution $U(s)$, $I(s)$};
+\path (6.34889,7.36) node[text=blue,anchor=base] {APPROCHE FREQUENTIELLE};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

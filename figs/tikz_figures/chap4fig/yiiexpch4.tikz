@@ -1,0 +1,33 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (6.5,2.2) node[text=black,anchor=base] {Circuit};
+\path (6.5,2.63333) node[text=black,anchor=base] {passifie};
+\draw[black] (2.41556,2.90444) circle (0.33111cm);
+\path (2.41556,2.83333) node[text=black,anchor=base] {+};
+\filldraw[black] (3.44444,4.28889) circle (0.06667cm);
+\filldraw[black] (5.28889,4.28889) circle (0.06667cm);
+\filldraw[black] (5.31111,1.67778) circle (0.06667cm);
+\filldraw[black] (5.35556,2.42222) circle (0.06667cm);
+\filldraw[black] (5.33333,3.1) circle (0.02222cm);
+\filldraw[black] (5.33333,3.22222) circle (0.02222cm);
+\filldraw[black] (5.33333,3.36667) circle (0.02222cm);
+\draw[black] (2.4,2.57778) -- (2.4,1.65556) -- (5.3,1.65556);
+\draw[black] (3.43333,4.21778) -- (3.43333,2.43333) -- (5.3,2.43333);
+\draw[black] (2.4,3.24444) -- (2.4,4.3) -- (5.28889,4.3);
+\draw[black] (5.07778,1.48889) rectangle (7.76667,4.48889);
+\draw[arrows=-triangle 45,black] (3.81333,1.47333) -- (4.63556,1.47333);
+\path (5.6,1.76667) node[text=black,anchor=base] {+};
+\path (5.6,2.53333) node[text=black,anchor=base] {+};
+\path (5.52222,4.28) node[text=black,anchor=base] {-};
+\path (6.42444,3.17333) node[text=black,anchor=base] {${\bf G}_N$};
+\path (4.12444,1.40667) node[text=black,anchor=base] {$i_{i}$};
+\path (3.57778,3.68889) node[text=black,anchor=base west] {$v_{j}=0$};
+\path (2.42,3.19556) node[text=black,anchor=base] {-};
+\path (1.95556,3.02222) node[text=black,anchor=base east] {$v_{i}=1$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,1037 @@
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+% !TeX root = syllabus_ELEC0053.tex
+
+\chapter{Régime sinusoïdal établi}
+\label{sec:sinusoidal}
+
+\section{Définition}
+
+Une \textit{source sinusoïdale} est une source indépendante qui délivre une tension (ou un courant) de forme sinusoïdale (Figure~\ref{fig:sin}) ou cosinusoïdale\footnote{On désigne aussi parfois ce signal par signal cissoïdal pour englober les deux cas.} (un sinus étant un cosinus déphasé) :
+		\[v(t)=V_m\cos(\omega t +\phi)\]
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.5, domain=-7:7]
+%\draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
+\draw[->] (-7.2,0) -- (7.2,0) node[right] {$t$};
+\draw[->] (0,-1.2) -- (0,1.4);
+\draw[dashed] (-2, 0) node[below]{$\phi/\omega$} -- (-2, 1); 
+\draw[dashed] (-2, 1) -- (0, 1) node[right]{$V_m$}; 
+\draw[thick, color=blue]   plot[samples=50, smooth] (\x,{cos((\x+2) r)})   node[right] {$v(t)$};
+\end{tikzpicture}
+\caption{Source sinusoïdale.\label{fig:sin}}
+\end{figure}
+
+Ce signal périodique est caractérisé par : 
+\begin{itemize}
+	\item son {\bf  amplitude} sous forme de la valeur maximale $V_m$ (aussi dénommée valeur de crête),
+	\item sa phase : $\phi$ rad,
+	\item sa période : $T=\frac{2\pi}{\omega}$ $s$
+	\item ou sa fréquence : $f=\frac{1}{T}=\frac{\omega}{2\pi}$ $Hz$
+	\item ou sa pulsation : $\omega$ rad/s.
+\end{itemize}
+
+\paragraph{Valeur efficace.} 
+Plutôt que par sa valeur de crête, on caractérise souvent un signal par sa \textit{valeur efficace}.
+\begin{eqnarray*}
+	V_{\text {eff}}& =&\sqrt{\frac{1}{T}\int_{t_0}^{t_0+T}V_m^2\cos^2(\omega t + \phi)dt}\\
+	& = & \frac{V_m}{\sqrt{2}} \simeq 0.707 V_m
+\end{eqnarray*}
+C'est la valeur que devrait présenter une tension continue pour dissiper dans
+une résistance une puissance égale à la puissance {\em moyenne}
+dissipée par la tension sinusoïdale.
+ Par la suite, on désignera $V_{\text{eff}}$ par $V$.
+
+\section{Les phaseurs}
+Un \textit{phaseur} est un nombre complexe associé à une grandeur sinusoïdale $A_m\cos(\omega t+\phi)=\sqrt{2}A\cos(\omega t+\phi)$
+\[\bar{A}= A e^{j\phi}=A\angle \phi\]
+À un phaseur, on associe aussi un vecteur tournant :
+\[\bar{A} e^{j\omega t}\]
+\begin{marginfigure}
+	\centering
+	\includegraphics[scale=0.6]{figs/ch4_figs/phaseur_def}
+	\caption{Vecteur tournant. \label{fig:vecteur_tournant}}
+\end{marginfigure}
+Il peut être représenté (Figure~\ref{fig:vecteur_tournant}) dans le plan complexe par un vecteur tournant à la vitesse angulaire $\omega$. Le phaseur correspond à la position de
+ce vecteur en $t=0$. 
+	
+Il y a une correspondance biunivoque entre signal sinusoïdal et phaseur.
+\[
+\begin{array}{rcl}
+\text{Sinusoïde} & & \text{Phaseur}\\
+\left.\begin{array}{r}
+A_m\cos(\omega t+\phi)\\
+=(A_m\cos \phi)\cos \omega t \\
++(-A_m\sin \phi)\sin \omega t
+\end{array}\right\} &
+\Leftrightarrow & 
+\left\{\begin{array}{l}
+\bar{A}=A e^{j\phi}\\
+= (A \cos \phi)\\
++j(A \sin \phi)
+\end{array}\right.
+\end{array}\]
+Pour passer d'un phaseur à une représentation temporelle, on applique donc
+\begin{align*}
+	\text{Re}[\sqrt{2} \bar A e^{j\omega t}] &= \text{Re}[\sqrt{2} A e^{j(\omega t+\phi})]\\ &= A_m\cos(\omega t + \phi)
+\end{align*}
+
+Un phaseur contient donc deux des trois éléments qui caractérisent un signal sinusoïdal : son amplitude et sa phase.
+
+\subsection{Propriétés des phaseurs}		
+\paragraph{Linéarité.}
+Soient deux signaux sinusoïdaux :
+\[v_1(t)=\text{Re}[\sqrt{2}\bar{V}_1e^{j\omega t}] \quad \text{et}
+\quad v_2(t)=\text{Re}[\sqrt{2}\bar{V}_2e^{j\omega t}]\]
+
+Une combinaison linéaire :
+\[a_1v_1(t)+a_2v_2(t)=
+a_1\text{Re}[\sqrt{2}\bar{V}_1e^{j\omega t}] +
+a_2\text{Re}[\sqrt{2}\bar{V}_2e^{j\omega t}]\]
+
+avec $a_1$ et $a_2$, 2 nombres réels.
+
+\[a_1\text{Re}[\sqrt{2}\bar{V}_1e^{j\omega t}] +
+a_2\text{Re}[\sqrt{2}\bar{V}_2e^{j\omega t}] =
+\text{Re}[\sqrt{2}(a_1\bar{V}_1+a_2\bar{V}_2)e^{j\omega t}]\]
+
+La combinaison linéaire des signaux est représentée par le phaseur :
+\[a_1\bar{V}_1+a_2\bar{V}_2\]
+
+\begin{table}
+	\caption{Linéarité.}
+	\begin{boxedminipage}{\linewidth}
+		Le phaseur correspondant à une combinaison linéaire de signaux sinusoïdaux est égal à la combinaison linéaire des phaseurs des différents signaux.
+	\end{boxedminipage}
+\end{table}
+
+\paragraph{Dérivation.} 
+\begin{eqnarray*}
+	\frac{d}{dt}\left(V_m\cos(\omega t+\phi)\right)& = &
+	-\omega V_m\sin(\omega t+\phi) \\
+	& = &\text{Re}[j\omega V_me^{j(\omega t + \phi)}]\\
+	& = &\text{Re}[j\omega V_me^{j\phi}e^{j\omega t}]= \text{Re}[j\omega \sqrt{2}\bar{V}e^{j\omega t}]
+\end{eqnarray*}
+\begin{center}
+		$\frac{d}{dt}\left(\text{Re}[\bar{V}e^{j\omega t}]\right)= 
+		\text{Re}[\frac{d}{dt}\left( \bar{V}e^{j\omega t}\right)]=
+		\text{Re}[j\omega \bar{V}e^{j\omega t}]$
+\end{center}
+\begin{table}[h]
+	\caption{Dérivation.}
+	\begin{boxedminipage}{\linewidth}
+		Dériver un signal revient, dans le monde des phaseurs, à le multiplier par $j\omega$ :
+		\[\frac{d}{dt}\left(V_m\cos(\omega t+\phi)\right)\,\,\Leftrightarrow\,\,
+		j\omega \bar{V}\]		
+	\end{boxedminipage}
+\end{table}
+
+\paragraph{Intégration.} %
+\begin{eqnarray*}
+	\int V_m\cos(\omega t+\phi)\, dt& = &
+	\frac{V_m}{\omega}\sin(\omega t+\phi)\\
+	& = &\text{Re}[\frac{V_me^{j\phi}e^{j\omega t}}{j \omega}]\\
+	& = & \text{Re}[\frac{\sqrt{2}\bar{V}}{j \omega}e^{j\omega t}]
+\end{eqnarray*}
+\begin{center}
+	$\int \text{Re}[\bar{V}e^{j\omega t}]\, dt =
+		\text{Re}[\int \bar{V}e^{j\omega t}\, dt]=
+		\text{Re}[\frac{\bar{V}}{j\omega} e^{j\omega t}]$
+\end{center}
+\begin{table}[h]
+	\caption{Intégration.}
+	\begin{boxedminipage}{\linewidth}
+		Intégrer un signal revient, dans le monde des phaseurs, à le diviser par $j\omega$ :
+		\[\int V_m\cos(\omega t+\phi)\ dt\,\,\Leftrightarrow\,\,
+		\frac{\bar{V}}{j\omega}\]		
+	\end{boxedminipage}
+\end{table}
+
+
+
+
+\subsection{Lois de la théorie des circuits et phaseurs}
+L'intérêt d'utiliser les phaseurs réside dans le fait que toutes les relations linéaires du domaine temporel se transforment en relations algébriques équivalentes entre les phaseurs du domaine fréquentiel.
+Tous les éléments constituant le circuit doivent être linéaires et
+invariants.
+Attention, cette propriété ne s'applique donc pas au calcul des puissances. 
+
+En ce qui concerne les lois de Kirchhoff :
+\begin{enumerate}
+\item PLK : 
+		\[ i_1(t)+i_2(t)+\ldots i_k(t) =0 \quad \Leftrightarrow \quad
+		\bar{I}_1+ \bar{I}_2+\ldots \bar{I}_k=0\]
+		Sous forme matricielle :
+		\[{\bf A}\bar{\bf I}_B={\bf 0}\]
+		avec ${\bf A}$ la matrice d'incidence aux noeuds définie au Chapitre~\ref{sec:methodes-generales}.
+\item SLK :
+		\[ u_1(t)+u_2(t)+\ldots u_k(t) =0 \quad \Leftrightarrow \quad
+		\bar{U}_1+ \bar{U}_2+\ldots \bar{U}_k=0\]
+		Sous forme matricielle :
+		\[{\bf B}\bar{\bf U}_B={\bf 0}\]
+		avec ${\bf B}$ la matrice des mailles définie au Chapitre~\ref{sec:methodes-generales}.
+\end{enumerate}
+
+\section{Relation entre tension et courant de branche}
+
+\subsection{Résistance} On a
+\[u(t)=Ri(t) \quad \Leftrightarrow \bar{U}=R\, \bar{I}\]
+En effet si 
+\[i(t)=I_m\cos(\omega t+\phi) \] alors 
+\[ u(t)=R\,I_m\cos(\omega t+ \phi)\]
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=0.5, domain=-4:4]
+	\draw[->] (-4.2,0) -- (4.2,0) node[right] {$t$};
+	\draw[->] (0,-2.2) -- (0,2.4);
+	\draw[thick, color=blue]   plot[samples=50, smooth] (\x,{2*cos((\x+2) r)})   node[right] {$u(t)$};
+	\draw[thick, color=red]   plot[samples=50, smooth] (\x,{cos((\x+2) r)})   node[right] {$i(t)$};
+	\end{tikzpicture}\hspace{1cm}
+	\begin{tikzpicture} [scale=0.7, >=latex]
+	\draw (-0.2,0) -- (5,0);\draw (0,3.5) -- (0,-1);
+	\draw [->, thick, color=blue] (0,0) -- (4,3) node[below]{$\bar{U}$};
+	\draw [->, thick, color=red] (0,0) -- (2,1.5) node[below]{$\bar{I}$};
+	\end{tikzpicture}
+	\caption{Tension et courant dans un élément résistif.}
+\end{figure}
+
+La tension $u$ et le courant $i$ sont en phase.
+
+	
+\subsection{Inductance}
+On a
+\[u(t)=L\frac{di(t)}{dt} \quad \Leftrightarrow \bar{U}=j\omega L\,
+	\bar{I}\]
+En effet, si 
+$$i(t)=I_m\cos(\omega t+\phi) $$ alors 
+$$u(t)=\omega L\,I_m\cos(\omega t+ \phi+\frac{\pi}{2})
+= -\omega L\,I_m\sin(\omega t+ \phi)$$
+Le courant $i$ est en \textbf{retard} de phase de $90^{\circ}$ par rapport à la tension $u$.
+\begin{figure}[ht]
+\centering
+	\begin{tikzpicture}[scale=0.5, domain=-4:4]
+	\draw[->] (-4.2,0) -- (4.2,0) node[right] {$t$};
+	\draw[->] (0,-2.2) -- (0,2.4);
+	\draw[thick, color=blue]   plot[samples=50, smooth] (\x,{2*cos((\x+2+1.57) r)})   node[right] {$u(t)$};
+	\draw[thick, color=red]   plot[samples=50, smooth] (\x,{cos((\x+2) r)})   node[right] {$i(t)$};
+	\end{tikzpicture}\hspace{1cm}
+	\begin{tikzpicture} [scale=0.5, >=latex]
+	\draw (-0.2,0) -- (5,0);\draw (0,3.5) -- (0,-1);
+	\draw [->, thick, color=blue] (0,0) -- (-3,4) node[right]{$\bar{U}$};
+	\draw [->, thick, color=red] (0,0) -- (2,1.5) node[below]{$\bar{I}$};
+	\end{tikzpicture}
+\caption{Tension et courant dans un élément inductif.}
+\end{figure}
+		
+\subsection{Condensateur} On a 
+\[u(t)=\frac{1}{C}\int i(x)dx \quad \Leftrightarrow \bar{U}=\frac{1}{j\omega C} \bar{I}\]
+En effet, si 
+	\[i(t)=I_m\cos(\omega t+\phi)\] alors \[u(t)=\frac{I_m}{\omega C}\cos(\omega t+
+	\phi-\frac{\pi}{2})=
+	\frac{I_m}{\omega C}\sin(\omega t+ \phi)\]
+\begin{figure}[ht]
+\centering
+	\begin{tikzpicture}[scale=0.5, domain=-4:4]
+	\draw[->] (-4.2,0) -- (4.2,0) node[right] {$t$};
+	\draw[->] (0,-2.2) -- (0,2.4);
+	\draw[thick, color=blue]   plot[samples=50, smooth] (\x,{2*cos((\x+2) r)})   node[right] {$u(t)$};
+	\draw[thick, color=red]   plot[samples=50, smooth] (\x,{cos((\x+2+1.57) r)})   node[right] {$i(t)$};
+	\end{tikzpicture}\hspace{1cm}
+	\begin{tikzpicture} [scale=0.5, >=latex]
+	\draw (-0.2,0) -- (5,0);\draw (0,3.5) -- (0,-1);
+	\draw [->, thick, color=blue] (0,0) -- (4,3) node[below]{$\bar{U}$};
+	\draw [->, thick, color=red] (0,0) -- (-1.5,2) node[left]{$\bar{I}$};
+	\end{tikzpicture}
+\caption{Tension et courant dans un élément capacitif.}
+\end{figure}	
+Le courant $i$ est en \textbf{avance} de phase de $90^{\circ}$ par rapport à la tension $u$.
+		
+
+\section{Impédance et admittance }
+Soit $\cal R$ un dipôle passifié comportant un certain nombre d'éléments
+linéaires et invariants interconnectés et fonctionnant en régime
+sinusoïdal établi.
+$u(t)$ et $i(t)$ sont les tension et courant sinusoïdaux aux bornes de
+ce dipôle, avec $\bar{U}$ et $\bar{I}$ les phaseurs correspondants.
+\begin{marginfigure}
+	\centering
+	\includegraphics{figs/ch4_figs/circuit_equivalent}	\label{fig:}
+\end{marginfigure}
+		
+
+On appelle {\em impédance} du dipôle, le rapport des phaseurs 
+\[Z(j\omega)=\frac{\bar{U}}{\bar{I}}\, ,\quad \bar{U}=Z\,\bar{I}.\]
+
+L'inverse de l'impédance est appelée {\em admittance}
+\[Y(j\omega)=\frac{\bar{I}}{\bar{U}}\, ,\quad \bar{I}=Y\,\bar{U}.\]
+$Z$ et $Y$ sont deux nombres complexes, ce ne sont pas des phaseurs ! Ils n'ont pas de vecteur tournant ni de signal sinusoïdal associés. 
+
+Quelques définitions : 
+\[Z=R+j\, X = |Z|e^{j\theta}\quad 
+\left\{
+\begin{array}{ll}
+R = \text{Re}[Z] = |Z|\cos \theta & \text{est la {\bf résistance}}\\
+X = \text{Im}[Z] = |Z|\sin \theta & \text{est la {\bf réactance}}\\
+|Z| = \sqrt{R^2+X^2} & \text{est le {\em module}}\\
+\theta = \arctan \frac{X}{R} & \text{est l'{\em argument}}
+\end{array}\right. \]
+\[Y=G+j\, B = |Y|e^{j\zeta} \quad
+\left\{\begin{array}{ll}
+G = \text{Re}[Y] = |Y|\cos \zeta & \text{est la {\bf conductance}}\\
+B = \text{Im}[Y] = |Y|\sin \zeta & \text{est la {\bf susceptance}}\\
+|Y| = \sqrt{G^2+B^2} & \text{est le {\em module}}\\
+\zeta = \arctan \frac{B}{G} & \text{est l'{\em argument}}\\
+\end{array}\right.\]
+La Table~\ref{tab:ZY} décrit l'impédance et l'admittance des composants de base.
+
+
+\begin{table*}[ht]
+\caption{Impédance et admittance des composants de base. \label{tab:ZY}}
+\begin{center}
+	\begin{tabular}{l|ccc|ccc}
+		Composant & impédance & résistance & réactance & admittance &
+		conductance & susceptance \\ \hline
+		Résistance & $R$ & $R$ & -- & $\frac{1}{R}$ &   $\frac{1}{R}$ & --\\
+		Inductance & $j\omega L$ & -- & $\omega L$ & $\frac{1}{j\omega L}$ &
+		-- & $\frac{-1}{\omega L}$\\
+		Condensateur & $\frac{1}{j\omega C}$ & -- & $\frac{-1}{\omega C}$ 
+		& $j\omega C$ & -- &  $\omega C$
+	\end{tabular}
+\end{center}
+\end{table*}
+
+
+\subsection{Associations en série et en parallèle}
+
+Des \textbf{impédances} s'associent de la même manière que des \textbf{résistances}.
+Des \textbf{admittances} s'associent de la même manière que des \textbf{conductances}.
+
+\mytodo{Conversion étoile-triangle}
+
+\begin{testexample}[impédance d'un circuit RLC série.]
+L'impédance équivalente vaut
+\[Z(j\omega)=R+j\omega L+\frac{1}{j\omega C}.\]
+L'amplitude et l'argument de cette impédance permettent d'établir la représentation de la figure ci-dessous
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{figs/ch4_figs/Z_RLC}
+\end{center}	
+\begin{align*}
+|Z|&=\sqrt{R^2 +(\omega L-\frac{1}{\omega C})^2}\ \\
+\angle Z&=\arctan \frac{ \omega L-\frac{1}{\omega C}}{R}
+\end{align*}
+La résistance vaut $R$  et la réactance $X= \omega L-\frac{1}{\omega C}$.
+\end{testexample}
+
+\paragraph{Formulation de l'approche fréquentielle.}
+En résumé, l'utilisation des phaseurs permet l'emploi de l'approche fréquentielle représentée à la Figure~\ref{fig:approche_freq}.
+\begin{figure*}[htb]
+\begin{center}
+\includegraphics[width=0.9\linewidth]{figs/ch4_figs/"approche frequentielle"}
+\end{center}
+\caption{De l'approche temporelle à l'approche fréquentielle. \label{fig:approche_freq}}
+\end{figure*}
+
+\begin{testexample}[Approche fréquentielle.]
+La source de courant de la figure ci-dessous 
+\begin{center}
+	\includegraphics[width=0.76\linewidth]{figs/ch4_figs/exemple_2}
+\end{center}
+délivre un courant $$i(t)=\sqrt{2}\,8\cos 200\,000\,t \ \text{A}.$$
+On souhaite construire le schéma équivalent du circuit dans le domaine fréquentiel et ensuite trouver les expressions temporelles de $u$, $i_1$, $i_2$ et $i_3$ en régime établi.
+On a 
+\[\bar{I}=8\,\angle 0, \quad \omega L = 8\, \Omega\, , \quad
+	\frac{-1}{\omega C}=-5\, \Omega\]
+Donc
+\begin{align*}
+		Y_1&=\frac{1}{10}=0.1\, \text{S} \\
+		Y_2&=\frac{1}{6+j8}=0.06-j0.08\, \text{S}\\
+		Y_3&=j0.2\, \text{S}
+\end{align*}
+L'admittance vue de la source vaut  
+\[Y=Y_1+Y_2+Y_3=0.16+j0.12=0.2\angle 36.87^{\circ}\]
+donc $$Z=\frac{1}{Y}=5\angle -36.87^{\circ}.$$
+Dans le domaine temporel : 
+\begin{align*}
+\bar{U}&=Z\bar{I}=40\angle -36.87^{\circ}  &\rightarrow
+u(t)=\sqrt{2}\,40\cos(200\,000 t - 36.87^{\circ}) \text{V}\\
+\bar{I}_1&=Y_1\bar{U}=4\angle -36.87^{\circ}  &\rightarrow
+i_1(t)=\sqrt{2}\,4\cos(200\,000 t - 36.87^{\circ})\text{A} \\
+\bar{I}_2&=Y_2\bar{U}=4\angle -90^{\circ}  &\rightarrow
+i_2(t)=\sqrt{2}\,4\cos(200\,000 t - 90^{\circ})\text{A} \\
+\bar{I}_3&=Y_3\bar{U}=8\angle 53.13^{\circ}  &\rightarrow
+i_3(t)=\sqrt{2}\,8\cos(200\,000 t + 53.13^{\circ})\text{A}
+\end{align*}	
+\end{testexample}
+
+\section{La puissance en régime sinusoïdal établi}
+
+\subsection{Domaine temporel}
+\paragraph{Puissance instantanée.} Soient les signaux 
+\begin{align*}
+u(t)&=U_m\cos(\omega t + \phi_u)\\
+i(t)&=I_m\cos(\omega t + \phi_i)
+\end{align*}
+La puissance \textit{instantanée} fournie au dipôle de la Figure~\ref{fig:dip_p_inst} vaut :
+\begin{marginfigure}
+\centering
+\includegraphics[width=0.7\textwidth]{figs/ch4_figs/dipole}
+\label{fig:dip_p_inst}
+\end{marginfigure}
+\begin{eqnarray*}		
+p(t)& = &u(t)i(t)\\ & =&U_mI_m\cos(\omega t + \phi_u)\cos(\omega t +\phi_i) \\
+& = & \frac{1}{2}U_mI_m\left[\cos(\phi_u-\phi_i)+\cos(2\omega t+\phi_u+\phi_i)\right]
+\end{eqnarray*}
+Pour rappel, les formules de Simpson sont
+\begin{align*}
+\cos(a+b) &= \cos(a)\cos(b)-\sin(a)\sin(b)\\
+\cos(a-b) &= \cos(a)\cos(b)+\sin(a)\sin(b)\\
+\cos(a) \cos(b) &= \cos(a-b)+\cos(a+b)
+\end{align*}
+En utilisant les valeurs efficaces :
+\[U=\frac{U_m}{\sqrt{2}} \qquad I=\frac{I_m}{\sqrt{2}}\]
+On obtient l'expression de la puissance instantanée $p(t)$
+$$p(t) = U\,I\left[\cos(\phi_u-\phi_i)+\cos(2\omega t+\phi_u+\phi_i)\right]$$
+qui
+\begin{itemize}
+	\item oscille à une fréquence double de celle de $u$ et $i$
+	\item est alternativement positive et négative ce qui implique des  échanges d'énergie 
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{figs/ch4_figs/powervstime.pdf}
+\end{center}
+
+On peut réécrire la puissance instantanée comme la somme de deux fonctions :
+\begin{equation}
+	p(t) = P + p_f(t) \label{eq:puissance_instantanee}
+\end{equation}
+\paragraph{Puissance active.} Le terme constant $P=U\,I\cos(\phi_u-\phi_i)$ est appelé {\em puissance active}. Il
+représente la puissance moyenne fournie au dipôle par période,
+	et donc la puissance réellement utilisable 
+\[P=\frac{1}{T}\int_0^T p(t)\, dt.\]
+La puissance active  dépend de l'\textbf{amplitude} de $u$ et $i$ \textbf{\underline{et}} de leur \textbf{déphasage} $\phi_u-\phi_i$.
+
+		
+\paragraph{Puissance fluctuante.} 
+Le terme oscillant $p_f=U\,I\cos(2\omega t+\phi_u+\phi_i)$ est appelé puissance fluctuante. Il est de moyenne nulle.
+
+\paragraph{Puissance réactive.}
+En réécrivant $p_f(t)$, on obtient
+\begin{align*}
+	p_f(t)& = U\,I\cos (2(\omega t + \phi_u)-(\phi_u-\phi_i))\\
+	& = P \cos 2(\omega t+\phi_u) + Q \sin 2(\omega t+\phi_u)
+\end{align*}
+La puissance réactive est définie comme 
+\[Q = U\,I\sin (\phi_u-\phi_i).\]
+Elle est due au déphasage existant entre $u$ et $i$ et est liée aux échanges d'énergie magnétique et électrostatique survenant dans le circuit suite à la présence d'inductances et de condensateurs. 
+
+
+\paragraph{Puissance apparente.}
+Le produit $U\,I$ est appelé {\em puissance apparente}\footnote{Wikipedia: \textit{"Electrical engineers \textbf{take apparent power into account} when designing and operating power systems, because though the current associated with reactive power does no work at the load, it heats the conductors and wastes energy. \textbf{Conductors, transformers and generators must be sized to carry the total current, not just the current that does useful work}."}}.
+
+\paragraph{Unités.}
+Pour distinguer ces différents types de puissance, on les exprime dans des unités spécifiques : 
+		\begin{itemize}
+	\item $p(t)$, $p_f(t)$, $P$ en W
+	\item $Q$ en var (Voltampère réactif)
+	\item la puissance apparente en VA (Voltampère)
+\end{itemize}
+
+\subsection{Calculs dans le domaine fréquentiel.}
+
+On peut calculer les puissances active, réactive et apparente à partir des phaseurs. 
+		
+\paragraph{Puissance complexe.}
+La puissance complexe est obtenue en formant le produit hermitique :
+\begin{eqnarray*}
+	S&=&\bar{U}\bar{I}^*\\
+	& = & Ue^{j\phi_u}\,Ie^{-j\phi_i}= U\, Ie^{j(\phi_u-\phi_i)}\\
+	& = & U\,I \left(\cos(\phi_u-\phi_i)+j\sin(\phi_u-\phi_i)\right)\\
+	& = & P + j Q			
+\end{eqnarray*}
+La puissance apparente est le module de la puissance complexe:
+$$|S|=U\,I=\sqrt{P^2+Q^2}.$$
+
+\subsection{Propriétés des impédances de dipôles RLC passifs}
+
+\paragraph{Dipôle purement résistif.}
+
+$u$ et $i$ sont en phase : $\phi_u-\phi_i=0$
+
+\begin{eqnarray*}
+	p(t)& = &u(t)i(t)=RI_m^2\cos^2(\omega t + \phi_u)\\
+	& =& RI^2(1+\cos 2(\omega t + \phi_u))\\
+	& = & P + P \cos 2(\omega t+ \phi_u)
+\end{eqnarray*}
+
+\begin{itemize}
+\item $p(t)$ est toujours positive !
+\item de moyenne $P=RI^2$
+\item $p_f(t)= P \cos 2(\omega t+ \phi_u)$
+\item $Q=0$ !
+\end{itemize}
+
+
+\paragraph{Dipôle purement inductif.}
+Le courant $i$ étant en retard de 90$^{\circ}$ par rapport à $u$ :
+$\phi_u-\phi_i=90^{\circ}$
+\begin{eqnarray*}
+	p(t)& =& \omega L I_m^2 \cos(\omega t+\phi_u)\cos (\omega
+	t+\phi_u - 90^{\circ})\\
+	& = & \omega L\, I^2 \sin (2(\omega t + \phi_u))\\
+	& = & Q \sin (2(\omega t + \phi_u))
+\end{eqnarray*}
+
+\begin{itemize}
+\item $p$ de moyenne nulle $\rightarrow P=0$ !
+\item $p_f= Q \sin 2(\omega t+ \phi_u)$
+\item $Q=\omega L\, I^2$
+\item Échanges périodiques d'énergie entre les inductances et le reste du circuit.
+\item Une inductance consomme de la puissance réactive  
+\end{itemize}
+Dans un circuit purement inductif, la puissance instantanée oscille
+deux fois par période entre $-\omega L I^2$ et $\omega L I^2$.
+L'énergie magnétique stockée à l'instant $t$ dans l'inductance est :
+\[w_L(t)= \frac{1}{2}Li^2(t)=\frac{1}{2} L I^2(1+\cos (2(\omega
+t + \phi_i)) \geq 0 !\]
+L'énergie magnétique moyenne par période est
+\[<W_m>=\frac{1}{2}LI^2\]
+On a la relation entre la puissance réactive consommée par
+l'inductance et l'énergie magnétique
+moyenne : 
+\[ Q = 2\omega <W_m>\]
+		
+\paragraph{Dipôle purement capacitif.}
+Le courant $i$ étant en avance de 90$^{\circ}$ par rapport à $u$, on a 
+$\phi_u-\phi_i=-90^{\circ}$
+\begin{eqnarray*}
+	p(t)& = &\omega C U_m^2 \cos(\omega t+\phi_u)\cos (\omega
+	t+\phi_u + 90^{\circ})\\
+	& = & -\omega C\, U^2 \sin (2(\omega t + \phi_u))\\
+	& = & Q \sin (2(\omega t + \phi_u))
+\end{eqnarray*}
+\begin{itemize}
+\item $p(t)$ est de moyenne nulle  $\rightarrow P=0$ !
+\item $p_f(t)= Q \sin 2(\omega t+ \phi_u)$
+\item $Q=-\omega C\, U^2$
+\item Echanges périodiques d'énergie entre les condensateurs et le reste du circuit.
+\item Un condensateur produit de la puissance réactive.
+\end{itemize}
+Dans un circuit purement capacitif, la puissance instantanée oscille
+deux fois par période entre $-\omega C U^2$ et $\omega C U^2$.
+L'énergie électrostatique  stockée à l'instant $t$ dans le condensateur est :
+\[w_C(t)= \frac{1}{2}Cu^2(t)=\frac{1}{2} C U^2(1+\cos (2(\omega
+t + \phi_u)) \geq 0 !\]
+L'énergie électrostatique  moyenne par période est
+\[<W_e>=\frac{1}{2}CU^2\]
+On a la relation entre la puissance réactive fournie par le condensateur
+et l'énergie électrostatique moyenne :
+\[ Q = - 2\omega <W_e>\]
+
+\paragraph{Résumé.} Si $\phi_u=0$, 
+\begin{center}
+\begin{tabular}{l l l}
+	Circuit  résisitf& Circuit capacitif & Circuit inductif\\
+	$p(t)= P + P\cos(2\omega t)$ & $p(t)=Q\sin(2\omega t)$ & $p(t)= - Q\sin(2\omega t)$\\
+	\includegraphics[width=0.3\textwidth]{figs/ch4_figs/powervstimeR.pdf} & \includegraphics[width=0.3\textwidth]{figs/ch4_figs/powervstimeC.pdf} & \includegraphics[width=0.3\textwidth]{figs/ch4_figs/powervstimeL.pdf} \\
+\end{tabular}
+\end{center}	
+		
+\subsection{Le facteur de puissance}
+\paragraph{Définition.} Soit
+\begin{equation}
+P=U\,I\cos(\phi_u-\phi_i)=U\,I\cos \Phi \label{eq:PF_def}
+\end{equation}
+$\cos \Phi$ est appelé {\em facteur de puissance} du circuit.
+Pour un circuit résistif, $\cos \Phi=1$, pour un circuit purement inductif ou capacitif,  $\cos \Phi=0$.
+Le facteur de puissance dépend donc directement du déphasage entre le
+courant et la tension aux bornes du dipôle, causé par l'impédance du dipôle : 
+\[Z=\frac{\bar{U}}{\bar{I}}=\frac{Ue^{j\phi_u}}{Ie^{\phi_i}}=\frac{U}{I}e^{j(\phi_u-\phi_i)}\]
+et $$\Phi = \arg{Z}.$$
+
+
+\paragraph{Lien entre facteur de puissance et amplitude du courant.}
+On peut réécrire (\ref{eq:PF_def}) comme 
+\[I=\frac{P}{U\cos \Phi}\]
+Un faible facteur de puissance implique donc un grand courant.
+Si le dipôle est alimenté par une \textbf{tension constante} en amplitude $U$, pour délivrer au dipôle \textbf{une même puissance $P$}, le courant doit être  d'autant plus important que le $\cos \Phi$ du dipôle est petit. Le facteur de puissance renseigne sur la qualité de la transmission de l'énergie\footnote{Wikipedia: \textit{"For two systems transmitting the same amount of active power, the system with the lower power factor will have higher circulating currents due to energy that returns to the source from energy storage in the load. These higher currents produce higher losses and reduce overall transmission efficiency. A \textbf{lower power factor} circuit will have a higher apparent power and \textbf{higher losses} for the same amount of active power."}}. Facteur de puissance et puissance réactive sont liés :
+\begin{itemize}
+	\item $\cos \Phi$ proche de 1 : $Q=U\,I\sin \Phi$ faible
+	\item  $\cos \Phi$ proche de 0 : $Q=U\,I\sin \Phi$ proche de sa valeur
+	max. $U\,I$
+\end{itemize}
+On peut aussi écrire 
+$$\cos \phi = \frac{P}{|S|}$$
+Idéalement, le facteur de puissance est donc \textit{compensé}, habituellement en connectant des condensateurs en parallèle sur les charges inductives (Figure~\ref{fig:compensationPF}).
+
+\begin{figure}
+\centering
+\begin{tikzpicture} [scale=0.7, >=latex]
+\filldraw[fill=gray!20] (0,0) -- (1,0) arc (0:36.87:1) -- cycle; 
+\draw (1.2,0.4) node{$\phi$};
+\draw (-0.2,0) -- (5,0);\draw (0,3.5) -- (0,-1);
+\draw [thick] (0,0) -- (4,0);
+\draw [thick] (4,0) -- (4,3);
+\draw [->, thick, color=red] (0,0) -- (4,3);
+\draw (2,0) node[below=5pt]{$P$};
+\draw (4,1.5) node[right=5pt]{$jQ$};
+\draw (2,1.5) node[above=5pt, color=red]{$S$};
+\end{tikzpicture} \hspace{1cm}
+\begin{tikzpicture} [scale=0.7, >=latex]
+\draw (-0.2,0) -- (5,0);\draw (0,3.5) -- (0,-1);
+\draw [thick] (0,0) -- (4,0);
+\draw [->, thick, color=red] (0,0) -- (4,0);
+\draw (2,0) node[below=5pt]{$P=|S|$};
+\draw (2,0) node[above=5pt, color=red]{$S$};
+\end{tikzpicture}
+\caption{Compensation (parfaite) du facteur de puissance\label{fig:compensationPF}.}
+\end{figure}
+
+\paragraph{Expression de $P$ et $Q$ à partir de l'impédance (admittance) du	dipôle.} Soit une Impédance $Z=R + j X$ : 
+\[S=\bar{U}\,\bar{I}^*=Z\bar{ I}\bar{I}^*=ZI^2= R\, I^2+jX\,I^2\]
+On peut écrire, en fonction du courant, 
+\[P=R\, I^2\qquad Q= X\,I^2\]
+Si on considère plutôt l'admittance $Y = G + j B$ :
+\[S=\bar{U}\,\bar{I}^*=Y^*\bar{U}\bar{U}^*=Y^*U^2= G\, U^2-jB\,U^2\]
+On peut écrire, en fonction de la tension,
+	\[P=G\, U^2\qquad Q= -B\,U^2\]
+	
+\paragraph{Conservation de la puissance complexe.}
+		
+Dans un circuit linéaire et invariant alimenté par des sources indépendantes sinusoïdales
+fonctionnant toutes à la même fréquence, la somme des puissances
+\textbf{complexes} fournies par les sources est égale à la somme des
+puissances complexes consommées par les éléments des autres branches
+du circuit.
+
+Dans chaque branche,  $u_i$ et $i_i$ sont choisis dans le même sens
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{figs/ch4_figs/conservation_S}
+\end{marginfigure}
+\begin{itemize}
+	\item ${\bf i}_B$ obéit à la PLK $\rightarrow \bar{\bf I}_B^*$ obéit aussi
+	à la PLK
+	\item ${\bf u}_B$ obéit à la SLK $\rightarrow \bar{\bf U}_B$ obéit aussi
+	à la SLK
+	\item $\bar{\bf I}_B^*$,  $\bar{\bf U}_B$ satisfont le théorème de
+	Tellegen (cf. Chapitre~\ref{sec:theoremes}) et \[\bar{\bf I}_B^*\bar{\bf U}_B=0\]
+\end{itemize}
+\[\bar{\bf I}_B^*\bar{\bf U}_B=\sum_{i=1}^b\bar{U}_i\bar{I}_i^* = S
+\quad \text{est la puissance complexe totale fournie au circuit.}\]
+
+\paragraph{Synthèse.}
+Soient $P$ et $Q$ sont les puissances consommées par le dipôle. La Table~\ref{tab:synthese} synthétise les paragraphes précédents. 
+\begin{table}[htb]
+	\caption{Synthèse des valeurs admissibles du déphasage, du facteur de puissance, de la puissance active, et de la puissance réactive pour les dipôles les plus communs.\label{tab:synthese}}
+\begin{center}
+	{\small \begin{tabular}{|l|c|c|c|c|}
+			\hline
+			Dipôle & arg$[Z]$ & $\cos \Phi$ & $P$ & $Q$\\ \hline
+			R & 0 & 1 & $P>0$ & $Q=0$\\
+			L & $90^{\circ}$ & 0 & $P=0$ & $Q=\omega L I^2 > 0$\\
+			C & $-90^{\circ}$ & 0 & $P=0$ & $Q=-\omega C U^2 <0$\\
+			LC & $\pm 90^{\circ}$ & 0 & $P=0$ & $Q > < 0$\\
+			RL & $0< \Phi < 90^{\circ}$ & $0 < \cos \Phi < 1$ & $P>0$ & $Q>0$\\
+			RC & $-90^{\circ}< \Phi < 0$ & $0 < \cos \Phi < 1$& $P>0$  & $Q<0$
+			\\ \hline
+	\end{tabular}}
+\end{center}
+\end{table}
+
+\section{Circuits magnétiquement couplés}
+
+\subsection{Inductances couplées}
+	
+\begin{marginfigure}
+\centering
+\includegraphics[width=4cm]{figs/ch4_figs/CMC_principe}
+\caption{Circuits magnétiquement couplés. \label{fig:couples} }
+\end{marginfigure}
+Soient deux circuits magnétiquement couplés comme indiqué à la Figure~\ref{fig:couples}.
+Le flux produit par $i_1$ embrasse la bobine 2 et inversement.
+Le courant variable $i_1$ induit donc une f.e.m aux bornes de la bobine 2.
+Soient $N_1$ et $N_2$ le nombre de tours de la bobine 1 et 2, respectivement.
+
+\paragraph{Relations entre courants et tensions.}
+Si $i_1$ agit seul et que le circuit 2 est ouvert, le flux généré par $i_1$ se décompose en 
+\[\phi_1^{(1)}=\phi_{l1}+\phi_m^{(1)}\]
+$\phi_{l1}$ est la partie du flux qui traverse uniquement la bobine 1 (flux de fuite), 
+$\phi_m^{(1)}$ est la partie du flux qui traverse à la fois la bobine 1 et la bobine 2.
+Les tensions induites sont :
+\begin{eqnarray*}
+	u_1^{(1)} & = &N_1\frac{d\phi_1^{(1)}}{dt}=N_1\frac{d(\phi_{l1}+\phi_m^{(1)})}{dt}=L_1\frac{di_1}{dt}\\
+	u_2^{(1)} & = & N_2\frac{d\phi_m^{(1)}}{dt}=L_{21}\frac{di_1}{dt}
+\end{eqnarray*}
+Si $i_2$ agit seul et que le circuit 1 est ouvert, le flux généré par $i_2$ se décompose en 
+	\[\phi_2^{(2)}=\phi_{l2}+\phi_m^{(2)}.\]
+Les tensions induites sont :
+\begin{eqnarray*}
+	u_1^{(2)} & = &N_1\frac{d\phi_m^{(2)}}{dt}=L_{12}\frac{di_2}{dt}\\
+	u_2^{(2)} & = & N_2\frac{d\phi_2^{(2)}}{dt}=L_2\frac{di_2}{dt}
+\end{eqnarray*}
+	
+\paragraph{Inductance mutuelle $M$.}
+On a $L_{12}=L_{21}=M$, l'inductance mutuelle.
+$M$ dépend de la géométrie du système, de la distance et de
+l'orientation relative entre les deux bobines.
+Par superposition (Chapitre~\ref{sec:theoremes}), si $i_1$ et $i_2$ agissent simultanément
+\begin{eqnarray*}
+	u_1& = &L_1\frac{di_1}{dt}+M\frac{di_2}{dt}\\
+	u_2& = &M\frac{di_1}{dt}+L_2\frac{di_2}{dt}
+\end{eqnarray*}
+	
+\paragraph{Modèle de deux inductances couplées.}
+\[\left[
+\begin{array}{c}
+u_1\\
+u_2
+\end{array}\right] = \left[
+\begin{array}{cc}
+L_1 & M \\
+M & L_2
+\end{array}\right]
+\frac{d}{dt}\left[
+\begin{array}{c}
+i_1\\i_2
+\end{array}\right]\]
+			
+\begin{marginfigure}
+\centering
+\includegraphics[width=4cm]{figs/ch4_figs/CMC_schematic}
+\caption{Quadripôle repésentant deux inductances couplées.}
+\end{marginfigure}
+			
+			
+\paragraph{Signe de $M$.}
+	
+Selon l'arrangement des bobines, $M$ est positif ou négatif.
+	
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=0.8\linewidth]{figs/ch4_figs/CMC_cas1}
+\end{minipage}	
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+$M>0$\\
+		$\phi_m^{(1)}$ et $\phi_m^{(2)}$ dans le même sens\\
+		ils s'ajoutent
+\end{center}
+\end{minipage}	
+
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.8\linewidth]{figs/ch4_figs/CMC_cas2}
+\end{minipage}	
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+$M<0$\\
+		$\phi_m^{(1)}$ et $\phi_m^{(2)}$ en sens opposés\\
+		ils se soustraient
+\end{center}
+\end{minipage}	
+			
+\paragraph{Indication du signe de $M$.}
+Sur le schéma, on repère le signe de $M$ par des points :
+$M>0$ si $i_1$ et $i_2$ entrent ou sortent tous les deux par la borne dotée d'un point.
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{figs/ch4_figs/CMC_symbols}
+\end{center}	
+	
+	
+\paragraph{Coefficient de couplage $k$.} Le coefficient de couplage $k$ permet de définir la valeur de $M$ à partir de $L_1$ et $L_2$.
+	\[M=k\sqrt{L_1L_2}\]
+	\[-1\leq k \leq 1.\]
+Cas extrêmes : 
+\begin{itemize}
+	\item $k=0$ : aucun couplage entre les deux bobines ; le flux créé par
+	chaque bobine ne traverse que cette bobine.
+	\item $|k|=1$ : couplage parfait ; tout le flux créé par chaque bobine
+	traverse l'autre bobine.
+\end{itemize}
+	
+\subsection{Le transformateur}
+	
+Un transformateur est composé de deux enroulements  magnétiquement couplés, équivalents à une paire d'inductances couplées.
+Il est utile pour
+\begin{itemize}
+	\item adapter le niveau de tension en transport et distribution de l'énergie électrique
+	\item adapter l'impédance d'un circuit à une impédance de charge dans les circuits électroniques, pour les télécommunications notamment
+	\item réaliser des mesures de courant et de tension (voir cours de mesures électriques).
+\end{itemize}
+Un modèle ``réaliste'' se compose d'une paire d'inductances couplées et d'une résistance pour chaque enroulement, pour modéliser les pertes (Figure~\ref{fig:tfo_reel}).
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{figs/ch4_figs/transfo}
+\caption{Modèle "réel" d'un transformateur.}\label{fig:tfo_reel}
+\end{figure}	
+	
+\paragraph{Le transformateur idéal.}
+Idéalisations :
+\begin{itemize}
+	\item $R_1=R_2=0$
+	\item couplage parfait : $k=1$, pas de flux de fuite
+	\item matériau ferromagnétique idéal : $\mu=\infty \rightarrow
+	L_1\rightarrow \infty$, $L_2\rightarrow \infty$, $M\rightarrow \infty$
+\end{itemize}
+
+On peut écrire :
+{\[\left[
+	\begin{array}{c}
+	u_1\\
+	\frac{di_1}{dt}
+	\end{array}\right] = \left[
+	\begin{array}{cc}
+	\frac{L_1}{M} & M-\frac{L_1L_2}{M} \\
+	\frac{1}{M} & -\frac{L_2}{M}
+	\end{array}\right]
+	\left[
+	\begin{array}{c}
+	u_2\\ \frac{di_2}{dt}
+	\end{array}\right]\]}
+Tenant compte des idéalisations
+{\[\left[
+	\begin{array}{c}
+	u_1\\
+	\frac{di_1}{dt}
+	\end{array}\right] = \left[
+	\begin{array}{cc}
+	\sqrt{\frac{L_1}{L_2}}  & 0\\
+	0 & -\sqrt{\frac{L_2}{L_1}}
+	\end{array}\right]
+	\left[
+	\begin{array}{c}
+	u_2\\ \frac{di_2}{dt}
+	\end{array}\right]
+	\]}
+Le \textit{rapport de transformation} $n$ est définit comme 
+\[n=\frac{L_2}{M}=\frac{M}{L_1}=\sqrt{\frac{L_2}{L_1}}=\frac{N_2}{N_1}\]
+et on obtient les relations qui caractérisent l'élément ``transformateur idéal'' ( Table~\ref{tab:tfo_ideal}), illustrées à la Figure~\ref{fig:tfo_ideal}.
+\begin{table}[h]
+	\caption{Relation $u-i$ du transformateur idéal.\label{tab:tfo_ideal}}
+\begin{boxedminipage}{\linewidth}
+\begin{align*}
+	u_2& = nu_1\\
+	i_1 & =  -ni_2
+\end{align*}
+\end{boxedminipage}			
+\end{table}
+\begin{figure}[h]
+\centering
+\includegraphics[width=4cm]{figs/ch4_figs/transfo_UetI}
+\label{fig:tfo_ideal}
+\caption{Représentation du quadripôle "transformateur idéal".}
+\end{figure}			
+	
+\section{Le triphasé}
+Le transport à grande distance de l'énergie électrique s'effectue usuellement en régime
+alternatif triphasé (à la fréquence de 50 Hz, comme par exemple en Europe, où de 60
+Hz comme par exemple aux USA), à très haute tension (THT) : 700, 400, 220, 150 kV.
+
+La THT sert notamment à réduire les pertes par effet Joule dans les conducteurs (ces pertes sont approximativement fonction inverse du carré de la tension). Le régime alternatif permet l'utilisation de transformateurs, fournissant un moyen commode d'élever la tension à partir des centrales de production (11 à 30 kV) et d'abaisser la tension à l'autre extrémité du réseau de transport : noeuds "BT" du réseau de distribution (par exemple 60 à 6 kV). Le régime triphasé, enfin possède des avantages multiples : création aisée d'un champ tournant exploité dans les moteurs, tels les moteurs à induction ; économie substantielle en matériaux conducteurs et en frais fixes d'installation ; puissance instantanée fournie à la charge triphasée constante.
+
+Dans cette section nous esquissons très brièvement certaines caractéristiques saillantes des systèmes triphasés équilibrés. Les  représentations schématiques montrées ci-dessous sont  non conformes à la réalité, car les charges d'utilisation ainsi que les centrales de production apparaissent connectées directement au réseau de transport ; le réseau lui même est représenté par des fils électriques, alors qu'une modélisation même simplifiée impliquerait l'utilisation de quadripôles équivalents en $\pi$.
+
+\subsection{Systèmes triphasés équilibrés}
+Un réseau triphasé est un réseau comportant des "générateurs triphasés", des "charges triphasées" et des circuits de transmission reliant les générateurs aux charges. Un réseau triphasé est dit "équilibré" lorsque tous ses éléments le sont. Explicitons brièvement ces termes.
+
+Un générateur triphasé est un générateur à trois enroulements distincts, symétriquement distribués dans l'espace à 120° les uns des autres. Dans ces enroulements se développent des forces électromotrices qui, lorsque le générateur est équilibré, sont égales en module et temporellement déphasées entre elles d'un tiers de période. Une charge triphasée est un circuit d'utilisation comportant trois accès. La charge triphasée est équilibrée lorsque les impédances vues des trois accès sont identiques.
+Le réseau de transmission triphasé est un ensemble de trois "lignes électriques" reliant le générateur à la charge. Ce circuit est équilibré lorsque les trois lignes présentent des impédances identiques.
+Les connexions entre les enroulements des générateurs et les impédances d'utilisation peuvent se faire en étoile ou en triangle.
+Ceci est illustré à la Figure~\ref{fig:triphase}.
+\begin{figure}[htb]
+	\centering
+	\input{figs/triphase/monttrich11.tikz}
+	\caption{Représentation schématique d'un circuit triphasé.}
+	\label{fig:triphase}
+\end{figure}
+
+\subsection{Montage en étoile}
+Considérons le générateur représenté su la Figure~\ref{fig:gentridch11}. Il possède trois enroulements, supposés équilibrés, délivrant dès lors les forces électromotrices:
+\begin{figure}[tb]
+\centering
+\includegraphics[width=0.6\linewidth]{figs/triphase/gentridch11}
+\caption{Générateur triphasé.}
+\label{fig:gentridch11}
+\end{figure}
+\begin{marginfigure}
+	\centering
+	\input{figs/triphase/tentrich11.tikz}
+	\caption{Phaseurs de tension des trois phases. \label{fig:seq_directe}}
+\end{marginfigure}
+{\begin{alignat*}{2}
+\bar{V}_a& =  Ve^{j\phi_u} & \quad v_a(t) & =\sqrt{2}V\cos(\omega t+\phi_u)\\
+\bar{V}_b& =  Ve^{j(\phi_u-\frac{2\pi}{3})} &  \quad v_b(t) &
+=\sqrt{2}V\cos(\omega t+\phi_u-\frac{2\pi}{3})\\
+& = \bar{V}_ae^{-j\frac{2\pi}{3}} & & = \sqrt{2}V\cos(\omega (t-\frac{T}{3})+\phi_u)\\
+\bar{V}_c& =  Ve^{j(\phi_u-\frac{4\pi}{3})} & \quad v_c(t) & 
+=\sqrt{2}V\cos(\omega t+\phi_u-\frac{4\pi}{3}) \\
+& = \bar{V}_ae^{-j\frac{4\pi}{3}}& & = \sqrt{2}V\cos(\omega (t-\frac{2T}{3})+\phi_u)
+\end{alignat*}}
+On parle de \textit{séquence directe} des 3 phases $a$,$b$, et $c$ si (cf. Figure~\ref{fig:seq_directe}) un observateur placé en $O$ voit passer les vecteurs tournants dans l'ordre $a,b,c$.
+
+
+Le système étant par hypothèse équilibré, les trois courants sont également temporellement déphasés de $2\pi/3$. En adoptant $\bar{I}_a$ comme origine des phases, on écrit :
+\begin{marginfigure}
+	\centering
+	\input{figs/triphase/courtrich11.tikz}
+	\caption{Phaseurs de COURANT des trois phases. \label{fig:3P_courants}}
+\end{marginfigure}
+
+\begin{alignat*}{2}
+	\bar{I}_a& =  Ie^{j\phi_i} & \quad i_a(t) & =\sqrt{2}I\cos(\omega t+\phi_i)\\
+	\bar{I}_b& =  Ie^{j(\phi_i-\frac{2\pi}{3})} &  \quad i_b(t) &
+	=\sqrt{2}I\cos(\omega t+\phi_i-\frac{2\pi}{3})\\
+	& = \bar{I}_ae^{-j\frac{2\pi}{3}} & & = \sqrt{2}I\cos(\omega (t-\frac{T}{3})+\phi_i)\\
+	\bar{I}_c& =  Ie^{j(\phi_i-\frac{4\pi}{3})} & \quad i_c(t) & 
+	=\sqrt{2}I\cos(\omega t+\phi_i-\frac{4\pi}{3}) \\
+	& = \bar{I}_ae^{-j\frac{4\pi}{3}}& & = \sqrt{2}I\cos(\omega (t-\frac{2T}{3})+\phi_i)
+\end{alignat*}
+
+Les trois phases sont connectées en un noeud commun, tant du côté générateur que du côté récepteur. On obtient un réseau de transmission à quatre fils, dont le fil de retour, fil \textit{neutre}, n'est parcouru par aucun courant car : 
+\[\bar{V}_a+\bar{V}_b+\bar{V}_c=0,\]
+\[\bar{I}_a+\bar{I}_b+\bar{I}_c=0.\]
+
+
+Dans ce qui suit et sauf spécification contraire, on suppose que le réseau est équilibré.
+
+\paragraph{Courants de phase et de ligne.}
+D'après la Figure~\ref{fig:triphase}, on voit que les courants parcourant les trois "phases" (générateurs et charges) sont les mêmes que ceux parcourant les trois fils de lignes.
+
+\paragraph{Tensions simple et composée.}
+$\bar{V}_a$ est une {\em tension de phase} (ou tension simple) : c'est
+la différence de potentiel aux bornes d'une charge monophasée, ou la
+différence de potentiel entre une ligne et le neutre.
+
+$\bar{U}_{ab}$ est une {\em tension de ligne} (ou tension composée ou
+tension entre phases) : c'est la différence de potentiel entre deux
+phases.
+\begin{figure}[ht]
+\begin{center}
+	\input{figs/triphase/monttri2ch11.tikz}
+	\caption{Tension de ligne et tension composée.}
+\end{center}
+\end{figure}
+Les trois tensions de ligne sont :
+\begin{eqnarray*}
+	\bar{U}_{ab}& =&
+	\bar{V}_a-\bar{V}_b=\sqrt{3}\bar{V}_ae^{j\frac{\pi}{6}}\\
+	\bar{U}_{bc}& =& \bar{V}_b-\bar{V}_c=\sqrt{3}\bar{V}_be^{j\frac{\pi}{6}}\\
+	\bar{U}_{ca}& =& \bar{V}_c-\bar{V}_a=\sqrt{3}\bar{V}_ce^{j\frac{\pi}{6}}\
+\end{eqnarray*}
+\begin{marginfigure}
+	\input{figs/triphase/tencompch11.tikz}
+	\caption{Phaseurs des tensions de ligne et tensions composées.}
+\end{marginfigure}
+$\bar{U}_{ab}$, $\bar{U}_{bc}$, $\bar{U}_{ca}$ forment aussi une
+séquence directe et $U=\sqrt{3}V$.
+
+On voit ainsi que l'existence du fil neutre présente l'avantage d'offrir deux tensions distinctes, la tension simple et la tension composée, les modules de ces deux tensions étant dans le rapport $1/\sqrt{3}$.
+Dans un circuit de distribution domestique la tension de phase vaut 230 V (tension phase-neutre) et la tension de ligne vaut 400 V.
+
+\paragraph{Le neutre à la terre.}
+Il serait en principe possible de supprimer le fil neutre et d'obtenir un réseau en étoile à trois fils. En réalité cependant, un réseau n'est jamais parfaitement équilibré. Si on souhaite se passer du fil de neutre, on doit alors connecter les neutres à la terre. Le (faible) courant de déséquilibre circule donc via la terre.
+Ce montage présente un avantage en cas de court-circuit entre une phase et la terre, car il  évite les surtensions. Soit $\bar{V}_c=0$, 
+\begin{itemize}
+	\item si N et N$^{'}$ ne sont pas mis à la terre, il existe une 
+	différences de potentiel entre les deux autres phases et la terre égale à la tension composée, $\sqrt{3}V$, tension supérieure à la tension normale ;
+	\item si N et N$^{'}$ sont mis à la terre, les d.d.p. entre les deux autres phases et la terre conservent des valeurs normales,
+	un courant de ``fuite'' $i_a+i_b+i_c$ non
+	négligeable circule via la terre entre le point de court-circuit et
+	le neutre, ce courant peut être détecté par une protection (disjoncteur différentiel !)
+\end{itemize}
+Ce type de raccordement à la terre (réseau dit "IT") et utilisé par exemple dans les hôpitaux car il offre plus de robustesse à des défauts (pas d'interruption totale de service, pas de surtension). Cependant dès qu'un défaut est identifié il importe de le corriger rapidement afin de restaurer le mode de fonctionnement nominal du système. Il requiert donc un monitoring et des protections plus avancées qu'un système où le neutre est distribué.
+
+\subsection{Montage en triangle}
+
+Un équipement triphasé peut être connecté en étoile comme plus haut ou
+en triangle (Figure~\ref{fig:triangle}).
+\begin{figure}[hb]
+	\centering
+	\input{figs/triphase/triangch11.tikz}
+	\caption{Connection en triangle.\label{fig:triangle}}
+\end{figure}
+Dans ce cas, il y a un seul type de tension, la tension de ligne,  mais  deux courants:
+$\bar{I}_a$, $\bar{I}_b$, $\bar{I}_c$ sont les courants de ligne,
+$\bar{I}_{ab}$, $\bar{I}_{bc}$, $\bar{I}_{ca}$ sont les courants de phase.
+Il n'y a pas de point neutre.
+Chaque conducteur de ligne est traversé par un courant égal à la différence des courants de deux phases.
+\begin{eqnarray*}
+	\bar{I}_{a}& =&
+	\bar{I}_{ab}-\bar{I}_{ca}=\sqrt{3}\bar{I}_{ab}e^{-j\frac{\pi}{6}}\\
+	\bar{I}_{b}& =& \bar{I}_{bc}-\bar{I}_{ab}=\sqrt{3}\bar{I}_{bc}e^{-j\frac{\pi}{6}}\\
+	\bar{I}_{c}& =& \bar{I}_{ca}-\bar{I}_{bc}=\sqrt{3}\bar{I}_{ca}e^{-j\frac{\pi}{6}}\
+\end{eqnarray*}
+
+
+\subsection{Puissance}
+\paragraph{Montage en étoile.}
+La Puissance instantanée fournie à une charge triphasée connectée en
+étoile est 
+\begin{eqnarray*}
+	p_{3\phi}(t)& =& v_ai_a+v_bi_b+v_ci_c\\
+	& = & 2VI\left[\cos(\omega t+\phi_u)\cos(\omega t+\phi_i)+ \right.\\
+	& & \left. + \cos(\omega
+	t+\phi_u-\frac{2\pi}{3})\cos(\omega t+\phi_i-\frac{2\pi}{3})+ \right.\\
+	& & \left. +\cos(\omega t+\phi_u-\frac{4\pi}{3})\cos(\omega
+	t+\phi_i-\frac{4\pi}{3})\right]\\
+	& = &3VI\cos(\phi_u-\phi_i)+ VI\left[
+	\cos(2\omega t+\phi_u+\phi_i)+ \right.\\
+	& & \left. + \cos(2\omega t+\phi_u+\phi_i-\frac{2\pi}{3})+
+	\cos(2\omega t+\phi_u+\phi_i-\frac{4\pi}{3})\right]\\
+	& = & 3VI\cos(\phi_u-\phi_i)=3P
+\end{eqnarray*}
+La puissance triphasée instantanée, $p_{3\phi}(t)$ est constante !
+Elle vaut 3 fois la puissance active consommée par l'impédance $Z_L$  d'une des phases.
+
+La puissance complexe triphasée fournie à une charge triphasée connectée en
+étoile est 
+\begin{eqnarray*}
+	S_{3\phi}& = &\bar{V}_a\bar{I}_a^*+\bar{V}_b\bar{I}_b^*+\bar{V}_c\bar{I}_c^*\\
+	& = & \bar{V}_a\bar{I}_a^*(1+e^{-j\frac{2\pi}{3}}e^{j\frac{2\pi}{3}}+
+	e^{-j\frac{4\pi}{3}}e^{j\frac{4\pi}{3}})\\
+	& =& 3\bar{V}_a\bar{I}_a^*\\
+	& = & 3VI(\cos(\phi_u-\phi_i)+j\sin(\phi_u-\phi_i))
+\end{eqnarray*}
+La puissance active triphasée est 
+	\[P_{3\phi}=3VI\cos(\phi_u-\phi_i)\]
+La puissance réactive triphasée est 
+	\[Q_{3\phi}=3VI\sin(\phi_u-\phi_i)\]
+C'est une notion artificielle puisque la puissance instantanée est constante. Seule la puissance réactive par phase a une signification physique.
+
+\paragraph{Montage en triangle.}
+La puissance instantanée fournie à une charge triphasée connectée en
+triangle vaut 
+\begin{eqnarray*}
+p_{3\phi}(t)& =& u_{ab}i_{ab}+u_{bc}i_{bc}+u_{ca}i_{ca}\\
+& = & 3UI_{ph}\cos(\phi_u-\phi_i)=3P
+\end{eqnarray*}
+Pour ce qui est de la puissance complexe fournie à une charge triphasée connectée en triangle :
+\begin{eqnarray*}
+	S_{3\phi}& = &\bar{U}_{ab}\bar{I}_{ab}^*+\bar{U}_{bc}\bar{I}_{bc}^*+\bar{U}_{ca}\bar{I}_{ca}^*\\
+	& = & 3UI_{ph}(\cos(\phi_u-\phi_i)+j\sin(\phi_u-\phi_i))\\
+	& =& P_{3\phi}+jQ_{3\phi}
+\end{eqnarray*}
+
+\paragraph{Résumé.}
+Pour un montage en étoile :
+\begin{eqnarray*}
+	P_{3\phi}& =& 3VI\cos(\phi_u-\phi_i)= \sqrt{3}UI\cos(\phi_u-\phi_i)\\
+	Q_{3\phi}& = & 3VI\sin(\phi_u-\phi_i)= \sqrt{3}UI\sin(\phi_u-\phi_i)
+\end{eqnarray*}
+pour un montage en triangle :
+{\small \begin{eqnarray*}
+		P_{3\phi}& =& 3UI_{ph}\cos(\phi_u-\phi_i)= \sqrt{3}UI_{l}\cos(\phi_u-\phi_i)\\
+		Q_{3\phi}& = & 3UI_{ph}\sin(\phi_u-\phi_i)= \sqrt{3}UI_{l}\sin(\phi_u-\phi_i)
+	\end{eqnarray*}}
+Pour les deux montages :
+\begin{eqnarray*}
+	P_{3\phi}& =& \sqrt{3}UI\cos(\phi_u-\phi_i)\\
+	Q_{3\phi}& = & \sqrt{3}UI\sin(\phi_u-\phi_i)\\
+	p_{3\phi}(t)& = & P_{3\phi}=3P
+\end{eqnarray*}
+où
+\begin{itemize}
+	\item $U$ est l'amplitude de la tension de ligne
+	\item $I$ est l'amplitude du courant de ligne
+	\item $\phi_u-\phi_i$ est le déphasage entre la tension de phase et le
+	courant de phase.
+\end{itemize}

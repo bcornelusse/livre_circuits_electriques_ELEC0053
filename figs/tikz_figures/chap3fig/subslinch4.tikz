@@ -1,0 +1,38 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[dashed,black] (10.73468,1.15953) +(113:5.19089) arc (113:67:5.19089);
+\filldraw[black] (5.61111,4.12222) ellipse (0.06667cm and 0.05111cm);
+\filldraw[black] (5.61111,5.70667) ellipse (0.06667cm and 0.05111cm);
+\filldraw[black] (11.44444,4.08667) ellipse (0.06667cm and 0.05111cm);
+\filldraw[black] (11.44444,5.67333) ellipse (0.06667cm and 0.05111cm);
+\draw[black] (12,4.78222) circle (0.25333cm);
+\draw[black] (3.02222,3.93556) rectangle (5.01111,5.82444);
+\draw[black] (6,4.51111) rectangle (6.36667,5.25778);
+\draw[black] (4.72222,4.12222) -- (6.2,4.12222) -- (6.2,4.50222);
+\draw[black] (4.72222,5.70667) -- (6.17778,5.70667) -- (6.17778,5.24889);
+\draw[arrows=-triangle 45,black] (6.14444,3.97778) -- (5.22222,3.97778);
+\draw[dashed,arrows=-triangle 45,black] (6.78889,6.16444) -- (6.28889,5.27333);
+\draw[black] (8.85556,3.9) rectangle (10.84444,5.79111);
+\draw[black] (10.55556,4.08667) -- (12.03333,4.08667) -- (12.03333,4.53556);
+\draw[black] (10.55556,5.67333) -- (12.01111,5.67333) -- (12.01111,5.06222);
+\draw[arrows=-triangle 45,black] (11.97778,3.94222) -- (11.05556,3.94222);
+\path (5.64444,4.38444) node[text=black,anchor=base] {+};
+\path (5.6,5.62222) node[text=black,anchor=base] {-};
+\path (5.64444,5.03556) node[text=black,anchor=base] {$u_k$};
+\path (5.72222,3.92667) node[text=black,anchor=base] {$i_k$};
+\path (3.9,4.94444) node[text=black,anchor=base] {lin\'eaire};
+\path (6.8,6.40889) node[text=black,anchor=base west] {non-lin\'eaire};
+\path (10.51111,6.74889) node[text=black,anchor=base] {lin\'eaire};
+\path (11.47778,4.35111) node[text=black,anchor=base] {+};
+\path (11.43333,5.58667) node[text=black,anchor=base] {-};
+\path (11.55556,3.89333) node[text=black,anchor=base] {$i_k$};
+\path (12.48889,4.86667) node[text=black,anchor=base west] {$u_k$};
+\path (12.04,5.01556) node[text=black,anchor=base] {-};
+\path (12.03556,4.73778) node[text=black,anchor=base] {+};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

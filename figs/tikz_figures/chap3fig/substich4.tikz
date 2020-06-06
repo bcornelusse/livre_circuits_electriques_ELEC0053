@@ -1,0 +1,48 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[dashed,arrows=triangle 45-triangle 45,black] (5.24814,5.71461) +(139:1.35408) arc (139:34:1.35408);
+\filldraw[black] (5.61111,4.25556) circle (0.06667cm);
+\filldraw[black] (5.61111,6.33333) circle (0.06667cm);
+\draw[black] (3.02222,4.01111) rectangle (5.01111,6.48889);
+\draw[black] (6,4.76667) rectangle (6.36667,5.74444);
+\draw[black] (4.72222,4.25556) -- (6.2,4.25556) -- (6.2,4.75556);
+\draw[black] (4.72222,6.33333) -- (6.17778,6.33333) -- (6.17778,5.73333);
+\draw[arrows=-triangle 45,black] (6.14444,4.06667) -- (5.22222,4.06667);
+\path (5.64444,4.6) node[text=black,anchor=base] {+};
+\path (5.6,6.22222) node[text=black,anchor=base] {-};
+\path (5.64444,5.45556) node[text=black,anchor=base] {$u_k$};
+\path (5.72222,4) node[text=black,anchor=base] {$i_k$};
+\path (5.27778,7.53333) node[text=black,anchor=base] {pas de couplage};
+\draw[arrows=-triangle 45,black] (14.46667,5.41111) -- (14.46667,4.95556);
+\draw[black] (10.33556,5.18) circle (0.33111cm);
+\path (10.33556,5.10889) node[text=black,anchor=base] {+};
+\path (10.34,5.47111) node[text=black,anchor=base] {-};
+\filldraw[black] (13.88889,4.25556) circle (0.06667cm);
+\filldraw[black] (13.88889,6.33333) circle (0.06667cm);
+\filldraw[black] (9.74444,4.25556) circle (0.06667cm);
+\filldraw[black] (9.74444,6.33333) circle (0.06667cm);
+\draw[black] (11.3,4.01111) rectangle (13.28889,6.48889);
+\draw[black] (13,4.25556) -- (14.47778,4.25556) -- (14.47778,4.84444);
+\draw[black] (13,6.33333) -- (14.45556,6.33333) -- (14.45556,5.53333);
+\draw[black] (7.15556,4.01111) rectangle (9.14444,6.48889);
+\draw[black] (8.85556,4.25556) -- (10.33333,4.25556) -- (10.33333,4.84444);
+\draw[black] (8.85556,6.33333) -- (10.31111,6.33333) -- (10.31111,5.53333);
+\draw[arrows=-triangle 45,black] (10.27778,4.06667) -- (9.35556,4.06667);
+\path (13.92222,4.6) node[text=black,anchor=base] {+};
+\path (13.87778,6.22222) node[text=black,anchor=base] {-};
+\path (14.93333,5.27778) node[text=black,anchor=base west] {$i_k$};
+\path (13.7,5.31111) node[text=black,anchor=base] {$u_k$};
+\path (6.67333,5.37778) node[text=black,anchor=base] {\fontsize{16.0}{19.2}\selectfont{}$\equiv$};
+\path (9.77778,4.6) node[text=black,anchor=base] {+};
+\path (9.73333,6.22222) node[text=black,anchor=base] {-};
+\path (9.85556,4) node[text=black,anchor=base] {$i_k$};
+\path (9.87778,5.31111) node[text=black,anchor=base east] {$u_k$};
+\path (11.05111,5.37778) node[text=black,anchor=base] {\fontsize{16.0}{19.2}\selectfont{}$\equiv$};
+\draw[black] (14.46889,5.18) circle (0.33111cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

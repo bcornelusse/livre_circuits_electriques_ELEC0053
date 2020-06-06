@@ -1,0 +1,38 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (3.58,6.40444) node[text=black,anchor=base] {$Q^{a}$};
+\path (7.9,6.40444) node[text=black,anchor=base] {$Q^{b}$};
+\path (10.02667,6.41778) node[text=black,anchor=base west] {$\bar{U}_{2}=\bar{U}_{2}^{b}$};
+\path (9.70889,5.51111) node[text=black,anchor=base] {$\bar{I}^{'}_{2}=\bar{I}_{2}^{'b}$};
+\path (5.74,6.42444) node[text=black,anchor=base] {$\bar{U}_{2}^{a}=\bar{U}_{1}^{b}$};
+\path (6.20889,5.45556) node[text=black,anchor=base] {$\bar{I}_{1}^{b}$};
+\path (5.38889,5.45333) node[text=black,anchor=base] {$\bar{I}_{2}^{'a}$};
+\path (1.88889,5.45556) node[text=black,anchor=base] {$\bar{I}_{1}=\bar{I}_{1}^{a}$};
+\path (1.02222,6.44444) node[text=black,anchor=base east] {$\bar{U}_{1}=\bar{U}_{1}^{a}$};
+\filldraw[black] (10.09556,5.76889) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (10.08667,6.87556) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,5.75556) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,6.86667) ellipse (0.06667cm and 0.06667cm);
+\draw[black] (2.5,5.6) rectangle (4.65778,7.05556);
+\draw[black] (1.40667,6.85556) -- (2.48889,6.85556);
+\draw[black] (1.40667,5.77778) -- (2.48889,5.77778);
+\draw[arrows=-triangle 45,black] (1.62222,5.63333) -- (2.27778,5.63333);
+\draw[black] (4.65556,6.86667) -- (5.73778,6.86667);
+\draw[black] (4.66667,5.77778) -- (5.74889,5.77778);
+\draw[arrows=triangle 45-,black] (5.56667,5.65556) -- (4.91111,5.65556);
+\draw[arrows=triangle 45-,black] (9.88667,5.65556) -- (9.23111,5.65556);
+\draw[black] (8.98667,5.77778) -- (10.06889,5.77778);
+\draw[black] (8.97556,6.86667) -- (10.05778,6.86667);
+\draw[arrows=-triangle 45,black] (5.94222,5.63333) -- (6.59778,5.63333);
+\draw[black] (5.72667,5.77778) -- (6.80889,5.77778);
+\draw[black] (5.72667,6.85556) -- (6.80889,6.85556);
+\draw[black] (6.82,5.6) rectangle (8.97778,7.05556);
+\filldraw[black] (5.70889,6.86667) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.70889,5.75556) ellipse (0.06667cm and 0.06667cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,22 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (2.87389,2.85333) +(-59:2.43544) arc (-59:-132:2.43544);
+\draw[dashed,black] (3.45174,1.84805) +(-68:0.34275) arc (-68:44:0.34275);
+\draw[arrows=-triangle 45,black] (2.88667,2.08222) -- (4.21333,0.96667);
+\draw[arrows=-triangle 45,black] (2.88667,2.08222) -- (1.25778,1.48889);
+\draw[arrows=-triangle 45,black] (2.88667,2.08222) -- (3.18444,3.78889);
+\draw[dashed,black] (2.88444,2.09778) -- (4.32,2.09778);
+\path (1.54222,1.46444) node[text=black,anchor=base west] {$\bar{V}_c$};
+\path (3.22889,3.55333) node[text=black,anchor=base west] {$\bar{V}_b$};
+\path (3.87111,1.98222) node[text=black,anchor=base west] {$\phi_u$};
+\path (3.93778,1.44667) node[text=black,anchor=base west] {$\bar{V}_a$};
+\filldraw[black] (2.07778,0.78889) circle (0.03333cm);
+\path (2.28889,0.93333) node[text=black,anchor=base west] {O};
+\path (4.02222,0.62222) node[text=black,anchor=base west] {$\omega$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

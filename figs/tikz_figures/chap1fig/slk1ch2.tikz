@@ -1,0 +1,37 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\filldraw[black] (3.49778,3.20444) circle (0.06667cm);
+\filldraw[black] (6.02,3.20444) circle (0.06667cm);
+\filldraw[black] (6.02,5.48889) circle (0.06667cm);
+\filldraw[black] (3.51111,5.48889) circle (0.06667cm);
+\draw[black] (4.5,3.04444) rectangle (5.47778,3.35556);
+\draw[black] (3.34444,4.93333) rectangle (3.65556,3.95556);
+\draw[black] (5.85556,4.93333) rectangle (6.16667,3.95556);
+\draw[black] (3.51111,4.94444) -- (3.51111,5.51111);
+\draw[black] (3.48889,3.2) -- (4.5,3.2);
+\draw[black] (3.5,3.94444) -- (3.5,3.21111);
+\draw[black] (5.5,3.22222) -- (5.98889,3.22222);
+\draw[black] (6,3.96667) -- (6,3.22222);
+\draw[black] (3.52222,5.52222) -- (2.97778,5.86667);
+\draw[black] (6.02222,5.51111) -- (6.81111,6.1);
+\draw[black] (6.02222,3.24444) -- (6.46667,2.66667);
+\draw[black] (3.51111,3.18889) -- (3.12222,2.61111);
+\draw[black] (4.5,5.32222) rectangle (5.47778,5.63333);
+\draw[black] (3.51111,5.51111) -- (4.51111,5.51111);
+\draw[black] (5.5,5.48889) -- (6.02222,5.48889) -- (6.02222,4.93333);
+\path (3.03333,3.82222) node[text=black,anchor=base] {+};
+\path (3.1,5.23333) node[text=black,anchor=base] {-};
+\path (4.23333,2.98889) node[text=black,anchor=base] {+};
+\path (5.61111,2.93333) node[text=black,anchor=base] {-};
+\path (6.3,3.88889) node[text=black,anchor=base] {+};
+\path (6.26667,5.3) node[text=black,anchor=base] {-};
+\path (4.16667,6.01111) node[text=black,anchor=base] {+};
+\path (5.63333,6) node[text=black,anchor=base] {-};
+\path (4.86667,2.88889) node[text=black,anchor=base] {$u_b$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

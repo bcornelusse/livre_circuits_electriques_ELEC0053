@@ -1,0 +1,15 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (7.50667,2.48889) rectangle (8.49556,3.47778);
+\draw[black] (8.28444,2.65556) -- (9.10667,2.65556) -- (9.10667,3.38889) -- (8.25111,3.38889);
+\draw[arrows=-triangle 45,black] (9.10667,2.8) -- (9.10667,3.22222);
+\path (8.27333,2.93333) node[text=black,anchor=base] {+};
+\path (8.25111,3.38889) node[text=black,anchor=base] {-};
+\path (9.18444,3.17778) node[text=black,anchor=base west] {$i_{cc}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

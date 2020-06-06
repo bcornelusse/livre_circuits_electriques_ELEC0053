@@ -1,0 +1,45 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (4.75111,3.52222) -- (4.75111,4.61333);
+\draw[black] (9.11111,4.62) -- (9.11111,4.42889);
+\draw[black] (9.11111,3.78) -- (9.11111,3.54889);
+\draw[black] (3.49333,3.52222) -- (3.49333,4.61333);
+\draw[black] (-0.85333,3.76) -- (-0.85333,3.48222);
+\draw[black] (-0.87111,4.40222) -- (-0.87111,4.61333);
+\path (-1.33111,4.12444) node[text=black,anchor=base east] {$v_{s1}$};
+\path (9.68889,4.18) node[text=black,anchor=base west] {$v_{s2}$};
+\filldraw[black] (4.74667,3.50889) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (4.74667,4.62) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (9.11111,3.51778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (9.1,4.62) ellipse (0.06667cm and 0.06667cm);
+\draw[black] (5.85778,3.35333) rectangle (8.01556,4.80889);
+\draw[black] (4.76444,4.60889) -- (5.84667,4.60889);
+\draw[black] (4.76444,3.53111) -- (5.84667,3.53111);
+\draw[arrows=-triangle 45,black] (4.98,3.38667) -- (5.63556,3.38667);
+\draw[black] (8.01333,4.62) -- (9.09556,4.62);
+\draw[black] (9.10222,4.11556) ellipse (0.33111cm and 0.33111cm);
+\path (9.10222,4.04444) node[text=black,anchor=base] {+};
+\path (9.10667,4.40667) node[text=black,anchor=base] {-};
+\draw[black] (8.02444,3.53111) -- (9.10667,3.53111);
+\filldraw[black] (-0.87111,3.50889) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (-0.87111,4.62) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (3.50444,3.53111) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (3.49333,4.62) ellipse (0.06667cm and 0.06667cm);
+\draw[black] (0.23778,3.35333) rectangle (2.39556,4.80889);
+\draw[black] (-0.85333,4.60889) -- (0.22667,4.60889);
+\draw[black] (-0.85333,3.53111) -- (0.22667,3.53111);
+\draw[black] (2.39333,4.62) -- (3.47556,4.62);
+\draw[black] (2.40444,3.53111) -- (3.48667,3.53111);
+\draw[arrows=-triangle 45,black] (3.30444,3.40889) -- (2.64889,3.40889);
+\path (3.12667,3.26444) node[text=black,anchor=base] {$i_{2}^{a}$};
+\draw[black] (-0.86222,4.07333) ellipse (0.33111cm and 0.33111cm);
+\path (-0.86222,4.00222) node[text=black,anchor=base] {+};
+\path (-0.85778,4.36444) node[text=black,anchor=base] {-};
+\path (5.24667,3.20889) node[text=black,anchor=base] {$i_{1}^{b}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

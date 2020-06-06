@@ -1,0 +1,24 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\filldraw[black] (1.79556,3.41333) circle (0.06667cm);
+\filldraw[black] (1.79556,4.41333) circle (0.06667cm);
+\filldraw[black] (2.49556,3.02222) circle (0.06667cm);
+\filldraw[black] (2.49556,4.84444) circle (0.06667cm);
+\filldraw[black] (2.95556,3.91111) circle (0.06667cm);
+\draw[black] (2.49556,3.7) -- (2.49556,3.05556);
+\draw[black] (2.49556,4.85556) -- (2.49556,4.21111);
+\draw[black] (3.01111,3.91111) -- (4.12222,3.91111);
+\path (2.49556,2.88889) node[text=black,anchor=base] {$+V_{cc}$};
+\path (2.49556,5.22222) node[text=black,anchor=base] {$-V_{cc}$};
+\draw (1.57556,2.96222) -- (3.48,3.91556) -- (1.57556,4.86667) -- cycle;
+\draw (1.18444,3.41333) -- (1.72889,3.41333);
+\draw (1.18444,4.41333) -- (1.72889,4.41333);
+\path (1.98222,3.49778) node[anchor=base west] {-};
+\path (1.93778,4.52222) node[anchor=base west] {+};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

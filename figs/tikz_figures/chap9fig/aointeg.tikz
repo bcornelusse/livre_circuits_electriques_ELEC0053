@@ -1,0 +1,44 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (0.78444,4.5) -- (0.78444,5.34889) -- (6.39333,5.34889);
+\draw[black] (3.76444,4.04444) -- (3.24444,4.04444) -- (3.24444,5.36222);
+\draw[black] (1.33778,3.00667) -- (0.77111,3.00667) -- (0.77111,3.83111);
+\draw[black] (2.14889,3.00667) -- (2.50222,3.00667);
+\draw[black] (5.68667,3.53556) -- (5.68667,1.52667) -- (4.20222,1.52667);
+\draw[black] (4.00889,1.49778) -- (2.55111,1.49778) -- (2.55111,3.00667);
+\draw[black] (1.34222,3.00889) -- (1.39333,3.16667) -- (1.49556,2.84889) -- (1.59778,3.16667) -- (1.69778,2.84889) -- (1.8,3.16667) -- (1.90222,2.84889) -- (2.00444,3.16667) -- (2.10444,2.84889) -- (2.15556,3.00889);
+\path (0.78444,4.46222) node[text=black,anchor=base] {-};
+\path (0.78,4.1) node[text=black,anchor=base] {+};
+\draw[black] (0.78,4.17111) ellipse (0.33111cm and 0.33111cm);
+\path (4.07556,0.98444) node[text=black,anchor=base] {$C$};
+\path (1.42444,2.57333) node[text=black,anchor=base] {$R_s$};
+\filldraw[black] (6.4,5.34444) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (6.4,3.54222) ellipse (0.06667cm and 0.06667cm);
+\path (6.06222,4.50889) node[text=black,anchor=base west] {$v_o$};
+\path (0.36889,4.20667) node[text=black,anchor=base east] {$v_s$};
+\draw[black] (4.29556,5.35556) -- (4.29556,4.11111);
+\draw[black] (5.15111,3.53111) -- (6.40667,3.53111);
+\filldraw[black] (5.68444,3.54222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (2.55111,3.03333) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.08444,3.54222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (3.77333,4.03333) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (3.77333,3.03333) ellipse (0.06667cm and 0.06667cm);
+\draw (4.18889,1.84222) -- (4.18889,1.20667);
+\draw (4.03333,1.84222) -- (4.03333,1.20667);
+\path (3.94889,3.10667) node[anchor=base west] {-};
+\path (3.93778,4.10889) node[anchor=base west] {+};
+\path (6.21778,5.30444) node[anchor=base west] {-};
+\path (6.14889,3.80889) node[anchor=base west] {+};
+\draw (2.55111,3.03333) -- (3.70667,3.03333);
+\draw (3.55333,2.58222) -- (5.45778,3.53556) -- (3.55333,4.48667) -- cycle;
+\draw (4.22667,6) -- (4.38444,6);
+\draw (4.13111,5.84222) -- (4.44889,5.84222);
+\draw (3.97333,5.68222) -- (4.60667,5.68222);
+\draw (4.28889,5.36444) -- (4.28889,5.68222);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

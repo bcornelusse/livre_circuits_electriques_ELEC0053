@@ -1,0 +1,669 @@
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+% !TeX root = syllabus_ELEC0053.tex
+
+\chapter{L'amplificateur opérationnel}
+\label{cha:AO}
+
+\textit{L'amplificateur opérationnel (AO) fait partie de la catégorie des composants actifs.
+En grande majorité, ces éléments sont des quadripôles.
+Dans ce qui suit, nous considérerons avoir affaire à des éléments linéaires obtenus
+par linéarisation autour de leur point de fonctionnement. De plus, nous les supposerons
+invariants. Si cette modélisation facilite l'analyse des circuits, elle devient (presque)
+indispensable pour leur synthèse. Par contre, on ne peut en aucune façon supposer que les
+éléments actifs sont réciproques. Cependant, lorsqu'ils sont utilisés pour simuler des
+éléments passifs telle l'inductance, ils peuvent retrouver une modélisation d'éléments
+réciproques.}
+
+\section{L'élément amplificateur opérationnel}
+l'AO est un composant électronique introduit dans les années 60 comme calculateur analogique.
+C'est un amplificateur de tension possédant deux entrées différentielles et une sortie unique (cf. Figure~\ref{fig:AO}).
+En théorie des circuits, on ne s'intéresse pas à sa constitution interne mais à son fonctionnement, observé d'un certain nombre de ses
+bornes :
+\begin{itemize}
+	\item entrée inverseuse ($v_n$)
+	\item entrée non inverseuse ($v_p$)
+	\item sortie ($v_o$)
+	\item alimentation positive ($+V_{cc}$)
+	\item alimentation négative ($-V_{cc}$)
+\end{itemize}
+\begin{marginfigure}
+	\begin{circuitikz} 
+		\draw
+		(0,0) node[op amp] (opamp) {}
+		(opamp.+) node[left] {$v_p$}
+		(opamp.-) node[left] {$v_n$}
+		(opamp.out) node[right] {$v_o$}
+		(opamp.up) --++(0,0.5) node[above]{$+V_{cc}$}
+		(opamp.down) --++(0,-0.5) node[below]{$-V_{cc}$}
+		;
+	\end{circuitikz}
+	\caption{Représentation d'un AO. \label{fig:AO}}
+\end{marginfigure}
+
+%--------------------------------------------------------------------------------
+
+\subsection{Caractéristiques de fonctionnement}
+Un AO présente un fonctionnement linéaire dans une plage relativement restreinte \alert{$[-\epsilon,\epsilon]$}, au-delà, l'AO fonctionne en saturation. Soit le circuit de la Figure~\ref{fig:AO_base}.
+\begin{figure*}[h]
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{figs/AO/AO_caracteristique}
+\end{center}
+\caption{Fonctionnement de l'amplificateur opérationnel\label{fig:AO_base}.}
+\end{figure*}
+Formellement, on a 
+\[v_o=\begin{cases}
+-V_{sat} & \textcolor{blue}{A}(v_p-v_n)< -V_{sat}\\
+\textcolor{blue}{A}(v_p-v_n) & -V_{sat}\leq \textcolor{blue}{A}(v_p-v_n)\leq V_{sat}\\
++V_{sat}& \textcolor{blue}{A}(v_p-v_n)> V_{sat}
+\end{cases}\]
+En ce qui concerne les courants, la PLK s'applique mais il ne faut pas oublier de prendre en compte l'alimentation :
+\[i_p+i_n+i_o+\underbrace{i_{c+}+i_{c-}}_{\text{Alimentation !}}=0.\]
+
+
+%-------------------------------------------------------------------
+
+\subsection{Modèle idéal}
+En pratique les valeurs typiques des paramètres d'un AO sont :
+\begin{itemize}
+	\item $V_{sat} < 20$ V
+	\item $A$ de l'ordre de $10^4$ à $10^5$
+	\item $\rightarrow$ dans la plage de fonctionnement linéaire
+	$|v_p-v_n|< 2$ mV
+	\item $i_p$, $i_n$ de l'ordre de 0.1 mA
+\end{itemize}
+L'amplificateur opérationnel idéal est supposé avoir un gain infini. Ses caractéristiques sont les suivantes :
+\begin{enumerate}
+\item c'est un élément linéaire ;
+\item le gain $A$ est infini. Ceci a pour conséquence que la tension d'entrée doit être nulle pour que la tension de sortie soit finie. La tension de sortie est indéterminée et indépendante de la charge. Ce sont les éléments placés entre les entrées et la sortie (boucle de retour - feedback) qui permettront de fixer la tension et les courants dans le circuit comportant l'amplificateur idéal :
+$$A=\infty \rightarrow \epsilon=0, \quad v_p=v_n$$
+\item l'impédance d'entrée est infinie, car les courants d'entrée sont nuls :
+$$i_p=i_n=0 \rightarrow Z_{in}=\infty$$
+\item l'impédance de sortie est nulle. Ceci permet à l'amplificateur de délivrer une puissance quelconque à une charge quelconque.
+\end{enumerate}
+Ceci est illustré à la Figure~\ref{fig:AO_ideal}.
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.8\linewidth]{figs/AO/AO}
+	\caption{AO idéal.\label{fig:AO_ideal}}
+\end{figure*}
+
+En résumé, les conséquences de ces hypothèses sont que :
+\begin{eqnarray*}
+	i_n & = & 0\\
+	i_p & = & 0\\
+	v_p-v_n& =& 0 \quad \text{si~} -V_{sat} < v_o < V_{sat}\\
+	v_o &= &V_{sat}\frac{|v_p-v_n|}{v_p-v_n} \quad \text{si~}
+	(v_p-v_n)\neq 0
+\end{eqnarray*}
+Remarques importantes : 
+\begin{itemize}
+	\item En mode de fonctionnement linéaire, $v_o$ est fixé par le circuit
+		extérieur à l'AO car il y a le plus souvent la présence d'une contre-réaction négative (cf. plus bas).
+	\item \alert{Attention : $i_o\neq 0$} car il existe un courant débité par les sources d'alimentation
+\end{itemize}
+
+On notera que l'amplificateur peut être représenté schématiquement comme à la Figure~\ref{fig:AO_equiv} :
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{figs/AO/OpAmpEquivalent}
+	\caption{Schéma équivalent}
+	\label{fig:AO_equiv}
+\end{figure}
+
+
+\subsection{Taux de contre-réaction} Le \textit{taux de contre-réaction}, plus communément appelé \textit{feedback}, provient du circuit qui ramène à l'entrée une fraction du signal de sortie. La Figure~\ref{fig:feedback} représente cette contre-réaction sous forme de schéma-bloc.
+\begin{marginfigure}
+	\centering
+	\caption{Vue "système" de la contre-réaction.}
+	\label{fig:feedback}
+	\includegraphics[width=0.9\textwidth]{figs/figs_reg_trans/feedback}
+\end{marginfigure}
+$E$ est le signal différentiel, $A$ le gain de la boucle directe, $H$ le gain de la boucle de retour ou de contre-réaction.
+Le gain global "en boucle fermée" du système se déduit comme suit :
+$E = V_i- HV_o$, $V_o = AE$, donc $V_o = AV_i -AHV_o$.
+Ou encore 
+\begin{equation}\label{eq:feedback_1}
+\frac{V_o}{V_i} = \frac{A}{1+AH} = \frac{1}{1/A+H}.
+\end{equation}
+Pour un gain $A$ infini (cas de l'AO idéal), l'expression (\ref{eq:feedback_1}) devient :
+\begin{equation}
+\frac{V_o}{V_i} = \frac{1}{H}.
+\end{equation}
+Ceci montre comment, grâce à la contre-réaction, il est possible d'obtenir une tension de sortie finie avec un élément de gain infini.
+
+%-------------------------------------------------------------------
+\section{Le montage amplificateur inverseur}
+La tension à amplifier est appliquée à l'entrée inverseuse de l'AO.
+\subsection{Caractéristiques}
+\paragraph{Gain en tension.} On cherche à déterminer le gain en tension $\frac{v_o}{v_s}$ du montage 
+\begin{center}
+\begin{circuitikz} [scale=0.95]
+	\draw (3.5,1.5) node[op amp] (opamp) {} % Opamp
+	(opamp.+) node[left] {$v_p$}
+	(opamp.-) node[below] {$v_n$};
+	\draw (0,0) coordinate (A) % 
+	to[american voltage source, l=$v_s$, i=$i_s$] (A |- opamp.-)
+	to[R, l=$R_s$, -*] ++(1.5, 0) coordinate(VN);
+	\draw (VN) to[short, i=$i_n$, -o] (opamp.-);
+	\draw (VN) to[short, i=$i_f$] ++(0,1) coordinate (leftRf)
+	to[R, l=$R_f$] (leftRf -| opamp.out) 
+	to[short,-*] (opamp.out);
+	\draw (opamp.out) to[short, o-o] ++(0.3,0) node[below] {$v_o$};
+	\draw (0,0) to[short,-o] ++(5,0);
+	\draw (opamp.+) to[short,o-*] (opamp.+ |- A) node[ground]{};
+\end{circuitikz}
+\end{center}
+Par hypothèse de l'AO idéal, on a 
+\[i_s-i_f=i_n=0\]
+On a également 
+\[v_p=0 \, \rightarrow \, v_n=0 
+\, \rightarrow \, i_s=i_f=\frac{v_s}{R_s}\]
+Finalement 
+\[v_o=-R_f i_f=-\frac{R_f}{R_s}v_s\]
+Et donc 
+\begin{center}
+	\fbox{$\frac{\displaystyle v_o}{\displaystyle v_s}=-\frac{\displaystyle R_f}{\displaystyle R_s}$}
+\end{center}
+La borne "-" agît comme une masse virtuelle.
+
+\paragraph{Taux de contre-réaction.}
+Le potentiel $v_o$ est fixé grâce à la boucle de retour introduite par la résistance $R_f$.
+
+Le \textit{Taux de contre-réaction du montage} est défini comme la fraction de la tension de sortie qui est ramenée aux bornes d'entrée de l'AO. 
+Comme $i_n=0$, tout se passe comme si $R_s$ et $R_f$ étaient connectées en série :
+\begin{center}
+	\begin{circuitikz}
+	\draw (0,0) coordinate (A) 
+	to [american voltage source, i=$i_s$, l=$v_s$] ++(0,2)
+	to [R, l=$R_s$, -*] ++ (1.5,0) coordinate (VN)
+	to [R, l=$R_f$, -o] ++ (1.5,0) coordinate (VO);
+	\draw (A) node[ground] {} to[short, -o] ++(3,0);
+	\draw (VN) node[below]{$v_n$};
+	\draw (VO) node[below]{$v_o$};
+\end{circuitikz}
+\end{center}
+%\includegraphics[width=0.9\linewidth]{figs/AO/AO_contre_reaction}
+On a donc 
+ \[i_s=\frac{v_s-v_o}{R_s+R_f}\]
+et
+	\[v_n=v_s\frac{R_f}{R_f+R_s}+v_o\frac{R_s}{R_f+R_s}\]
+Le taux de contre réaction vaut $$\frac{ R_s}{R_f+R_s}.$$
+
+\paragraph{Résistance d'entrée.}
+Résistance vue de la source $v_s$ :
+\[R_{in}=\frac{v_s}{i_s}=R_s\]
+
+
+
+%-------------------------------------------------------------------
+
+\paragraph{Choix de $R_s$ et $R_f$.} Les résultats précédents sont valides seulement si l'AO se trouve dans
+sa plage de fonctionnement linéaire. Pour cela, il faut :
+\[|v_o| < V_{sat},\quad \left|\frac{R_f}{R_s}v_s\right| < V_{sat},
+\quad \frac{R_f}{R_s} < \left|\frac{V_{sat}}{v_s}\right|\]
+
+\begin{testexample}[Valeurs typiques pour un montage inverseur.]
+\begin{itemize}
+	\item $V_{sat}=15$ V
+	\item $v_s=10$ mV
+	\item $\rightarrow  \frac{R_f}{R_s} < 1500$
+\end{itemize}
+\end{testexample}
+
+%-------------------------------------------------------------------
+
+\subsection{Circuit intégrateur}
+
+Dans sa plage de fonctionnement linéaire, le circuit suivant dérivé du montage inverseur agît comme un intégrateur.
+\begin{center}
+\begin{circuitikz} [scale=1]
+	\draw (3.5,1.5) node[op amp] (opamp) {} % Opamp
+	(opamp.+) node[left] {$v_p$}
+	(opamp.-) node[below] {$v_n$};
+	\draw (0,0) coordinate (A) % 
+	to[american voltage source, l=$v_s$, i=$i_s$] (A |- opamp.-)
+	to[R, l=$R_s$, -*] ++(1.5, 0) coordinate(VN);
+	\draw (VN) to[short, i=$i_n$, -o] (opamp.-);
+	\draw (VN) to[short, i=$i_f$] ++(0,1) coordinate (leftRf)
+	to[C, l=\alert{$C$}, color=myRed] (leftRf -| opamp.out) 
+	to[short,-*] (opamp.out);
+	\draw (opamp.out) to[short, o-o] ++(0.3,0) node[below] {$v_o$};
+	\draw (0,0) to[short,-o] ++(5,0);
+	\draw (opamp.+) to[short,o-*] (opamp.+ |- A) node[ground]{};
+\end{circuitikz}
+\end{center}
+En ayant recours aux phaseurs et impédances, on voit tout de suite que 
+\[\frac{\bar{V}_o}{\bar{V}_s}=-\, \frac{Z_f(j\omega)}{Z_s(j\omega)}=-\frac{1}{j\omega R_sC}\]
+
+
+%-------------------------------------------------------------------
+
+\subsection{Circuit dérivateur}
+Dans sa plage de fonctionnement linéaire, le circuit suivant dérivé du montage inverseur agît comme un dérivateur.
+\begin{center}
+\begin{circuitikz} [scale=1]
+	\draw (3.5,1.5) node[op amp] (opamp) {} % Opamp
+	(opamp.+) node[left] {$v_p$}
+	(opamp.-) node[below] {$v_n$};
+	\draw (0,0) coordinate (A) % 
+	to[american voltage source, l=$v_s$, i=$i_s$] (A |- opamp.-)
+	to[C, l=\alert{$C$}, -*, color=myRed] ++(1.5, 0) coordinate(VN);
+	\draw (VN) to[short, i=$i_n$, *-o] (opamp.-);
+	\draw (VN) to[short, i=$i_f$] ++(0,1) coordinate (leftRf)
+	to[R, l=$R_f$] (leftRf -| opamp.out) 
+	to[short,-*] (opamp.out);
+	\draw (opamp.out) to[short, o-o] ++(0.3,0) node[below] {$v_o$};
+	\draw (0,0) to[short,-o] ++(5,0);
+	\draw (opamp.+) to[short,o-*] (opamp.+ |- A) node[ground]{};
+\end{circuitikz}
+\end{center}
+En ayant recours aux phaseurs et impédances, on voit tout de suite que 
+\[\frac{\bar{V}_0}{\bar{V}_s}=- \, \frac{Z_f(j\omega)}{Z_s(j\omega)}=-j\omega R_fC\]
+
+
+
+%-------------------------------------------------------------------
+
+\subsection{Circuit source de courant}
+Dans le circuit suivant, si on place une résistance de charge $R_L$ dans la branche de feedback, 
+\begin{center}
+\begin{circuitikz} [scale=1]
+	\draw (3.5,1.5) node[op amp] (opamp) {} % Opamp
+	(opamp.+) node[left] {$v_p$}
+	(opamp.-) node[below] {$v_n$};
+	\draw (0,0) coordinate (A) % 
+	to[american voltage source, l=$v_s$, i=\alert{$i$}] (A |- opamp.-)
+	to[R, l=$R_s$, -*] ++(1.5, 0) coordinate(VN);
+	\draw (VN) to[short, i=$0$, -o] (opamp.-);
+	\draw (VN) to[short, i=\alert{$i$}] ++(0,1) coordinate (leftRf)
+	to[R, l=\alert{$R_L$}, color=myRed] (leftRf -| opamp.out) 
+	to[short,-*] (opamp.out);
+	%\draw (opamp.out) to[short, o-o] ++(0.3,0) node[below] {$v_o$};
+	%\draw (0,0) to[short,-o] ++(5,0);
+	\draw (opamp.+) to[short,o-*] (opamp.+ |- A) node[ground]{} to[short] (A);
+\end{circuitikz}
+\end{center}
+le courant 
+\[i=\frac{v_s}{R_s}\]
+est indépendant de la charge.
+On peut donc utiliser ce montage comme source indépendante de courant.
+
+%-------------------------------------------------------------------
+
+\section{Sources commandées}
+\label{sec:XXT}
+Les sources commandées (cf. Figure~\ref{fig:VVT}) peuvent être réalisées au moyen d'AOs.
+\paragraph{VVT.}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{figs/AO/AO_VVT}
+\end{center}
+
+\paragraph{CCT.}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{figs/AO/AO_CCT}
+\end{center}
+
+\paragraph{CVT.}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{figs/AO/AO_CVT}
+\end{center}
+
+\paragraph{VCT.}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{figs/AO/AO_VCT}
+\end{center}
+
+\section{Filtre actif}
+Le montage de la figure suivante 
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{figs/filtres/filtre_actif}
+\end{center}
+représente un filtre actif de fonction de transfert 
+\[H(j\omega)=-\frac{j\omega R_fC_i}{1+j\omega R_iC_i}\]
+Comme on le verra plus en détail dans les exercices et dans la Section~\ref{sec:AO_radio}, ce montage permet d'amplifier en sélectionnant une bande de fréquence.
+Sa pulsation de coupure à -3 dB vaut 
+\[\omega_c=\frac{1}{R_iC_i}.\]
+
+
+\section{Le montage amplificateur non-inverseur}
+
+La tension $v_g$ à amplifier est connectée à l'entrée non inverseuse de l'ampli.
+
+\subsection{Caractéristiques}
+
+\paragraph{Gain en tension.}
+On fait comme d'habitude l'hypothèse de l'AO idéal et du fonctionnement dans la plage linéaire.
+\begin{center}
+\begin{circuitikz} [scale=1]
+	\draw (3.5,2.5) node[op amp] (opamp) {} % Opamp
+	(opamp.+) node[below] {$v_p$}
+	(opamp.-) node[below] {$v_n$};
+	\draw (0,0) coordinate (A) % 
+	to[short] (A |- opamp.-)
+	to[R, l=$R_s$, -*] ++(1.5, 0) coordinate(VN);
+	\draw (VN) to[short, i=$i_n$, -o] (opamp.-);
+	\draw (VN) to[short, i=$i_f$] ++(0,1) coordinate (leftRf)
+	to[R, l=$R_f$] (leftRf -| opamp.out) 
+	to[short,-*] (opamp.out);
+	\draw (opamp.out) to[short, o-o] ++(0.3,0) node[below] {$v_o$};
+	\draw (A) to[short,-o] ++(5,0);
+	\draw (0.7, 0) coordinate (B) node[ground]{} to[american voltage source, l_=$v_g$, i=$i_p$] (B |- opamp.+)to[R,l=$R_g$, -o] (opamp.+);
+\end{circuitikz}
+\end{center}
+Comme
+\[i_p=0 \, \rightarrow \, v_p=v_g=v_n\]
+et
+\[i_n=0 \, \rightarrow \, v_n=v_g=v_o 
+\frac{R_s}{R_s+R_f}\]
+on a 
+\begin{center}
+\fbox{$\frac{\displaystyle v_o}{\displaystyle v_g}=\frac{\displaystyle R_f+R_s}{\displaystyle R_s}$}
+\end{center}
+Le gain en tension est 
+\begin{itemize}
+\item toujours positif ;
+\item égal à $1$ pour $R_f = 0$ ou $R_s = \infty$ ;
+\item indépendant des impédances de source et de charge. En fait, il ne dépend que des
+éléments du circuit de contre-réaction.
+\end{itemize}
+
+%-------------------------------------------------------------------
+
+\paragraph{Taux de contre-réaction.}
+\begin{center}
+\begin{circuitikz}
+	\draw (0,0) coordinate (A) 
+	to [short] ++(0,2)
+	to [R, l=$R_s$, -*] ++ (1.5,0) coordinate (VN)
+	to [R, l=$R_f$, -o] ++ (1.5,0) coordinate (VO);
+	\draw (A) node[ground] {} to[short, -o] ++(3,0);
+	\draw (VN) node[below]{$v_n$};
+	\draw (VO) node[below]{$v_o$};
+\end{circuitikz}
+\end{center}
+On voit de suite que 
+\[v_n=v_o\frac{R_s}{R_f+R_s}\]
+Le taux de contre réaction est donc $\frac{R_s}{R_f+R_s}$
+
+\paragraph{Résistance d'entrée.}
+La résistance vue de la source $v_g$ est infinie puisque $i_p=0$. Donc $R_{in}=\infty$.
+
+\paragraph{Choix de $R_s$ et $R_f$.}
+On conserve un fonctionnement dans la plage linéaire si :
+\[\frac{R_s+R_f}{R_s} < \left|\frac{V_{sat}}{v_g}\right|\]
+
+
+
+%-------------------------------------------------------------------
+
+\subsection{Isolateur ou suiveur (voltage follower)}
+Ceci est un cas particulier où le gain du montage est égal à $1$. 
+Dans le circuit ci-dessous
+\begin{center}
+\begin{circuitikz} [scale=1]
+	\draw (3.5,2.5) node[op amp] (opamp) {} % Opamp
+	(opamp.+) node[below] {$v_p$}
+	(opamp.-) node[below] {$v_n$};
+	\draw (0,0) coordinate (A) % 
+	to[open] (A |- opamp.-);
+	\draw (opamp.-) to[short] ++(-1, 0) coordinate(VN);
+	%\draw (VN) to[short, i=$i_n$, -o] (opamp.-);
+	\draw (VN) to[short] ++(0,1) coordinate (leftRf)
+	to[short] (leftRf -| opamp.out) 
+	to[short,-*] (opamp.out);
+	\draw (opamp.out) to[short, o-o] ++(0.3,0) node[below] {$v_o$};
+	\draw (0.7, 0) coordinate (B) node[ground]{}
+	to[american voltage source, l_=$v_g$, i=$0$] (B |- opamp.+)to[R,l=$R_g$, -o] (opamp.+);
+	\draw (B) to[short] (B -| opamp.out) to[short,-o] ++(0.3,0);
+\end{circuitikz}
+\end{center}
+on a 
+\[v_o=v_g.\]
+Vu de la charge, tout se passe comme si la source de tension était idéale ($v_o=v_g$ indépendamment de la résistance de charge).
+
+Ce montage permet d'isoler deux parties de circuit, ceci grâce à l'impédance d'entrée infinie du montage.
+
+%-------------------------------------------------------------------
+
+\section{Addition et soustraction}
+\subsection{Additionneur}
+
+Par application du théorème de superposition (qui sera énoncé au Chapitre~\ref{sec:theoremes}), en supposant toujours se trouver dans la plage de fonctionnement linéaire de l'AO, le circuit ci-dessous implique 
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figs/AO/AO_add}
+\end{center}
+\[v_o=-\left(\frac{R_f}{R_a}v_a+\frac{R_f}{R_b}v_b+\frac{R_f}{R_c}v_c\right).\]
+
+
+
+%-------------------------------------------------------------------
+
+\subsection{Soustracteur}
+
+Par application du théorème de superposition (Chapitre~\ref{sec:theoremes}), en supposant toujours
+se trouver dans la plage de fonctionnement linéaire de l'AO, le circuit ci-dessous implique 
+\begin{center}
+\includegraphics[width=0.6\linewidth]{figs/AO/AO_sub}
+\end{center}
+\begin{enumerate}
+\item $v_a$ agit seule : montage inverseur \[v_o^a=-\frac{R_b}{R_a}v_a\]
+\item  $v_b$ agit seule : montage non inverseur \[v_o^b=(\frac{R_a+R_b}{R_a})(\frac{R_d}{R_c+R_d})v_b\]
+\end{enumerate}
+Et finalement
+\[v_o=(\frac{R_a+R_b}{R_a})(\frac{R_d}{R_c+R_d})v_b-\frac{R_b}{R_a}v_a.\]
+
+
+%\section{Fonctionnement en saturation}
+%\mytodo{Fonctionnement en saturation}
+%\subsection{Circuits équivalents}
+%
+%{\em Saturation +}
+%
+%\begin{eqnarray*}
+%	i_n&=&0\\
+%	i_p& = & 0\\
+%	v_0&=&V_{sat}\\
+%	v_d&=&v_p-v_n > 0
+%\end{eqnarray*}
+%
+%{\em Saturation -}
+%\begin{eqnarray*}
+%	i_n&=&0\\
+%	i_p& = & 0\\
+%	v_0&=&-V_{sat}\\
+%	v_d&=&v_p-v_n < 0
+%\end{eqnarray*}
+%\includegraphics[width=0.8\linewidth]{figs/AO/AO_saturation}
+%\subsection{Comparateur}
+%Compare le signal d'entrée $v_s$ à un seuil $E_T$
+%
+%Saturation - :
+%\[
+%\begin{array}{ll}
+%v_s< E_T\, , &    v_d=v_s-E_T < 0\\
+%v_0=-V_{sat}
+%\end{array}\]
+%Région linéaire :
+%\[
+%v_s= E_T \, , \,   v_d=v_s-E_T = 0\]
+%\[-V_{sat} < v_0 < V_{sat}\]
+%Saturation + :
+%\[
+%\begin{array}{ll}
+%v_s> E_T\,  , & v_d=v_s-E_T > 0\\
+%v_0=V_{sat}
+%\end{array}\]
+%\includegraphics[width=0.8\linewidth]{figs/AO/AO_comparateur}
+%
+%\subsection{Caractéristiques}
+%Caractéristique d'entrée
+%\begin{center}
+%	\includegraphics[width=0.6\linewidth]{figs/AO/AO_caracteristique_in}
+%\end{center}
+%
+%Caractéristisque de transfert
+%\begin{center}
+%	\includegraphics[width=0.6\linewidth]{figs/AO/AO_caract_transfert}
+%\end{center}
+
+\section{Un AO en pratique}
+Un AO peut se matérialiser sous différentes formes, comme représenté à la Figure~\ref{fig:AO_pratique}.
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{figs/AO/AO_2} \\
+		\includegraphics[width=0.9\linewidth]{figs/AO/AO_3}
+	\end{center}
+	\caption{Les AOs en pratique. \label{fig:AO_pratique}}
+\end{figure}
+
+\clearpage
+\section{\'Etages d'amplification de la radio AM}
+\label{sec:AO_radio}
+\subsection{Étage 2}
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=\textwidth]{figs/RadioAM/AO1.pdf}
+	\caption{Schéma du premier AO du circuit, avec ses tensions d'entrée et de sortie.}
+	\label{AO1}
+\end{marginfigure}
+La coupe $3$ de la Figure~\ref{fig:RadioAM_AOs} représente le deuxième étage de la radio AM.
+Le premier amplificateur opérationnel est utilisé dans un montage non-inverseur (Figure~\ref{AO1}).
+On obtient alors la fonction de transfert $H(\omega)$ qui exprime le gain en amplitude:
+$$
+H(\omega) = \frac{V_s}{V_e} = \frac{Z_1 + Z_2}{Z_2} = 1 + \frac{Z_1}{Z_2}
+$$
+Avec $Z_1 = \frac{R_3}{1+j \omega R_3 C_3}$ qui dépend de la fréquence du signal d'entrée, et $Z_2 = R_1$.
+Quand $\omega R_3 C_3 \gg 1$, on a $|Z_1| \sim 0$ et $H(\omega) \sim 1$. Par contre, si $\omega R_3 C_3 \ll 1$, on a $|Z_1| \sim R_3$ et $H(\omega) = 1 + \frac{R_3}{R_2} = 1 + \frac{1000}{4,7} = 213,76$.
+C'est la caractéristique d'un filtre passe-bas mais qui va, au lieu d'atténuer les fréquences non voulues comme le fait un filtre passif, amplifier les fréquences souhaitées. La fréquence de coupure est ici de $\frac{1}{2 \pi R_3 C_3} = 1591 Hz$ qui correspond bien à une borne supérieure d'une fréquence AM.
+
+\begin{figure*}[p]
+	\centering
+	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAM_AOs}
+	\caption{Deuxième étage d'amplification de la radio AM.}
+	\label{fig:RadioAM_AOs}
+\end{figure*}
+
+\subsection{Étage 3.}
+La coupe $6$ de la Figure~\ref{fig:RadioAM_AOs} représente le troisième étage de la radio AM.
+Le deuxième AO est utilisé dans un montage inverseur un peu particulier. En effet, l'entrée non-inverseuse n'est pas connectée à la terre. En réalité, elle est connectée à la sortie d'un diviseur potentiométrique, illustré par la coupe 4 de la Figure~\ref{fig:RadioAM_AOs}.
+En appliquant la formule d'un diviseur potentiométrique, si $Z_1 = R_5$ et $Z_2$ la mise en parallèle de $C_5$ et $R_6$, on obtient
+\begin{align*}
+V_{off} &= \frac{Z_2}{Z_1+Z_2} E \\ &= \frac{R_6}{R_6 + R_5 + j\omega R_5 R_6 C_5} E \\ &= \frac{1}{1 + \frac{R_5}{R_6} + j\omega R_5 C_5} E\\ & = \frac{1}{2 + j \omega R_5 C_5} E
+\end{align*}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{figs/RadioAM/Diviseur.pdf}
+	\caption{Diviseur potensiométrique et définition de $V_{off}$.}
+\end{figure}
+La sortie dépend donc de la fréquence. En effet, si $\omega R_5 C_5 \gg 2, V_2 \sim 0$ et si $\omega R_5 C_5 \ll 2, V_s \sim \frac{E}{2}$. Ce dispositif est donc utilisé comme filtre passe-bas de fréquence de coupure égale à $f_0 = \frac{2}{2 \pi R_5 C_5} = 0,14\, Hz$. 
+Il permet en réalité de filtrer toutes les composantes alternatives présentes dans le circuit et d'ainsi avoir une sortie quasi continue et égale à $\frac{E}{2}$. On supposera donc pour la suite que $V_{off}$ est constant et égal à $\frac{E}{2} = 4,5$ V. Dans notre circuit, ce diviseur va donc fixer la référence des tensions mesurées à l'entrée du deuxième AO à $V_{off}=4,5 V$. Cela permet d'utiliser cet AO dans l'ensemble de sa plage linéaire. En effet, la diode avait supprimé toutes les composantes négatives du signal d'entrée, et donc à la sortie du premier AO, on ne retrouve que des tensions positives. En fixant la référence à $4,5 V$, on permet de multiplier par $2$ la plage utilisée par l'AO car les tensions inférieures à cette référence seront considérées comme négatives et celles supérieures seront positives mais diminuées de cet \textit{offset} de $4,5$ V.
+
+Le deuxième AO est donc simplement utilisé dans un montage inverseur dont on a modifié la référence. Il peut facilement être montré que, à la sortie du deuxième AO, si $V_e$ est la tension d'entrée comme représenté à la Figure~\ref{AOinv}, la tension vaut
+$$
+V_s = -\frac{Z''}{Z'} (V_e-V_{off})+V_{off}
+$$
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figs/RadioAM/AO2.pdf}
+	\caption{\label{AOinv}AO inverseur.}
+\end{figure}
+$Z''$ est, de manière similaire au premier AO, la mise en parallèle d'une résistance ($R_7$) et d'un condensateur ($C_6$). Ce qui nous donne
+$$
+Z'' = \frac{R_7}{1 + j \omega C_6} = \frac{3 \cdot 10^6}{1+ j \omega \ 3 \cdot 10^6 \cdot 100 \cdot 10^{-12}} = \frac{3 \cdot 10^6}{1 + j \omega \ 3 \cdot 10^{-4}}
+$$
+Cette impédance est caractéristique d'un filtre passe-bas avec une fréquence de coupure égale à $\frac{1}{2 \pi R_7 C_6} = 530,51 Hz$.
+On peut donc voir cet AO comme un filtre passe-bas qui amplifie les signaux qui ont une fréquence inférieure à $\frac{1}{2 \pi R_7 C_6} = 530,51 Hz$ de $\frac{R_7}{R_4} = 638$. Ce deuxième AO va donc d'une part, encore faire office de filtre vis à vis des fréquences non souhaitées mais aussi d'amplificateur de signal pour qu'il soit plus facilement audible.
+$Z'$ est par contre l'impédance équivalente du circuit en amont.
+
+\subsection{Étage 4}
+La coupe 7 de la Figure~\ref{fig:RadioAM_AOs} représente le quatrième étage de la radio AM.
+Le troisième et dernier AO est utilisé en mode isolateur/suiveur. On a en effet $V_s = V_e$, et $Z_{in} = \frac{V_{in}}{I_{in}} \rightarrow \infty$. On pourrait penser que ce montage est inutile puisque le gain en tension est unitaire, mais il est de grande importance. D'une part, grâce la définition d'un AO idéal, le courant d'entrée est nul. Le circuit ne prélève donc aucun courant ni puissance sur le signal auquel il est connecté et donc, ne le perturbe pas. Le courant et la puissance de sortie viennent uniquement de l'alimentation de l'amplificateur. D'autre part, ce circuit "isolateur" permet d'isoler deux parties d'un circuit, et donc ici de protéger le haut-parleur de toute la partie gauche du circuit et inversement. 
+
+%-------------------------------------------------------------------
+
+%\section{Convertisseur d'impédance négative}
+%\mytodo{Convertisseur d'impédance négative, chap 6,3 de Pavella, intéressant ? Illustrer.}
+%\begin{center}
+%	\includegraphics[width=0.6\linewidth]{figs/AO/AO_convertisseur_Z_neg}
+%\end{center}
+%Présente, dans la plage de fonctionnement linéaire, une impédance d'entrée négative.
+%
+%
+%%-------------------------------------------------------------------
+%
+%\subsection{Plage de fonctionnement linéaire}
+%$R_1$ et $R_2$ forment un diviseur potentiométrique :
+%\[v_2=\frac{R_2}{R_1+R_2}v_0=\beta v_0\]
+%\[v_d=0 \,\Rightarrow v_2=v\]
+%\[v_0=\frac{1}{\beta}v\]
+%Et
+%\[v=R_fi+v_0\]
+%\[i=-\left(\frac{R_1}{R_2}\right)\left(\frac{1}{R_f}\right) v\]
+%
+%\begin{center}
+%\includegraphics[width=0.8\linewidth]{figs/AO/AO_Z_neg_2}
+%\end{center}
+%
+%
+%%-------------------------------------------------------------------
+%
+%
+%Fonctionnement linéaire si
+%\[-V_{sat} < v_0 < V_{sat}\]
+%or
+%\[v_0=\frac{1}{\beta}v\]
+%\begin{center}
+%	\fbox{$ -\beta V_{sat} < v < \beta V_{sat}$}
+%\end{center}
+%
+%
+%
+%%-------------------------------------------------------------------
+%
+%\subsection{Saturation +}
+%
+%
+%\begin{eqnarray*}
+%	v=R_f i + V_{sat}\\
+%	i=\frac{v-V_{sat}}{R_f}\\
+%	v_0=V_{sat}
+%\end{eqnarray*}
+%Fonctionnement dans la plage de saturation + si
+%\[v_d=v_2-v=\beta V_{sat}-v > 0\]
+%\begin{center}
+%	\fbox{$v<\beta V_{sat}$}
+%\end{center}
+%\includegraphics[width=0.8\linewidth]{figs/AO/AO_Z_neg_3}
+%
+%
+%%-------------------------------------------------------------------
+%
+%\subsection{Saturation -}
+%\begin{eqnarray*}
+%	v=R_f i - V_{sat}\\
+%	i=\frac{v+V_{sat}}{R_f}\\
+%	v_0=-V_{sat}
+%\end{eqnarray*}
+%Fonctionnement dans la plage de saturation - si
+%\[v_d=v_2-v=-\beta V_{sat}-v  < 0\]
+%\begin{center}
+%	\fbox{$v>-\beta V_{sat}$}
+%\end{center}
+%\includegraphics[width=0.8\linewidth]{figs/AO/AO_Z_neg_4}
+%
+%
+%%-------------------------------------------------------------------
+%
+%\subsection{ Caractéristique d'entrée}
+%\begin{center}
+%	\includegraphics[width=0.8\linewidth]{figs/AO/AO_Z_neg_5}
+%\end{center}
+%
+%
+%%-------------------------------------------------------------------
+%
+%\subsection{Caractéristique de transfert}
+%\begin{center}
+%	\includegraphics[width=0.8\linewidth]{figs/AO/AO_Z_neg_6}
+%\end{center}

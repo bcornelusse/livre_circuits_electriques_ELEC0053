@@ -1,0 +1,20 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (4.27778,4.53333) node[text=black,anchor=base west] {$C$};
+\path (3.06667,5.37778) node[text=black,anchor=base east] {$u_0$};
+\draw (3.29556,5.16222) -- (4.24667,5.16222);
+\draw (3.61333,5.32222) -- (3.92889,5.32222);
+\path (3.29556,5.00444) node[anchor=base west] {+};
+\path (3.29556,5.62222) node[anchor=base west] {-};
+\draw (3.45333,4.37333) -- (4.08889,4.37333);
+\draw (3.45333,4.52889) -- (4.08889,4.52889);
+\draw (3.77111,4.53111) -- (3.77111,5.16667);
+\draw (3.77111,3.89556) -- (3.77111,4.37333);
+\draw (3.77111,5.32889) -- (3.77111,5.80667);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

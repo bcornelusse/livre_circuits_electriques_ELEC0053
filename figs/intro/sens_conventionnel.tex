@@ -1,0 +1,19 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\def\xcolorversion{2.00}
+\def\xkeyvalversion{1.8}
+\usepackage[version=0.96]{pgf}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[americanresistors,americaninductors,siunitx]{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american voltages]
+	\draw (0, 0) node[above] {$A$} to [generic, l=$ $, i=$i$,  v_=$u$, o-o] ++(0,-2.5) node[below] {$B$};
+\end{circuitikz}\hspace{5mm}
+\begin{circuitikz}
+	\draw (0, 0) node[above] {$A$} to [generic, l=$ $, i=$i$,  v_=$u$, o-o] ++(0,-2.5) node[below] {$B$};
+\end{circuitikz}
+\end{document}

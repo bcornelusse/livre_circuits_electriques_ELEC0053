@@ -1,0 +1,42 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (5.84444,2.92889) -- (5.48222,2.92);
+\draw[arrows=-triangle 45,black] (4.52667,2.92889) -- (4.22667,2.90222);
+\draw[arrows=-triangle 45,black] (3.64889,2.82667) -- (3.88222,2.63556);
+\draw[arrows=-triangle 45,black] (3.91556,3.35778) -- (4.10667,3.54889);
+\draw[arrows=-triangle 45,black] (5.86889,3.15333) -- (5.69778,3.33333);
+\draw[arrows=-triangle 45,black] (4.86222,4.01333) -- (4.87111,3.66);
+\draw[black] (3.26222,2.67111) circle (0.12889cm);
+\path (3.26222,2.73556) node[text=black,anchor=base] {a};
+\draw[black] (4.86222,2.39556) circle (0.12889cm);
+\path (4.86222,2.46) node[text=black,anchor=base] {b};
+\draw[black] (6.43778,2.69111) circle (0.12889cm);
+\path (6.43778,2.75778) node[text=black,anchor=base] {c};
+\filldraw[black] (4.84444,4.24) circle (0.05111cm);
+\draw[black] (5.27556,4.58) circle (0.12889cm);
+\path (5.27556,4.64444) node[text=black,anchor=base] {d};
+\filldraw[black] (3.47778,2.90667) circle (0.05111cm);
+\filldraw[black] (4.83778,2.90667) circle (0.05111cm);
+\filldraw[black] (6.07556,2.90667) circle (0.05111cm);
+\draw[black] (3.46889,2.91111) -- (6.06222,2.92444);
+\draw[black] (4.86222,2.93778) -- (4.86222,4.20222);
+\draw[black] (4.86222,4.24) -- (6.06222,2.93778);
+\draw[black] (4.84889,4.25333) -- (3.46889,2.91111);
+\draw[black] (3.49556,2.92444) -- (4.07556,2.47333) -- (4.44889,2.46) -- (4.83778,2.86) -- (4.84889,2.91111);
+\draw[black] (4.86222,2.91111) .. controls (5.09556,2.69111) .. (5.25111,2.58889);
+\draw[black] (6.07556,2.89778) .. controls (5.92222,2.66667) .. (5.7,2.60222);
+\draw[black] (4.88889,4.26444) .. controls (5.30222,4.13556) .. (5.67556,3.92889);
+\draw[black] (6.08889,2.93778) .. controls (6.07556,3.36222) .. (5.97333,3.63333);
+\draw[black] (3.48,2.96222) .. controls (3.53333,3.37556) .. (3.67556,3.76222);
+\draw[black] (4.84889,4.29111) .. controls (4.44889,4.24) .. (4.17778,4.14889);
+\draw (4.85778,4.18667) -- (4.85778,4.43111);
+\draw (4.61333,4.43111) -- (5.10444,4.43111);
+\draw (4.73556,4.55556) -- (4.98222,4.55556);
+\draw (4.80889,4.67778) -- (4.93111,4.67778);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

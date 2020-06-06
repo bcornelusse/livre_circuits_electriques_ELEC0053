@@ -1,0 +1,54 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (7.28,3.17556) -- (6.97333,3.17556) -- (6.92222,3.33333) -- (6.82,3.01556) -- (6.71778,3.33333) -- (6.61778,3.01556) -- (6.51556,3.33333) -- (6.41333,3.01556) -- (6.31111,3.33333) -- (6.21111,3.01556) -- (6.16,3.17556) -- (5.85111,3.17556);
+\draw[black] (0.73333,3.17556) -- (1.04,3.17556) -- (1.09111,3.33333) -- (1.19333,3.01556) -- (1.29556,3.33333) -- (1.39556,3.01556) -- (1.49778,3.33333) -- (1.6,3.01556) -- (1.70222,3.33333) -- (1.80222,3.01556) -- (1.85333,3.17556) -- (2.16222,3.17556);
+\draw[black] (4.51556,3.99778) circle (0.33111cm);
+\path (4.51556,3.92667) node[text=black,anchor=base] {+};
+\path (4.51111,4.28889) node[text=black,anchor=base] {-};
+\draw[black] (5.87333,3.18889) -- (5.36222,2.88889);
+\draw[black] (4.85111,3.18889) -- (5.36222,2.88889);
+\draw[black] (5.87333,3.18889) -- (5.36222,3.48889);
+\draw[black] (4.85111,3.18889) -- (5.36222,3.48889);
+\path (5.49556,3.2) node[text=black,anchor=base,rotate=90.0] {+};
+\path (5.01778,3.2) node[text=black,anchor=base,rotate=90.0] {-};
+\filldraw[black] (7.35111,3.17778) circle (0.06667cm);
+\draw[black] (4.52889,4.83333) -- (4.52889,4.35556);
+\draw[black] (4.52889,3.66667) -- (4.52889,3.18889) -- (4.85111,3.18889);
+\draw[black] (3.49778,3.99778) circle (0.33111cm);
+\path (3.49778,3.92667) node[text=black,anchor=base] {+};
+\path (3.50222,4.28889) node[text=black,anchor=base] {-};
+\draw[black] (2.14,3.18889) -- (2.65111,2.88889);
+\draw[black] (3.16222,3.18889) -- (2.65111,2.88889);
+\draw[black] (2.14,3.18889) -- (2.65111,3.48889);
+\draw[black] (3.16222,3.18889) -- (2.65111,3.48889);
+\path (2.51778,3.2) node[text=black,anchor=base,rotate=90.0] {+};
+\path (2.99556,3.2) node[text=black,anchor=base,rotate=90.0] {-};
+\filldraw[black] (0.66222,3.17778) circle (0.06667cm);
+\filldraw[black] (0.66222,4.77778) circle (0.06667cm);
+\filldraw[black] (7.37333,4.77778) circle (0.06667cm);
+\draw[black] (3.48444,4.83333) -- (3.48444,4.35556);
+\draw[black] (3.48444,3.66667) -- (3.48444,3.18889) -- (3.16222,3.18889);
+\draw[black] (0.67333,4.78889) -- (7.36222,4.78889);
+\draw[arrows=-triangle 45,black] (1.00667,3.53333) -- (1.87333,3.53333);
+\draw[arrows=-triangle 45,black] (6.96222,3.48889) -- (6.10667,3.48889);
+\path (1.32889,2.93333) node[text=black,anchor=base] {$R_{11}$};
+\path (6.54,2.93333) node[text=black,anchor=base] {$R_{22}$};
+\path (0.67333,3.57778) node[text=black,anchor=base] {+};
+\path (0.67333,4.65556) node[text=black,anchor=base] {-};
+\path (7.37333,3.54444) node[text=black,anchor=base] {+};
+\path (7.37333,4.65556) node[text=black,anchor=base] {-};
+\path (0.61778,4.16667) node[text=black,anchor=base] {$u_1$};
+\path (7.34,4.12222) node[text=black,anchor=base] {$u_2$};
+\path (1.38444,3.9) node[text=black,anchor=base] {$i_1$};
+\path (6.67333,3.9) node[text=black,anchor=base] {$i_2$};
+\path (2.64,2.73333) node[text=black,anchor=base] {$R_{12}i_2$};
+\path (5.36222,2.71111) node[text=black,anchor=base] {$R_{21}i_1$};
+\path (3.10667,4.14444) node[text=black,anchor=base east] {$v_{Th1}$};
+\path (4.87333,4.12222) node[text=black,anchor=base west] {$v_{Th2}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

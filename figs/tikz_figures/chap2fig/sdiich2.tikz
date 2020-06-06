@@ -1,0 +1,21 @@
+\begin{tikzpicture}[y=-1cm]
+\draw[black] (5.11111,1.79333) -- (5.41111,2.30444);
+\draw[black] (5.11111,2.81556) -- (5.41111,2.30444);
+\draw[black] (5.11111,1.79333) -- (4.81111,2.30444);
+\draw[black] (5.11111,2.81556) -- (4.81111,2.30444);
+\draw[arrows=-triangle 45,black] (5.11111,2.53111) -- (5.11111,2.07556);
+\filldraw[black] (3.87778,1.36667) circle (0.06667cm);
+\filldraw[black] (3.87778,3.34889) circle (0.06667cm);
+\draw[black] (5.11111,1.79333) -- (5.11111,1.36667) -- (3.91111,1.36667);
+\draw[black] (5.11111,2.81556) -- (5.11111,3.36667) -- (3.91111,3.36667);
+\path (5.63333,2.51111) node[text=black,anchor=base west] {$i_s=\beta i_x$};
+\path (3.86667,3.19333) node[text=black,anchor=base] {-};
+\path (3.85556,1.73778) node[text=black,anchor=base] {+};
+\path (3.91556,2.46667) node[text=black,anchor=base west] {CCT};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

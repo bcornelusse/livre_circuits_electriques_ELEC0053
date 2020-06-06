@@ -1,0 +1,32 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (4.95333,4.29111) node[text=black,anchor=base west] {$H(j\omega)=\frac{\bar{U}_{2}}{\bar{U}_{1}}=\frac{j\omega RC}{1+j\omega RC}$};
+\draw[black] (3.55778,3.92667) -- (3.44,3.96444) -- (3.68,4.04222) -- (3.44,4.12) -- (3.68,4.19333) -- (3.44,4.27111) -- (3.68,4.34889) -- (3.44,4.42444) -- (3.68,4.5) -- (3.55778,4.54);
+\draw[black] (3.57333,3.93333) -- (3.57333,3.60444) -- (2.80889,3.60444);
+\draw[black] (3.56889,3.60667) -- (4.15778,3.60667);
+\path (2,3.80444) node[text=black,anchor=base] {+};
+\path (1.99111,4.84667) node[text=black,anchor=base] {-};
+\filldraw[black] (1.86667,4.88889) ellipse (0.04889cm and 0.04889cm);
+\filldraw[black] (1.86667,3.59778) ellipse (0.04889cm and 0.04889cm);
+\path (1.79778,4.27778) node[text=black,anchor=base east] {$\bar{U}_1$};
+\path (3.22444,4.31333) node[text=black,anchor=base] {$R$};
+\path (2.82667,3.15556) node[text=black,anchor=base east] {$C$};
+\path (4.14444,4.27778) node[text=black,anchor=base west] {$\bar{U}_2$};
+\filldraw[black] (3.58222,4.88889) ellipse (0.04889cm and 0.04889cm);
+\filldraw[black] (4.17111,4.88889) ellipse (0.04889cm and 0.04889cm);
+\filldraw[black] (3.58222,3.59778) ellipse (0.04889cm and 0.04889cm);
+\filldraw[black] (4.16222,3.59778) ellipse (0.04889cm and 0.04889cm);
+\path (4.01333,4.84667) node[text=black,anchor=base] {-};
+\path (3.98667,3.80444) node[text=black,anchor=base] {+};
+\draw (3.57333,4.51333) -- (3.57333,4.89778);
+\draw (2.65111,3.60889) -- (1.86,3.60889);
+\draw (1.86,4.89778) -- (4.16889,4.89778);
+\draw (2.66667,3.87111) -- (2.66667,3.39111);
+\draw (2.78444,3.87111) -- (2.78444,3.39111);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

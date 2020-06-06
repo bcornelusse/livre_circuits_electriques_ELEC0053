@@ -1,0 +1,14 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (2.60222,3.34222) -- (2.60222,1.23333);
+\draw[arrows=-triangle 45,black] (2.60222,3.33556) -- (5.44444,3.33556);
+\draw[black] (2.79556,2.86222) -- (3.21333,2.05111) -- (3.52667,1.96444) -- (4,2.22889) -- (4.48889,2.28444) -- (4.76222,1.97111) -- (5.01111,1.66667) -- (5.09111,1.41778);
+\path (2.45111,1.51333) node[text=black,anchor=base east] {$u$};
+\path (5.21111,3.61556) node[text=black,anchor=base] {$i$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

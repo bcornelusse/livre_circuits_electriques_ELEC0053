@@ -1,0 +1,30 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (5.40222,3.20667) -- (5.35111,3.04889) -- (5.24889,3.36667) -- (5.14667,3.04889) -- (5.04667,3.36667) -- (4.94444,3.04889) -- (4.84222,3.36667) -- (4.74,3.04889) -- (4.64,3.36667) -- (4.58889,3.20667);
+\draw[black] (4.59111,3.22222) -- (4.18,3.22222);
+\filldraw[black] (3.76667,5.15556) circle (0.06667cm);
+\filldraw[black] (4.20222,3.22222) circle (0.06667cm);
+\draw[arrows=triangle 45-,black] (4.62444,3.58889) -- (5.64667,3.58889);
+\draw[black] (4.18889,3.25778) -- (3.76667,3.68);
+\path (3.33333,3.95556) node[text=black,anchor=base] {+};
+\path (3.32222,5.1) node[text=black,anchor=base] {-};
+\path (3.38889,4.58889) node[text=black,anchor=base east] {$u$};
+\path (4.18889,3.02222) node[text=black,anchor=base] {2};
+\path (4.96667,2.85556) node[text=black,anchor=base] {$R$};
+\path (4.07778,4.57778) node[text=black,anchor=base west] {$L$};
+\path (5.01333,4.04444) node[text=black,anchor=base] {$i$};
+\draw (3.78667,4.01556) +(-97:0.16566) arc (-97:134:0.16566);
+\draw (3.78,4.27333) +(-127:0.17601) arc (-127:128:0.17601);
+\draw (3.78,4.55111) +(-127:0.17601) arc (-127:128:0.17601);
+\draw (3.78667,4.80667) +(97:0.16345) arc (97:-134:0.16345);
+\draw (3.76667,3.66667) -- (3.76667,3.85111);
+\draw (3.76667,4.96889) -- cycle;
+\draw (3.76667,4.96889) -- (3.76667,5.15556);
+\draw (3.76889,5.16667) -- (6.02222,5.16667) -- (6.02222,3.17778) -- (5.40222,3.17778);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,52 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (4.12889,3.7) -- (4.12889,3.24444);
+\draw[arrows=-triangle 45,black] (2.41111,2.64444) -- (2.41111,2.18889);
+\filldraw[black] (5.28889,4.28889) circle (0.06667cm);
+\filldraw[black] (5.31111,1.67778) circle (0.06667cm);
+\filldraw[black] (5.35556,2.42222) circle (0.06667cm);
+\filldraw[black] (5.33333,3.1) circle (0.02222cm);
+\filldraw[black] (5.33333,3.22222) circle (0.02222cm);
+\filldraw[black] (5.33333,3.36667) circle (0.02222cm);
+\filldraw[black] (4.12889,4.28889) circle (0.06667cm);
+\filldraw[black] (3.49556,4.28889) circle (0.06667cm);
+\filldraw[black] (3.49556,2.44444) circle (0.06667cm);
+\filldraw[black] (1.27333,4.28889) circle (0.06667cm);
+\filldraw[black] (1.27333,1.64444) circle (0.06667cm);
+\draw[black] (2.4,2.08889) -- (2.4,1.65556) -- (5.3,1.65556);
+\draw[black] (4.11778,3.1) -- (4.11778,2.43333) -- (5.3,2.43333);
+\draw[black] (2.4,2.72222) -- (2.4,4.3) -- (5.28889,4.3);
+\draw[black] (5.07778,1.48889) rectangle (7.76667,4.48889);
+\draw[black] (2.40667,1.65556) -- (1.28444,1.65556);
+\draw[black] (2.40667,4.3) -- (1.28444,4.3);
+\draw[black] (4.12889,3.8) -- (4.12889,4.3);
+\draw[black] (4.12889,2.43333) -- (3.44,2.43333);
+\draw[arrows=-triangle 45,black] (1.45111,1.42222) -- (2.07333,1.42222);
+\draw[arrows=-triangle 45,black] (3.37333,2.26667) -- (3.95111,2.26667);
+\path (5.6,1.76667) node[text=black,anchor=base] {+};
+\path (5.6,2.53333) node[text=black,anchor=base] {+};
+\path (5.52222,4.28) node[text=black,anchor=base] {-};
+\path (4.55556,3.62222) node[text=black,anchor=base west] {$i_{sN2}$};
+\path (1.26222,2) node[text=black,anchor=base] {+};
+\path (3.50667,2.84444) node[text=black,anchor=base] {+};
+\path (1.24,4.14444) node[text=black,anchor=base] {-};
+\path (3.49556,4.15556) node[text=black,anchor=base] {-};
+\path (1.25556,2.41111) node[text=black,anchor=base east] {$u_1$};
+\path (3.56667,3.68889) node[text=black,anchor=base east] {$u_2$};
+\path (2.6,3) node[text=black,anchor=base west] {$i_{sN1}$};
+\path (1.69556,1.36667) node[text=black,anchor=base] {$i_1$};
+\path (3.52889,2.2) node[text=black,anchor=base] {$i_2$};
+\path (5.75111,1.98889) node[text=black,anchor=base west] {$v_{N1}$};
+\path (5.76222,2.61111) node[text=black,anchor=base west] {$v_{N2}$};
+\path (6.6,3) node[text=black,anchor=base] {${\bf G}_N$};
+\path (6.5,3.7) node[text=black,anchor=base] {Circuit};
+\path (6.5,4.1) node[text=black,anchor=base] {passifie};
+\draw[black] (4.13111,3.46889) circle (0.33111cm);
+\draw[black] (2.41333,2.41333) circle (0.33111cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

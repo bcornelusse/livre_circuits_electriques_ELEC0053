@@ -1,0 +1,30 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\filldraw[blue] (3.5,5.05556) circle (0.06667cm);
+\filldraw[red] (3.5,3.51111) circle (0.06667cm);
+\filldraw[blue] (3.5,1.96667) circle (0.06667cm);
+\draw[arrows=-triangle 45,black] (3.49556,5.61111) -- (3.49556,1.08889);
+\draw[arrows=-triangle 45,black] (1.82222,3.51111) -- (5.8,3.51111);
+\draw[black] (2.91111,5.65556) -- (4.13333,4.43333) -- (2.90222,2.56667) -- (4.37778,1.09111);
+\draw[dotted,black] (4.14444,3.44444) -- (4.14444,4.43333);
+\draw[dotted,black] (2.88889,3.54444) -- (2.88889,2.54444);
+\draw[dashed,arrows=-triangle 45,black] (3.36667,3.27778) -- (3.11111,2.88889);
+\draw[dashed,arrows=-triangle 45,black] (3.03333,2.44444) -- (3.38889,2.1);
+\draw[dashed,arrows=-triangle 45,black] (4.13333,1.32222) -- (3.71111,1.75556);
+\draw[dashed,arrows=-triangle 45,black] (3.65556,3.71111) -- (3.95556,4.16667);
+\draw[dashed,arrows=-triangle 45,black] (3.93333,4.63333) -- (3.61111,4.96667);
+\draw[dashed,arrows=-triangle 45,black] (2.98889,5.56667) -- (3.33333,5.24444);
+\path (6.07333,3.85556) node[text=black,anchor=base east] {$v$};
+\path (2.82222,3.82222) node[text=black,anchor=base east] {$-\beta V_{sat}$};
+\path (3.36667,1.64444) node[text=black,anchor=base east] {$i$};
+\path (3.3,2.05556) node[text=blue,anchor=base east] {Q1};
+\path (3.67778,5.28889) node[text=blue,anchor=base west] {Q3};
+\path (4.23333,3.84444) node[text=black,anchor=base west] {$\beta V_{sat}$};
+\path (3.61111,3.35556) node[text=red,anchor=base west] {Q2};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

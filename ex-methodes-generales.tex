@@ -1,0 +1,2266 @@
+% !TeX root = syllabus_ELEC0053.tex
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+
+\section{Exercices}
+\begin{exercise}{Méthode des noeuds}\label{ex:mg-1}
+Déterminer l'état électrique complet du réseau de la  figure ci-dessous au
+moyen de la méthode des noeuds.
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{exercices/ex-1-18}
+\end{center}
+\rep{${\bf V}_N=(-0.112, 0.306, 0.395, 0.322)^T$ V\\ noeud de référence
+	: e}
+\end{exercise}
+
+\begin{exercise}{Méthode des mailles}\label{ex:mg-2}
+Déterminer l'état électrique complet du réseau de la  figure ci-dessous au
+moyen de la méthode des mailles.
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{exercices/ex-1-19}
+\end{center}
+
+\rep{${\bf I}_M=(0.224,\, 0.967,\, -0.612,\, -0.111,\, 1.479)^T$ A\\
+	arbre : 3($R=1/4$, $E=1/4$)-5($R=1/3$)-6($R=1/2$)-7($R=1/10$)}
+\end{exercise}
+
+\begin{exercise}{Méthode des mailles - réduction du nombre d'accès}\label{ex:mg-3}
+Déterminer l'état électrique complet du réseau de la  figure ci-dessous.
+Déterminer tout d'abord la matrice de résistances réduite
+aux accès vue des deux sources indépendantes de tension.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{exercices/ex-1-20}
+\end{center}
+
+\rep{$(I_1,I_2)=(-0.373, 3.227)$ A}
+\end{exercise}
+
+\begin{exercise}{Méthode des noeuds - Norton}\label{ex:mg-4}
+Déterminer le schéma équivalent de Norton du circuit de la
+ figure ci-dessous vu de l'accès 11$^{'}$. Exprimer les paramètres de
+cet équivalent en fonction de $E$. En déduire le schéma équivalent de
+Thévenin vu de ce même accès.
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{exercices/ex-1-21}\\
+$R_0=150\mbox{~k}\Omega \quad ; \quad R_1=100  \mbox{~k}\Omega  \quad
+; \quad R_2=0.1\mbox{~k}\Omega $\\
+$R_3=1000 \mbox{~k}\Omega \quad ; \quad g=0.05 \mbox{~S}$
+\end{center}
+
+\rep{$I_{No}=1.89\, 10^{-2}\, E$, $G_{No}=7.17\, 10^{-3}$ S}
+\end{exercise}
+
+\begin{exercise}{Méthode des noeuds - Norton}\label{ex:mg-5}
+Déterminer le schéma équivalent de Norton du circuit
+de la  figure ci-dessous vu des accès 11$^{'}$ et 22$^{'}$. 
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{exercices/ex-1-22}
+\end{center}
+\rep{${\bf I}_{No}=(\frac{20}{7},\frac{40}{7})^T$ A, ${\bf G}_{No}=
+\left(\begin{array}{cc}
+7.43 & -6.14\\
+-6.14 & 8.71
+\end{array}\right)$ S}
+\end{exercise}
+
+\begin{exercise}{Choix de la bonne méthode}\label{ex:mg-6}
+
+Soit un cube dont chaque arête est occupée par une résistance
+de 1 $\Omega$ comme indiqué à la  figure ci-dessous. Déterminer :
+\begin{enumerate}
+	\item la résistance équivalente $R_a$ vue d'une arête;
+	\item la  résistance équivalente $R_d$ vue d'une diagonale d'une face du cube.
+\end{enumerate}
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{exercices/ex-1-23}
+\end{center}
+\rep{$R_a=R_{18}=0.58\,\Omega,\, R_d= R_{13}=0.75\,\Omega$}
+\end{exercise}
+
+\begin{exercise}{Thévenin - méthode des mailles}\label{ex:mg-7}
+Déterminer l'expression des rapports $\frac{V_5}{E}$ et $\frac{V_5}{I}$ pour le circuit de
+la  figure ci-dessous. Considérer le cas général et les cas particuliers : 
+\begin{enumerate}
+	\item de la source idéale ($R_6=0$), 
+	\item du détecteur d'impédance infinie
+	($R_5=\infty$). 
+\end{enumerate}
+\begin{center}
+	\includegraphics[width=0.35\textwidth]{exercices/ex-1-24}
+\end{center}
+\end{exercise}
+
+\begin{exercise}{Méthode des mailles ou transfiguration étoile - triangle}\label{ex:mg-8}
+Déterminer le schéma équivalent de Thévenin du circuit
+de la  figure ci-dessous vu de l'accès 11$^{'}$. Déterminer ensuite la puissance
+produite par la source de 12 V si l'accès 11$^{'}$ est laissé ouvert.
+\begin{center}
+	\includegraphics[width=0.6\textwidth]{exercices/ex-1-25}
+\end{center}
+
+\rep{$V_{Th}=9.71$ V, $R_{Th}=20.85\, \Omega$, $p_{12V}=2.54$ W}
+\end{exercise}
+
+\begin{exercise}{Thévenin - méthode des mailles}\label{ex:mg-9}
+Déterminer la valeur de la résistance $R_0$ du circuit de la
+ figure ci-dessous telle que cette résistance consomme une puissance de
+1000 W.
+\begin{center}
+	\includegraphics[width=0.6\textwidth]{exercices/ex-1-26}
+\end{center}
+\rep{$R_0^{(1)}=17.14\, \Omega, R_0^{(2)}=0.37\,\Omega$}
+\end{exercise}
+
+\begin{exercise}{Méthode des noeuds - Norton}\label{ex:mg-10}
+Déterminer la puissance dissipée dans la résistance $R$
+connectée aux bornes 14 du circuit de la  figure ci-dessous.
+
+Suggestion : utiliser la méthode des noeuds pour rechercher le schéma
+équivalent de Norton vu des bornes 14. 
+\begin{center}
+\includegraphics[width=0.8\textwidth]{exercices/ex-1-27}
+$G_{12}=35 \mbox{~mS}\quad ; \quad G_{13}=25 \mbox{~mS}\quad ; \quad 
+G_{23}=10 \mbox{~mS}\quad ; \quad G_{24}=80 \mbox{~mS}$\\
+$G_{34}=75 \mbox{~mS}\quad ; \quad g=20 \mbox{~mS}\quad ; \quad
+R=100 \;\; \Omega \quad ; \quad J=5 \mbox{~A}$\\
+On pose $\quad U_{14}=U_4-U_1 \quad \mbox{et}\quad U_{23}=U_3-U_2$
+\end{center}
+\rep{$p_R=49.16$ W}
+\end{exercise}
+
+
+\begin{exercise}{Méthodes générales, régime sinusoïdal}\label{ex:RSE-9}
+	Déterminer l'inductance équivalente du dipôle de la
+	figure ci-dessous sachant que les inductances $L_1$ et $L_4$ sont
+	couplées avec un coefficient de couplage $k=0.7$.
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.5\linewidth]{exercices/ex-2-9}\\
+			$L_1=0.1 \mbox{~mH} \,\, ; \,\, L_2=0.5 \mbox{~mH} \,\, ; \,\,
+			L_3=0.2 \mbox{~mH} \,\, ; \,\, L_4=0.4 \mbox{~mH} \,\, ; \,\,
+			L_5=0.8 \mbox{~mH}$\\
+			\caption{}\label{ex2-9}
+		\end{center}
+	\end{figure}
+	\rep{$L_{eq}=0.413$ mH}
+\end{exercise}
+
+\begin{exercise}{Méthodes générales, régime sinusoïdal}\label{ex:RSE-10}
+	Étant donné le circuit ci-dessous fonctionnant en
+	régime sinusoïdal établi :
+	\begin{enumerate}
+		\item déterminer l'impédance $Z_L$ à connecter aux bornes 11$^{'}$
+		pour soutirer au circuit le maximum de puissance;
+		\item rechercher des éléments qui pourraient réaliser cette impédance;
+		\item calculer la puissance complexe fournie à la charge $Z_L$ dans
+		ces conditions.
+	\end{enumerate}
+	
+	\begin{minipage}[c]{5cm}
+		\flushright \includegraphics[width=\linewidth]{exercices/ex-2-10}\\
+	\end{minipage}
+	\begin{minipage}[c]{5cm}
+		\begin{center}
+			$R_1=10\mbox{~}\Omega \quad ; \; R_2=25\mbox{~}\Omega $\\
+			$R_3=50\mbox{~}\Omega \quad ; \; R_4=50\mbox{~}\Omega $\\
+			$L_1=20\mbox{~mH}\quad ; \; L_2=80\mbox{~mH}$\\
+			$M=10\mbox{~mH}\quad ; \;
+			\omega=1000 \mbox{~rad/s}$\\
+			$\bar{E}=100\angle 0^{\circ} \mbox{V, ~valeur efficace}$
+		\end{center}
+	\end{minipage}
+	
+	
+	\rep{$Z_L=33.31-j3.47\,\,\Omega$ , $R_L=33.31\,\,\Omega$ , $C_L=288\,\,\mu$F\\
+		$S_{Z_L}=55.4-j5.77$ VA}
+\end{exercise}
+
+
+\section{Exercices non résolus}
+
+\begin{exercise}{}\label{ex:mg-11}
+	Déterminer la valeur de la résistance $R$  telle que la
+	résistance d'entrée $R_{in}$ du circuit de la  figure ci-dessous vue de l'accès
+	11$^{'}$ soit égale à $R$.
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{exercices/ex-1-28}
+		\[R_1=20\, \Omega \quad , \quad R_2=5\, \Omega\]
+	\end{center}
+	
+	\rep{$R=11.55\,\,\Omega$}
+\end{exercise}
+
+
+\begin{exercise}{}\label{ex:mg-12}
+Déterminer la valeur de la source de courant $J$ de façon à ce
+que la source de tension $E=10$~V fournisse au reste du circuit de la
+ figure ci-dessous une puissance de 20 W.
+
+Établir le bilan de puissance de ce circuit.
+\begin{center}
+\includegraphics[width=0.7\textwidth]{exercices/ex-1-29}
+\end{center}
+
+{\em Suggestion : rechercher dans un premier temps le schéma
+	équivalent de Thévenin du circuit vu des bornes AB}
+\rep{$J=2.47$ A}
+\end{exercise}
+
+\begin{exercise}{}\label{ex:mg-13}
+Étant donné le circuit de la  figure ci-dessous on demande  de
+déterminer son schéma équivalent de Thévenin vu des accès 11$^{'}$ et
+22$^{'}$.
+
+On connecte ensuite une source de tension idéale $E=20$ V à l'accès
+11$^{'}$ et une résistance de charge $R_L=30\, \Omega$ à l'accès
+22$^{'}$. Calculer dans ces conditions les puissances consommée par
+$R_L$ et fournie par $E$ (penser à utiliser le schéma équivalent de
+Thévenin déterminé au préalable !).
+\begin{center}
+	\includegraphics[width=\textwidth]{exercices/ex-1-30}
+\end{center}
+\rep{${\bf E}_{Th}=\left(
+	\begin{array}{c}
+	21.65\\
+	13.01
+	\end{array}\right)\quad , \quad R_{Th}=\left(
+	\begin{array}{cc}
+	26.52& 5.13\\
+	5.13 & 27.88
+	\end{array}\right)$\\
+	$p_{R_L}=1.49$ W, $p_E=-0.38$ W}
+\end{exercise}
+
+\begin{exercise}{}\label{ex:mg-14}
+On demande d'établir le bilan de puissance du circuit
+de la  figure ci-dessous sachant que  $I_d=4$ A et $I_g=2$~A.
+\begin{center}
+\includegraphics[width=0.7\textwidth]{exercices/ex-1-31}\\
+$R_1=30\,\, \Omega ; \quad R_2=10\,\,  \Omega  
+; \quad R_3=40\,\, \Omega ; \quad R_4=10 \,\, \Omega 
+; \quad R_5=80  \,\, \Omega  ; \quad R_6=40  \,\, \Omega$\\
+$E_1 = 60\mbox{~V}  ; \quad E_2=20\mbox{~V};\quad  J=10  \mbox{~A}$
+\end{center}
+
+${\cal R}_g$ est un circuit résistif linéaire et invariant comportant
+un certain nombre de sources indépendantes d'énergie. ${\cal R}_d$ est
+un circuit résistif linéaire et invariant ne comportant pas de source
+indépendante d'énergie.
+
+{\em Suggestion : en vue de calculer l'état électrique complet du
+	circuit, remplacer dans un premier temps le circuit à droite de AB
+	par son schéma équivalent de Norton.}
+
+\rep{$U_{{\cal R}_g}=60$ V, $U_{{\cal R}_d}=200$ V, $U_J=523.2$ V}
+\end{exercise}
+
+\begin{exercise}{}\label{ex:mg-15}
+Le circuit $\cal R$ de la  figure ci-dessous est constitu\'e d'\'el\'ements
+lin\'eaires, invariants et passifs et comporte des sources
+ind\'ependantes d'\'energie, notamment les sources de tension $E_1$ et
+$E_2$. Si $E_1=30$ V et $E_2=10$ V, on relève $U_{11^{'}}=22$ V. Si on
+double $E_1$, $U_{11^{'}}$ devient 35 V tandis que si on double $E_2$,
+$U_{11^{'}}$ devient 25 V. 
+
+On demande de calculer $E_1$ et $E_2$ pour que la résistance
+$R=100\,\, \Omega$ consomme une puissance de 4 W, la somme $E_1+E_2$
+devant valoir 30 V.
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{exercices/ex-1-32}
+\end{center}
+
+\rep{$E_1=37.5$ V, $E_2=-7.5$ V}
+\end{exercise}
+
+\begin{exercise}{}\label{ex:mg-16}
+Étant donné le circuit de la figure ci-dessous, on cherche à
+déterminer la valeur de $E$ (positive) telle que le circuit fournisse
+une puissance égale à 20 W à la résistance de charge $R_L=5\,\,
+\Omega$ connectée à l'accès 11$^{'}$. Pour cela :
+
+\begin{enumerate}
+	\item utiliser la méthode des mailles pour dériver le schéma
+	équivalent de Thévenin vu de l'accès~11$^{'}$; 
+	\item utiliser la méthode des noeuds pour dériver le schéma
+	équivalent de Norton vu de l'accès~11$^{'}$. 
+	
+	Les paramètres de ces équivalents seront exprimés en fonction de $E$.
+	\item Montrer l'équivalence des deux approches;
+	\item déduire d'un des deux équivalents la valeur de $E$ cherchée.
+\end{enumerate}
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{exercices/ex-1-33}
+\end{center}
+
+\rep{$E=65.7$ V}
+\end{exercise}
+
+\begin{exercise}{Quadripôles}\label{ex:mg-17}
+Pour chacun des trois des quadripôles ci-dessous, déterminer une matrice de quadripôle qui le caractérise.
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{exercices/ex-4-3}
+\end{center}
+\end{exercise}
+
+\begin{exercise}{Quadripôles}\label{ex:mg-18}
+
+Déterminer la matrice d'admittances ${\bf Y}$ du quadripôle suivant : 
+\begin{center}
+	\includegraphics[width=0.3\textwidth]{exercices/ex-4-4}
+\end{center}
+On ferme l'accès 22' sur la résistance de charge $R_L=4\,\,
+\Omega$. On demande de déterminer dans ce cas la réponse fréquentielle 
+gain en tension
+\[H(j\omega)=\frac{\bar{U}_2}{\bar{U}_1}\]
+
+Quelles sont les fréquences naturelles du circuit?
+\rep{
+	${\bf Y}= \left(
+	\begin{array}{cc}
+	1+j\omega & -j\omega \\ -j\omega & \frac{1}{2}+j\omega
+	\end{array} \right)$\\
+	$H(j\omega)=\frac{j\omega}{j\omega+\frac{3}{4}}$
+}
+\end{exercise}
+
+\begin{exercise}{Quadripôles}\label{ex:mg-19}
+Déterminer les valeurs des impédances images $Z_{i1}$, $Z_{i2}$
+et des impédances caractéristiques $Z_{c1}$ et $Z_{c2}$ du quadripôle suivant :
+\begin{center}
+	\includegraphics[width=0.3\textwidth]{exercices/ex-4-5}
+\end{center}
+\rep{$Z_{i1}=17.3\, \Omega$, $Z_{i2}=11.5\, \Omega$\\
+	$Z_{c1}=20\, \Omega$, $Z_{c2}=10\, \Omega$
+}
+\end{exercise}
+
+
+
+\section{Solution des exercices}
+
+\paragraph{Exercice~\ref{ex:mg-1}}~\\%
+
+La méthode des noeuds consiste à écrire \ $n-1$ PLK \ en \
+$n-1$ noeuds \ du circuit, un des noeuds étant choisi comme référence
+des tensions. On exprime donc ces relations en fonction des potentiels
+de noeuds \ ${\bf V}_N$~:
+\[ {\bf I}_{sN} = {\bf G}_{N}\, {\bf V}_{N} \]
+avec
+\begin{enumerate}
+	\item ${\bf G}_{N}$~: la matrice des conductances aux noeuds;
+	\item ${\bf I}_{sN}$~: le vecteur des courants injectés aux noeuds
+	par les sources indépendantes de courant.
+\end{enumerate}
+Le calcul de l'état électrique complet comporte ainsi les étapes suivantes.
+
+\noindent{\bf 1. Choisir un noeud de référence}
+
+On choisit le noeud e.
+
+\noindent{\bf 2. Détermination de la matrice des conductances aux noeuds} \ ${\bf G}_N$ 
+
+Cette matrice est donnée par
+\[ {\bf G}_N = {\bf A} \, {\bf G}_B \, {\bf A}^T \]
+avec \ ${\bf A}$ \ la matrice d'incidence réduite du graphe orienté du
+circuit passifié représenté ci-dessous
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-18-1}
+\end{center}
+\[ {\bf A} \: = \: \left( \begin{array}{ccccccccc}
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0\\
+0 & -1 & 0 & 0 & -1 & 1 & 0 & 0 & 1\\
+0 & 0 & -1 & 0 & 0 & -1 & 1 & -1 & 0\\
+0 & 0 & 0 & -1 & 0 & 0 & -1 & 0 & -1
+\end{array} \right) \]
+${\bf G}_B$ \ est la matrice des conductances de branches:
+\[{\bf G}_B = \mbox{diag} \, (2,5,4,5,3,2,10,3,7)\]
+Le circuit ne comporte que des résistances linéaires et des sources indépendantes de courant.
+${\bf G}_N$ \ peut être déterminée directement par la règle d'inspection~:
+\begin{enumerate}
+	\item \'el\'ement diagonal \ $G_{ii} =$ somme des conductances des
+	branches incidentes au noeud \ $i$~;
+	\item élément non idagonal \ $ij =$ opposé de la conductance de la
+	branche liant les noeuds \ $i$ et $j$~.
+\end{enumerate}
+\[ {\bf G}_N \: = \: \left( \begin{array}{cccc}
+2+3+3 & -3 & -3 & 0\\
+-3 & 3+5+2+7 & -2 & -7\\
+-3 & -2 & 2+4+10+3 & -10\\
+0 & -7 & -10 & 10+7+5
+\end{array} \right)~\text{S}~. \]
+On remarque que \ ${\bf G}_N$ \ est symétrique puisque le circuit ne
+comporte que des conductances linéaires et des sources indépendantes
+d'énergie.
+
+\noindent{\bf 3. Détermination du vecteur des courants de noeuds} \ ${\bf I}_{sN}$
+
+L'élément relatif au noeud \ $i$ \ est la somme des courants injectés
+à ce noeud par les sources indépendantes.
+\[ {\bf I}_{sN} \: = \: \left( \begin{array}{c}
+-3 \\ 2.5 \\ 1+3 \\ 1
+\end{array} \right)  \]
+
+\noindent{\bf 4. Calcul des potentiels de noeuds}
+
+De la relation \ ${\bf I}_{sN} = {\bf G}_N {\bf V}_N$~, on déduit:
+\[ {\bf V}_N \: = \: {\bf G}_N ^{-1} {\bf I}_{sN}\: = \: 
+\left( \begin{array}{c} V_a \\ V_b \\ V_c \\ V_d \end{array} \right)
+\: = \: \left( \begin{array}{c} -0.112 \\ 0.306 \\ 0.395 \\ 0.322
+\end{array} \right) \, \text{V~.} \] 
+$V_a\, , \, V_b\, , \,V_c\, , \,V_d$ \
+sont les potentiels des différents noeuds du circuit par rapport au
+noeud de référence e.
+
+\noindent{\bf 5. Tensions et courants de branches}
+
+Les tensions de branches se déduisent des SLK
+\[ {\bf U}_B = {\bf A}^T\, {\bf V}_N~. \]
+Les courants de branches se déduisent de la loi d'Ohm écrite pour chaque branche
+\[ {\bf I}_B = {\bf G}_B\, {\bf U}_B~. \]
+
+\begin{tabular}{lll}
+	\multicolumn{2}{l}{\underline{Tensions de branches}} & \underline{Courants de branches}\\[2mm]
+	$\bullet$ branche 1 & & \\
+	\parbox[c]{4cm}{\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-18-2}} 
+	& $\begin{array}{rcl}
+	U_{1} &=& -V_a \\ &=& 0.112\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{1} &=& 2U_{1} \\ &=& 0.224\, A \end{array}$ \\[14mm]
+	$\bullet$ branche 2 & & \\
+	\parbox[c]{4cm}{\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-18-3}}
+	& $\begin{array}{rcl}
+	U_{2} &=& -V_b \\ &=& -0.306\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{2} &=& 5U_{2} \\ &=& -1.53\, A \end{array}$ \\[20mm]
+	$\bullet$ branche 3 & & \\
+	\parbox[c]{4cm}{\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-18-4}}
+	& $\begin{array}{rcl}
+	U_{3} &=& -V_c \\ &=& -0.395\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{3} &=& 4U_{3} \\ &=& -1.58\, A \end{array}$ \\[20mm]
+	$\bullet$ branche 4 & & \\
+	\parbox[c]{4cm}{\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-18-5}}
+	& $\begin{array}{rcl}
+	U_{4} &=& -V_d \\ &=& -0.322\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{4} &=& 5U_{4} \\ &=& -1.61\, A \end{array}$ \\[20mm]
+	$\bullet$ branche 5 & & \\
+	\parbox[c]{4cm}{\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-18-6}}
+	& $\begin{array}{rcl}
+	U_{5} &=& V_a-V_b\\ &=& -0.418\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{5} &=& 3U_{5} \\ &=& -1.254\, A \end{array}$ \\[14mm]
+	$\bullet$ branche 6 & & \\
+	\parbox[c]{4cm}{\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-18-7}}
+	& $\begin{array}{rcl}
+	U_{6} &=& V_b-V_c \\ &=& -0.089\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{6} &=& 2U_{6} \\ &=& -0.178\, A \end{array}$ 
+\end{tabular}
+
+\begin{tabular}{lll}
+	$\bullet$ branche 7 & & \\
+	\parbox[c]{4cm}{\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-18-8}}
+	& $\begin{array}{rcl}
+	U_{7} &=& V_c-V_d \\ &=& 0.073\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{7} &=& 10U_{7} \\ &=& 0.73\, A \end{array}$ \\[20mm]
+	$\bullet$ branche 8 & & \\
+	\parbox[c]{4cm}{\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-18-9}}
+	& $\begin{array}{rcl}
+	U_{8} &=& V_a-V_c \\ &=& -0.507\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{8} &=& 3U_{8} \\ &=& -1.521\, A \end{array}$ \\[20mm]
+	$\bullet$ branche 9 & & \\
+	\parbox[c]{4cm}{ \includegraphics[width=0.7\linewidth]{sol_exercices/ex1-18-10}}
+	& $\begin{array}{rcl}
+	U_{9} &=& V_b-V_d \\ &=& -0.016\, V \end{array}$
+	& $\begin{array}{rcl}
+	I_{9} &=& 7U_{9} \\ &=& -0.112\, A \end{array}$
+\end{tabular}
+
+\paragraph{Exercice~\ref{ex:mg-2}}~\\%
+Remarquons que ce circuit est équivalent à celui de l'exercice 1.18 si
+toutes les branches sources de tension sont remplacées par des
+branches sources de courant. 
+
+La méthode des mailles consiste à écrire $b-(n-1)$ SLK pour un
+ensemble de mailles fondamentales et à exprimer ces équations en
+fonction des courants de mailles ${\bf I}_M$. Ces relations s'écrivent
+:
+\[{\bf V}_{sM}={\bf R}_M \, {\bf I}_M\]
+avec :
+\begin{enumerate}
+	\item ${\bf R}_M$ : la matrice des résistances de mailles
+	\item ${\bf V}_{sM}$ : le vecteur des f.e.m. de mailles imposées par les
+	sources indépendantes de tension.
+\end{enumerate}
+
+Le calcul de l'état électrique complet comporte ainsi les étapes
+suivantes.
+
+\noindent{\bf 1. Transformer les branches contenant une source indépendante de courant.}
+
+Par simple équivalence de source de courant - source de tension, on
+transforme les branches de et ac comme indiqué ci-dessous :
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-19-1}
+\end{center}
+Le circuit complet se transforme en : 
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-19-2}
+\end{center}
+
+\noindent{\bf 2. Choisir un arbre et définir les mailles fondamentales
+	correspondantes.}
+
+Le graphe du circuit est représenté par :
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-19-3}
+\end{center}
+Le graphe orienté du circuit comporte 5 noeuds et 9 branches. Il y a
+$b-(n-1)=9-(5-1)=5$ mailles fondamentales. On choisit par exemple
+l'arbre ``3-5-6-7'' représenté en traits discontinus sur la figure ci-dessous. Les
+maillons sont les branches 1,2,4,8 et 9. Chaque maille fondamentale,
+constituée d'un maillon et de branches de l'arbre, est 
+orientée selon le sens de référence adopté dans le maillon.
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-19-4}
+\end{center}
+
+
+\noindent{\bf 3.  Détermination de la matrice des résistances de mailles.}
+
+Cette matrice est donnée par
+\[{\bf R}_M={\bf B}{\bf R}_B{\bf B}^T\]
+avec ${\bf B}$ la matrice des mailles fondamentales qui s'écrit :
+\[{\bf B}=
+\begin{pmatrix}
+1 & 0 & -1 & 0 & 1 & 1 & 0 & 0 & 0\\
+0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & -1 & 1 & 0 & 0 & -1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0  & -1 & -1 & 0 & 1 \\
+0 & 0 & 0 & 0 & -1 & -1 & 0 & 1 & 0
+\end{pmatrix}\]
+${\bf R}_B$ est la matrice des résistances de branches :
+\[ {\bf R}_B=\mbox{diag}(\dfrac{1}{2},\dfrac{1}{5},\dfrac{1}{4},
+\dfrac{1}{5},\dfrac{1}{3},\dfrac{1}{2},\dfrac{1}{10},
+\dfrac{1}{3},\dfrac{1}{7})\]
+Le circuit ne comporte que des résistances linéaires et des sources
+indépendantes. ${\bf R}_M$ peut  être directement déterminée par la règle
+d'inspection :
+\begin{enumerate}
+	\item élément diagonal $R_{ii}$ = somme des résistances
+	des branches de la maille $i$;
+	\item élément non-diagonal $R_{ij}$ = somme des résistances des branches communes aux
+	mailles $i$ et $j$, prises avec le signe + si les sens de parcours des
+	deux mailles coïncident, avec le signe - dans le cas contraire .
+\end{enumerate}
+\begin{eqnarray*}
+	{\bf R}_M & = &
+	\begin{pmatrix}
+		\frac{1}{2}+\frac{1}{3}+\frac{1}{2}+\frac{1}{4} & 
+		\frac{1}{2}+\frac{1}{4} & \frac{1}{4} & -\frac{1}{2} & -\frac{1}{3}-\frac{1}{2}\\
+		\frac{1}{2}+\frac{1}{4}& \frac{1}{2}+\frac{1}{4}+\frac{1}{5} & 
+		\frac{1}{4} & -\frac{1}{2} & -\frac{1}{2}\\
+		\frac{1}{4} & \frac{1}{4}& \frac{1}{5}+\frac{1}{10}+\frac{1}{4} & 
+		\frac{1}{10} & 0 \\
+		-\frac{1}{2}& -\frac{1}{2}& \frac{1}{10}& 
+		\frac{1}{7}+\frac{1}{10}+\frac{1}{2} & \frac{1}{2}\\
+		-\frac{1}{3}-\frac{1}{2} & -\frac{1}{2} & 0 & \frac{1}{2}  & 
+		\frac{1}{3}+\frac{1}{3}+\frac{1}{2}
+	\end{pmatrix}\\
+	& = & 
+	\begin{pmatrix}
+		1.5833 & 0.75 & 0.25 & _0.5 & -0.8333\\
+		0.75 & 0.05 & 0.25 & -0.5 & -0.5 \\
+		0.25 & 0.25 & 0.55 & 0.1 & 0  \\
+		-0.5 & -0.5 & 0.1 & 0.743 & 0.5 \\
+		-0.8333 & -0.5 & 0 & 0.5 & 1.1667
+	\end{pmatrix}\,\, \Omega\text{~.}
+\end{eqnarray*}
+Remarquons que cette matrice est symétrique puisque le circuit ne
+comporte que des résistances linéaires et des sources indépendantes
+d'énergie.
+
+\noindent{\bf 4. Détermination du vecteur des f.e.m. de mailles} 
+
+L'élément
+relatif à la maille $i$ est donné par la somme des f.e.m.  imposées
+dans cette maille par les sources indépendantes comptées positivement si le
+sens de la d.d.p. de la source coïncide avec le sens de parcours de la
+maille  et négativement sinon.
+\[{\bf V}_{sM}=
+\begin{pmatrix}
+-\frac{1}{4}\\
+-\frac{1}{4}+\frac{1}{2}\\
+\frac{1}{5}-\frac{1}{4}\\
+0\\
+1
+\end{pmatrix} =
+\begin{pmatrix}
+-0.25 \\ 0.25 \\ -0.05 \\ 0 \\ 1
+\end{pmatrix}\text{~V~.}
+\]
+\noindent{\bf 5. Calcul des courants de mailles}
+
+Les courants de mailles sont les courants dans les maillons
+1,2,4,8,9.
+
+
+De la relation ${\bf V}_{sM}={\bf R}_M\, {\bf I}_M$, on déduit :
+\[{\bf I}_M=\begin{pmatrix}
+I_1\\ I_2\\I_4\\I_9\\I_8
+\end{pmatrix}= {\bf R}_M^{-1}\, {\bf V}_{sM}=
+\begin{pmatrix}
+0.2239\\ 0.9675\\-0.6122\\-0.1114\\1.4794
+\end{pmatrix}\text{~A~.}\]
+
+\noindent{\bf 6. Courants de branches}
+
+Les courants dans les branches restantes (les branches de l'arbre) se
+déduisent des PLK \\${\bf I}_B={\bf B}^T\, {\bf I}_M$.
+\begin{align*}
+I_3 & = -I_4-I_2-I_1=-0.5792 \text{~A}\\
+I_5 & = I_1-I_8=-1.2555 \text{~A}\\
+I_6 & = I_1+I_2-I_8-I_9=-0.1766 \text{~A}\\
+I_7 & = -I_4-I_9= 0.7236 \text{~A}
+\end{align*}
+
+{\bf 7. Tensions de branches}
+
+Elles se déduisent de la loi d'Ohm et des lois de Kirchhoff.
+
+\begin{tabular}{l@{\hspace{30mm}}l}
+	\underline{Courants de branches} & \underline{Tensions de branches}\\[2mm]
+	$\bullet$ branche 1 : & \\
+	\parbox[c]{4cm}{
+		\hfill \includegraphics[width=0.7\linewidth]{sol_exercices/ex1-19-5}} & 
+	$\begin{array}{rcl}
+	U_1 & = & \dfrac{0.2239}{2}\\\
+	& =& 0.112\text{~V}
+	\end{array}$ \\[14mm]
+	$\bullet$  branche 2 : & \\
+	\parbox[c]{4cm}{
+		\hfill \includegraphics[width=0.7\linewidth]{sol_exercices/ex1-19-6}} & 
+	$\begin{array}{rcl}
+	U_2& =& 0.2\, . 0.9675  \\
+	& = &  0.1935\text{~V}
+	\end{array}$ \\[14mm]
+	$\bullet$ branche 3 :& \\
+	\parbox[c]{4cm}{
+		\hfill \includegraphics[width=0.7\linewidth]{sol_exercices/ex1-19-7}}& 
+	$\begin{array}{rcl}
+	U_3& = & 0.25\, . (-0.5792) \\
+	& =&  -0.1448\text{~V}
+	\end{array}$ \\[14mm]
+	$\bullet$ branche 4 :& \\
+	\parbox[c]{4cm}{
+		\hfill \includegraphics[width=0.7\linewidth]{sol_exercices/ex1-19-8}}& 
+	$\begin{array}{rcl}
+	U_4 & =& -0.2\, . (1+0.6122) \\
+	& =&  -0.3224\text{~V}
+	\end{array}$ \\[14mm]
+	$\bullet$ branche 5 : & \\
+	\parbox[c]{4cm}{
+		\hfill \includegraphics[width=0.6\linewidth]{sol_exercices/ex1-19-9}}&
+	$\begin{array}{rcl}
+	U_5& = & -0.3333\, . 1.2555 \\
+	& = &  -0.4185\text{~V}
+	\end{array}$\\[14mm]
+	
+\end{tabular}
+
+\begin{tabular}{l@{\hspace{30mm}}l}
+	$\bullet$ branche 6 : & \\
+	\parbox[c]{4cm}{
+		\hfill \includegraphics[width=0.6\linewidth]{sol_exercices/ex1-19-10}} & 
+	$\begin{array}{rcl}
+	U_6 & =& -0.5\, . 0.1766 \\
+	&=& -0.0883\text{~V}
+	\end{array}$\\[14mm]
+	$\bullet$ branche 7 :& \\
+	\parbox[c]{4cm}{\hfill \includegraphics[width=0.6\linewidth]{sol_exercices/ex1-19-11}}&
+	$\begin{array}{rcl}
+	U_7 & = &0.1\, . 0.7236 \\
+	& =&  0.0724\text{~V}
+	\end{array}$\\[14mm]
+	$\bullet$ branche 8 : & \\
+	\parbox[c]{4cm}{\hfill \includegraphics[width=0.7\linewidth]{sol_exercices/ex1-19-12}}&
+	$\begin{array}{rcl}
+	U_8 &= &0.333\, . (1.4794-3) \\
+	& = & -0.5069\text{~V}
+	\end{array}$\\[14mm]
+	$\bullet$ branche 9 :& \\
+	\parbox[c]{4cm}{\hfill \includegraphics[width=0.6\linewidth]{sol_exercices/ex1-19-13}} & 
+	$\begin{array}{rcl}
+	U_9 & = &\dfrac{-0.1114}{7}\\
+	& =&  -0.0159\text{~V}
+	\end{array}$\\[14mm]
+\end{tabular}
+
+\paragraph{Exercice~\ref{ex:mg-3}}~\\%
+{\bf 1. Réduction de la matrice de résistances de mailles } \ ${\bf R}_M$ \ - 
+{\bf Elimination d'accès}
+
+Selon la méthode des mailles, un circuit est vu comme un circuit
+passifié à \ $M$ \ accès auquel sont connectées les sources
+indépendantes de tension : 
+\parbox[c]{5cm}{
+\begin{center}
+\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-20-1}
+\end{center}}
+\parbox[c]{5cm}{On peut écrire
+\[{\bf U} = {\bf R}_M \, {\bf I}\]
+ou
+\[{\bf V}_{sM} = {\bf R}_M \, {\bf I}\]}
+
+Le circuit passifié est caractérisé par la matrice de résistances des mailles \ ${\bf R}_M$~.
+
+Il y a un accès dans chaque maillon.
+
+Si certains accès sont dépourvus de source indépendante : 
+\begin{center}
+\includegraphics[width=0.45\linewidth]{sol_exercices/ex1-20-2}
+\end{center}
+ on a, pour ces accès, \ $U = 0$~(accès $M$
+ ici).
+
+Si l'on élimine l'accès auquel aucune source n'agit, c'est-à-dire si
+l'on élimine la variable \ $I_M$~, le circuit sera caractérisé par une
+matrice de résistances de mailles réduite \ ${\bf
+R}_{\mbox{red}}$~. Cette matrice s'obtient de la manière suivante~:
+
+\[ \left( \begin{array}{c}
+{\bf V}_{SM_1}\\ 0
+\end{array} \right) \: = \: 
+\left( \begin{array}{c|c}
+{\bf R}_{M_{11}} & {\bf R}_{M_{12}}\\\hline
+{\bf R}_{M_{21}} & R_{M_{22}}
+\end{array} \right) \,
+\left( \begin{array}{c}
+{\bf I}_{M_1}\\
+I_{M_2}
+\end{array} \right) 
+\: \begin{array}{c}
+(1) \\ (2)
+\end{array} \]
+
+La matrice \ ${\bf R}_M$ \ est partitionnée selon quatre sous-matrices. Les
+accès conservés sont repérés par l'indice 1, l'accès $M$ est l'accès
+éliminé repéré par l'indice 2. 
+
+La dernière relation (2) fournit
+\[ I_{M_2} \: = -\, R_{M_{22}}^{-1} \, {\bf R}_{M_{21}} \, {\bf I}_{M_1}~~~~~(3) \]
+Remplaçant dans (1), on trouve~:
+\[ {\bf V}_{sM_1} \: = \left( {\bf R}_{M_{11}} - {\bf R}_{M_{12}} \, 
+R_{M_{22}}^{-1}\, {\bf R}_{M_{21}} \right) {\bf I}_{M1}~, \]
+relation cherchée et
+\[ {\bf R}_{\mbox{red}} \: = \ {\bf R}_{M_{11}} - {\bf R}_{M_{12}} \, 
+R_{M_{22}}^{-1} \, {\bf R}_{M_{21}}~. \] 
+On a considéré ici
+l'élimination d'un seul accès mais la procédure peut être généralisée
+à plusieurs accès.
+
+{\bf 2. Mise en équation du circuit via la méthode des mailles}
+
+{\em A.  Graphe et choix de l'arbre}
+
+L'arbre est choisi de façon à ce que les maillons correspondent aux
+accès intéressants, en particulier les accès relatifs aux branches 1
+et 2 où se trouvent les sources indépendantes d'énergie :
+\begin{center}
+\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-20-3}
+\end{center}
+
+
+
+{\em B. Matrice de résistances de mailles}
+
+De la règle d'inspection, on déduit la matrice de résistances des mailles~:
+
+\[ {\bf R}_M \: = \: \left( \begin{array}{cc|c}
+8 & 1 & 4\\
+1 & 5 & -4\\ \hline
+4 & -4 & 10
+\end{array} \right) \,\, \Omega~.\]
+
+Le vecteur des f.e.m. de mailles est donné par~:
+
+\[ {\bf V}_{sM} \: = \left( \begin{array}{c}
+6 \\ 10 \\ 0
+\end{array} \right) \,\, \text{V~.}\]
+
+\noindent{\bf 3. Elimination de l'accès relatif à la maille III}
+
+Il n'y a pas de source indépendante agissant dans la maille III. Son
+élimination conduit à la matrice réduite
+
+\begin{eqnarray*}
+{\bf R}_{\mbox{red}} &=& 
+\left( \begin{array}{ccc} 8 && 1\\ 1 && 5 \end{array} \right) 
+- \left( \begin{array}{c} 4 \\ -4 \end{array} \right) \: \frac{1}{10} \left( 4~~ -4\right)\\
+&=& \left( \begin{array}{ccc} 6.4 && 2.6\\ 2.6 && 3.4 \end{array} \right) \Omega
+\end{eqnarray*}
+
+On a donc, vu des deux accès 11' et 22', la relation suivante~:
+
+\[ \left( \begin{array}{c} 6\\ 10  \end{array} \right) 
+\: = \: {\bf R}_{\mbox{red}} \left( \begin{array}{c} I_1\\ I_2 \end{array} \right)  \]
+
+Le schéma équivalent correspondant est représenté par 
+\begin{center}
+\includegraphics[width=0.45\linewidth]{sol_exercices/ex1-20-4}
+\end{center}
+
+On déduit
+\[ \left( \begin{array}{c} I_1\\ I_2 \end{array} \right) 
+\: = \: {\bf R}_{\mbox{red}}^{-1} \left( \begin{array}{c} 6\\ 10  \end{array} \right) 
+\: = \: \left( \begin{array}{c} -0.373\\ 3.227  \end{array} \right)  \text{A~.} \]
+
+Le courant de la maille III, \ $I_3$ \, peut être déterminé à partir de
+\ $I_1,I_2$ \ via la relation (3).
+On trouve~:
+\begin{eqnarray*}
+I_3 \: = \: -\, \frac{1}{10} \left( 4 ~~-4 \right) 
+\left( \begin{array}{c} I_1\\ I_2 \end{array} \right) 
+&=& -\, 0.4 \, I_1 + 1.4 \, I_2 \\
+&= & 1.436 \, \text{A~.}
+\end{eqnarray*}
+
+La connaissance des courants \ $I_1,I_2,I_3$ \ permet de déduire
+l'état électrique complet du réseau.
+
+{\bf 4. Détermination de} \ ${\bf R}_{\mbox{red}}$ \ {\bf par expérimentation}
+
+La matrice \ ${\bf R}_{\mbox{red}}$ \ ne peut jamais être déterminée
+par inspection. Par contre, elle peut être déterminée par
+expérimentation~:
+\begin{enumerate}
+\item élément diagonal~: \ $R_{ii} = \left. U_i\right|_{I_i=1\, ,\, I_j=0\, ,\, j\neq i}$
+\item élément non-diagonal\: \ $R_{ij} = \left. U_i\right|_{I_j=1\, ,\, I_k=0\, ,\, k\neq j}$
+\item les éléments $R_{11}$ et $R_{21}$ sont  déterminés selon les conditions
+de la figure ci-dessous : $I_1=1\, ,\, I_2=0$~.
+
+\parbox[c]{6cm}{
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex1-20-5}
+\end{center}}
+\parbox[c]{4cm}
+{\begin{align*}
+	I'_1 &= 1 \, . \, \frac{6}{10} \: = \: 0.6\, \text{A}\\
+	I'_2 &= 0.4\, \text{A}
+	\end{align*}}
+
+\begin{xalignat*}{2}
+R_{11} & = \left. U_1\right|_{I_1=1\, ,\, I_2=0} & 
+R_{21} &= \left. U_2\right|_{I_1=1\, ,\, I_2=0}\\
+& = 1 + 4I'_1 +3 & & = \, 1+4I'_2 \\
+& = 6.4\, \Omega & & =  \, 2.6\, \Omega
+\end{xalignat*}
+\item  les éléments $R_{12}$ et $R_{22}$ sont déterminés selon les conditions
+de la figure ci-dessous : \\$I_1=0\, ,\, I_2=1$~.
+\parbox[c]{8cm}{
+\begin{center}
+\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-20-6}
+\end{center}}
+\parbox[c]{5cm}{
+\begin{align*}
+I"_1 &= 1 \, . \, \frac{6}{10} \: = \: 0.6\, \text{A}\\
+I"_2 &= 0.4\, \text{A}\\
+\end{align*}}
+
+\begin{xalignat*}{2}
+	R_{12} & = \left. U_1\right|_{I_2=1\, ,\, I_1=0} &
+	R_{22} & = \left. U_2\right|_{I_2=1\, ,\, I_1=0}\\
+	& = \: 1 + 4I"_2 & & =  1 + 4I"_1\\
+	& = 2.6\, \Omega && = 3.4 \, \Omega 
+\end{xalignat*}
+\end{enumerate}
+			
+			
+\paragraph{Exercice~\ref{ex:mg-4}}~\\%
+{\bf 1. Schéma équivalent de Norton et méthode des noeuds}
+
+Selon la méthode des noeuds, comme indiqué à la figure ci-dessous,
+un circuit est équivalent à un circuit passifié vu de \ $N=n-1$ \
+accès, représenté par la matrice de conductances aux noeuds \ ${\bf
+	G}_N$~; à chaque accès agit une source indépendante de courant
+représentant les courants injectés à cet accès par les sources
+indépendantes de courant présentes dans le circuit.
+
+\noindent\parbox[c]{6cm}{
+\begin{center}
+\includegraphics[width=\linewidth]{sol_exercices/ex1-21-1}
+\end{center}}
+\parbox[c]{4cm}{
+\[{\bf I} \, = -{\bf I}_{sN} + {\bf G}_N {\bf U}~~~~~~ (1)\]
+où \ ${\bf U} = {\bf V}_N$, les potentiels de noeuds}
+
+Chaque accès est défini entre un noeud et le noeud de référence.
+
+Lorsque l'on ne s'intéresse qu'à un nombre réduit d'accès \ $(< N)$~,
+on peut éliminer les accès non intéressants.
+Soient :
+\begin{enumerate}
+\item $a$~: les accès intéressants;
+\item $b$~: les accès non intéressants.
+\end{enumerate}
+
+On a~: \ ${\bf I}_{b}={\bf 0}$ \ et en partitionnant (1), on écrit~:
+\[ \begin{array}{rclc}
+\left( \begin{array}{c} {\bf I}_a \\ {\bf 0} \end{array} \right)
+& = &
+- \left( \begin{array}{c} {\bf I}_{s_a} \\  {\bf I}_{s_{b}}\end{array} \right)
++ \left( \begin{array}{ccc} 
+{\bf G}_{a,a} &&  {\bf G}_{a,b}
+\end{array} \right)
+\left( \begin{array}{c} {\bf U}_{a} \\  {\bf U}_{b}\end{array} \right) 
+& \begin{array}{c} (2) \\ (3) \end{array}
+\end{array} \]
+
+De (3), on tire~:
+\[ {\bf U}_{b} \: = \: {\bf G}^{-1}_{b,b} \, {\bf I}_{s_{b}} 
+- {\bf G}^{-1}_{b,b} \, {\bf G}_{b,a} \, {\bf U}_a \]
+et remplaçant dans (2), on obtient~:
+\[ {\bf I}_a\: = \: 
+\left( -\, {\bf I}_{s_a} + {\bf G}_{a,b} \, {\bf G}^{-1}_{b,b} \, 
+{\bf I}_{s_{b}} \right)
++ \left( {\bf G}_{a,a} - {\bf G}_{a,b} \, {\bf G}^{-1}_{b,b} \, 
+{\bf G}_{b,a} \right) {\bf U}_a~.\]
+On déduit les paramètres du schéma équivalent de Norton vu des $a$ accès~:
+\begin{eqnarray*}
+{\bf I}_{No} &=& {\bf I}_{s_a} - {\bf G}_{a,b} \, {\bf G}^{-1}_{b,b} \, {\bf I}_{s_{b}} \\
+{\bf G}_{No} &=& {\bf G}_{a,a} - {\bf G}_{a,b} \, {\bf G}^{-1}_{b,b} \, {\bf G}_{b,a} 
+\end{eqnarray*}
+
+\noindent{\bf 2. Application de la méthode des noeuds}
+
+{\em A. Transformation de la branche contenant une source indépendante de tension}
+
+\begin{center}
+\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-21-2}
+\end{center}
+
+
+{\em B. Choix du noeud de référence}
+
+Le circuit comporte 3 noeuds~: les noeuds \ 1 $(=C)$~, 2 $(=A)$ \ et \  1' $(=B)$~.
+Choisissons le noeud 1' comme noeud de référence. 
+
+Le circuit comporte 2 accès~:
+\begin{enumerate}
+\item l'accès 11'
+\item un deuxième accès entre le noeud  $A$  et le noeud  1'.
+\end{enumerate}
+
+{\em C. Détermination de la matrice \ ${\bf G}_N$}
+
+Le circuit comporte une source commandée de type CVT.\ ${\bf G}_N$ \ ne
+peut être entièrement déterminée par la règle d'inspection.
+
+L'élément (1,2) de la matrice doit être déterminé par
+expérimentation. En effet, le CVT agit au noeud 1 et contribue donc
+uniquement à la PLK à ce noeud. Il impose un courant fonction de la
+tension \ $U_1$\ qui, vu le choix du noeud de référence, représente le
+potentiel du noeud 2, c'est-à-dire la tension à l'accès 2.
+
+La règle d'inspection fournit les éléments \ (1,1)~, (2,2) \ et \ (2,1)~:
+\[ {\bf G}_N \: = \: 
+\left( \begin{array}{cc}
+\dfrac{1}{R_2} + \dfrac{1}{R_3} & \text{x} \\
+-\, \dfrac{1}{R_3} & \dfrac{1}{R_0} + \dfrac{1}{R_1} + \dfrac{1}{R_3}
+\end{array} \right) \]
+La règle d'expérimentation, illustrée à la figure ci-dessous, fournit~:
+\[  G_{12} = \left. I_1\right|_{V_2=1\, , \, V_1=0} \]
+\begin{center}
+\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-21-3}
+\end{center}
+\begin{eqnarray*}
+U_1 &=& V_2 = 1 V\\
+I_{R_2} &=& 0 \quad \mbox{(tension nulle aux bornes de $R_2$)}\\
+I_{R_3} &=& \frac{1}{R_3}\\
+I_1 &=& -\, {R_3} - g U_1 \: = \, - \, \frac{1}{R_3} - g\\
+G_{12} &=& -\, \frac{1}{R_3} - g
+\end{eqnarray*}
+Finalement :
+\[ {\bf G}_N \: = \, \left( \begin{array}{cc}
+\dfrac{1}{R_2} + \dfrac{1}{R_3} & -\, \dfrac{1}{R_3} - g\\
+-\, \dfrac{1}{R_3} & \dfrac{1}{R_0} + \dfrac{1}{R_1} + \dfrac{1}{R_3}
+\end{array} \right) \, \text{S~.}\]
+
+
+{\em D.  Vecteur des courants injectés aux noeuds}
+
+\[ {\bf I}_{sN} \: = \, \left( \begin{array}{c} 0 \\ \frac{E}{R_0} \end{array} 
+\right) \, \text{A~.}\]
+
+Seules les sources {\em indépendantes} doivent être prises en compte!
+
+\noindent{\bf 3. Elimination de l'accès 2}
+
+On cherche le schéma équivalent de Norton vu de l'accès 11$^{'}$. On
+élimine l'accès 2 et on dérive successivement~:
+
+\[ \left( \begin{array}{c} 0 \\\hline  G_0 E \end{array} \right)
+\: = \: 
+\left( \begin{array}{ccc} G_2+G_3 & | & -g-G_3  \\\hline  
+-G_3 & | &  G_0 + G_1 + G_3
+\end{array} \right) \:
+\left( \begin{array}{c} V_1 \\\hline  V_2 \end{array}\right)  \]
+\begin{eqnarray*}
+I_{N_0} &=& 0 - (-g-G_3) \, . \, \frac{1}{G_0+G_1+G_3} \, . \ G_0E\\
+&=& \frac{g+G_3}{G_0+G_1+G_3} \, . \, G_0E \: = \: 0.019\, E \,\, \text{A~}\\
+G_{N_0} &=& G_2 + G_3 - (-g-G_3) \, \frac{1}{G_0+G_1+G_3} \, (-G_3)\\
+&=& G_2+ G_3 - \frac{(g+G_3)\, G_3}{G_0+G_1+G_2} \\
+&=& \frac{G_2G_0 + G_2G_1 + G_2G_3 + G_3G_0 + G_3G_1 - gG_3}{G_0+G_1+G_3}\\
+&=& 7.17\, 10^{-3}\, \text{S~.}
+\end{eqnarray*}
+
+\noindent{\bf 4. Détermination directe de} \ $I_{No}$ \ et \ $G_{No}$
+
+Etant donné la présence de la source commandée, il n'est pas possible
+de procéder par simples réductions successives du circuit. La partie à
+gauche de la source commandée ne peut pas être réduite.
+
+$I_{No}$ \ est donné par le courant parcourant l'accès court-circuité.
+Le circuit court-circuité peut se mettre sous la forme~de la figure ci-dessous.
+\begin{center}
+\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-21-4}
+\end{center}
+
+
+Par application de la règle du diviseur de courant, on trouve~:
+\begin{eqnarray*}
+I_3 &=& \frac{G_3}{G_0+G_1+G_3} \, G_0E\\
+I_1 &=& \frac{G_1}{G_0+G_1+G_3} \, G_0E\\
+\mbox{et dès lors} ~~U_1 &=& \frac{I_1}{G_1} \: = \: \frac{G_0E}{G_0+G_1+G_3}
+\end{eqnarray*}
+Finalement~:
+\begin{eqnarray*}
+I_{No} \:  =\:   I_{cc} &=& I_3 + gU_1\\
+&=& \frac{G_3+g}{G_0+G_1+G_3} \, G_0E
+\end{eqnarray*}
+
+$G_{No}$ est la conductance équivalente vue de l'accès du circuit
+passifié. Le circuit passifié est représenté à la figure ci-dessous.
+\begin{center}
+\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-21-5}
+\end{center}
+On dérive : 
+\begin{eqnarray*}
+G_{No} &=& \frac{I_1}{V_1} \: = \: \left. I_1 \right|_{V_1=1 \text{~V}}\\
+I_1 &=& I_2+ I_3 - gU_1 = G_2 + \frac{(G_0+G_1)\, G_3}{G_0+G_1+G_3} - gU_1\\
+\text{avec}\quad U_1 & =& \frac{I_3}{G_0+G_1} \: = \: \frac{G_3}{G_0+G_1+G_3}
+\end{eqnarray*}
+Finalement~: 
+\[ G_{No} \: = \: \frac{G_2G_0 + G_2G_1 + G_2G_3 + G_0G_3 + G_1G_3 - gG_3}{G_0+G_1+G_3}~. \]
+
+\paragraph{Exercice~\ref{ex:mg-5}}~\\%
+{\bf Procédure~:}
+\begin{enumerate}
+	\item mettre le circuit en équations via la méthode des noeuds. Il y a
+	3 noeuds plus le noeud de référence et donc 3 accès;
+	\item élimination de l'accès inintéressant 31' et dérivation du schéma équivalent de Norton.
+\end{enumerate}
+
+\noindent{\bf 1. Application de la méthode des noeuds}
+
+Transformons tout d'abord la branche contenant la source de tension :
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-22-1}
+\end{center}
+
+La matrice \ ${\bf G}_N$~, dérivée par la règle d'inspection, s'écrit~:
+\[ {\bf G}_N \: = \: \left( \begin{array}{ccc|c}
+8 && -5 &-2\\
+-5 && 11 & -4 \\\hline
+-2 && -4 & 7
+\end{array} \right)\, \text{S~.} \]
+Le vecteur des courants de noeuds est donné par~:
+\[ {\bf I}_{sN} \: = \, \left( \begin{array}{c} 0 \\ 0 \\\hline 10 \end{array} \right) \, \text{A~.}\]
+
+\noindent{\bf 2. Élimination de l'accès 31'}
+
+Partitionnant les matrices, on dérive directement
+\[ {\bf I}_{No} \: = \: 0 - \left( \begin{array}{c} -2 \\ -4 \end{array} \right) 
+\, . \dfrac{1}{7} \, . \, 10 
+\: = \: \left( \begin{array}{c} \dfrac{20}{7} \\ \dfrac{40}{7} \end{array} \right) \, \text{A} \]
+et
+\begin{eqnarray*}
+	{\bf G}_{No} &=& \left( \begin{array}{cc} 8 & -5\\ -5 & 11 \end{array}\right)
+	- \left( \begin{array}{c} -2 \\ -4  \end{array} \right) \: \dfrac{1}{7} \left( -2~~-4 \right)\\
+	&=& \left( \begin{array}{cc} 7.43 &-6.14\\ -6.14 & 8.71 \end{array}\right)  \, \text{S}~.
+\end{eqnarray*}
+
+\noindent{\bf 3. Schéma équivalent}
+
+Le circuit peut être représenté par le schéma équivalent de la figure ci-dessous avec : 
+\begin{xalignat*}{2}
+	G_{12} &= 6.14\, \text{S} & J_1 &=\frac{20}{7} \, \text{A}\\
+	G_{11} &= 7.43 - 6.14 \; = \: 1.29\, \text{S} & J_2 &= \frac{40}{7}\, \text{A}\\
+	G_{22} &= 8.71 - 6.14 \: = \: 2.57\, \text{S}~.
+\end{xalignat*}
+\begin{center}
+	\includegraphics[width=0.85\linewidth]{sol_exercices/ex1-22-2}
+\end{center}
+
+\noindent{\bf 4. Détermination de} \ ${\bf G}_{No}$ \ {\bf par transfiguration}
+
+La détermination du schéma équivalent de Norton revient ici à éliminer le noeud 3.
+On ne peut pas directement appliquer la méthode de la transfiguration
+pour transformer le circuit car il y a une source indépendante
+d'énergie qui agit au centre de l'étoile. On peut par contre
+l'utiliser pour rechercher la matrice \ ${\bf G}_{No}$ \ car pour cela
+il faut passifier le circuit.
+
+Ainsi, l'étoile
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{sol_exercices/ex1-22-3}
+\end{center}
+devient après transformation
+
+\parbox[c]{5cm}{
+\begin{center}
+\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-22-4}
+\end{center}}
+\parbox[c]{5cm}{
+avec 
+\begin{eqnarray*}
+	G'_{12} &=& \frac{2.4}{1+2+4} \: = \: \frac{8}{7}\, \,\text{S}\\
+	G'_{10} &=& \frac{2.1}{1+2+4} \: = \: \frac{2}{7}\, \,\text{S}\\
+	G'_{20} &=& \frac{4.1}{1+2+4} \: = \: \frac{4}{7}\, \,\text{S~.}
+\end{eqnarray*}}
+
+Le circuit passifié se simplifie comme indiqué à la figure ci-dessous.
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-22-5}
+\end{center}
+
+On dérive : 
+\[ {\bf G}_{No} \: = \: \left( \begin{array}{cc}
+6+\dfrac{10}{7} & -5 - \dfrac{8}{7}\\
+-5 - \dfrac{8}{7} & 7 + \dfrac{12}{7} \end{array} \right) \]
+
+{\bf 5. Détermination de} \ ${\bf I}_{No}$ \ {\bf par des essais en court-circuit}
+
+Les courants de Norton \ $J_1$ et $J_2$ \ correspondent aux courants
+parcourant les accès lorsque ceux-ci sont {\em simultanément}
+court-circuités.
+\[
+\begin{pmatrix}
+I_1\\I_2
+\end{pmatrix} = -
+\begin{pmatrix}
+J_1\\J_2
+\end{pmatrix} + {\bf G}_{No}
+\begin{pmatrix}
+V_1\\V_2
+\end{pmatrix}\]
+\[ \mbox{et~~~}{\bf I}_{No} \: = \: \left( \begin{array}{c} J_1 \\ J_2 \end{array} \right) 
+\: = \, -  \left( \begin{array}{c} I_1 \\ I_2 \end{array} \right)_{V_1=V_2=0} \] 
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-22-6}
+\end{center}
+Des courants définis à la figure ci-dessus, on déduit :
+\[ \begin{array}{rclcl}
+I_3 &=& \dfrac{-2}{2+1+4} \, . \, 10 \: = \, -\, \dfrac{20}{7}\, \text{A} & 
+\mbox{et} & J_1 = -I_3 = \dfrac{20}{7}\, \text{A} \\
+I_4 &=& \dfrac{4}{2+1+4} \, . \, 10 \: = \, -\, \dfrac{40}{7}\, \text{A} & 
+\mbox{et} & J_2 = -I_4 = \dfrac{40}{7}\, \text{A} 
+\end{array} \]
+		
+\paragraph{Exercice~\ref{ex:mg-6}}~\\%
+{\bf 1. Choix de la méthode} \ 
+
+On recherche  $R_{18}$ et $R_{13}$~.
+
+{\em A. Méthode des mailles}
+
+\[ b-(n-1) \, = \, 12-7+1 \, = \, 6 \]
+Il faut ajouter une branche correspondant à l'accès considéré (13 ou 18).
+
+Il faut donc construire~:
+\begin{enumerate}
+	\item pour la recherche de \ $R_{18}$~, une matrice \ ${\bf R}_M$ \ de
+	dimension \ $6$x$6$ \ et réduire cette matrice à l'accès 18;
+	\item pour la recherche de \ $R_{13}$~, une nouvelle matrice \ ${\bf
+		R}_M$ \ de dimension \ $6$x$6$ \ et réduire cette matrice à l'accès
+	13.
+\end{enumerate}
+
+Les deux matrices \ ${\bf R}_M$ \ sont différentes puisque le graphe
+du circuit considéré est différent~:
+\begin{enumerate}
+	\item pour la recherche de \ $R_{18}$~, on ajoute une branche
+	correspondant à l'accès entre les noeuds 1 et 8;
+	\item pour la recherche de \ $R_{13}$~, on ajoute une branche
+	correspondant à l'accès entre les noeuds 1 et 3.
+\end{enumerate}
+
+{\em B. Méthode des noeuds}
+\[n-1=7\]
+\begin{enumerate}
+	\item Recherche de \ $R_{18}$~: choisir 8 comme noeud de référence (ou
+	1) et réduire la matrice \ ${\bf G}_N$ (7x7)\ à l'accès formé par le
+	noeud 1 et le noeud 8.
+	\item Recherche de\  $R_{13}$~: 
+	\begin{enumerate}
+		\item si 1 est le noeud de référence, réduire \ ${\bf G}_N$ \ à
+		l'accès formé par le noeud 1 et le noeud 3;
+		\item si 8 est le noeud de référence, réduire \ ${\bf G}_N$ \ aux 2
+		accès $ \left( \begin{array}{c} 1\\ 8 \end{array} \right)$ et $ \left(
+		\begin{array}{c} 3\\ 8 \end{array} \right)$~.
+		
+		On a
+		\[ \left( \begin{array}{c} I_1 \\ I_3 \end{array} \right)
+		\: = \: 
+		\left( \begin{array}{cc} 
+		G_{11} & G_{13}\\ G_{31} & G_{33}
+		\end{array} \right) \, 
+		\left( \begin{array}{c} V_1\\ V_3 \end{array} \right) \]
+		
+		$I_1$ et $I_3$ \ sont les courants aux accès 1 et 3;\\
+		$V_1$ et $V_3$ \ sont les potentiels des noeuds 1 et 3 par rapport au noeud de référence.
+		
+		\begin{center}
+			\includegraphics[width=\linewidth]{sol_exercices/ex1-23-1}
+		\end{center}
+		
+		
+		On a
+		\[ R_{13} \, = \, \dfrac{V_1-V_3}{I} ~~~\mbox{avec}~~~ I=I_1=-I_3 \]
+		Soit \ $I=1$~A, alors \ $R_{13}$ \ est donné par
+		\[ R_{13} \, = \, V_1-V_3\]
+		avec \ $V_1\, , \, V_3$ \ solutions de
+		\[  \left( \begin{array}{c} V_1 \\ V_3 \end{array} \right) 
+		\: = \: 
+		\left( \begin{array}{cc} 
+		G_{11} & G_{13}\\ G_{31} & G_{33}
+		\end{array} \right) \, 
+		\left( \begin{array}{c} 1\\ -1 \end{array} \right) \]
+	\end{enumerate}
+\end{enumerate}
+
+{\bf 2. Méthode des noeuds}
+
+On choisit la méthode des noeuds. Elle présente l'avantage de ne devoir
+construire qu'une seule matrice \ ${\bf G}_N$ \ pour déterminer les
+deux résistances demandées.
+
+Nous allons réduire la matrice \ ${\bf G}_N$ \ par étapes successives
+en éliminant à chaque fois un seul accès à la fois.
+
+On montre que chaque étape est équivalente à une transfiguration
+étoile \ $\leftrightarrow$ \ triangle qui élimine le noeud
+correspondant à l'accès éliminé.
+
+{\em A.  Matrice} \ ${\bf G}_N$ \ {\em complète}
+
+\[ {\bf G}_N \: = \: 
+\begin{array}{cc}
+Noeud& 
+\begin{array}{m{5mm}m{5mm}m{5mm}m{5mm}m{5mm}m{5mm}m{5mm}}
+1 & 3 & 6 & 2 & 4 & 5 & 7
+\end{array}\\
+\begin{array}{r}
+1\\ 3\\ 6\\ 2\\ 4\\ 5\\ 7
+\end{array}
+& \left(
+\begin{array}{m{5mm}m{5mm}m{5mm}m{5mm}m{5mm}m{5mm}|m{5mm}}
+3 & 0 & 0 & -1 & -1 & 0 & 0\\
+0 & 3 & -1 & -1 & -1 & 0 & 0\\
+0 & -1 & 3 & 0 & 0 & -1 & -1\\
+-1 & -1 & 0 & 3 & 0 & -1 & 0\\
+-1 & -1 & 0 & 0 & 3 & 0 & -1\\
+0 & 0 & -1 & -1 & 0 & 3 & 0\\\hline
+0 & 0 & -1 & 0 & -1 & 0 & 3
+\end{array}\right)
+\end{array}\]
+
+{\em B. Elimination du noeud 7}
+
+La matrice \ ${\bf G}_N$ \ réduite à 6 accès~s'écrit :
+\[ \begin{array}{cc}
+Noeud& \begin{array}{m{9mm}m{9mm}m{9mm}m{9mm}m{9mm}m{9mm}}
+1 & 3 & 6 & 2 & 4 & 5 
+\end{array}\\
+\begin{array}{r}
+1\\ 3\\ 6\\ 2\\ 4\\ 5
+\end{array} 
+& \left(\begin{array}{m{9mm}m{9mm}m{9mm}m{9mm}m{9mm}|m{9mm}}
+3 & 0 & 0 & -1 & -1 & 0 \\
+0 & 3 & -1 & -1 & -1 & 0 \\
+0 & -1 & {\bf 2.67} & 0 & {\bf -0.33} & -1 \\
+-1 & -1 & 0 & 3 & 0 & -1 \\
+-1 & -1 & {\bf -0.33} & 0 & {\bf 2.67} & 0 \\\hline
+0 & 0 & -1 & -1 & 0 & 3
+\end{array}\right)
+\end{array}\]
+
+On remarque que seuls les éléments \ $G_{66}\,$, $G_{64}\,$, $G_{46}$
+et $G_{44}$ sont modifiés.
+
+Cette réduction correspond à la transformation étoile-triangle de la
+ figure ci-dessous qui élimine le noeud 7.
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-23-2}
+\end{center}
+
+{\em C. Elimination du noeud 5}
+
+Matrice \ ${\bf G}_N$ \ réduite à 5 accès~: seuls les éléments \
+$G_{22}\,$, $G_{66}\,$, $G_{26}$ et $G_{62}$ \ sont modifiés.
+\[ \begin{array}{cc}
+Noeud& \begin{array}{m{9mm}m{9mm}m{9mm}m{9mm}m{9mm}}
+1 & 3 & 6 & 2 & 4 
+\end{array}\\
+\begin{array}{r}
+1\\ 3\\ 6\\ 2\\ 4
+\end{array} 
+& \left(\begin{array}{m{9mm}m{9mm}m{9mm}m{9mm}|m{9mm}}
+3 & 0 & 0 & -1 & -1 \\
+0 & 3 & -1 & -1 & -1  \\
+0 & -1 & {\bf 2.33} & {\bf -0.33} & -0.33 \\
+-1 & -1 & {\bf -0.33} & {\bf 2.67} & 0  \\\hline
+-1 & -1 & -0.33  & 0 & 2.67
+\end{array}\right)
+\end{array}\]
+Cette réduction correspond à la transformation étoile-triangle de la
+ figure ci-dessous qui élimine le noeud 5.
+\begin{center}
+\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-23-3}
+\end{center}
+
+{\em D. Elimination du noeud 4}
+
+Matrice \ ${\bf G}_N$ \ réduite à 4 accès~: seuls les éléments \
+$G_{11}\,$, $G_{66}\,$, $G_{33}\,$, $G_{13}\,$, $G_{16}\,$,
+$G_{36}\,$, $G_{31}\,$, $G_{61}\,$ et $G_{63}$ \ sont modifiés.
+\[ \begin{array}{cc}
+Noeud& \begin{array}{m{9mm}m{9mm}m{9mm}m{9mm}}
+1 & 3 & 6 & 2 
+\end{array}\\
+\begin{array}{r}
+1\\ 3\\ 6\\ 2 
+\end{array} 
+& \left(\begin{array}{m{9mm}m{9mm}m{9mm}|m{9mm}}
+{\bf 2.63} & {\bf -0.38} & {\bf -0.13} & -1  \\
+{\bf -0.38} & {\bf 2.63}  & {\bf -1.13} & -1   \\
+{\bf -0.13}  &  {\bf -1.13} & {\bf 2.29} &  -0.33 \\\hline
+-1 & -1 & -0.33  & 2.67
+\end{array}\right)
+\end{array}\]
+
+L'élimination du noeud 4 résulte d'une transformation étoile
+\ $\leftrightarrow$ \ triangle généralisée à une étoile à 4 branches. Chaque \
+$G_{ij}$ \ du circuit équivalent, liant les noeuds $i$ et $j$, est
+donné par
+\[ G_{ij} \: = \: \frac{G_i \, G_j}{\sum_i \, G_i} \]
+Cette transformation est illustrée à la  figure ci-dessous.
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-23-4}
+\end{center}
+
+{\em E. Elimination du noeud 2}
+
+Matrice \ ${\bf G}_N$ \ réduite à 3 accès~: tous les éléments sont modifiés.
+\[ \begin{array}{cc}
+Noeud& \begin{array}{m{9mm}m{9mm}m{9mm}}
+1 & 3 & 6 
+\end{array}\\
+\begin{array}{r}
+1\\ 3\\ 6
+\end{array} 
+& \left(\begin{array}{m{9mm}m{9mm}|m{9mm}}
+{\bf 2.25} & {\bf -0.75} & {\bf -0.25}  \\
+{\bf -0.75} & {\bf 2.25}  & {\bf -1.25}   \\\hline
+{\bf -0.25}  &  {\bf -1.25} & {\bf 2.25}
+\end{array}\right)
+\end{array}\]
+L'élimination est illustrée à la  figure ci-dessous.
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-23-5}
+\end{center}
+
+{\em F. Elimination du noeud 6}
+
+On obtient la matrice \ ${\bf G}_N$ \ réduite aux 2 accès 18 et 38.
+\[ {\bf G}_{\mbox{red}}=
+\begin{array}{cc}
+Noeud& \begin{array}{m{9mm}m{9mm}}
+1 & 3 
+\end{array}\\
+\begin{array}{r}
+1\\ 3
+\end{array} 
+& \left(\begin{array}{m{9mm}|m{9mm}}
+2.22 & -0.89  \\\hline
+-0.89  & 1.56
+\end{array}\right)
+\end{array}\]
+L'élimination du noeud 6 est illustrée à la figure ci-dessous.
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-23-6}
+\end{center}
+On déduit~:
+\[ \left( \begin{array}{c} V_1 \\ V_3 \end{array} \right) \, = \: 
+{\bf G}_{\mbox{red}}^{-1} \left( \begin{array}{c} 1 \\ -1 \end{array} \right) \: \Rightarrow \: 
+\left( \begin{array}{c} V_1 \\ V_3 \end{array} \right) \, = \, 
+\left( \begin{array}{c} 0.25 \\ -0.5 \end{array} \right) \]
+et \ $R_{13} \, = \, V_1 - V_3 \, = \, 0.75\, \Omega$~.
+
+
+{\em G. Elimination du noeud 3}
+
+Il reste la résistance équivalente vue de l'accès 18~:
+\[ G_{18} \: = \: 2.22 - \dfrac{0.89^2}{1.56} \: = \: 1.71\, \text{S} \quad , \quad 
+R_{18} = 0.58\, \Omega\]
+
+\paragraph{Exercice~\ref{ex:mg-7}}~\\%
+
+Nous allons tout d'abord déterminer le schéma équivalent de Thévenin du circuit vu du
+détecteur \ $R_5$~. Il faut distinguer deux cas selon que l'on recherche $\frac{V_5}{E}$
+ou $\frac{V_5}{I}$
+
+{\bf A. Recherche de  $\frac{V_5}{E}$}
+
+\begin{enumerate}
+\item F.e.m. de Thévenin  $V_{{Th}_E}$
+
+$V_{{Th}_E}$ \ est la tension apparaissant à vide à l'accès CD comme représenté ci-dessous : 
+\begin{center} 
+\includegraphics[width=0.3\linewidth]{sol_exercices/ex1-24-1}
+\end{center} 
+
+On dérive l'expression de $V_{{Th}_E}$ en fonction de $I$ :
+\[\begin{array}{rcl}
+I_1 &=& I\, . \, \dfrac{R_2+R_4}{R_1+R_2+R_3+R_4} \\
+I_2 &=& I \, . \,\dfrac{R_1+R_3}{R_2+R_3+R_4+R_1} \\
+V_{{Th}_E} &=& R_4I_2 - R_3I_1\\
+&=& \dfrac{R_1R_4 -R_2R_3}{R_1+R_2+R_3+R_4} \, . \, I 
+\end{array}\] 
+Recherchons à présent l'expression de $V_{{Th}_E}$ \ en fonction de \ $E$. On a~:
+
+\[ \begin{array}{c} 
+(R_2+R_4)\, . \, I_2 + R_6I \: = \: E\\ 
+\left(
+\dfrac{R_2+R_4)(R_1+R_3)}{R_1+R_2+R_3+R_4} + R_6 \right) 
+\, \dfrac{R_1+R_2+R_3+R_4}{R_1R_4
+- R_2R_3} \, V_{Th} \: = \: E \\
+V_{{Th}_E} \: = \: E \, . \, \dfrac{R_1R_4 -R_2R_3}{(R_2+R_4)(R_1+R_3) + 
+\left( \sum^4_{i=1} R_i\right) R_6} 
+\end{array} \]
+
+Dans le cas particulier où \ $R_6=0$~, $V_{{Th}_E}$ se réduit à :
+\[ V_{{Th}_E} \: = \: E \,. \, \dfrac{R_1R_4 - R_2R_3}{(R_2+R_4)(R_1+R_3)} \]
+
+\item Résistance équivalente de Thévenin \ ${R_{Th}}_E$
+
+Considérons le circuit passifié représenté ci-dessous : 
+\begin{center} 
+\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-24-2}
+\end{center} 
+
+Nous allons rechercher sa résistance équivalente en appliquant la méthode des mailles et
+réduisant la matrice \ ${\bf R}_M$ \ trouvée à l'accès CD.
+
+Ajoutant la branche relative à l'accès, le graphe du circuit est représenté ci-dessous :
+\begin{center} 
+\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-24-3}
+\end{center} 
+
+L'arbre est choisi de façon à laisser la branche de l'accès dans un maillon. La règle
+d'inspection fournit la matrice de résistances de mailles \ ${\bf R}_M$~ : 
+\[ {\bf R}_M =
+\left( \begin{array}{ccc} R_1+R_2 & R_1+R_2 & R_1\\ R_1+R_2 & R_1+R_2+R_3+R_4 & R_1+R_3\\
+R_1 & R_1+R_3 & R_1+R_3+R_6 \end{array}\right)\]
+
+La résistance équivalente de Thévenin, résistance équivalente vue du premier accès
+(branche $R_5$), est obtenue par réduction de ${\bf R}_M$ à cet accès.
+
+Posons : 
+\begin{gather*} 
+{\bf R}_{aa}=\left(R_1+R_2\right)\\ 
+{\bf R}_{ab}=\left(
+\begin{array}{cc} R_1+R_2 & R_1 
+\end{array} \right)\\ 
+{\bf R}_{ba}=\left( 
+\begin{array}{c}
+R_1+R_2 \\ R_1
+\end{array} \right)\\ 
+{\bf R}_{bb}=\left( 
+\begin{array}{cc} R_1+R_2+R_3+R_4
+& R_1+R_3\\ R_1+R_3 & R_1+R_3+R_6 
+\end{array} \right) 
+\end{gather*}
+
+On a : 
+\[R_{Th_E}={\bf R}_{aa}-{\bf R}_{ab}{\bf R}_{bb}^{-1}{\bf R}_{ba}\] 
+\[ {\bf R}_{bb}^{-1} = \frac{1}{\Delta}\left(
+\begin{array}{cc} R_1+R_3+R_6 & -R_1-R_3\\
+-R_1-R_3 & R_1+R_2+R_3+R_4
+\end{array}\right) \] 
+avec 
+\begin{align*}
+\Delta & =
+(R_1+R_2+R_3+R_4)(R_1+R_3+R_6)-(R_1+R_3)^2\\
+&=((R_1+R_3)+(R_2+R_4))((R_1+R_3)+R_6)-(R_1+R_3)^2\\ 
+&=(R_1+R_3)(R_2+R_4)+R_6\sum_{i=1}^4R_i 
+\end{align*}
+
+\begin{align*}
+{\bf R}_{bb}^{-1}{\bf R}_{ba}& = \frac{1}{\Delta}\left( 
+\begin{array}{cc}
+R_1+R_3+R_6 & -R_1-R_3\\ -R_1-R_3 & R_1+R_2+R_3+R_4 \end{array}\right) 
+\left(
+\begin{array}{c} R_1+R_2 \\ R_1 \end{array} \right) \\ 
+&= \frac{1}{\Delta}\left(
+\begin{array}{c} R_6(R_1+R_2)+R_2(R_1+R_3)\\ R_1R_4-R_2R_3 \end{array}\right) 
+\end{align*}
+\begin{align*} 
+{\bf R}_{ab}\bf R_{bb}^{-1}{\bf R}_{ba}& = 
+\frac{1}{\Delta}\left(
+\begin{array}{cc} R_1+R_2 & R_1 \end{array}\right) 
+\left( \begin{array}{c}
+R_6(R_1+R_2)+R_2(R_1+R_3)\\ R_1R_4-R_2R_3 \end{array}\right) \\
+& =
+\frac{1}{\Delta}\left((R_1+R_2)^2R_6+R_1^2(R_2+R_4)+R_2^2(R_1+R_3)\right)\\ 
+\end{align*}
+\[ R_{Th_E} =
+R_1+R_2-\frac{1}{\Delta}\left((R_1+R_2)^2R_6+R_1^2(R_2+R_4)+R_2^2(R_1+R_3)\right) =
+\frac{N}{\Delta}\] 
+avec 
+\begin{align*} 
+N &
+=(R_1+R_2)(R_1+R_3)(R_2+R_4)+(R_1+R_2)^2R_6+(R_1+R_2)(R_3+R_4)R_6\\ 
+& -(R_1+R_2)^2R_6-R_1^2(R_2+R_4)-R_2^2(R_1+R_3)\\ 
+& =(R_1R_2+R_1R_3+R_2R_3)(R_2+R_4)-R_2^2R_1-R_2^2R_3\\ 
+& + (R_1+R_2)(R_3+R_4)R_6\\ 
+& =R_1R_2R_3+R_1R_2R_4+R_1R_3R_4+R_2R_3R_4+ (R_1+R_2)(R_3+R_4)R_6\\ 
+& =R_1R_3(R_2+R_4)+R_2R_4(R_1+R_3)+(R_1+R_2)(R_3+R_4)R_6 
+\end{align*} 
+Finalement : 
+\[R_{Th_E}= \frac{R_1R_3(R_2+R_4)+R_2R_4(R_1+R_3)+(R_1+R_2)(R_3+R_4)R_6}
+{(R_1+R_3)(R_2+R_4)+R_6\sum_{i=1}^4R_i}\]
+
+\item Expression de \ $\frac{V_5}{E}$
+
+On connecte la résistance \ $R_5$ \ au schéma équivalent de Thévenin.
+
+\parbox[c]{5cm}{
+\begin{center} \includegraphics[width=0.9\linewidth]{sol_exercices/ex1-24-4} 
+\end{center}} 
+\parbox[c]{5cm}{ \[ V_5 \:
+= \: R_5 \, \frac{V_{Th_E}}{R_5 + R_{Th_E}} \]}
+
+L'expression générale de \ $V_5/E$ s'écrit : 
+\[\frac{V_5}{E}=\frac{R_1R_4-R_2R_3}
+{(R_1+R_3)(R_2+R_4)+R_6\sum_{i=1}^4R_i+\frac{1}{R_5}\sum_{i\neq j\neq k}^4R_iR_jR_k
++\frac{R_6}{R_5}(R_1+R_2)(R_3+R_4)}\]
+
+Cas particuliers : 
+\begin{enumerate}
+\item $R_6=0$, $R_5=\infty$
+\[\frac{V_5}{E}=\frac{R_1R_4-R_2R_3}{(R_1+R_3)(R_2+R_4)}\] 
+\item $R_6=0$, $R_5\neq \infty$
+\[\frac{V_5}{E}=\frac{R_1R_4-R_2R_3}{(R_1+R_3)(R_2+R_4)+\frac{1}{R_5}\sum_{i\neq j\neq
+		k}^4R_iR_jR_k}\] 
+\item $R_6\neq 0$, $R_5= \infty$
+\[\frac{V_5}{E}=\frac{R_1R_4-R_2R_3}{(R_1+R_3)(R_2+R_4)+R_6\sum_{i=1}^4R_i}\]
+\end{enumerate}
+\end{enumerate}
+{\bf B. Recherche de  $\frac{V_5}{I}$}
+
+Contrairement à $E$, le courant $I$ est dépendant de la résistance du détecteur $R_5$. Le
+schéma équivalent de Thévenin vu de l'accès CD doit être déterminé en supposant $I$ imposé. Pour cela, on applique le théorème de substitution : la branche $E$-$R_6$ est remplacée par une source de courant délivrant le courant $I$ comme indiqué ci-dessous :
+\begin{center} 
+\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-24-5}
+\end{center} 
+
+\begin{enumerate}
+\item  f.e.m. de Thévenin  $V_{{Th}_I}$
+
+On a déterminé plus haut l'expression de la tension aux bornes du circuit à vide :
+\[V_{{Th}_I}= \dfrac{R_1R_4 -R_2R_3}{R_1+R_2+R_3+R_4} \, . \, I \]
+
+\item Résistance équivalente de Thévenin \ $R_{{Th}_I}$
+
+On déduit directement  : 
+\begin{center} 
+	\includegraphics[width=0.55\linewidth]{sol_exercices/ex1-24-6}
+\end{center} 
+\[ R_{{Th}_I} \: = \: \frac{(R_1+R_2)(R_3+R_4)}{\sum^4_{i=1} R_i} \] 
+
+\item  Expression de \ $\frac{V_5}{I}$
+
+On a le schéma équivalent de Thévenin auquel on connecte la résistance \ $R_5$~.
+\begin{eqnarray*} 
+	I_{R_5} &=& \frac{V_{{Th}_I}}{R_5+R_{{Th}_I}} \\ 
+	\mbox{et}~~V_5 &=& R_5
+	I_{R_5} \; = \; R_5 \, \frac{V_{{Th}_I}}{R_5+R_{{Th}_I}} 
+\end{eqnarray*}	
+
+Remplaçant $V_{{Th}_I}$ et $R_{{Th}_I}$ par leur expression trouvée plus haut, le rapport \ $V_5/I$ \ s'écrit :
+\[\frac{V_5}{I}=\frac{R_1R_4-R_2R_3}{\sum_{i=1}^4R_i+\frac{1}{R_5} (R_1+R_2)(R_3+R_4)}\]
+Dans le cas particulier où $R_5=\infty$ :
+\[\frac{V_5}{I}=\frac{R_1R_4-R_2R_3}{\sum_{i=1}^4R_i}\]
+	
+\end{enumerate}
+\paragraph{Exercice~\ref{ex:mg-8}}~\\%
+Nous allons résoudre cet exercice via deux approches~:
+\begin{enumerate}
+	\item par application de la méthode des mailles;
+	\item par transfiguration étoile \ $\leftrightarrow$ \ triangle.
+\end{enumerate}
+
+{\bf 1. Application de la méthode des mailles}
+
+Le graphe du circuit est donné ci-dessous.
+La branche 1 est relative à l'accès. L'arbre est choisi de manière à
+laisser cette branche dans un maillon.
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-25-1}
+\end{center}
+
+Les relations \ $U$-$I$ aux accès s'écrivent~:
+\[ \left( \begin{array}{c} U_1 \\ U_2 \\ U_3 \\ U_4 \end{array} \right)
+\: = \, -\, {\bf V}_{sM} + {\bf R}_M
+\left(  \begin{array}{c} I_1 \\ I_2 \\ I_3 \\ I_4 \end{array} \right)~. \]
+
+Seul l'accès 1 nous intéresse et \ $U_2 = U_3 = U_4 = 0$~. Le vecteur
+des f.e.m. de mailles est donné par~:
+\[ {\bf V}_{sM} \: = \: \left(  \begin{array}{c} 0 \\ 0 \\ 12 \\ 0 \end{array} \right)\, \text{V~.} \]
+
+La règle d'inspection fournit la matrice \ ${\bf R}_M$~:
+\[ {\bf R}_M \: = \: 
+\left( \begin{array}{rrrr}
+110 & 100 & 80 & -20\\
+100 & 200 & 80 & -20\\
+80 & 80 & 105 & 20\\
+-20 & -20 & 20 & 50 
+\end{array} \right)\, \Omega \text{~.} \]
+
+On a~:
+\[ \left( \begin{array}{c} U_1 \\\hline
+0 \\ 0 \\ 0 \end{array} \right)
+\: = \, -\, 
+\left( \begin{array}{c} 0 \\\hline
+0 \\ 12 \\ 0 \end{array} \right)
++ \left( \begin{array}{r|rrr} 
+110 & 100 & 80 & -20 \\\hline
+100 & 200 & 80 & -20\\
+80 & 80 & 105 & 20\\
+-20 & -20 & 20 & 50
+\end{array} \right) \, 
+\left(  \begin{array}{c} I_1 \\ I_2 \\ I_3 \\ I_4 \end{array} \right)~.  \]
+
+La réduction à l'accès 1, c'est-à-dire l'élimination des variables \
+$I_2\, ,\, I_3\, ,\, I_4$ \ fournit successivement~:
+\[ \left(  \begin{array}{c} I_2 \\ I_3 \\ I_4 \end{array} \right)
+\: = \, - \, 
+\left( \begin{array}{rrr} 
+200 & 80 & -20 \\
+80 & 105 & 20\\
+-20 & 20 & 50
+\end{array} \right)^{-1}
+\left( \left( \begin{array}{c} 0 \\ -12 \\ 0 \end{array} \right)
++ \left( \begin{array}{r} 100 \\ 80 \\ -20 \end{array} \right)
+I_1 \right) \]
+et
+\begin{eqnarray*}
+	U_1 &=&  110\, I_1 + \left( 100~~80~~-20 \right) \, 
+	\left( \begin{array}{c} I_2 \\ I_3 \\ I_4 \end{array} \right)\\
+	&=& -\left( 100~~80~~-20 \right) \, 
+	\left( \begin{array}{rrr} 
+		200 & 80 & -20\\
+		80 & 105 & 20\\
+		-20 & 20 & 50 
+	\end{array} \right)^{-1}
+	\left( \begin{array}{c} 0 \\ -12 \\ 0 \end{array} \right)\\
+	&& + \left( 110 - \left( 100~~80~~-20 \right) \, 
+	\left( \begin{array}{rrr}
+		200 & 80 & -20\\
+		80 & 105 & 20\\
+		-20 & 20 & 50
+	\end{array} \right) ^{-1}
+	\left( \begin{array}{r} 100\\ 80\\ -20 \end{array} \right) 
+	\right) \, I_1\\
+	&=& V_{Th} + R_{Th} I_1\\
+	V_{Th} &=& 9.706\, V\\
+	R_{Th} &=& 20.846\, \Omega
+\end{eqnarray*}
+
+Pour déterminer la puissance fournie par \ $E=12V$ \ si l'accès 11'
+est à vide, il faut déterminer \ $I_3$ \ lorsque \ $I_1=0$~.
+
+On a, si \ $I_1=0$~:
+\[ \left( \begin{array}{c} I_2\\ I_3\\ I_4 \end{array} \right) 
+\, = \, -\left( \begin{array}{rrr}
+200 & 80 & -20\\
+80 & 105 & 20\\
+-20 & 20 & 50
+\end{array} \right) ^{-1}
+\left( \begin{array}{c} 0\\ -12\\ 0 \end{array} \right) 
+\; = \; 
+\left( \begin{array}{c} 
+-\, 9.705~10^{-2}\\ 0.2118 \\ -0.1236
+\end{array} \right) \text{~A} \]
+c'est-à-dire \ $I_3 = 0.2118$ A \ et
+
+\parbox[c]{5cm}{\begin{center}
+\includegraphics[width=0.4\linewidth]{sol_exercices/ex1-25-2}
+\end{center}}
+\parbox[c]{5cm}{
+$p_E = 12\, I_3 = 2.54\, W$
+
+$E~\mbox{~fournit~} ~2.54\, W$}
+
+{\bf 2. Transfiguration}
+
+On transforme l'étoile centrale comme suit : 
+\begin{center}
+\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-25-3}
+\end{center}
+
+\begin{eqnarray*}
+\frac{1}{R_{12}} &=& \dfrac{G_1G_2}{G_1+G_2+G_3}
+\; = \; \dfrac{~\dfrac{1}{20}\, . \, \dfrac{1}{20}~}
+{~\dfrac{1}{20} + \dfrac{1}{20} + \dfrac{1}{80}~}\: 
+\Rightarrow \; R_{12} \: = \: 45\, \Omega\\
+\dfrac{1}{R_{13}} &=& \dfrac{G_1G_3}{G_1+G_2+G_3}
+\; = \; \dfrac{1}{180} \; \Rightarrow \; R_{13} \: = \: 180\, \Omega\\
+\dfrac{1}{R_{23}} &=& \dfrac{G_2G_3}{G_1+G_2+G_3}
+\; = \; \dfrac{1}{180} \; \Rightarrow \; R_{23} \: = \: 180\, \Omega
+\end{eqnarray*}
+
+Le circuit devient~:
+\begin{center}
+\includegraphics[width=\linewidth]{sol_exercices/ex1-25-4}
+\end{center}
+
+et finalement~:
+
+\parbox[c]{6cm}{\begin{center}
+\includegraphics[width=\linewidth]{sol_exercices/ex1-25-5}
+\end{center}}
+\parbox[c]{4cm}{
+\begin{eqnarray*}
+	V_{Th} &=& 64.29 \, \frac{11.68}{13.05 + 64.29} \: \\&= &\: 9.706\, V \\
+	R_{Th} &=& 10 + 64.29\, // \, 13.05 \:\\& =& \: 20.846\, \Omega 
+\end{eqnarray*}}
+
+Pour calculer la puissance produite par  la source \ $E=12V$,
+revenons au circuit où celle-ci apparaît,  comme illustré ci-dessous : 
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-25-6}
+\end{center}
+
+L'accès est à vide \ $\Rightarrow \: I_1 = 0$ \ et \ $U_1 = V_{Th} =
+9.706\, V$~.
+
+On dérive successivement~:
+\begin{eqnarray*} 
+	I_2 &=& \frac{U_1}{64.29} \\
+	U_2 &=& U_1 + 8.18\, I_2 \\
+	I_E &=& \frac{U_2 -12}{5} \: = \, -\, 0.2117\, A~.
+\end{eqnarray*}
+
+Puissance fournie par E~:
+\[ p_E \: = \,-\, 12\, I_E \: = \: 2.54\, \text{W~.} \] 
+
+
+
+\paragraph{Exercice~\ref{ex:mg-9}}~\\%
+Il faut tout d'abord déterminer le schéma équivalent de Thévenin du
+circuit vu de l'accès $AB$ :
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-26-1}
+\end{center}
+
+On utilise pour cela la méthode des mailles. On réduira ensuite le
+système obtenu à l'accès AB.
+
+Le graphe du circuit est donné ci-dessous. Le choix de l'arbre laisse l'accès (branche 3)
+dans un maillon.
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-26-2}
+\end{center}
+
+Le vecteur des f.e.m. de mailles s'écrit~:
+\[ {\bf V}_{sM} \: = \, 
+\left( \begin{array}{c}
+100\\ -100 \\ 100-200 \\ 100-200 
+\end{array} \right)
+\, = \, 
+\left( \begin{array}{r}
+100\\ -100 \\ -100 \\ -100 
+\end{array} \right)\,\text{V~.} \]
+
+La matrice \ ${\bf R}_M$ \ ne peut être entièrement déterminée par la
+règle d'inspection suite à la présence de la source commandée de type
+CVT. La SLK dans la maille IV est affectée par cette source; seuls les
+éléments de la 4ème ligne de \ ${\bf R}_M$ \ doivent être déterminés
+par expérimentation. De plus, le CVT introduit une tension qui dépend
+du courant \ $I_{\Delta}$ \ c'est-à-dire de courant de la maille II et
+finalement seul l'élément 42 de \ ${\bf R}_M$ \ doit être calculé par
+expérimentation.
+
+On a~:
+\[R_{42}=U_4|_{I_2=1,I_1=I_3=I_4=0}\]
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-26-3}
+\end{center}
+
+\begin{eqnarray*}
+	U_4 &=& 14\, I_{\Delta} - 3 \: = \: 14-3 \, = \, 11\\
+	I_{\Delta} &=& I_2 \, = \, 1\\
+	& \Rightarrow & R_{42} \, = \, 11\,\, \Omega\text{~.}
+\end{eqnarray*}
+On obtient~:
+\[ {\bf R}_M \: = \: 
+\left( \begin{array}{rrrr}
+5 & -5 & 5 & 3\\
+-5 & 25 & -5 & -3\\ 
+5 & -5 & 10 & 7\\
+3 & 11 & 7 & 7
+\end{array} \right)\,\Omega\text{~.} \]
+L'élimination des accès 2,3,4 fournit~:
+\begin{eqnarray*}
+	V_{Th} &=& -\, 100 - \left( -5 ~~5~~3 \right) \, 
+	\left( \begin{array}{rrr}
+		25 & -5 & -3\\
+		-5 & 10 & 7\\
+		11 & 7 & 7
+	\end{array} \right) ^{-1}
+	\left( \begin{array}{c} 100\\ 100\\ 100 \end{array} \right)\\
+	&=& -\, 150\, \text{~V}\\
+	R_{Th} &=& 5 - \left( -5 ~~5 ~~3 \right) \,
+	\left( \begin{array}{rrr}
+		25 & -5 & -3\\
+		-5 & 10 & 7\\
+		11 & 7 & 7
+	\end{array} \right) ^{-1}
+	\left( \begin{array}{r} -5\\ 5\\ 3 \end{array} \right)\\
+	&=& 2.5\, \Omega \,\text{~.}
+\end{eqnarray*}
+On connecte \ $R_0$ \ à l'accès~:
+\[I \: = \: \dfrac{V_{Th}}{R_{Th} + R_0}\]
+
+La puissance dissipée par \ $R_0$ \ vaut~:
+\[ P_{R_0} \: = \, \left( \frac{150}{R_{Th}+ R_0} \right)^2.\, R_0 \:= \: 1000\,\, \text{W~.} \]
+On déduit l'équation définissant \ $R_0$~:
+\begin{eqnarray*}
+	(150)^2\, R_0 
+	&=& 1000 \, (2.5 + R_0)^2\\
+	&=& 10^3\, R_0^2 + 5000\, R_0 + 6250~.
+\end{eqnarray*}
+Cette équation fournit deux solutions pour \ $R_0$~:
+\[ R_0 =
+\begin{cases}
+17.14 \,\,\Omega\\
+0.365\,\,\Omega
+\end{cases}\]
+
+
+\paragraph{Exercice~\ref{ex:mg-10}}~\\%
+{\bf Procédure} 
+\begin{enumerate}
+	\item mise en equations du circuit via la méthode des noeuds;
+	\item réduction à l'accès 14 et dérivation du schéma équivalent de
+	Norton vu de cet accès;
+	\item insertion de la résistance $R$ à l'accès 14 et calcul de la
+	puissance dissipée par cette résistance.
+\end{enumerate}
+
+\noindent{\bf 1. Application de la méthode des noeuds au circuit}
+
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-27-1}
+\end{center}
+Le circuit devra être ultérieurement réduit à l'accès 14, on peut
+donc choisir soit le noeud 1 soit le noeud 4 comme noeud de
+référence. Choisissons le noeud 4.
+
+Vu la présence de sources commandées, seuls les éléments ci-dessous
+de  la matrice de conductances aux
+noeuds peuvent être  déterminés par la règle d'inspection. 
+\[{\bf G}_N=
+\begin{matrix}
+1\\
+2\\
+3
+\end{matrix}
+\begin{pmatrix}
+G_{12}+G_{13} & -G_{12} & -G_{13}\\
+\times & \times & \times \\
+\times & -G_{23} & G_{13}+G_{23}+G_{34}
+\end{pmatrix}\]
+
+Les autres éléments se déduisent 
+\begin{enumerate}
+	\item soit par expérimentation :
+	\begin{enumerate}
+		\item élément 21 : 
+		
+		\parbox{6cm}{\includegraphics[width=0.95\linewidth]{sol_exercices/ex1-27-2}}
+		\parbox{4cm}{\begin{align*}
+			{\bf G}_{N21}&=I_2|_{V_1=1;V_2=V_3=0}\\
+			& = -G_{12}+g
+			\end{align*}}
+		\item  élément 22 :
+		
+		\parbox{6cm}{\includegraphics[width=0.95\linewidth]{sol_exercices/ex1-27-3}}
+		\parbox{4cm}{\begin{align*}
+			{\bf G}_{N22}&=I_2|_{V_2=1;V_1=V_3=0}\\
+			& = G_{12}+G_{23}+G_{24}+g
+			\end{align*}}
+		\item  élément 23 :
+		
+		\parbox{6cm}{\includegraphics[width=0.95\linewidth]{sol_exercices/ex1-27-4}}
+		\parbox{4cm}{\begin{align*}
+			{\bf G}_{N23}&=I_2|_{V_3=1;V_1=V_2=0}\\
+			& = -G_{23}-g
+			\end{align*}}
+		\item  élément 31 :
+		
+		\parbox{6cm}{\includegraphics[width=0.95\linewidth]{sol_exercices/ex1-27-5}}
+		\parbox{4cm}{\begin{align*}
+			{\bf G}_{N31}&=I_3|_{V_1=1;V_2=V_3=0}\\
+			& = -G_{13}-g
+			\end{align*}}
+	\end{enumerate}
+	\item soit en écrivant directement les PLK aux noeuds 2 et 3 :
+	\begin{gather*}
+	G_{12}(V_2-V_1)+G_{23}(V_2-V_3)+G_{24}V_2+gV_1-g(V_3-V_2)=-J\\
+	G_{13}(V_3-V_1)+G_{23}(V_3-V_2)+G_{34}V_3-gV_1=0
+	\end{gather*}
+\end{enumerate}
+
+Finalement, la matrice de conductances aux noeuds s'écrit :
+
+\begin{eqnarray*}
+	{\bf G}_N & = &\left(
+	\begin{array}{c|cc}
+		G_{12}+G_{13} & -G_{12} & -G_{13}\\ \hline
+		-G_{12}+g & G_{12}+G_{23}+G_{24}+g & -G_{23}-g\\
+		-G_{13}-g & -G_{23} & G_{13}+G_{23}+G_{34}
+	\end{array} \right) \\ & = & 
+	\left(\begin{array}{c|cc}
+		60 & -35 & -25 \\\hline
+		-15 & 145 & -30\\
+		-45 & -10 & 110
+	\end{array}\right)\,\, \mbox{mS}
+\end{eqnarray*} 
+Le vecteur des courants injectés aux noeuds par les sources
+indépendantes d'énergie est donné par :
+\[{\bf I}_{sN}=\left(
+\begin{array}{r}
+J\\ \hline
+-J\\
+0
+\end{array}\right)= 
+\left(\begin{array}{r}
+5\\ \hline
+-5\\
+0
+\end{array}\right)\,\, \text{A}
+\]
+
+\noindent{\bf 2. Dérivation du schéma équivalent de Norton vu de l'accès 14.}
+
+La conductance équivalente de Norton vue de d'accès 14 s'obtient par
+réduction de la matrice ${\bf G}_N$ à cet accès :
+\[G_{No}=60-
+\begin{pmatrix}
+-35 & -25
+\end{pmatrix}
+\begin{pmatrix}
+145 & -30\\
+-10 & 110
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+-15\\
+-45
+\end{pmatrix}= 42.63 \mbox{~mS}\]
+La source de courant de Norton équivalente est donnée par :
+\[J_{No}=5-
+\begin{pmatrix}
+-35 & -25
+\end{pmatrix}
+\begin{pmatrix}
+145 & -30\\
+-10 & 110
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+-5\\0
+\end{pmatrix}=3.69 \text{~A}\]
+
+\pagebreak
+
+\noindent{\bf 3. Calcul de la puissance consommée par $R$.}
+
+Connectant la résistance  $R$ à l'accès, on déduit :
+
+\[I=J_{No}\frac{\frac{1}{G_{No}}}{R+\frac{1}{G_{No}}}=0.7 \text{~A}\]
+\[p=RI^2=49.16 \text{~W}\]
+
+\paragraph{Exercice~\ref{ex:RSE-9}}~\\%
+Le coefficient d'inductance mutuelle entre les inductances $L_1$ et
+$L_4$ est donné par
+\[M=k\sqrt{L_1L_4}=0.14\text{~mH}\]
+
+On applique la méthode des mailles. L'arbre est choisi de manière à
+laisser l'accès du dipôle dans un maillon. 
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{sol_exercices/ex2-9-1}
+\end{center}
+Les relations de branches relatives aux branches occupées par les deux
+inductances couplées s'écrivent :
+\[\begin{pmatrix}
+\bar{U}_a\\
+\bar{U}_b
+\end{pmatrix} =
+\begin{pmatrix}
+j\omega L_1 & j\omega M\\
+j\omega M & j\omega L_4
+\end{pmatrix}
+\begin{pmatrix}
+\bar{I}_1\\
+\bar{I}_2+\bar{I}_3
+\end{pmatrix}\]
+Les tensions de couplage s'ajoutent vu les sens choisis pour les
+courants (entrant par les points aux deux branches).
+
+Les SLK dans chaque maille s'écrivent : 
+\begin{align*}
+\bar{U}& = \bar{U}_a+\bar{U}_e\\
+& =j\omega L_1\bar{I}_1+j\omega M (\bar{I}_2+\bar{I}_3)+j\omega L_2(\bar{I}_1-\bar{I}_2)\\
+0& = \bar{U}_c-\bar{U}_e+\bar{U}_b\\
+& = j\omega L_3\bar{I}_2-j\omega L_2(\bar{I}_1-\bar{I}_2)+j\omega L_4 (\bar{I}_2+\bar{I}_3)
++j\omega M \bar{I}_1\\
+0 & =\bar{U}_d+\bar{U}_b\\
+& = j\omega L_5\bar{I}_3+j\omega L_4(\bar{I}_2+\bar{I}_3)+j\omega M \bar{I}_1
+\end{align*}
+${\bar U}$ est la tension à l'accès du dipôle.
+La matrice des impédances de mailles est donnée par :
+\[{\bf Z}_M=j\omega 
+\begin{pmatrix}
+L_1+L_2 & -L_2+M & M\\
+-L_2+M & L_3+L_2+L_4 & L_4\\
+M & L_4 & L_4+L_5
+\end{pmatrix}=
+j\omega \left[ \begin{array}{c|cc}
+0.6 & -0.36 & 0.14\\ \hline
+-0.36 & 1.1 & 0.4 \\
+0.14 & 0.4 & 1.2
+\end{array}\right]\, 10^{-3}\,\, \Omega ~.\]
+La réduction de cette matrice à l'accès 1 fournit l'impédance
+équivalente du dipôle, soit :
+\[Z_{eq}=j\omega L_{eq}\]
+\[L_{eq} =
+0.6-
+\begin{pmatrix}
+-0.36 & 0.14
+\end{pmatrix}
+\begin{pmatrix}
+1.1 & 0.4\\
+0.4 & 1.2
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+-0.36\\
+0.14
+\end{pmatrix}=0.413\text{~mH}\]
+
+\paragraph{Exercice~\ref{ex:RSE-10}}~\\%
+{\bf 1. Application de la méthode des mailles}
+
+On utilise la méthode des mailles pour déterminer le schéma équivalent
+de Thévenin vu de l'accès 11'. Le graphe du circuit passifié est
+représenté à la Fig.~\ref{ex2-10-1s}.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.45\linewidth]{sol_exercices/ex2-10-1}
+		\caption{}\label{ex2-10-1s}
+	\end{center}
+\end{figure}
+
+Choisissons l'arbre représenté en pointillés en prenant soin de placer
+la branche 2 relative à l'accès auquel on va réduire le circuit dans
+un maillon. Les mailles fondamentales correspondantes sont les
+mailles I, II, III.
+
+Adoptant les sens des courants et tensions de la
+figure ci-dessous, 
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{sol_exercices/ex2-10-2}
+\end{center}
+les relations de branches relatives à la paire
+d'inductances couplées s'écrivent~:
+\[ \left( \begin{array}{c} u_4\\ u_6 \ \end{array} \right) 
+\, = \, \left( \begin{array}{ccc} L_1 && M \\ M && L_2 \end{array} \right)
+\left( \begin{array}{c} \dfrac{di_4}{dt} \\ \dfrac{di_6}{dt}  \ \end{array} \right) 
++ \left( \begin{array}{ccc} 0 && 0 \\ 0 && R_2 \end{array} \right)
+\left( \begin{array}{c} i_4\\ i_6 \ \end{array} \right)  \]
+ou, en termes de phaseurs~:
+\[ \left( \begin{array}{c} \bar{U}_4\\ \bar{U}_6 \ \end{array} \right) 
+\, = \, \left( \begin{array}{ccc} j\omega L_1 && j\omega M \\ j\omega
+M && R_2 + j\omega L_2 \end{array} \right) \left( \begin{array}{c}
+\bar{I}_4\\ \bar{I}_6 \ \end{array} \right)~.  \] 
+Le coefficient
+d'inductance mutuelle \ $M$ \ est positif puisque, avec les sens
+choisis pour les courants, ils entrent tous les deux par la borne
+repérée par le point \ $\bullet$~.
+
+Les courants de branches se déduisent à partir des courants de mailles~:
+\[ \left( \begin{array}{c} \bar{I}_1 \\ \bar{I}_2 \\ \bar{I}_3 \end{array} \right) \]
+comme indiqué à la figure ci-dessous : 
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex2-10-3}
+\end{center}
+Les SLK pour les 3 mailles s'écrivent alors en fonction des courants de mailles~:
+\begin{enumerate}
+	\item maille I~:
+	\begin{eqnarray*}
+		\bar{E} &=& R_1 \bar{I}_1 + j\omega L_1 \, (\bar{I}_1 + \bar{I}_3) + j\omega M\, 
+		(\bar{I}_1 + \bar{I}_2) +\\
+		&& + \, j\omega L_2 \, (\bar{I}_1 + \bar{I}_2) + j\omega M\, (\bar{I}_1 + \bar{I}_3) + 
+		R_2 \, (\bar{I}_1 + \bar{I}_2) 
+	\end{eqnarray*}
+	\item maille II~:
+	\[ 0 \: = \: R_3\, (\bar{I}_2 - \bar{I}_3) + R_2\, (\bar{I}_1 + \bar{I}_2) + j\omega L_2 \, 
+	(\bar{I}_1 + \bar{I}_2) + j\omega M \, (\bar{I}_1 + \bar{I}_3) \]
+	\item maille III~:
+	\[ 0 \: = \: j\omega L_1 \, (\bar{I}_1 + \bar{I}_3) + j\omega M\, 
+	(\bar{I}_1 + \bar{I}_2) + R_3 \,  (\bar{I}_3 - \bar{I}_2) 
+	+ R_4 \bar{I}_3~.\]
+\end{enumerate}
+On déduit~:
+\begin{enumerate}
+	\item la matrice d'impédances de mailles~:
+	\[{\bf Z}_M \: = \: 
+	\left( \begin{array}{c|c|c}
+	R_1 + j\omega L_1 + j\omega M + j\omega L_2 & j\omega M + j\omega L_2 + R_2 & j\omega L_1 + j\omega M \\
+	+ j\omega M + R_2 &&\\\hline
+	\times & R_3 + R_2 + j\omega L_2 & -\, R_3 + j\omega M\\\hline
+	\times &  \times & j\omega L_1 + R_3 + R_4
+	\end{array} \right) \]
+	matrice symétrique;
+	
+	\item le vecteur des f.e.m. de mailles~:
+	\[ \bar{\bf V}_{sM} \: = \, \left( 
+	\begin{array}{c} \bar{E} \\ 0 \\ 0 \end{array} \right) \]
+\end{enumerate}
+On peut aussi déterminer  \ ${\bf Z}_M$ \ par calcul à partir de l'expression
+\[ {\bf Z}_M = {\bf B} \, {\bf Z}_B \, {\bf B}^T \]
+avec\\
+\begin{enumerate}
+	\item ${\bf B}$ :  la matrice des mailles fondamentales  du graphe du circuit passifié;
+	\item ${\bf Z}_B$ :  la matrice des impédances de branches.
+\end{enumerate}
+\[ {\bf B} =   
+\begin{array}[b]{rl}
+\begin{array}{r} \\ \mbox{maille} \\ \mbox{I} \\ \mbox{II} \\ \mbox{III} \end{array} & 
+\begin{array}{l}
+\mbox{~~~~branche}\\
+\begin{array}{cccccc}
+~~~~1 & 2 & 3 & 4 & ~5 & ~6 \\\hline
+\end{array}\\
+\left( \begin{array}{cccccc}
+1 & 0 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 0 & 1 & 1\\
+0 & 0 & 1 & 1 & -1 & 0
+\end{array}\right)
+\end{array}
+\end{array}\]
+\[ {\bf Z}_B \: = \, \left( \begin{array}{cccccc}
+R_1 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & R_4 & 0 & 0 & 0\\
+0 & 0 & 0 & j\omega L_1 & 0 & j\omega M\\
+0 & 0 & 0 & 0 & R_3 & 0\\
+0 & 0 & 0 & j\omega M & 0 & R_2 + j\omega L_2
+\end{array} \right) \]
+
+
+\noindent{\bf  2. Réduction à l'accès 11' et détermination du schéma équivalent de Thévenin}
+
+Le schéma équivalent du circuit et les accès résultant du choix de
+l'arbre sont donnés à la Fig.~\ref{ex2-10-4s}.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.6\linewidth]{sol_exercices/ex2-10-4}
+		\caption{}\label{ex2-10-4s}
+	\end{center}
+\end{figure}
+
+Les relations \ $U-I$ \ pour les 3 accès s'écrivent~:
+\[ \left( \begin{array}{c} 0 \\ \bar{U}_{11'} \\ 0 \end{array} \right) 
+\: = \, - \left( \begin{array}{c} \bar{E} \\ 0 \\ 0 \end{array} \right) 
++ {\bf Z}_M \left( \begin{array}{c} \bar{I}_1 \\ \bar{I}_2 \\ \bar{I}_3 \end{array} \right)  \]
+avec \ $\bar{U}_I = \bar{U}_{III} = 0$ \ pour les 2 accès à éliminer.
+
+L'élimination des courants \ $\bar{I}_1\, , \, \bar{I}_3$ \ fournit la
+relation cherchée à l'accès 11'~:
+\[ \bar{U}_{11'} \, = \, \bar{V}_{Th} + Z_{Th} \, \bar{I}_2 \]
+avec
+\begin{enumerate}
+	\item $\bar{V}_{Th} \, = \, 0 + {\bf Z}_{a,b} \, {\bf Z}_{b,b}^{-1} 
+	\left( \begin{array}{c} \bar{E}\\ 0 \end{array} \right) $~:
+	\begin{eqnarray*}
+		{\bf Z}_{a,b} &=& \left( j\omega M + j\omega L_2 + R_2 ~~~-\, R_3 + j\omega M \right)\\
+		{\bf Z}_{b,b} &=& \left( \begin{array}{ccc} 
+			R_1 + R_2 + j\omega L_1 + j\omega L_2 + 2j\omega M && j\omega L_1 + j\omega M \\
+			j\omega L_1 + j\omega M && j\omega L_1 + R_3 + R_4
+		\end{array} \right)
+	\end{eqnarray*}
+	on trouve~: 
+	\[ \bar{V}_{Th} \: = \: 85.73 + j\, 5.63 \: = \: 85.91 \angle 3.76^{\circ} \, \text{V} \]
+	\item $Z_{Th} \, = \, {\bf Z}_{a,a} - {\bf Z}_{a,b} \, {\bf Z}_{b,b}^{-1} \, {\bf Z}_{b,a}$~:
+	\begin{eqnarray*}
+		{\bf Z}_{a,a} &=& R_3 + R_2 + j\omega L_2\\
+		{\bf Z}_{b,a} &=& \left( \begin{array}{c}
+			j\omega M + j\omega L_2 + R_2\\ -\, R_3 + j\omega M
+		\end{array} \right) 
+	\end{eqnarray*}
+	on trouve~:
+	\[ Z_{Th} \: = \: 33.31 + j\, 3.47 \: = \: 33.49 \angle 5.94^{\circ}\, \Omega~. \]
+\end{enumerate}
+
+\noindent{\bf 3. Réalisation de l'adaptation}
+
+Pour soutirer au circuit une puissance maximale, il faut choisir une impédance de charge~:
+\begin{eqnarray*}
+	Z_L \: = \: Z_{Th}^{\ast} &=& 33.31 - j\, 3.47 \, \Omega\\
+	&=& R_L - jX_L\\
+	& = & R_L - \frac{j}{\omega C_L}~. 
+\end{eqnarray*}
+Cette impédance peut \^etre réalisée au moyen d'un circuit RC série
+avec
+\begin{eqnarray*}
+	R_L &=& 33.31 \, \Omega\\
+	\mbox{et}~~C_L &=& \frac{1}{3.47\, . \, \omega} \: = \: \frac{1}{3.47\, \times \, 10^3} 
+	\: = \: 288 \, \mu \text{F~.}
+\end{eqnarray*}
+\noindent{\bf 4. Puissance fournie à} \ $Z_L$
+
+Connectant $Z_L$ à l'accès 11', on dérive :
+
+\parbox[c]{5cm}{
+	\includegraphics[width=\linewidth]{sol_exercices/ex2-10-5}}
+\parbox[c]{5cm}{
+	\begin{eqnarray*}
+		\bar{I} & = &  \dfrac{\bar{V}_{Th}}{2R_{Th}}\\
+		S_{Z_L} & = & Z_L  I^2 \\
+		& =&  Z_L \dfrac{V_{Th}^2}{4R_{Th}^2} \\
+		&= & 55.4 - j 5.77 \,\,  \text{VA}~. 
+\end{eqnarray*}}
+
+La charge \ $Z_L$ \ consomme une puissance active 
+\[ P = 55.4 \,\, \text{W} \]
+et fournit une puissance réactive
+\[ Q = 5.77 \,\, \text{Var~.} \]
+

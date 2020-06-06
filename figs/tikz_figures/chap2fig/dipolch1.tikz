@@ -1,0 +1,21 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\filldraw[black] (1.32222,1.56222) circle (0.06667cm);
+\filldraw[black] (1.32222,3.54444) circle (0.06667cm);
+\draw[arrows=-triangle 45,black] (1.72222,1.37333) -- (2.58889,1.37333);
+\draw[black] (2.58889,2.06222) -- (2.58889,1.56222) -- (1.38889,1.56222);
+\draw[black] (2.58889,3.06222) -- (2.58889,3.56222) -- (1.38889,3.56222);
+\draw[black] (1.98889,2.06222) rectangle (3.22222,3.06667);
+\draw[arrows=-triangle 45,black] (2.52222,3.77778) -- (1.65556,3.77778);
+\path (2.04444,1.27778) node[text=black,anchor=base east] {$i$};
+\path (1.28889,2.70667) node[text=black,anchor=base] {$u$};
+\path (1.30444,1.96222) node[text=black,anchor=base] {+};
+\path (1.30444,3.38) node[text=black,anchor=base] {-};
+\path (2.22222,4.16667) node[text=black,anchor=base east] {$i$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

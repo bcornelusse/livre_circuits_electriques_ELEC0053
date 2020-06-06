@@ -1,0 +1,18 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[dashed,black] (5.46596,2.66992) +(-78:0.13975) arc (-78:60:0.13975);
+\draw[arrows=-triangle 45,black] (4.08889,2.76889) -- (5.84444,2.46);
+\draw[arrows=-triangle 45,black] (4.08889,2.76889) -- (2.94444,1.40222);
+\draw[arrows=-triangle 45,black] (4.08889,2.76889) -- (3.47778,4.44444);
+\draw[dashed,black] (4.09778,2.79111) -- (6.11778,2.79111);
+\path (5.47333,2.35333) node[text=black,anchor=base west] {$\bar{I}_a$};
+\path (3.88,4.20667) node[text=black,anchor=base west] {$\bar{I}_b$};
+\path (5.71333,2.74) node[text=black,anchor=base west] {$\phi_i$};
+\path (3.38444,1.82667) node[text=black,anchor=base west] {$\bar{I}_c$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

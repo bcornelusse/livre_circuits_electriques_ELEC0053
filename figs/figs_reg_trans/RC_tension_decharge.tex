@@ -1,0 +1,24 @@
+\documentclass{standalone}
+
+\input{tickz_setup.txt}
+
+% Run once then run gnuplot on the .gnuplot generated file to generate a .table aux file that contains the function values 
+% Run a second time to generate the plot
+
+\begin{document}
+\begin{tikzpicture}[scale=1.5, samples=100, >=latex]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\VoltageColor{blue!90!white}
+\def\CurrentColor{red!90!white}
+\def\PowerColor{green}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PlotAxes{-.2}{2.3}{-.2}{1.5}{$t [s]$}{$[V]$}
+
+\draw (0,1) node[left ]{$V_s$};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\draw[color=\VoltageColor, very thick] plot[id=u_dischargeVsTime_RC, domain=0:2] function{exp(-3*x)} node[above] {$u(t)$};
+\draw[dotted] (0,1) -- (0.3333,0) node[below]{$\tau$};
+\draw[dotted] (0,0.368) node [left]{$\frac{V_s}{e}$} -- (0.3333,0.368);
+\draw[dotted] (0.3333,0.368)  -- (0.3333,0);
+\end{tikzpicture}
+\end{document}

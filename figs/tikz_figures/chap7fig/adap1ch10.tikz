@@ -1,0 +1,17 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (2.96667,1.63333) -- (4.97333,1.63333) -- (4.97333,2.03778) -- (4.97333,2.34444) -- (4.81556,2.39556) -- (5.13333,2.49778) -- (4.81556,2.6) -- (5.13333,2.7) -- (4.81556,2.80222) -- (5.13333,2.90444) -- (4.81556,3.00667) -- (5.13333,3.10667) -- (4.97333,3.15778) -- (4.97333,3.46667) -- (4.97333,3.87778) -- (3,3.87778);
+\filldraw[black] (4.01111,1.64444) circle (0.06667cm);
+\filldraw[black] (4,3.87778) circle (0.06667cm);
+\draw[black] (0.51111,1.52222) rectangle (3,4);
+\path (5.27778,2.97778) node[text=black,anchor=base west] {$Z_L$};
+\path (1.65556,2.33333) node[text=black,anchor=base] {Circuit};
+\path (1.65556,2.76667) node[text=black,anchor=base] {lineaire et};
+\path (1.65556,3.2) node[text=black,anchor=base] {invariant};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

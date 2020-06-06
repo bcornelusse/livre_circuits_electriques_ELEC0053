@@ -1,0 +1,19 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (3.69543,4.35652) +(59:1.22302) arc (59:160:1.22302);
+\filldraw[black] (4.63333,4.66667) circle (0.06667cm);
+\filldraw[black] (2.76667,4.03333) circle (0.06667cm);
+\draw[arrows=-triangle 45,black] (3.62222,3.64444) -- (4,3.71111);
+\draw[black] (2.74444,4.01111) -- (3.21111,3.55556) -- (3.68889,3.66667) -- (4.13333,3.74444) -- (4.71111,3.65556) -- (4.72222,3.87778) -- (4.62222,4.62222);
+\path (2.53333,4.13333) node[text=black,anchor=base west] {1};
+\path (4.75556,4.73333) node[text=black,anchor=base west] {2};
+\path (2.56667,4.63333) node[text=black,anchor=base] {+};
+\path (4.48222,5.31556) node[text=black,anchor=base] {-};
+\path (3.18222,5.94889) node[text=black,anchor=base] {$u_{12}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

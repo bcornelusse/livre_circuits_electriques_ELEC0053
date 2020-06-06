@@ -1,0 +1,26 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (9.62444,3.02222) node[text=black,anchor=base west] {$\bar{I}_{s2}=1$};
+\draw[black] (9.13778,2.64222) -- (9.13778,2.46667);
+\draw[black] (9.15111,3.52222) -- (9.15111,3.26667);
+\path (5.10444,3.01333) node[text=black,anchor=base east] {$\bar{U}_{1}$};
+\path (5.23111,2.75333) node[text=black,anchor=base] {+};
+\path (5.16222,3.41778) node[text=black,anchor=base] {-};
+\draw[black] (8.04889,2.42) -- (9.13111,2.42);
+\draw[black] (8.03778,3.50889) -- (9.12,3.50889);
+\draw[black] (5.18222,2.42) -- (5.87111,2.42);
+\draw[black] (5.12667,3.49778) -- (5.87111,3.49778);
+\draw[black] (5.88222,2.24222) rectangle (8.04,3.69778);
+\filldraw[black] (9.13778,3.50889) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (9.14889,2.42) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.17778,3.50889) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.20444,2.39778) ellipse (0.06667cm and 0.06667cm);
+\draw[arrows=-triangle 45,black] (9.12667,3.19111) -- (9.12667,2.73556);
+\draw[black] (9.12889,2.96) ellipse (0.33111cm and 0.33111cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

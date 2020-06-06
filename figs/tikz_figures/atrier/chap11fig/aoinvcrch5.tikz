@@ -1,0 +1,32 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (2.59778,3.03111) -- (2.91778,3.03111) -- (2.96889,3.18889) -- (3.07111,2.87111) -- (3.17333,3.18889) -- (3.27333,2.87111) -- (3.37556,3.18889) -- (3.47778,2.87111) -- (3.58,3.18889) -- (3.68,2.87111) -- (3.73111,3.03111) -- (4.14222,3.03111);
+\draw[black] (1.24222,4.33556) circle (0.33111cm);
+\path (1.24222,4.26444) node[text=black,anchor=base] {+};
+\path (1.24667,4.62667) node[text=black,anchor=base] {-};
+\filldraw[black] (2.55111,3.03333) circle (0.06667cm);
+\filldraw[black] (4.16222,3.02222) circle (0.06667cm);
+\draw[arrows=-triangle 45,black] (1.06222,3.77778) -- (1.06222,3.08889);
+\draw[black] (1.22889,4.67778) -- cycle;
+\draw[black] (1.21778,4.68889) -- cycle;
+\draw[black] (1.22889,4.68889) -- cycle;
+\path (0.81778,4.45556) node[text=black,anchor=base east] {$v_s$};
+\path (1.90667,2.76667) node[text=black,anchor=base] {$R_s$};
+\path (0.90667,3.62222) node[text=black,anchor=base east] {$i_s$};
+\path (3.38444,2.67778) node[text=black,anchor=base] {$R_f$};
+\path (2.61778,3.74222) node[text=black,anchor=base] {$v_n$};
+\path (2.55111,4.92222) node[text=black,anchor=base] {-};
+\path (4.10667,4.95556) node[text=black,anchor=base] {-};
+\draw[black] (1.21778,4) -- (1.21778,3.03111) -- (1.52444,3.03111) -- (1.57556,3.18889) -- (1.67778,2.87111) -- (1.78,3.18889) -- (1.88,2.87111) -- (1.98222,3.18889) -- (2.08444,2.87111) -- (2.18667,3.18889) -- (2.28667,2.87111) -- (2.33778,3.03111) -- (2.64667,3.03111);
+\draw[black] (1.24,4.68889) -- (1.24,5) -- (4.20667,5);
+\path (4.17333,4.00889) node[text=black,anchor=base] {$v_o$};
+\draw (2.55111,3.03333) -- cycle;
+\path (2.48222,3.39778) node[anchor=base west] {+};
+\path (4.08222,3.35333) node[anchor=base west] {+};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

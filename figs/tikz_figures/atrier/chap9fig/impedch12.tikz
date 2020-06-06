@@ -1,0 +1,26 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\filldraw[black] (3.86667,4.92667) circle (0.06667cm);
+\path (3.86667,4.76222) node[text=black,anchor=base] {-};
+\filldraw[black] (3.95556,3.18889) circle (0.06667cm);
+\draw[black] (0.98222,2.9) rectangle (3.01556,5.23333);
+\draw[black] (2.66667,3.2) -- (3.88222,3.2);
+\draw[black] (2.66667,4.93333) -- (3.88222,4.93333);
+\draw[arrows=-triangle 45,black] (3.82222,3.01111) -- (3.16667,3.01111);
+\path (3.95556,4.26667) node[text=black,anchor=base] {$U(s)$};
+\path (1.88889,4.55556) node[text=black,anchor=base] {initialement};
+\path (3.55556,2.88889) node[text=black,anchor=base] {$I(s)$};
+\path (3.95556,3.58889) node[text=black,anchor=base] {+};
+\path (5.66667,4.18889) node[text=black,anchor=base west] {$Z(s)$};
+\path (1.88889,3.36) node[text=black,anchor=base] {Circuit};
+\path (1.88889,4.15556) node[text=black,anchor=base] {et invariant};
+\path (1.88889,3.78222) node[text=black,anchor=base] {lineaire};
+\path (1.91111,4.97778) node[text=black,anchor=base] {relaxe};
+\draw[arrows=-triangle 45,black] (5.54444,4.08889) -- (4.75556,4.08889);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

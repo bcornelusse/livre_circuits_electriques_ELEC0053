@@ -1,0 +1,45 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\filldraw[black] (3.86667,4.92667) circle (0.06667cm);
+\path (3.86667,4.76222) node[text=black,anchor=base] {-};
+\filldraw[black] (3.95556,3.18889) circle (0.06667cm);
+\path (3.95556,3.58889) node[text=black,anchor=base] {+};
+\filldraw[black] (10.36222,4.94222) circle (0.06667cm);
+\path (10.36222,4.77778) node[text=black,anchor=base] {-};
+\filldraw[black] (10.45111,3.20444) circle (0.06667cm);
+\path (10.45111,3.60444) node[text=black,anchor=base] {+};
+\draw[black] (0.98222,2.9) rectangle (3.01556,5.23333);
+\draw[black] (2.66667,3.2) -- (3.88222,3.2);
+\draw[black] (2.66667,4.93333) -- (3.88222,4.93333);
+\draw[black] (4.40667,3.66667) rectangle (4.72889,4.6);
+\draw[black] (3.95111,3.21111) -- (4.57333,3.21111) -- (4.57333,3.67778);
+\draw[black] (4.56222,4.61111) -- (4.56222,4.95556) -- (3.87333,4.95556);
+\draw[arrows=-triangle 45,black] (3.82222,3.01111) -- (3.16667,3.01111);
+\draw[arrows=-triangle 45,black] (10.31778,3.02667) -- (9.66222,3.02667);
+\draw[arrows=triangle 45-,black] (11.51556,3.86667) -- (11.51556,4.32222);
+\path (1.86667,3.71556) node[text=black,anchor=base] {Circuit};
+\path (1.86667,4.14889) node[text=black,anchor=base] {lineaire};
+\path (3.95556,4.26667) node[text=black,anchor=base] {$u_L$};
+\path (1.88889,4.55556) node[text=black,anchor=base] {{\cal R}};
+\path (3.55556,2.88889) node[text=black,anchor=base] {$i_L$};
+\path (4.88444,4.25556) node[text=black,anchor=base west] {Charge};
+\path (6.48444,4.27778) node[text=black,anchor=base] {\fontsize{16.0}{19.2}\selectfont{}$\equiv$};
+\path (8.36222,4.16444) node[text=black,anchor=base] {lineaire};
+\path (10.45111,4.28222) node[text=black,anchor=base] {$u_L$};
+\path (11.98444,4.28222) node[text=black,anchor=base west] {$i_L$};
+\path (10.05111,2.90444) node[text=black,anchor=base] {$i_L$};
+\draw[black] (11.51333,4.09778) circle (0.33111cm);
+\draw[black] (7.47778,2.91556) rectangle (9.51111,5.24889);
+\draw[black] (9.16222,3.21556) -- (10.37778,3.21556);
+\draw[black] (9.16222,4.94889) -- (10.37778,4.94889);
+\draw[black] (10.46222,3.19778) -- (11.51111,3.19778) -- (11.51111,3.77111);
+\draw[black] (10.35111,4.94889) -- (11.50667,4.94889) -- (11.50667,4.41556);
+\path (8.36222,3.73111) node[text=black,anchor=base] {Circuit};
+\path (8.38444,4.57111) node[text=black,anchor=base] {{\cal R}};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

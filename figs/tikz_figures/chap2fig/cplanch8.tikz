@@ -1,0 +1,20 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (4.42667,1.87111) -- (3.62444,3.09333) -- (6.05333,3.08444) -- (6.81111,1.88) -- cycle;
+\path[draw=black,fill=white] (4.42667,1.00889) -- (3.62444,2.23111) -- (6.05333,2.22222) -- (6.81111,1.01778) -- cycle;
+\path (6.20444,1.44) node[text=black,anchor=base] {$+Q$};
+\path (5.86,3.01333) node[text=black,anchor=base] {$-Q$};
+\path (2.37556,2.68889) node[text=black,anchor=base east] {$V$};
+\draw (2.52,2.46) -- (3.27333,2.46);
+\draw (2.77111,2.58667) -- (3.02222,2.58667);
+\draw (5.32444,1.58889) -- (5.32444,0.74444) -- (2.89556,0.74444) -- (2.89556,2.20889) -- (2.89556,2.46);
+\draw (2.89556,2.58) -- (2.89556,3.74444) -- (5.27111,3.74444) -- (5.27111,3.07556);
+\path (2.52,2.33556) node[anchor=base west] {+};
+\path (2.52,2.82444) node[anchor=base west] {-};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

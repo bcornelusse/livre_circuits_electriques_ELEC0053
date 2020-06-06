@@ -1,0 +1,18 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\filldraw[black] (2.84444,1.82222) circle (0.06667cm);
+\filldraw[black] (4.65556,1.82222) circle (0.06667cm);
+\path (2.93333,1.55556) node[text=black,anchor=base west,rotate=90.0] {+};
+\path (3.71111,1.12222) node[text=black,anchor=base] {$V_s$};
+\path (4.73333,1.47778) node[text=black,anchor=base west,rotate=180.0] {-};
+\draw (2.91111,1.82444) -- (3.67778,1.82444);
+\draw (3.67778,2.3) -- (3.67778,1.34889);
+\draw (3.83778,1.98222) -- (3.83778,1.66667);
+\draw (3.82222,1.82444) -- (4.58889,1.82444);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,54 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (3.07111,3.18) -- (3.02,3.02222) -- (2.91778,3.34) -- (2.81556,3.02222) -- (2.71556,3.34) -- (2.61333,3.02222) -- (2.51111,3.34) -- (2.40889,3.02222) -- (2.30889,3.34) -- (2.25778,3.18);
+\draw[black] (6.01333,3.83333) -- (5.85556,3.88444) -- (6.17333,3.98667) -- (5.85556,4.08889) -- (6.17333,4.18889) -- (5.85556,4.29111) -- (6.17333,4.39333) -- (5.85556,4.49556) -- (6.17333,4.59556) -- (6.01333,4.64667);
+\draw[black] (1.52,4.24667) circle (0.33111cm);
+\path (1.52,4.17556) node[text=black,anchor=base] {+};
+\path (1.52444,4.53778) node[text=black,anchor=base] {-};
+\draw[arrows=-triangle 45,black] (4.50222,2.42667) -- (4.95778,2.42667);
+\draw[black] (7.39111,4.68667) circle (0.33111cm);
+\path (7.39111,4.61556) node[text=black,anchor=base] {+};
+\path (7.39556,4.97778) node[text=black,anchor=base] {-};
+\filldraw[black] (6.01111,3.18889) circle (0.06667cm);
+\filldraw[black] (6.01111,5.26667) circle (0.06667cm);
+\filldraw[black] (5.47778,3.17778) circle (0.06667cm);
+\filldraw[black] (4,3.18889) circle (0.06667cm);
+\draw[black] (6.01111,3.17778) -- (6.01111,3.81111);
+\draw[black] (4.18889,3.17778) -- (3.05556,3.17778);
+\draw[black] (5.28889,3.2) -- (6.03333,3.2);
+\draw[black] (3.07778,3.17778) -- cycle;
+\draw[arrows=-triangle 45,black] (1.96667,3.52222) -- (3.25556,3.52222);
+\draw[black] (1.51111,4.61111) -- (1.51111,5.26667) -- (6.02222,5.26667) -- (6.02222,4.67778);
+\draw[black] (7.36667,3.5) -- (7.36667,3.2) -- (6.01111,3.2);
+\draw[black] (7.38889,5.03333) -- (7.38889,5.27778) -- (6.03333,5.27778);
+\draw[black] (1.48889,3.91111) -- (1.48889,3.2);
+\draw[black] (4,3.18889) -- (4,2.4) -- (4.42222,2.4);
+\draw[black] (5.47778,3.18889) -- (5.47778,2.4) -- (5.05556,2.4);
+\draw[black] (7.36667,3.66667) -- (7.36667,4.35556);
+\path (2.57778,2.82222) node[text=black,anchor=base] {$R_1$};
+\path (2.48889,3.93333) node[text=black,anchor=base] {$I(s)$};
+\path (1.1,4.42222) node[text=black,anchor=base east] {$E(s)$};
+\path (4.74444,3.58889) node[text=black,anchor=base] {$sL$};
+\path (5.67778,4.38889) node[text=black,anchor=base east] {$R_2$};
+\path (7.84444,3.68889) node[text=black,anchor=base west] {$\frac{1}{sC}$};
+\path (6.8,3.44444) node[text=black,anchor=base] {+};
+\path (6.76667,5.25556) node[text=black,anchor=base] {-};
+\path (7.82222,4.84444) node[text=black,anchor=base west] {$\frac{u_C(0^-)}{s}$};
+\path (4.72222,1.82222) node[text=black,anchor=base] {$\frac{i_L(0^-)}{s}$};
+\path (6.71111,4.32222) node[text=black,anchor=base] {$U_C(s)$};
+\draw[black] (4.73333,2.42889) circle (0.33111cm);
+\draw (4.59333,3.17111) +(38:0.17601) arc (38:-217:0.17601);
+\draw (4.87111,3.17111) +(38:0.17601) arc (38:-217:0.17601);
+\draw (5.12667,3.16444) +(7:0.16345) arc (7:-224:0.16345);
+\draw (4.33556,3.16444) +(44:0.16566) arc (44:-187:0.16566);
+\draw (5.28889,3.18444) -- cycle;
+\draw (7.06444,3.5) -- (7.7,3.5);
+\draw (7.06444,3.65556) -- (7.7,3.65556);
+\draw (2.25556,3.18444) -- (1.49778,3.18444);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

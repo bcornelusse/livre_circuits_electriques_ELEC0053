@@ -1,0 +1,49 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (1.39111,6.86222) -- (1.39111,8.05333);
+\draw[black] (6.21556,6.87111) -- (6.21556,8.06222);
+\path (3.62889,8.67556) node[text=black,anchor=base] {$Q^b$};
+\path (3.62889,6.37778) node[text=black,anchor=base] {$Q^a$};
+\path (1.17556,5.84667) node[text=black,anchor=base east] {1};
+\path (1.14889,9.21556) node[text=black,anchor=base east] {1'};
+\path (6.40222,5.89778) node[text=black,anchor=base west] {2};
+\path (6.42,9.30889) node[text=black,anchor=base west] {2'};
+\path (5.68444,7.99778) node[text=black,anchor=base east] {1};
+\path (5.17556,7.99778) node[text=black,anchor=base west] {1};
+\draw[black] (1.40667,8.07333) -- (2.48889,8.07333);
+\draw[black] (1.40667,9.15111) -- (2.48889,9.15111);
+\draw[black] (2.5,7.89556) rectangle (4.65778,9.35111);
+\filldraw[black] (6.26,9.2) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (6.22444,6.85556) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,9.16222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,8.05111) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,5.75556) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,6.86667) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (6.21556,5.76667) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (6.21333,8.07333) ellipse (0.06667cm and 0.06667cm);
+\draw[black] (2.5,5.6) rectangle (4.65778,7.05556);
+\draw[black] (1.40667,6.85556) -- (2.48889,6.85556);
+\draw[black] (1.40667,5.77778) -- (2.48889,5.77778);
+\draw[black] (4.65556,6.86667) -- (6.16889,6.86667);
+\draw[black] (4.66667,5.77778) -- (6.18889,5.77778);
+\draw (6.20889,9.18444) -- (5.7,9.18444) -- (5.7,9.04667);
+\draw (5.7,8.22444) -- (5.7,8.08667) -- (6.15333,8.08667);
+\draw (5.7,8.22444) -- cycle;
+\draw (4.64444,9.18444) -- (5.13333,9.18444) -- (5.13333,9.04667);
+\draw (5.13333,8.22444) -- (5.13333,8.08667) -- (4.65111,8.08667);
+\draw (5.13333,8.22444) -- cycle;
+\draw (5.69333,8.33778) +(-87:0.11353) arc (-87:-306:0.11353);
+\draw (5.69556,8.53333) +(58:0.12084) arc (58:302:0.12084);
+\draw (5.69556,8.73778) +(58:0.12273) arc (58:302:0.12273);
+\draw (5.69111,8.93333) +(86:0.11368) arc (86:307:0.11368);
+\draw (5.14222,8.33778) +(-94:0.11368) arc (-94:127:0.11368);
+\draw (5.13778,8.53333) +(122:0.12084) arc (122:-122:0.12084);
+\draw (5.13778,8.73778) +(122:0.12273) arc (122:-122:0.12273);
+\draw (5.14222,8.93333) +(94:0.11368) arc (94:-127:0.11368);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,55 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (1.39111,6.86222) -- (1.39111,8.05333);
+\draw[black] (5.76889,6.86222) -- (5.76889,8.05333);
+\path (3.62889,8.67556) node[text=black,anchor=base] {$Q^b$};
+\path (3.62889,6.37778) node[text=black,anchor=base] {$Q^a$};
+\path (1.17556,5.84667) node[text=black,anchor=base east] {1};
+\path (1.14889,9.21556) node[text=black,anchor=base east] {1'};
+\path (6.05111,5.80222) node[text=black,anchor=base west] {2};
+\path (5.97333,9.24222) node[text=black,anchor=base west] {2'};
+\path (6.05556,8.76222) node[text=black,anchor=base west] {$\bar{U}_{2}^{b}$};
+\path (5.26667,8.89556) node[text=black,anchor=base] {$\bar{I}_{2}^{b}$};
+\path (1.02222,8.74) node[text=black,anchor=base east] {$\bar{U}_{1}^{b}$};
+\path (1.88889,8.86222) node[text=black,anchor=base] {$\bar{I}_{1}^{b}$};
+\path (5.38889,7.80667) node[text=black,anchor=base] {$\bar{I}_{2}^{b}$};
+\path (1.88889,7.75111) node[text=black,anchor=base] {$\bar{I }_{1}^{b}$};
+\path (6.05556,6.46667) node[text=black,anchor=base west] {$\bar{U}_{2}^{a}$};
+\path (5.26667,6.6) node[text=black,anchor=base] {$\bar{I}_{2}^{a}$};
+\path (5.38889,5.51111) node[text=black,anchor=base] {$\bar{I}_{2}^{a}$};
+\path (1.88889,6.56667) node[text=black,anchor=base] {$\bar{I}_{1}^{a}$};
+\path (1.88889,5.45556) node[text=black,anchor=base] {$\bar{I}_{1}^{a}$};
+\path (1.02222,6.44444) node[text=black,anchor=base east] {$\bar{U}_{1}^{a}$};
+\draw[arrows=-triangle 45,black] (4.92222,9.04) -- (5.57778,9.04);
+\draw[arrows=-triangle 45,black] (5.56667,7.95111) -- (4.91111,7.95111);
+\draw[black] (4.66667,8.07333) -- (5.74889,8.07333);
+\draw[black] (4.65556,9.16222) -- (5.73778,9.16222);
+\draw[arrows=-triangle 45,black] (1.62222,7.92889) -- (2.27778,7.92889);
+\draw[arrows=-triangle 45,black] (2.31111,9.02889) -- (1.65556,9.02889);
+\draw[black] (1.40667,8.07333) -- (2.48889,8.07333);
+\draw[black] (1.40667,9.15111) -- (2.48889,9.15111);
+\draw[black] (2.5,7.89556) rectangle (4.65778,9.35111);
+\filldraw[black] (5.75556,9.16222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.76667,8.07333) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,9.16222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,8.05111) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,5.75556) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.38889,6.86667) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.76667,5.77778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.75556,6.86667) ellipse (0.06667cm and 0.06667cm);
+\draw[black] (2.5,5.6) rectangle (4.65778,7.05556);
+\draw[black] (1.40667,6.85556) -- (2.48889,6.85556);
+\draw[black] (1.40667,5.77778) -- (2.48889,5.77778);
+\draw[arrows=-triangle 45,black] (2.31111,6.73333) -- (1.65556,6.73333);
+\draw[arrows=-triangle 45,black] (1.62222,5.63333) -- (2.27778,5.63333);
+\draw[black] (4.65556,6.86667) -- (5.73778,6.86667);
+\draw[black] (4.66667,5.77778) -- (5.74889,5.77778);
+\draw[arrows=-triangle 45,black] (5.56667,5.65556) -- (4.91111,5.65556);
+\draw[arrows=-triangle 45,black] (4.92222,6.74444) -- (5.57778,6.74444);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

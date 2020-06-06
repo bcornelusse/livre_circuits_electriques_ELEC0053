@@ -1,0 +1,24 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (9.07778,3.08444) -- (8.83333,3.08444) -- (8.52667,3.08444) -- (8.47556,2.92667) -- (8.37333,3.24444) -- (8.27111,2.92667) -- (8.17111,3.24444) -- (8.06889,2.92667) -- (7.96667,3.24444) -- (7.86444,2.92667) -- (7.76444,3.24444) -- (7.71333,3.08444) -- (7.40444,3.08444) -- (6.6,3.08444);
+\draw[black] (6.57556,4.06889) circle (0.33111cm);
+\path (6.57556,3.99778) node[text=black,anchor=base] {+};
+\path (6.58,4.36) node[text=black,anchor=base] {-};
+\filldraw[black] (9.17778,3.06667) circle (0.06667cm);
+\path (9.17778,3.46667) node[text=black,anchor=base] {+};
+\filldraw[black] (9.12222,5.04444) circle (0.06667cm);
+\path (9.12222,4.88) node[text=black,anchor=base] {-};
+\draw[black] (6.57778,4.41111) -- (6.57778,5.06667) -- (9.06667,5.06667);
+\draw[black] (6.58889,3.73333) -- (6.58889,3.06667);
+\draw[arrows=-triangle 45,black] (9.24444,2.84444) -- (8.58889,2.84444);
+\path (6,4.18889) node[text=black,anchor=base east] {$\bar{V}_{Th}$};
+\path (8.01111,2.8) node[text=black,anchor=base] {$Z_{Th}$};
+\path (9.23333,4.17778) node[text=black,anchor=base] {$\bar{U}$};
+\path (8.97778,2.72222) node[text=black,anchor=base] {$\bar{I}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

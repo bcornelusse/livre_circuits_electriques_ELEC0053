@@ -1,0 +1,17 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (6.85369,5.22587) +(-33:1.78804) arc (-33:-95:1.78804);
+\draw[arrows=-triangle 45,black] (6.5,6.26667) -- (6.5,3.46667);
+\draw[arrows=-triangle 45,black] (6.33333,6.01556) -- (10.16667,6.01556);
+\draw[arrows=-triangle 45,black] (6.5,6.01556) -- (8.51556,5.10667);
+\draw[arrows=-triangle 45,black] (6.5,6.01556) -- (7.28222,3.94667);
+\path (7.67778,3.51111) node[text=black,anchor=base west] {$\omega$};
+\path (8.46667,5.58889) node[text=black,anchor=base west] {$Ae^{j\phi}$};
+\path (7.21111,4.64444) node[text=black,anchor=base west] {$Ae^{j\phi}e^{j\omega t}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

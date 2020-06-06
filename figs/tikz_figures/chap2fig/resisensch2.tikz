@@ -1,0 +1,30 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (4.75556,0.35556) -- (4.75556,0.88444) -- (4.59778,0.93556) -- (4.91556,1.03778) -- (4.59778,1.14) -- (4.91556,1.24) -- (4.59778,1.34222) -- (4.91556,1.44444) -- (4.59778,1.54667) -- (4.91556,1.64667) -- (4.75556,1.69778) -- (4.75556,2.22222);
+\draw[black] (1.18889,0.35556) -- (1.18889,0.88444) -- (1.03111,0.93556) -- (1.34889,1.03778) -- (1.03111,1.14) -- (1.34889,1.24) -- (1.03111,1.34222) -- (1.34889,1.44444) -- (1.03111,1.54667) -- (1.34889,1.64667) -- (1.18889,1.69778) -- (1.18889,2.22222);
+\path (0.48889,1.37111) node[text=black,anchor=base east] {$i$};
+\path (1.56667,1.37111) node[text=black,anchor=base west] {$R$};
+\path (4.05556,1.37111) node[text=black,anchor=base east] {$i$};
+\path (5.13333,1.37111) node[text=black,anchor=base west] {$R$};
+\filldraw[black] (4.75556,0.3) circle (0.06667cm);
+\filldraw[black] (4.75556,2.25556) circle (0.06667cm);
+\draw[arrows=triangle 45-,black] (4.25556,0.78889) -- (4.25556,1.81111);
+\path (4.74444,2.92222) node[text=black,anchor=base] {$u=-Ri$};
+\path (5.43333,0.37778) node[text=black,anchor=base east] {+};
+\path (5.46667,2.34444) node[text=black,anchor=base east] {-};
+\filldraw[black] (1.18889,0.3) circle (0.06667cm);
+\filldraw[black] (1.18889,2.25556) circle (0.06667cm);
+\draw[arrows=-triangle 45,black] (0.68889,0.78889) -- (0.68889,1.81111);
+\path (1.17778,2.92222) node[text=black,anchor=base] {$u=Ri$};
+\path (0.34444,0.4) node[text=black,anchor=base east] {+};
+\path (0.27778,2.3) node[text=black,anchor=base east] {-};
+\draw[arrows=-triangle 45,black] (0.63856,1.36675) +(131:1.15482) arc (131:234:1.15482);
+\draw[arrows=-triangle 45,black] (4.92811,1.36675) +(49:1.15482) arc (49:-54:1.15482);
+\path (6.27778,1.39111) node[text=black,anchor=base west] {$u$};
+\path (-0.62222,1.51333) node[text=black,anchor=base east] {$u$};
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

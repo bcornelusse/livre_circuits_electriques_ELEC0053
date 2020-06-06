@@ -1,0 +1,30 @@
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage{pgffor}
+\usepgfmodule{shapes}
+\usepgfmodule{plot}
+\usetikzlibrary{decorations}
+\usetikzlibrary{arrows}
+\usetikzlibrary{snakes}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\pgfplotsset{compat=1.10}
+
+
+\definecolor{myRed}{RGB}{209,34,57} 
+
+\newcommand{\PlotGrid}[4]{
+	\draw[very thin,color=gray, dotted] (#1,#3) grid (#2,#4);
+}
+\newcommand{\PlotAxes}[6]{
+	\draw[->, >=latex] (#1,0) -- (#2,0) node[right] {#5};
+	\draw[->, >=latex] (0,#3) -- (0,#4) node[right] {#6};
+}
+\newcommand{\PlotAxesWithoutLabels}[5]{
+	\draw[-] (#1,0) -- (#2,0);
+	\draw[-] (#5,#3) -- (#5,#4);
+	
+}

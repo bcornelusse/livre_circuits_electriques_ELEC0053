@@ -1,0 +1,19 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (5.46444,3.01111) node[text=black,anchor=base west] {$\bar{Y}(j\omega)=H(j\omega)\, . \,\bar{X}$};
+\path (5.74667,2.35778) node[text=black,anchor=base] {$y(t)$};
+\path (2.23111,2.35778) node[text=black,anchor=base] {$x(t)$};
+\path (4.06667,2.11333) node[text=black,anchor=base] {et invariant};
+\path (4.06667,2.44889) node[text=black,anchor=base] {$H(j\omega)$};
+\path (4.06667,1.60444) node[text=black,anchor=base] {circuit linéaire };
+\draw[black] (2.89333,1.10222) rectangle (5.24,2.6);
+\path (2.22,3.05111) node[text=black,anchor=base] {$\bar{X}$};
+\draw[arrows=-triangle 45,black] (5.26667,1.83333) -- (6.63111,1.83333);
+\draw[arrows=-triangle 45,black] (1.67111,1.83333) -- (2.90667,1.83333);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,701 @@
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+% !TeX root = syllabus_ELEC0053.tex
+
+\chapter{Régimes transitoires}
+
+\textit{Ce chapitre s'intéresse à l'analyse de circuits comportant  des éléments linéaires et invariants $R$, $L$, $C$ et des sources indépendantes d'énergie.
+Nous traitons quelques problèmes simples, relatifs à des circuits
+localisés, linéaires et invariants du premier et du deuxième ordre, soumis à une excitation.
+Nous avons délibérément opté pour la résolution directe des équations intégro-différentielles\footnote{Une autre approche consiste à utiliser la transformée de Laplace, qui offre certains avantages, dont notamment la détermination des conditions initiales qui devient automatique.} régissant ces circuits, la détermination des constantes d'intégration s'obtenant à partir des conditions aux limites dictées par la physique des phénomènes. }
+
+\textit{Les phénomènes transitoires sont des variations de
+courant et/ou de tension dues à des variations brusques des tensions ou des
+courants des sources d'alimentation (réponse forcée), ou dues au fait que l'énergie emmagasinée dans les inductances (sous forme magnétostatique) et condensateurs (sous forme électrostatique) est subitement relâchée et dissipée dans un circuit résistif (réponse libre).}
+
+
+\section{Propriétés des éléments L et C linéaires et invariants}
+
+\paragraph{Mémoire. }$C$ et $L$ ont une mémoire.
+	Soit un condensateur excité par un courant $i(t)$. On a 
+	\[u(t)=\frac{1}{C}\int_{-\infty}^ti(x)dx\]
+	$u(t)$ dépend non seulement de $i$ à l'instant $t$ mais aussi de
+	$i(x)$ pour $x< t$, soit de toute l''histoire'' du système.
+	
+	On a aussi :
+	{\small \[u(t)=u(t_0)+\frac{1}{C}\int_{t_0}^t i(x)dx\]}
+	$u(t_0)$ résume tout le passé du système de $[-\infty,t_0]$.
+		De même pour une inductance excitée par une tension $u(t)$
+	\[
+	i(t)=\frac{1}{L}\int_{-\infty}^tu(x)dx, \qquad
+	i(t)=i(t_0)+\frac{1}{L}\int_{t_0}^tu(x)dx.\]
+
+\paragraph{Continuité de la tension aux bornes d'un condensateur.}
+	Si le courant $i(t)$ induit par un condensateur est borné 
+	$\forall t$, alors la tension aux bornes de ce condensateur est une grandeur continue.
+	Ceci découle de la relation 
+	\[u=\frac{1}{C}\int_{-\infty}^ti(x)dx.\]
+	$u$ ne peut varier de manière instantanée aux bornes d'un
+	condensateur.
+	Sinon, cela donne lieu à un courant infini (cas de l'impulsion de Dirac !).
+	Il faut donc éviter de mettre sous tension brusquement un condensateur, ou de le court-circuiter.
+
+	On suppose ici les \textbf{éléments idéaux}, c'est-à-dire \textbf{sans pertes} (voir point suivant). En tenant compte des pertes, le courant lors d'une mise sous tension brusque est très important mais reste borné !
+	
+\paragraph{Continuité du courant dans une bobine.}
+	Si la tension $u(t)$ aux bornes d'une inductance est bornée $\forall t$, 
+	alors le courant dans cette inductance est une grandeur continue.
+	Ceci découle de la relation \[i=\frac{1}{L}\int_{-\infty}^tu(x)dx,\]
+	$i$ ne peut varier de manière instantanée aux bornes d'une inductance.
+	Sinon, il apparaît en théorie une tension infinie (cas de l'impulsion de Dirac !), et en pratique un arc de courant si on tente d'ouvrir le circuit.
+	Il faut donc en général prendre des mesures spéciales pour couper le courant dans un circuit inductif.
+
+\paragraph{$C$ et $L$ sont des éléments non-dissipatifs.}
+	La puissance consommée par un condensateur est $$ 
+	p_C(t)=u(t)i(t)=Cu\frac{du}{dt}.$$
+	L'énergie fournie au condensateur dans l'intervalle $t_1$, $t_2$ est donc
+	\[w_C(t_1,t_2)=\int_{t_1}^{t_2}p(x)dx=\frac{1}{2}C(u^2(t_2)-u^2(t_1))\]
+	et est indépendante de la forme du signal $u(t)$ dans l'intervalle
+	$[t_1,t_2]$ ; 
+	$w_C(t_1,t_2)$ dépend seulement de la valeur de $u$ aux instants $t_1$ et $t_2$.
+	
+	Si considère un signal $u$ périodique de période $T$, alors
+	\[w_C(t_1,t_1+T) = 0\]
+	Ceci implique que l'élément ne dissipe pas d'énergie : 
+	\begin{itemize}
+		\item durant une partie de la période, $p(t)>0$, le condensateur
+		stocke l'énergie qui lui est fournie,
+		\item durant le reste de la période, $p(t)<0$, le condensateur
+		restitue l'énergie qu'il a stockée.
+	\end{itemize}
+	Pour une inductance, on observe les mêmes propriétés :
+	\begin{align*}
+	p_L(t)&=Li\frac{di}{dt}\\
+	w_L(t_1,t_2)& =\frac{1}{2}L(i^2(t_2)-i^2(t_1))
+	\end{align*}
+	Et pour un signal périodique  on a donc également
+	\[w_L(t_1,t_1+T) = 0.\]
+	
+	
+\begin{testexample}[Bobine soumise à une excitation en courant.]
+Une inductance de 100 mH est alimentée par une source de courant délivrant un signal de courant de la forme (cf. Figure~\ref{fig:ex_ind}) :
+$$i(t)=
+	\left\{\begin{array}{ll}0 & t<0\\
+	10te^{-5t}& t>0
+	\end{array}\right.$$
+L'évolution de la tension est donnée par
+$$u(t)=
+	\left\{\begin{array}{ll} 0 & t<0\\
+	e^{-5t}(1-5t)& t>0
+	\end{array}\right.$$
+celle de la puissance par 
+$$p(t)=
+\left\{\begin{array}{ll}0 & t<0\\
+10t(1-5t)e^{-10t}& t>0
+\end{array}\right.$$
+et celle de l'énergie par 
+$$w(t)=
+\left\{\begin{array}{ll}0 & t<0\\
+5t^2e^{-10t}& t>0
+\end{array}\right.$$
+Dans l'intervalle $[0-0.2]$ s, l'inductance stocke une certaine énergie ;
+dans l'intervalle $[0.2-\infty]$ s, cette énergie est restituée
+On a  :
+\begin{itemize}
+	\item $w(t) \geq 0 \quad \forall t$ : élément passif
+	\item $w(\infty)=0$ : finalement aucune énergie n'est dissipée
+\end{itemize}
+\end{testexample}
+\begin{figure*}[bt]
+	\centering
+	\subfloat[Courant (excitation)]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_courant.pdf}} 
+	\subfloat[Tension]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_tension.pdf}} \\
+	\subfloat[Puissance]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_puissance.pdf}} 
+	\subfloat[Energie]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_energie.pdf}}
+	\caption{Evolution des différentes grandeurs à travers ou eux bornes de la bobine en fonction du temps\label{fig:ex_ind}.}
+\end{figure*}
+	
+\paragraph{Énergie emmagasinée.}
+Soit un condensateur $C$ porté initialement (en $t=0$) au potentiel
+$V$.
+On le connecte à un circuit extérieur $\cal R$ et il reçoit durant l'intervalle
+$[0 , t_2]$, une quantité d'énergie :
+\[w_C(0,t_2)=\frac{1}{2}C(u^2(t_2)-V^2)\]
+Si $u(t_2)<V$, $w_C(0,t_2)<0$, cela  signifie que l'énergie emmagasinée
+initialement dans le condensateur est rendue au circuit extérieur $\cal
+R$.
+L'énergie maximale qui peut être extraite du condensateur est 
+\[max|w_C(0,t_2)|=\frac{1}{2}CV^2.\]
+
+Il est donc essentiel de retenir les constatations de la Table~\ref{tab:energie_LC} 
+\begin{table}[tb]
+	\caption{Energie emmagasinée dans un condensateur ou dans une bobine.\label{tab:energie_LC}}
+	\begin{boxedminipage}{\linewidth}
+		L'énergie emmagasinée dans
+		\begin{itemize}
+			\item un condensateur initialement porté au potentiel $V$ est $\frac{1}{2}CV^2$.
+			\item une inductance initialement parcourue par un courant $I$ est $\frac{1}{2}LI^2$.
+		\end{itemize}
+	\end{boxedminipage}
+\end{table}
+
+
+\section{Les circuits du premier ordre}
+\subsection{Circuit RC}
+\begin{marginfigure}
+\centering
+\input{figs/tikz_figures/chap5fig/rcseriech7.tikz}
+\caption{Circuit illustrant les réponses forcées et libres d'un circuit RC}
+\label{fig:rcserie}
+\end{marginfigure}
+Soit le circuit de la Figure~\ref{fig:rcserie}.
+\begin{enumerate}
+	\item Si l'interrupteur bascule en position 1 : {\em réponse forcée}, le 
+	condensateur se charge. Porté finalement  au potentiel $V_s$, il emmagasine une
+	énergie
+	\[w_C=\frac{1}{2}CV_s^2\]
+	\item Si maintenant l'interrupteur bascule en position 2 : {\em réponse libre}, le condensateur se décharge, l'énergie emmagasinée dans $C$ est progressivement relachée et dissipée dans la résistance.
+\end{enumerate}
+
+
+\paragraph{Charge du condensateur : réponse forcée.}
+\begin{marginfigure}
+	\centering
+	\input{figs/tikz_figures/chap5fig/rcforceech7.tikz}
+	\caption{Partie gauche de la figure \ref{fig:rcserie}}
+\end{marginfigure}
+On suppose le condensateur initialement relaxé (il ne porte aucune énergie).
+En $t=0$, l'interrupteur bascule en position 1 (cf. Figure~\ref{fig:rcserie}).
+Pour $t<0$, $u(t)=0$.
+Ensuite, en appliquant la PLK au noeud $1$, on a 
+$$C\frac{du}{dt}+\frac{u-V_s}{R_s}=0,$$
+ou encore 
+$$\frac{du}{dt}+\frac{u}{CR_s}=\frac{V_s}{CR_s}.$$
+Il s'agît d'une équation différentielle du premier ordre à coefficients constants, qui accepte une solution du type
+\[u(t)=Ke^{-t/\tau_s}+V_s.\]
+Reste à déterminer la constant $K$. Or, $u(0-)=0$, donc $u(0+)=0$ par continuité de $u$ et finalement 
+$$ K=-V_s$$
+Il vient finalement (cf. Figure \ref{fig:RC_u})
+\begin{center}
+	\fbox{
+		$u(t)=V_s(1- e^{-t/\tau_s}),\qquad 
+		t > 0$}
+\end{center}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figs/figs_reg_trans/RC_rep_forcee.pdf}
+	\caption{Réponse forcée d'un circuit RC: tension. \label{fig:RC_u}}
+\end{figure}
+On peut également réécrire l'évolution de $u(t)$ pour mettre en évidence le \textit{régime permanent}, et le \textit{régime transitoire}: 
+\begin{eqnarray*}
+	u(t)& = & V_s - V_s e^{-t/\tau_s}\\
+	& = & \text{régime permanent (DC)~} + \text{~régime transitoire}.
+\end{eqnarray*}
+
+La \textit{constante de temps} $\tau_s=R_s C$ caractérise la vitesse de la
+charge. Au-delà de $5\tau_s$, le régime transitoire est négligeable et
+$u(t)\simeq V_s$.
+Quant au courant de charge, on déduit simplement (cf. Figure~\ref{fig:RC_i})
+\[i(t)=C\frac{du}{dt}=\frac{V_s}{R_s}e^{-t/\tau_s}\]
+\[i(0-)=0,\quad i(0+)=\frac{V_s}{R_s}=i_0.\]
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figs/figs_reg_trans/RC_courant_charge.pdf}
+	\caption{Réponse forcée d'un circuit RC: courant.\label{fig:RC_i}}
+\end{figure}
+
+\paragraph{Bilan énergétique.}
+Il est intéressant de s'intéresser au bilan énergétique de l'opération de charge avec ce circuit:
+\begin{enumerate}
+	\item 	Énergie dissipée dans la résistance $R_s$ :
+	\[p_R(t)=\frac{V_s^2}{R_s}e^{-2t/R_sC}, \quad w_R(\infty)=\int_0^\infty
+	p_R(t)dt= \frac{V_s^2C}{2}\]
+	Cette quantité est indépendante de $R_s$ !
+	\item Énergie emmagasinée dans le condensateur :
+	\[p_C(t)=\frac{V_s^2}{R_s}e^{-t/R_sC}(1-e^{-t/R_sC}), \quad 
+	w_C(\infty)=\int_0^\infty
+	p_C(t)dt= \frac{V_s^2C}{2} = w_R \text{~!!}\]
+	\item Énergie fournie par la pile :\\
+	\[w_V=w_R+w_C=V_s\int_0^\infty i(t)dt=V_s^2C\]
+	\item Le \textit{rendement} de l'opération de charge est  $\eta=\frac{w_C}{w_V}=0.5$, indépendant de $R_s$ et de $C$ !
+\end{enumerate}
+
+\paragraph{Décharge du condensateur, réponse libre.}
+\begin{marginfigure}
+	\centering
+	\input{figs/tikz_figures/chap5fig/rclibrech7.tikz}
+	\caption{Partie droite de la figure \ref{fig:rcserie}.}
+\end{marginfigure}
+Après un temps suffisamment long (supposé infini, donc $u(t)= V_s$),
+l'interrupteur bascule en position $2$. Soit $t=0$ cet instant. On a alors
+\[C\frac{du}{dt}+\frac{u}{R}=0,\]
+ou encore 
+\[\frac{du}{u}=-\frac{dt}{RC}\]
+et donc
+\[u(t)=Ke^{-t/RC}=Ke^{-t/\tau}.\]
+On détermine la constante $K$ en utilisant le fait que $u(0-)=V_s$, donc $u(0+)=V_s$ par continuité de $u$, et $K=V_s$.
+On a donc finalement
+\begin{center}
+	\fbox{
+		$u(t)=V_s e^{-t/RC}\,, \quad i(t)=\frac{V_s}{R}e^{-t/RC} \, , \qquad  t> 0$}
+\end{center}
+\begin{marginfigure}
+\centering
+\includegraphics[width=0.98\textwidth]{figs/figs_reg_trans/RC_tension_decharge.pdf}
+\caption{Réponse libre d'un circuit RC: tension.}
+\end{marginfigure}
+On peut à nouveau définir la constante de temps comme
+\begin{center}
+	\fbox{$\tau=RC$}
+\end{center}
+\begin{itemize}
+	\item après $\tau$ s, la tension est réduite d'un facteur $e$ ($\simeq 0.368 V_s$)
+	\item après $5\tau$ s, la tension est réduite à moins de $1$\% de sa valeur initiale
+	\item $\frac{V_s}{\tau}$ = la pente de la tangente en $t=0$ de la courbe $u(t)$ 
+	\item $-\frac{1}{\tau}$, la racine du polynôme caractéristique, est  appelée la {\em fréquence naturelle}   du circuit.
+\end{itemize}
+La puissance absorbée par la résistance est
+\[p(t)=Ri^2(t)=\frac{V_s^2}{R}e^{-2t/\tau} \, > \, 0 \quad \forall t\]
+L'énergie dissipée dans l'intervalle $[0,t]$ est
+\[w(t)=\int_0^t p(x)dx=\int_0^t\frac{V_s^2}{R}e^{-2x/\tau}dx=\frac{1}{2}CV_s^2(1-e^{-2t/\tau}),\]
+et 
+\[\lim_{t\rightarrow \infty}w(t)=\frac{1}{2}CV_s^2.\]
+L'énergie initialement emmagasinée dans le condensateur est
+finalement entièrement dissipée dans la résistance  à une vitesse
+fixée par la constante de temps $\tau$.
+
+
+Intéressons-nous maintenant au cas où le condensateur est mis sous tension brusque alors qu'il est initialement chargé.
+En $t=0$, le condensateur porte une charge initiale
+$q_0$, c'est-à-dire présente une d.d.p. $u_0=q_0/C$, et 
+\begin{marginfigure}
+\centering
+\input{figs/tikz_figures/chap5fig/rcforceech7.tikz}
+\caption{Partie gauche de la figure \ref{fig:rcserie}.}
+\end{marginfigure}
+\begin{eqnarray*}
+	V_s & =& R_si+\frac{1}{C}\int_{-\infty}^t i\,  dt\\
+	& = & R_s i+u_0+\frac{1}{C}\int_{0}^t i\,  dt
+\end{eqnarray*}
+\begin{marginfigure}
+\centering
+\input{figs/tikz_figures/chap5fig/equivacch7.tikz}
+\caption{Modélisation d'un condensateur initialement chargé.}
+\end{marginfigure}
+Le condensateur initialement chargé peut être remplacé par un
+condensateur initialement relaxé en série avec une source de tension
+constante $u_0$.
+On peut vérifier que la tension aux bornes du condensateur est donnée par :
+\begin{align*}
+	u(t) & = V_s(1- e^{-t/\tau_s}) + u_0 e^{-t/\tau_s} \\ 
+	&= \text{réponse forcée~}+ \text{~réponse libre}.
+\end{align*}
+
+
+\subsection{Circuit RL}
+
+\begin{marginfigure}
+\centering
+\input{figs/tikz_figures/chap5fig/rlseriech7.tikz}
+\caption{Circuit illustrant les réponses forcées et libres d'un circuit RL.}
+\label{figRLserie}
+\end{marginfigure}
+Soit le circuit de la Figure~\ref{figRLserie}.
+\begin{enumerate}
+	\item Si l'interrupteur bascule en position 1 : {\em réponse forcée}, un
+	courant dans l'inductance s'établi : $i_{\infty}=\frac{V_s}{R_s}$. L'énergie
+	magnétique emmagasinée vaut :
+	\[w_L=\frac{1}{2}Li_{\infty}^2\]
+	\item Si maintenant l'interrupteur bascule en position 2 : {\em réponse libre}, l'énergie
+	emmagasinée dans $L$ est progressivement relâchée et dissipée dans la
+	résistance.
+\end{enumerate}
+
+
+\paragraph{Établissement du courant : réponse forcée.}
+On suppose l'inductance initialement relaxée. En $t=0$,
+l'interrupteur bascule en position 1. Le système répond donc à un échelon de tension.
+\begin{marginfigure}
+\centering
+\input{figs/figs_reg_trans/RL_reponse_forcee.tikz}
+\caption{Réponse forcée d'un circuit RL.}
+\end{marginfigure}
+Pour $t<0$, $i(t)=0$. Ensuite par la SLK dans la maille d'intérêt, 
+\[L\frac{di}{dt}+R_s\, i=V_s,\]
+ou encore 
+\[i(t)=Ke^{-t/\tau_s}+\frac{V_s}{R_s}.\]
+Pour déterminer la constante $K$, on sait que 
+$i(0-)=0$, donc $i(0+)=0$ par continuité de $i$, et 
+\begin{center}
+	\fbox{
+		$i(t)=\frac{V_s}{R_s}(1- e^{-t/\tau_s})=i_{\infty}(1-
+		e^{-t/\tau_s})\quad t>0$}
+	
+	$\lim_{t\rightarrow \infty}i(t)=\frac{V_s}{R_s}=i_{\infty}$
+\end{center}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figs/figs_reg_trans/RL_courant_reponse_forcee.pdf}
+	\caption{Réponse forcée d'un circuit RL, courant.}
+\end{figure}
+L'inductance ``freine'' l'établissement  du courant.
+La rapidité de cet établissement  est dictée par la constante
+de temps $\tau_s=\frac{L}{R_s}$.
+\begin{eqnarray*}
+	i(t)& =& i_{\infty}(1- e^{-t/\tau_s})\\
+	& = & i_{\infty} - i_{\infty} e^{-t/\tau_s}\\
+	& = & \text{régime permanent (DC)~} + \text{~régime transitoire}
+\end{eqnarray*}
+La tension aux bornes de l'inductance est 
+\[u(t)=L\frac{di}{dt}=V_s e^{-t/\tau_s}, \]
+avec
+\[u(0-)=0\quad u(0+)=V_s.\]
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figs/figs_reg_trans/RL_tension_reponse_forcee.pdf}
+	\caption{Réponse forcée d'un circuit RL, tension.}
+\end{figure}
+
+
+\paragraph{Réponse libre.}
+\begin{marginfigure}
+	\centering
+	\input{figs/figs_reg_trans/RL_reponse_libre.tikz}
+	\caption{Réponse libre d'un circuit RL.}
+\end{marginfigure}
+Après un temps suffisamment long (supposé infini, $i(t)= \frac{V_s}{R_s}=i_{\infty}$),
+l'interrupteur bascule en position 2. Soit $t=0$ cet instant.
+On a 
+\[L\frac{di}{dt}+R\, i=0\]
+\[\frac{di}{i}=-\frac{R\,dt}{L}\]
+\[i(t)=Ke^{-(R/L)t}=Ke^{-t/\tau}\]
+Détermination de la constante K :
+\begin{itemize}
+	\item $i(0-)=i_{\infty}\quad \rightarrow \quad i(0+)=i_{\infty}$ (continuité de $i$)
+	\item $u(0-)=0,\quad u(0+)=R\, i_{\infty}$
+\end{itemize}
+\begin{center}
+	\fbox{
+		$i(t)=i_{\infty}e^{-(R/L)t},\qquad u(t)=- R\, i_{\infty} e^{-(R/L)t} \quad t>0$}
+\end{center}
+
+\begin{marginfigure}
+\centering
+\includegraphics[width=0.98\textwidth]{figs/figs_reg_trans/RL_courant_reponse_libre.pdf}
+\caption{Réponse libre d'un circuit RL: courant.}
+\end{marginfigure}
+La constante de temps est 
+$$\boxed{\tau=\frac{L}{R}}$$
+\[i(t)=i_{\infty} e^{-t/\tau}\]
+\[u(t)=i_{\infty}\, Re^{-t/\tau}\]
+La fréquence naturelle du circuit est  $-\frac{1}{\tau}=-\frac{R}{L}$
+
+
+En ce qui concerne l'énergie dissipée dans la résistance, la puissance absorbée par la résistance vaut
+\[p(t)=Ri^2(t)=R\, i_{\infty}^2 e^{-2t/\tau} \, > \, 0 \quad \forall t.\]
+Donc l'énergie dissipée dans l'intervalle $[0,t]$ est 
+\[w(t)=\int_0^t p(x)dx=\frac{1}{2}L\,i_{\infty}^2(1-e^{-2t/\tau})\]
+\[\lim_{t\rightarrow \infty}w(t)=\frac{1}{2}L\, i_{\infty}^2\]
+L'énergie initialement emmagasinée dans l'inductance est
+finalement entièrement dissipée dans la résistance  à une vitesse
+fixée par la constante de temps $\tau$.
+
+\begin{marginfigure}
+	\centering
+	\input{figs/tikz_figures/chap5fig/equivalch7.tikz}
+	\caption{Modélisation d'une inductance initialement parcourue par un courant.}
+\end{marginfigure}
+Si on s'intéresse à l'établissement du courant dans une inductance parcourue par un courant initial $i_0$, on a
+\begin{eqnarray*}
+	\frac{V_s}{R_s} & =& \frac{u}{R_s}+\frac{1}{L}\int_{-\infty}^t u\,  dt\\
+	& = & \frac{u}{R_s}+i_0+\frac{1}{L}\int_{0}^t u\,  dt
+\end{eqnarray*}
+L'inductance initialement parcourue par un courant peut être remplacée par une
+inductance initialement relaxée en parallèle avec une source de courant
+con\-stant $i_0$.
+On peut vérifier que le courant parcourant l'inductance est donné par 
+\begin{eqnarray*}
+	i(t) & = & \frac{V_s}{R_s}(1- e^{-t/\tau_s}) + i_0 e^{-t/\tau_s}= 
+	\text{réponse forcée~}+ \text{~réponse libre}.
+\end{eqnarray*}
+
+
+
+\section{Les circuits du deuxième ordre}
+\subsection{Réponse libre}
+\begin{marginfigure}
+	\centering
+	\input{figs/tikz_figures/chap5fig/rlcseriech8.tikz}
+	\caption{Circuit RLC série.} \label{fig:RLC}
+\end{marginfigure}
+Soit le circuit de la Figure~\ref{fig:RLC} avec comme condition initiales le condensateur $C$ chargé à $u_{C0}$ $V$ et l'inductance relaxée ($i_0 = 0$). Par la SLK, on a à tout instant
+\[L\frac{di}{dt}+R\, i-u_{C0}+\frac{1}{C}\int_0^t i\, dx = 0.\]
+En dérivant, 
+$$L\frac{d^2i}{dt^2}+R\frac{di}{dt}+\frac{1}{C} i = 0$$
+et en divisant par $L$, on obtient 
+$$\frac{d^2i}{dt^2}+\frac{R}{L}\frac{di}{dt}+\frac{1}{LC} i = 0$$
+A priori, le système a une solution du type 
+\[K_1e^{s_1 t}+K_2e^{s_2 t}\]
+où $s_1$ et $s_2$ sont les racines de l'équation caractéristique
+\[s^2 + \frac{R}{L} s + \frac{1}{LC} = 0.\]
+Si on pose
+\begin{center}
+\begin{boxedminipage}{0.4\linewidth}
+	\begin{align*}
+	\alpha & =  \frac{R}{2L}\\
+	\omega_0 & =  \frac{1}{\sqrt{LC}}
+	\end{align*}
+\end{boxedminipage}
+\end{center}
+alors
+\begin{align*}
+s_1 &= -\alpha + \sqrt{\alpha^2 - \omega_0^2}\\
+s_2 & =  -\alpha - \sqrt{\alpha^2 - \omega_0^2}
+\end{align*}
+$s_1$ et $s_2$ sont les fréquences naturelles du circuit.
+Il existe trois formes de solutions selon que $\alpha^2 - \omega_0^2 > 0,  \, \alpha^2 - \omega_0^2 < 0, \,\text{ ou } \alpha^2 - \omega_0^2= 0$.
+
+
+\paragraph{Régime apériodique.} 
+$$\alpha^2 - \omega_0^2 > 0 $$
+$s_1$ et $s_2$ sont deux nombres réels {\em strictement négatifs} :
+	{ \[s_{1,2}=-\alpha \pm \sqrt{\alpha^2-\omega_0^2}= -\alpha \pm \alpha_1 < 0\]}
+	Forme générale de la solution :
+	{\[i(t)=K_1 e^{-\alpha t}e^{\alpha_1 t} + K_2 e^{-\alpha t}e^{-\alpha_1 t}\]}
+	Les constantes $K_1$ et $K_2$ sont fixées par les conditions initiales:
+	\begin{itemize}
+		\item {$i(0-)=0\, \rightarrow \, i(0+)=0$ ($i$ continu dans $L$)
+			\[K_1+K_2=0, \quad K_2=-K_1\]}
+		\item {$u_R(0+)=0 \quad \text{puisque~} i(0+)=0 \rightarrow u_L(0+)=u_C(0+)=u_{C0}$
+			\[u_L(0+)=\left.L\frac{di}{dt}\right|_{t=0}=\left.L(K_1s_1e^{s_1t}-K_1s_2e^{s_2t})\right|_{t=0}
+			=2\alpha_1K_1L=u_{C0}\]}
+	\end{itemize}
+	Il vient finalement 
+	\begin{center}
+		\fbox{
+			$i(t)=\frac{u_{C0}}{\alpha_1 L}\, e^{-\alpha t}\sinh (\alpha_1 t)\quad
+			t\geq 0$}
+	\end{center}
+	
+\paragraph{Régime oscillatoire amorti.} 
+$$\alpha^2 - \omega_0^2 < 0 $$
+	$s_1$ et $s_2$ sont deux nombres complexes conjugués {\em à partie réelle négative}  :
+	{\[s_{1,2}=-\alpha \pm j\sqrt{\omega_0^2-\alpha^2}= -\alpha \pm j\omega_d \]}
+	Forme générale de la solution :
+	{\[i(t)=K_1 e^{-\alpha t}e^{j\omega_d t} + K_2 e^{-\alpha t}e^{-j\omega_d t}
+		= e^{-\alpha t}(K_1^{'}\cos \omega_d t + K_2^{'}\sin \omega_d t) \]}
+	En appliquant les conditions initiales, 
+	\[i(0+)=0 \, \rightarrow K_1^{'}=0 \qquad u_L(0+)=u_{C0}\, \rightarrow K_2^{'}=\frac{u_{C0}}{L\omega_d}\]
+	il vient finalement 
+	\begin{center}
+		\fbox{
+			$i(t)=\frac{u_{C0}}{\omega_d L}\, e^{-\alpha t}\sin (\omega_d t) \quad
+			t\geq 0$}
+	\end{center}
+
+\noindent\underline{Remarque : }
+\[\text{Si} \quad R\rightarrow 0 \text{, alors}\quad 
+\left\{
+\begin{array}{l}
+\alpha \rightarrow 0\\
+\omega_d \rightarrow \omega_0
+\end{array}\right.\]
+On a alors un circuit LC, et un régime oscillatoire non amorti, $\omega_0$ est la
+fréquence de résonance du circuit.
+	
+\paragraph{Régime apériodique critique.} $$\alpha^2 - \omega_0^2 = 0 $$
+L'équation caractéristique possède une seule racine de multiplicité $2$ :
+	{ \[s_{1}=s_2=-\alpha < 0\]}
+On doit donc plutôt chercher une solution de la forme
+	{ \[i(t)=K_1 te^{-\alpha t}+K_2e^{-\alpha t}\]}
+En appliquant les conditions initiales, 
+	\[i(0+)=0 \, \rightarrow K_2=0 \qquad u_L(0+)=u_{C0}\, \rightarrow K_1=\frac{u_{C0}}{L}\]
+il vient finalement 
+	\begin{center}
+		\fbox{
+			$i(t)=\frac{u_{C0}}{L}\, t\, e^{-\alpha t} \quad t\geq  0$}
+	\end{center}
+
+\begin{testexample}[Régime oscillatoire amorti.] 
+	Soit un circuit RLC série avec 
+\[\left.\begin{array}{rl}
+L=100 & \text{mH}\\
+C=0.1 & \mu\text{F}\\
+R=560 & \Omega\\
+\end{array}\right\}\rightarrow \omega_0^2=\frac{1}{LC}=10^8 \quad \alpha=\frac{R}{2L}=2800
+\]
+\[\alpha^2 < \omega_0^2 \rightarrow \quad \text{Régime oscillatoire amorti}\]
+Fréquence d'oscillation : $\omega_d=\sqrt{\omega_0^2-\alpha^2}=9600$ rad/s.\\
+Amortissement : $\alpha=2800$ rad/s.\\
+Charge initiale du condensateur : $u_{C0}=$ 100 V.\\
+
+\[i(t)=\frac{u_{C0}}{L\omega_d}e^{-\alpha t}\sin\omega_d t = 0.1042e^{-2800 t}
+	\sin 9600 t\quad t\geq 0\]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figs/figs_reg_trans/regime_oscillatoire_amorti}
+\end{center}
+Calcul des tensions aux bornes des différents éléments :
+\begin{align*}
+u_R(t) &=Ri(t)\\
+u_L(t)& = L\frac{di}{dt}\\
+& = -\frac{\alpha u_{C0}}{\omega_d}e^{-\alpha t}\sin \omega_d t
++ u_{C0}e^{-\alpha t} \cos \omega_d t\\
+& = -29.17e^{-2800 t}\sin 9600 t + 100e^{-2800 t}\cos 9600 t \quad t > 0
+\end{align*}
+On vérifie que $u_L(0+)=u_{C0}=100$ :
+\begin{align*}
+u_C(t)&=u_R(t)+u_L(t)\\
+& = \frac{\alpha u_{C0}}{\omega_d}e^{-\alpha t}\sin \omega_d t
++ u_{C0}e^{-\alpha t} \cos \omega_d t\\
+& = 29.17e^{-2800 t}\sin 9600 t + 100e^{-2800 t}\cos 9600 t \quad t \geq 0
+\end{align*}
+On vérifie que $u_C(0+)=u_{C0}=100$ :
+\begin{gather*}
+	u_L(t)=-29.17e^{-2800 t}\sin 9600 t + 100e^{-2800 t}\cos 9600 t \quad t \geq 0 \quad \text{(rouge)}\\
+	u_C(t)=29.17e^{-2800 t}\sin 9600 t + 100e^{-2800 t}\cos 9600 t \quad t \geq 0 \quad \text{(bleu)}
+\end{gather*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figs/figs_reg_trans/regime_oscillatoire_amorti_u}
+\end{center}
+Calcul des puissances consommées par les différents éléments :
+\begin{align*}
+p_R(t) &=Ri^2(t)=6.08e^{-5600 t}\sin^2 9600 t \quad > 0 \text{~~!}\\
+p_L(t) &=u_L(t)i(t) \\ &= -3.04e^{-5600 t}\sin^2 9600 t + 10.41 e^{-5600 t}\cos 9600 t \sin  9600 t\\
+p_C(t)&= -u_C(t)i(t) \\ & = -3.04e^{-5600 t}\sin^2 9600 t - 10.41 e^{-5600 t}\cos 9600 t \sin  9600 t.
+\end{align*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figs/figs_reg_trans/echange_energie_L_et_C}
+\end{center}
+\end{testexample}
+	
+\begin{testexample}[Régime apériodique.]
+Soit un circuit RLC série avec 
+\[\left.\begin{array}{rl}
+L=100 & \text{mH}\\
+C=0.1 & \mu\text{F}\\
+R=5600 & \Omega\\
+\end{array}\right\}
+\rightarrow \omega_0^2=\frac{1}{LC}=10^8 \quad \alpha=\frac{R}{2L}=28000
+\]
+\[\alpha^2 > \omega_0^2 \rightarrow \quad \text{régime apériodique}\]
+Il y a deux fréquences naturelles réelles négatives :
+\begin{align*}
+s_1 &=-\alpha + \sqrt{\alpha^2-\omega^2}=-1846.6\\
+s_2 &=-\alpha - \sqrt{\alpha^2-\omega^2}=-54153.3
+\end{align*}
+Charge initiale du condensateur : $u_{C0}=$ $100$ V.
+
+{\small 
+	\begin{align*}
+	i(t)&=\frac{u_{C0}}{2L\sqrt{\alpha^2-\omega_0^2}}e^{s_1 t}- 
+	\frac{u_{C0}}{2L\sqrt{\alpha^2-\omega_0^2}}e^{s_2 t}\\
+	& = 0.01912e^{-1846.6 t} - 0.01912e^{-54153.3 t}
+	\end{align*}}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figs/figs_reg_trans/regime_aperiodique}
+\end{center}
+Calcul des tensions aux bornes des différents éléments :
+\begin{align*}
+u_R(t) &=Ri(t)\\
+u_L(t)& = L\frac{di}{dt}\\
+& =-3.53e^{-1846.6 t} +103.53e^{-54153.3 t} \quad t > 0
+\end{align*}
+On vérifie que $u_L(0+)=u_{C0}=100$ :
+\begin{align*}
+u_C(t)&=u_R(t)+u_L(t)\\
+& =103.53e^{-1846.6 t} -3.53e^{-54153.3 t}  \quad t \geq 0
+\end{align*}
+On vérifie que $u_C(0+)=u_{C0}=100$ :
+{\small \begin{gather*}
+	u_L(t)=-3.53e^{-1846.6 t} +103.53e^{-54153.3 t} \quad t>0 \quad \text{(rouge)}\\
+	u_C(t)= 103.53e^{-1846.6 t} -3.53e^{-54153.3 t} \quad t \geq 0 \quad \text{(bleu)}
+	\end{gather*}}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figs/figs_reg_trans/regime_aperiodique_u}
+\end{center}
+Calcul des puissances consommées par les différents éléments :
+\begin{align*}
+p_R(t) &=Ri^2(t) \quad > 0 \text{~~!}\\
+p_L(t) &=u_L(t)i(t) \\ &= -0.067e^{-3693.2 t}-1.98e^{-1.083\, 10^5 t}  +
+2.05e^{-56000 t} \\
+p_C(t)&= -u_C(t)i(t) \\ & =
+-1.97e^{-3693.2 t}-0.067e^{-1.083\, 10^5 t}  +
+2.05e^{-56000 t} 
+\end{align*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figs/figs_reg_trans/regime_aperiodique_p}
+\end{center}
+\end{testexample}
+
+\begin{testexample}[Régime apériodique critique.]
+On obtient une racine double à l'équation caractéristique si :
+\[\frac{1}{\sqrt{LC}}=\frac{R}{2L}\]
+Pour une même valeur de $L$ et $C$ que dans l'exemple précédent, il faut :
+\[R=2000\,\, \Omega.\]
+Dans de cas :
+\begin{align*}
+i(t) & =1000te^{-10000t}\\
+u_R(t)& =2\, 10^6te^{-10000t}\\
+u_L(t) & = 100e^{-10000t}-10^6te^{-10000t}\\
+u_C(t) & = 100e^{-10000t}+10^6te^{-10000t}
+\end{align*}
+\[i(t)  =1000te^{-10000t}\]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figs/figs_reg_trans/regime_aperiodique_critique}
+\end{center}
+\end{testexample}
+
+\subsection{Réponse forcée}
+Les deux éléments accumulateurs d'énergie ($L$ et $C$) sont initialement relaxés.
+\begin{marginfigure}
+\centering
+\input{figs/tikz_figures/chap5fig/rlcserie2ch8.tikz}
+\caption{Circuit RLC série: réponse forcée.}
+\end{marginfigure}
+\[L\frac{di}{dt}+R\, i+\frac{1}{C}\int_0^t i\, dx = V_s\]
+En dérivant :
+\begin{gather*}
+L\frac{d^2i}{dt^2}+R\frac{di}{dt}+\frac{1}{C} i = 0\\
+\frac{d^2i}{dt^2}+\frac{R}{L}\frac{di}{dt}+\frac{1}{LC} i = 0
+\end{gather*}
+On obtient la même forme de solution pour le courant $i$ que dans le cas de la réponse libre.
+Dans les différentes expressions, il faut remplacer $u_{C0}$ par $V_s$.
+\begin{align*}
+u_R(t) & =Ri(t) \quad \text{idem réponse libre avec $u_{C0}$ remplacé par $V_s$} \\
+u_L(t) & = L\frac{di}{dt} \quad \text{idem réponse libre avec $u_{C0}$ remplacé par $V_s$} \\
+u_C(t) & = V_s-u_R(t)-u_L(t)
+\end{align*}
+Dans le cas du régime oscillatoire amorti, on trouve :
+\[u_C(t)=V_s-\frac{\alpha V_s}{\omega_d}e^{-\alpha t}\sin \omega_d t - V_se^{-\alpha t}\cos \omega_d t\]
+
+\section{Comment résoudre un exercice en pratique}
+\begin{itemize}
+	\item En fonction de la position d'un ou plusieurs \textbf{interrupteur}(s), de {\bf variations définies des sources} alimentant le circuit, identifier les différentes \textbf{périodes} et les circuits associés.
+	\item Pour chaque période,
+	\begin{enumerate}
+		\item déterminer les \textbf{conditions initiales}
+		\item obtenir l'\textbf{équation différentielle} de la tension (condensateur) ou du courant (inductance) en utilisant les PLK, SLK et les relations $u-i$ aux bornes des éléments
+		\item résoudre cette équation différentielle
+	\end{enumerate}
+\end{itemize}
+\textbf{{Conseils}}
+\begin{itemize}
+	\item Utiliser des expressions littérales le plus loin possible, remplacer les valeurs numériques à la fin
+	\item Vérifier la continuité temporelle
+	\item Pour un condensateur : recherche de la tension et puis du courant par dérivation
+	\item Pour une inductance : recherche du courant et puis de la tension par dérivation
+	\item Vérifier les valeurs en fin et début de période par un raisonnement physique
+\end{itemize}
+
+\section{Détection d'enveloppe de la radio AM}
+\label{demodu2}
+Comme illustré à la Figure~\ref{fig:RadioAM_filtres}, le premier étage d'amplification (que nous analyserons au Chapitre~\ref{cha:AO}) est suivi d'un dipôle RC série (coupe 5). Ce dipôle est utilisé pour lisser le signal et ainsi terminer la démodulation du signal d'entrée. En effet, sa constante de temps vaut $\tau = R_4 C_4 = 0,0134 s$. Or, notre signal porteur a une fréquence comprise entre environ $500$ et $1600$ kHz, c'est-à-dire une période $T \in [2\times10^{-6}; 6.25\times10^-7 ] s$. Comme $\tau \gg  T$, le condensateur n'a jamais le temps de se décharger, et va toujours suivre le signal. Il va donc "lisser" le signal modulé qui est capté et ainsi fournir le signal modulant, l'enveloppe.
+De manière générale, cette étape de la démodulation s'effectue à chaque fois que l'on rencontre un condensateur (ce qui explique leur présence abondante dans le circuit). 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figs/RadioAM/lissage_parfait.png}
+	\includegraphics[width=0.58\textwidth]{figs/RadioAM/lissage_imparfait.PNG}
+	\caption{Lissage parfait vs lissage imparfait d'un signal par un condensateur.}
+	\label{fig:lissage}
+\end{figure*}

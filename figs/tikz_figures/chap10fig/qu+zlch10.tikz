@@ -1,0 +1,56 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (0.30444,6.47333) node[text=black,anchor=base east] {$Z_e$};
+\draw[arrows=-triangle 45,black] (0.45111,6.44222) -- (1.17111,6.44222);
+\path (6.21778,6.51333) node[text=black,anchor=base west] {$Z_L$};
+\draw[black] (5.76222,6.84444) -- (5.76222,7.10889);
+\draw[black] (5.75778,6.02222) -- (5.75778,5.82222);
+\draw[black] (5.76889,6.02) -- (5.61111,6.07111) -- (5.92889,6.17333) -- (5.61111,6.27556) -- (5.92889,6.37556) -- (5.61111,6.47778) -- (5.92889,6.58) -- (5.61111,6.68222) -- (5.92889,6.78222) -- (5.76889,6.83333);
+\path (3.56222,6.42444) node[text=black,anchor=base] {Q};
+\path (6.00889,7.11111) node[text=black,anchor=base west] {2'};
+\path (5.98889,5.78667) node[text=black,anchor=base west] {2};
+\path (1.11556,7.16667) node[text=black,anchor=base east] {1'};
+\path (1.16444,5.78667) node[text=black,anchor=base east] {1};
+\draw[black] (11.82222,5.75778) -- (11.77111,5.6) -- (11.66889,5.91778) -- (11.56667,5.6) -- (11.46667,5.91778) -- (11.36444,5.6) -- (11.26222,5.91778) -- (11.16,5.6) -- (11.06,5.91778) -- (11.00889,5.75778);
+\path (10.48444,7.56222) node[text=black,anchor=base west] {2'};
+\path (10.47333,5.55556) node[text=black,anchor=base west] {2};
+\path (7.13778,7.16667) node[text=black,anchor=base east] {1'};
+\path (7.11778,5.78667) node[text=black,anchor=base east] {1};
+\draw[black] (10.56889,5.76889) -- (11.01333,5.76889);
+\draw[black] (11.83333,5.76889) -- (12.27556,5.76889);
+\draw[black] (10.64667,7.09333) -- (12.31333,7.09333);
+\draw[black] (12.35333,5.76889) -- (12.35333,7.12222);
+\path (12.43556,5.62222) node[text=black,anchor=base west] {3};
+\path (12.49778,7.16222) node[text=black,anchor=base west] {3'};
+\path (11.39778,5.36667) node[text=black,anchor=base] {$Z_L$};
+\path (8.02222,6.00667) node[text=black,anchor=base west] {$Z_{11}$};
+\path (8.02222,6.93111) node[text=black,anchor=base west] {$Z_{21}$};
+\path (9.82667,6.00667) node[text=black,anchor=base east] {$Z_{12}$};
+\path (9.82667,6.90222) node[text=black,anchor=base east] {$Z_{22}$};
+\draw[black] (10.02222,5.77778) -- (10.55778,5.77778);
+\draw[black] (10.01111,7.09778) -- (10.59556,7.09778);
+\draw[black] (7.24889,5.77778) -- (7.75778,5.77778);
+\draw[black] (7.30222,7.11556) -- (7.76667,7.11556);
+\draw[black] (7.77778,5.6) rectangle (10.01333,7.26444);
+\filldraw[black] (10.59111,7.11778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (10.56444,5.77778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (7.30444,7.11778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (7.28667,5.75556) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (12.34,5.77778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (12.35778,7.08) ellipse (0.06667cm and 0.06667cm);
+\draw[black] (4.66667,5.77778) -- (5.74889,5.77778);
+\draw[black] (4.65556,7.09778) -- (5.73778,7.09778);
+\draw[black] (1.32,5.77778) -- (2.40222,5.77778);
+\draw[black] (1.32889,7.11556) -- (2.41111,7.11556);
+\draw[black] (2.42222,5.6) rectangle (4.65778,7.26444);
+\filldraw[black] (5.75556,7.11778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (5.76667,5.77778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.34889,7.11778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (1.34889,5.75556) ellipse (0.06667cm and 0.06667cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

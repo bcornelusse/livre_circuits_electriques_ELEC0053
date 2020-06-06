@@ -1,0 +1,24 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (2.88,2.38) -- (4.61333,2.37778);
+\draw[arrows=-triangle 45,black] (2.88,2.38) -- (2.01333,0.87778);
+\draw[arrows=-triangle 45,black] (2.88,2.38) -- (2.01111,3.87778);
+\draw[arrows=triangle 45-,black] (5.46444,3.87778) -- (4.59778,2.37556);
+\draw[arrows=-triangle 45,black] (2.88889,2.38889) -- (5.46667,3.87778);
+\draw[arrows=triangle 45-,black] (0.29111,3.88) -- (2.02444,3.87778);
+\draw[arrows=-triangle 45,black] (2.87778,2.36667) -- (0.31111,3.86667);
+\draw[arrows=triangle 45-,black] (2.85333,-0.60444) -- (1.98444,0.89333);
+\draw[arrows=-triangle 45,black] (2.85556,2.37778) -- (2.85556,-0.57778);
+\path (4.05556,2.25556) node[text=black,anchor=base west] {$\bar{I}_{ab}$};
+\path (1.62222,3.02222) node[text=black,anchor=base east] {$\bar{I}_b$};
+\path (2.04444,1.55556) node[text=black,anchor=base east] {$\bar{I}_{ca}$};
+\path (2.98889,1.24444) node[text=black,anchor=base west] {$I_{c}$};
+\path (2.25556,3.88889) node[text=black,anchor=base west] {$\bar{I}_{bc}$};
+\path (4.06667,3.33333) node[text=black,anchor=base east] {$\bar{I}_a$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,921 @@
+% !TeX root = syllabus_ELEC0053.tex
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+
+\section{Exercices}
+
+\begin{exercise}{Phaseurs}
+	\label{ex:phaseur_1} 
+	Soient les nombres $j$, $j^2$, $j^3$ et $j^4$. 
+	\begin{enumerate}
+	\item Écrire les phaseurs correspondants. 
+	\item Placer les sur un diagramme de phaseurs. 
+	\item Quelle conclusion ce diagramme permet-il de tirer ?
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{Impédance et admittance d'un dipôle.}\label{ex:RSE-1}
+Une bobine est généralement représentée par une inductance en
+série avec une faible résistance, représentative des pertes
+inévitables de l'élément. Montrer, comme indiqué à la
+figure ci-dessous, que l'on peut aussi repré\-sen\-ter cet élément par
+la mise en parallèle d'une résistance et d'une inductance. Déterminer
+l'expression des coefficients $L^{'}$ et $R^{'}$ en fonction de $L$ et
+$R$.
+
+De même, un condensateur est généralement représenté par la mise en
+parallèle d'un condensateur idéal et d'une faible conductance,
+représentative des pertes inévitables de l'élément. Montrer que l'on
+peut aussi représenter cet élément par la mise en série d'une
+conductance  et d'un condensateur idéal. Déterminer l'expression des
+coefficients $C^{'}$ et $G^{'}$ en fonction de $C$ et $G$.
+\begin{center}
+\includegraphics[width=0.8\linewidth]{exercices/ex-2-1}
+\end{center}
+
+\rep{$R^{'}=R(1+\frac{\omega^2 L^2}{R^2})$, $L^{'}=L(1+\frac{R^2}{\omega^2 L^2})$\\
+$G^{'}=G(1+\frac{\omega^2 C^2}{G^2})$, $C^{'}=C(1+\frac{G^2}{\omega^2 C^2})$}
+\end{exercise}
+
+\begin{exercise}{}\label{ex:RSE_1} 
+	Déterminer les courants $\bar{I}$, $\bar{I_1}$ et $\bar{I_2}$ dans le circuit ci-dessous.
+	Tracer le diagramme de phaseur et illustrer également $\bar{V}_{12}$ et $\bar{V}_{23}$.
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{exercices/RSE_1.pdf}
+	\end{center}
+\end{exercise}
+
+\begin{exercise}{Diagramme de phaseurs.}\label{ex:RSE-2}
+
+Dessiner un diagramme de phaseurs plausible représentant les
+grandeurs indiquées sur le circuit ci-dessous. Justifier
+la construction étape par étape. On prendra l'origine des phases
+pour la source $\bar{E}=E\angle 0$.
+\begin{center}
+\includegraphics[width=0.7\linewidth]{exercices/ex-2-2}
+\end{center}
+\end{exercise}
+
+\begin{exercise}{}\label{ex:RSE-3}
+Une résistance de $5$ k$\Omega$ est connectée en série avec la
+combinaison en parallèle d'un condensateur de capacité $C$ et d'une
+inductance de 20 mH. Ce dipôle d'impédance $Z$ est inséré dans un
+circuit fonctionnant en régime sinusoïdal établi à la pulsation de
+1000 rad/s. On demande :
+\begin{enumerate}
+	\item de calculer la valeur de la capacité $C$ du condensateur pour
+	que le courant parcourant le dipôle soit en retard de 45$^{\circ}$
+	par rapport à la d.d.p. à ses bornes;
+	\item si on connecte ce dipôle aux bornes 11$^{'}$ du circuit de la figure ci-dessous,
+	dessiner le diagramme de phaseurs reprenant les tensions
+	aux bornes des éléments du circuit.
+\end{enumerate}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{exercices/ex-2-3}
+\end{center}
+
+\rep{$C=49.8\,\mu$F, $\bar{U}_Z=97.25+j 16.11$ V.}
+\end{exercise}
+
+
+\begin{exercise}{Puissances.}\label{ex:RSE-5}
+Calculer les puissances actives et réactives consommées ou
+produites par les divers éléments du circuit ci-dessous. Établir les bilans de puissances
+correspondants. Donner les expressions des puissances instantanées et
+fluctuantes dans les divers éléments du circuit.
+\begin{center}
+\includegraphics[width=0.6\linewidth]{exercices/ex-2-5}
+\end{center}
+
+\rep{$S_{R_2}=3.6 + j 0$ VA, $S_{Z_1}=0.386 + j 0.002$ VA\\ $S_Z=
+0.966 + j 0.966$ VA, $S_E=4.956 + j 0.973$ VA.} 
+\end{exercise}
+
+\begin{exercise}{}\label{ex:RSE-6}
+Le circuit ci-dessous fonctionne en régime
+sinusoïdal établi à la pulsation $\omega$. On demande~:
+\begin{enumerate}
+	\item de déterminer la pulsation $\omega$ pour laquelle la puissance fournie par
+	le circuit à la charge $Z_L$ connectée en 11' est purement active;
+	\item à cette pulsation, de calculer la puissance active fournie à la
+	charge ainsi que les puissances active, réactive, instantanée et
+	fluctuante fournies par la source de tension à l'instant $t= 10^{-3}\;s$.
+\end{enumerate}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{exercices/ex-2-6}\\
+		$R_1=10\mbox{~}\Omega \quad ; \quad R_2=20  \mbox{~}\Omega  \quad
+		; \quad C_1=0.5  \mbox{~}\mu\mbox{F} 
+		\quad ; \quad L_2=0.1  \mbox{~mH}$\\
+		$R_L=5  \mbox{~}\Omega \quad ; \quad C_L=0.2 \mbox{~}\mu\mbox{F}
+		\quad ; \quad L_L= 0.5 \mbox{~mH} \quad ; \quad {\bar E} = 20\angle 0 \mbox{~V (valeur efficace)}$\\
+		\caption{}\label{ex2-6}
+	\end{center}
+\end{figure}
+
+\rep{$\omega = 9.95\, 10^4$ rad/s, $Z_L=500\,\,\Omega$ ; 
+	$P_Z = 0.575$ W, $S_E=8.3-15.5$ VA}
+\end{exercise}
+
+\begin{exercise}{}
+	\label{ex:2-10}
+	Un générateur délivrant une f.e.m $e(t)=E\cos \omega t$ est
+	connecté, depuis en temps supposé infini, à un circuit $\cal R$
+	linéaire et invariant par l'intermédiaire d'une ligne, comme
+	représenté à la figure suivante. 
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{exercices/ex-3-10}
+	\end{center}
+	Cette ligne est modélisée par la
+	mise en série d'une résistance $R$ et d'une inductance $L$. A
+	l'instant $t=0$, un court-circuit se produit au point de connexion
+	F. Déterminer l'évolution du courant $i(t)$ dans l'intervalle $t>0$.
+	
+	
+	\rep{$i(t)=i_0e^{-t/\tau}-\frac{ E\, R}{R^2 + \omega^2 L^2}e^{-t/\tau}
+		+\frac{E}{\sqrt{R^2 + \omega^2 L^2}}\cos (\omega t - \mbox{arctg}\frac{\omega L}{R})$
+		A, $t\geq 0$}
+\end{exercise}
+
+\begin{exercise}{}
+	\label{ex:2-1}
+	Déterminer l'expression de l'inductance équivalente résultant de la mise en
+	parallèle de la paire d'inductances couplées de la figure ci-dessous.
+	Que devient cette inductance si la polarité magnétique de la bobine 2 est inversée ?
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{exercices/ex-3-1}
+	\end{center}
+	
+	
+	\rep{$L_{eq1}=\frac{L_1L_2-M^2}{L_1+L_2-2M}$\\
+		$L_{eq2}=\frac{L_1L_2-M^2}{L_1+L_2+2M}$}
+\end{exercise}
+
+\begin{exercise}{}
+	\label{ex:2-2}
+	On considère le circuit de la figure ci-dessous.  Déterminer
+	l'évolution des courants $i_0$, $i_1$, $i_2$ et de la tension $v_0$ pour
+	$t\geq 0$ sachant que les deux inductances sont initialement relaxées.
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.85\linewidth]{exercices/ex-3-2}
+		\end{center}
+		\caption{}\label{ex3-2}
+	\end{figure}
+	Vérifier la plausibilité des résultats trouvés :
+	\begin{enumerate}
+		\item vérifier les valeurs initiales et finales des différentes grandeurs;
+		\item vérifier les lois de Kirchhoff.
+	\end{enumerate}
+	
+	\rep{$i_0(t)=16-16e^{-5t}$ A, $t\geq 0$\\ 
+		$v_0(t)=120e^{-5t}$ V, $t\geq 0$\\
+		$i_1(t)=24-24e^{-5t}$ A, $t\geq 0$\\
+		$i_2(t)=-8+8e^{-5t}$ A, $t\geq 0$.}
+\end{exercise}
+
+\section{Exercices non résolus}
+
+
+\begin{exercise}{}\label{ex:RSE-12}
+Étant donné le circuit de la figure ci-dessous fonctionnant en régime
+sinusoïdal établi à la  pulsation $\omega=1000$ rad/s, on demande :
+\begin{enumerate}
+	\item de déterminer l'expression des courants $i(t)$, $i_C(t)$ et
+	$i_{R_2}(t)$;
+	\item d'établir les bilans de puissances active et réactive;
+	\item à l'instant $t=0.001$s , de calculer les puissances
+	instantanées et fluctuantes consommées par la résistance $R_2$ et le
+	condensateur $C$ et fournies par la source $e$.
+\end{enumerate}
+
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{exercices/ex-2-12}\\
+	$R_1=100\,\, \Omega$, $R_2=1$, $\mbox{k}\Omega$, $C=5\,\, \mu\mbox{F}$,$L = 2 \,\, \mbox{mH} $, $	\bar{E}=10\angle 0\,\, \mbox{V} \mbox{~(valeur efficace)}$
+\end{center}
+
+
+\rep{$i(t)=0.06\cos (1000 t+0.94)$ , $i_C(t)=0.0589\cos(1000 t+1.14)$ , 
+	$i_{R_2}(t)=0.0118\cos(1000 t-0.43)$\\
+	$S_{Z_1}=0.18 + j0.004$ VA, $S_{Z_2}=0.07-j0.347$ VA\\
+	$p_{R_2}=0.098$ W , $p_{fR_2}=0.029$ W\\
+	$p_{C}=-0.315$ W , $p_{fC}=-0.315$ W \\
+	$p_{E}=-0.166$ W , $p_{fE}=-0.416$ W}
+\end{exercise}
+
+\begin{exercise}{}\label{ex:RSE-13}
+On désire modifier le circuit de l'exercice~\ref{ex:RSE-12} de manière à
+ce que la puissance réactive fournie par la source $e$ soit
+nulle. Pour cela, on place une impédance soit en série, soit en
+parallèle avec la source $e$. Déterminer, dans chaque cas, la nature
+et la valeur du ou des éléments à placer ainsi que la nouvelle
+répartition des puissances actives.
+
+\rep{$L_s= 190.3$ mH , $P_{R_1}=0.522$ W, $P_{R_2}=0.2$ W , $P_E=0.722$ W\\
+	$L_{//}= 291$ mH , $P_{R_1}=0.18$ W, $P_{R_2}=0.07$ W , $P_E=0.25$ W}
+\end{exercise}
+
+\begin{exercise}{Triphasé déséquilibré étoile}
+\label{ex:tri-1} 
+Le circuit suivant fonctionne en 240 V triphasé. Calculez le courant $\bar{I}_c$.
+\begin{center}
+	\includegraphics[width=0.45\linewidth]{exercices/ex-tri-1}
+\end{center}
+
+\rep{$\bar{I}_c = -72.11 \angle 106^{\circ}$ A}
+\end{exercise}
+
+\begin{exercise}{Triphasé déséquilibré triangle}
+	\label{ex:tri-2} 
+	Le circuit suivant fonctionne en 450 V triphasé. Calculez le courant $\bar{I}_a$.
+	\begin{center}
+		\includegraphics[width=0.65\linewidth]{exercices/ex-tri-2}
+	\end{center}
+	
+	\rep{$\bar{I}_a = 110.29 \angle -36.52^{\circ}$ A}
+\end{exercise}
+
+\begin{exercise}{Triphasé déséquilibré avec neutre}
+	\label{ex:tri-3} 
+	Le circuit suivant fonctionne sous une tension de ligne efficace de 240 V. Calculez les courants de ligne et le courant de neutre.
+	\begin{center}
+		\includegraphics[width=0.45\linewidth]{exercices/ex-tri-3}
+	\end{center}
+\end{exercise}
+
+\section{Solution des exercices}
+\paragraph{Exercice~\ref{ex:phaseur_1}.} On a les correspondances \\
+\begin{tabular}{r r}
+	$j$ & $1 e^{j\pi/2}$\\
+	$j^2$ & $1 e^{j\pi}$\\
+	$j^3$ & $1 e^{j3\pi/2}$\\
+	$j^4$ & $1 e^0$
+\end{tabular}\\
+ce qui se traduit sur le diagramme de phaseurs par : 
+\begin{center}
+	\includegraphics[width=0.6\textwidth]{sol_exercices/phaseur_1.pdf}
+\end{center}
+Multiplier par $j$ revient à ajouter un déphasage de $\pi/2$.
+
+\paragraph{Exercice~\ref{ex:RSE-1}}~\\%
+\noindent{\bf 1. Schémas équivalents d'une bobine}
+
+Les deux dip\^{o}les sont équivalents s'ils présentent la m\^{e}me
+impédance \ $Z$ \ ou la m\^{e}me admittance \ $Y$.
+
+L'impédance et l'admittance  du circuit série sont  données par :
+
+\parbox[c]{2cm}{
+	\hfill
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex2-1-1}}
+\parbox[c]{7cm}{
+	\[ \begin{array}{rclcrcl}
+	Z(j\omega ) &=& R + j\omega L 
+	& \Rightarrow & Y(j\omega ) &=& \dfrac{1}{R+j\omega L} \\
+	&&&&&=& \dfrac{R-j\omega L}{R^2+\omega^2 L^2}
+	\end{array}\]}
+
+L'admittance du circuit parallèle est :
+
+\parbox[c]{2cm}{
+	\hfill
+	\includegraphics[width=0.9\linewidth]{sol_exercices/ex2-1-2}
+	}
+\parbox[c]{7cm}{
+	\[Y'(j\omega ) = \dfrac{1}{R'} - \dfrac{j}{\omega L'}\]}
+
+On déduit :
+\[\begin{array}{rclcrcl}
+Y(j\omega ) &=& Y'(j\omega ) 
+& \Rightarrow & \dfrac{1}{R'} &=& \dfrac{R}{R^2+\omega^2 L^2}\\
+&&&& R'&=& R + \dfrac{\omega^2 L^2}{R}\\
+&&&&&=& R \left( 1 + \dfrac{\omega^2 L^2}{R^2} \right) \: = \: R\, (1+Q^2)
+\end{array} 
+\]
+où \ $Q = \dfrac{\omega L}{R}$ \ est le facteur de qualité de la bobine.
+\begin{eqnarray*}
+	R' &=&  R\, (1+Q^2) \: \simeq \: Q^2 R ~~\mbox{si}~~Q >>\\
+	L' &=& L \left( 1 + \dfrac{R^2}{\omega^2 L^2} \right) \: = \: L \left( 1 + \dfrac{1}{Q^2} \right)\\
+	&\simeq&  L ~~\mbox{si}~~Q >>~
+\end{eqnarray*}
+
+\noindent{\bf 2. Schémas équivalents d'un condensateur}
+
+Pour le circuit parallèle, on écrit :
+
+\parbox[c]{2cm}{
+	\hfill
+	\includegraphics[width=0.9\linewidth]{sol_exercices/ex2-1-3}
+}
+\parbox[c]{7cm}{
+	\begin{eqnarray*}
+		Y(j\omega ) &=& G + j\omega C\\
+		Z(j\omega ) &=& \dfrac{1}{G + j\omega C}\\
+		&& \dfrac{G - j\omega C}{G^2 + \omega^2 C^2}
+\end{eqnarray*}}
+
+L'impédance du circuit série est :
+
+\parbox[c]{2cm}{
+	\hfill
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex2-1-4}
+}
+\parbox[c]{7cm}{
+	\[Z'(j\omega ) = \dfrac{1}{G'} - \dfrac{j}{\omega C'}\]}
+
+On déduit :
+\[ \begin{array}{rcrclcl}
+Z(j\omega ) \: = \: Z'(j\omega ) 
+& \Rightarrow & \dfrac{1}{G'} &=& \dfrac{G}{G^2 + \omega^2 C^2}\\
+&& G'&=& G \left( 1 + \dfrac{\omega^2 C^2}{G^2} \right) &=& G \, (1 + Q^2)\\
+&&&&&= & G \left( 1 + \dfrac{1}{\mbox{tg}^2 \delta} \right)
+\end{array} \]
+avec \ $Q$ \ le facteur de qualité du condensateur et \ $\delta$ \ son angle de pertes.
+\begin{eqnarray*}
+	G' &=& G\, (1+Q^2) \: \simeq \: Q^2 G ~~\mbox{si} ~~Q>>\\
+	C' &=& C \left( 1 + \dfrac{G^2}{\omega^2 C^2} \right) \: = 
+	\: C \left( 1 + \dfrac{1}{Q^2} \right) \: \simeq \: C ~~\mbox{si} ~~Q>>
+\end{eqnarray*}
+
+\paragraph{Exercice \ref{ex:RSE_1}.} L'impédance équivalente vaut 
+\begin{align*}
+Z_i &= 2+j3 + \frac{(3+j5)(5-j6)}{3+j5+5-j6} \\
+&= 2+j3 + \frac{(3+j5)(5-j6)}{8-j} \\
+&= 2+j3 + \frac{(5.83 \angle{59.04°} )(7.81 \angle -50.19°)}{8.06 \angle -7.13°} \\
+&= 2+j3 + 5.65 \angle 15.98
+&= 7.43 + j4.55 \\ &= 8.71 \angle 31.48° \Omega.
+\end{align*}
+
+\begin{align*}
+\bar{I} = \frac{\bar{V}}{Z_i} = 11.48 \angle-31.48°
+\end{align*}
+
+
+\paragraph{Exercice~\ref{ex:RSE-2}}~\\%
+
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex2-2-1}
+\end{center}
+
+\begin{enumerate}
+	\item Le courant et la tension aux bornes de la résistance  $R_2$ sont en phase.
+	
+	\parbox[c]{3cm}{
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex2-2-2}
+	\end{center}
+	}
+	\parbox[c]{8cm}{
+		$\bar{I}_{R_2}$ \ est en phase avec \ $\bar{E}$}
+	\item Le circuit aux bornes de \ $\bar{E}$ \ est de type RL~:
+	
+	\begin{enumerate}
+		\item ~$R_2 \, // \, (R_1 + j\omega L_1 + j\omega L_2 )$ = circuit
+		RL\\ $\rightarrow \: \bar{I}_E$ \ est en retard par rapport à \
+		$\bar{E}$ \ d'un angle \ $0 < \varphi < \frac{\pi}{2}$~;
+		
+		\item ~$R_1 + j\omega L_1 + j\omega L_2 $ = circuit RL\\ $\rightarrow
+		\: \bar{I}_{RL}$ \ est en retard par rapport à \ $\bar{E}$ \ d'un
+		angle \ $0 < \varphi^{'} <  \frac{\pi}{2}$~.
+	\end{enumerate}
+	\item De la  PLK au noeud \ $A$ \ on déduit $\bar{I}_E$~:
+	\[ \bar{I}_E \, = \, \bar{I}_{RL} + \bar{I}_{R_2}~ \]
+	\item ~$\bar{U}_{L_2}$ \ est la tension aux bornes d'une inductance
+	pure; elle est en avance de \ $\frac{\pi}{2}$ \ par rapport au courant qui la
+	parcourt, c'est-à-dire \ $\bar{I}_{RL}$~
+	\item La SLK fournit $ \bar{U}_{RL}$~:
+	\[ \bar{U}_{RL} + \bar{U}_{L_2} \: = \: \bar{E}~ \]
+\end{enumerate}
+
+Le diagramme de phaseurs correspondant est
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{sol_exercices/ex2-2-3}
+\end{center}
+
+\paragraph{Exercice~\ref{ex:RSE-3}}~\\%
+\noindent{\bf 1. Calcul de l'impédance du dipôle}
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex2-3-1}
+\end{center}
+Pour que le courant \ $\bar{I}$ \ parcourant le dip\^{o}le présente un
+retard de 45$^{\circ}$ par rapport à la tension \ $\bar{U}_Z$~ il faut
+que l'argument de l'impédance \ $Z$ \ soit égal à 45$^{\circ}$.
+\[\angle Z(j\omega ) = 45^{\circ}~ \]
+On a~:
+\begin{eqnarray*}
+	Z(j\omega ) &=& R + \dfrac{1}{~j\omega C + \dfrac{1}{j\omega L}~}\\
+	&=&  R + \dfrac{j\omega L}{1 -\omega^2 LC}
+\end{eqnarray*}
+et
+\begin{eqnarray*}
+	\angle Z & = & \mbox{arctg}~\dfrac{~\dfrac{\omega L}{1 - \omega^2 LC}~}{R}\\
+	& = & 45^{\circ}
+\end{eqnarray*}
+Dès lors :
+\[\dfrac{\omega L}{1 - \omega^2 LC} = R\text{~~.}\]
+On déduit~:
+\begin{eqnarray*}
+	C &=& \dfrac{1}{\omega^2 L} \left( 1 - \dfrac{\omega L}{R} \right)\\
+	&=& \dfrac{1}{10^6\, .\, 20\, 10^{-3}} 
+	\left( 1 - \dfrac{10^3\, . \, 20\, 10^{-3}}{5 \, 10^3} \right) \\
+	&=& 4.98\, 10^{-5} \: = \: 49.8 \,\, \mu\text{F}
+\end{eqnarray*}
+et
+\[Z=(5+j 5)\,10^3=
+7.071 \, 10^3 \angle 45^{\circ} \, \Omega~.\]
+
+\noindent{\bf 2. Diagramme de phaseurs}\\
+On connecte le dip\^{o}le \ $Z$ \ aux bornes du circuit comme indiqué ci-dessous.
+
+\noindent\parbox[c]{8cm}{
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{sol_exercices/ex2-3-2}
+\end{center}}
+\parbox[c]{3cm}{
+	\begin{eqnarray*}
+		Z_1 &=& R_1 + j\omega L_1\\
+		&=& 2\, 10^3 + j10\\
+		&=& 2\, 10^3 \angle 0.28^{\circ}
+\end{eqnarray*}}
+
+Le courant \ $\bar{I}$ \ est donné par~:
+\begin{eqnarray*}
+	\bar{I} \: = \: \frac{\bar{E}}{Z_1 + Z} &=& \frac{120 \angle 0}
+	{2\, 10^3 + j\, 10 + 5\, 10^3 + j\, 5\, 10^3}\\
+	&=& 11.3\, 10^3 - j\, 8.11 \, 10^3\\
+	&=& 13.9\, 10^{-3}\angle -35.6^{\circ}\, \text{A}
+\end{eqnarray*}
+et
+\begin{eqnarray*}
+	\bar{U}_{R_2} &=& 
+	\bar{E} \: = \: 120\,  \angle 0\, \text{V}\\
+	\bar{U}_Z &=& 
+	Z\bar{I} \: = \: 97.25 + j\, 16.11 \: = \: 98.57  \angle 9.4^{\circ}\, \text{V}\\ 
+	\bar{U}_{Z_1} &=& 
+	Z_1\bar{I} \: = \: 22.8 - j\, 16.1 \: = \: 27.9  \angle  -35.3^{\circ}\, \text{V}
+\end{eqnarray*}
+On remarque qu'il existe bien un déphasage de 45$^{\circ}$ entre la
+tension \ $\bar{U}_Z$ \ et le courant \ $\bar{I}$~:
+\[\angle \bar{U}_Z - \angle \bar{I} 
+\: = \: 9.40^{\circ} - (-35.6^{\circ}) \: = \: 45^{\circ}~. \]
+Le digramme de phaseurs correspondant est 
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{sol_exercices/ex2-3-3}
+\end{center}
+
+On vérifie~:
+\[ \bar{U}_{R_2} \: = \: \bar{E} \: = \: \bar{U}_{Z_1}+ \bar{U}_Z~. \]
+
+\paragraph{Exercice~\ref{ex:RSE-5}}~\\%
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex2-5-1}
+\end{center}
+L'état du circuit est celui déterminé à l'exercice~\ref{ex:RSE-3}~:
+\begin{eqnarray*}
+	\bar{I} &=& 11.3\, 10^{-3} - j\, 8.11 \, 10^{-3} \: = \: 13.9 \, 10^{-3} \angle -35.6^{\circ}\,\,
+	\text{A}\\
+	\bar{U}_Z &=& 98.57  \angle -9.40^{\circ}\: = \: 97.25 + j\, 16.11 \,\, \text{V}\\
+	\bar{U}_{Z_1} &=& 22.8 - j\, 16.1 \: = \: 27.9  \angle -35.3^{\circ} \,\, \text{V}
+\end{eqnarray*}
+{\bf 1. Calcul des puissances consommées par les éléments}  \ $R\, ,\, L\, ,\, C$~.
+
+{\em A.  Résistance } \ $R_2$ :
+
+\begin{enumerate}
+	\item puissance complexe~:
+	\[ S_{R_2} \: = \: \bar{U}_{R_2} \, \bar{I}_{R_2}^{\ast} \: = \: \bar{E} \, . \, 
+	\dfrac{\bar{E}^{\ast}}{R_2} \: =\: \dfrac{E^2}{R_2} \: = \: 3.6\, \text{VA~.} \]
+	
+	On déduit~:
+	\begin{enumerate}
+		\item la puissance active \ $P_{R_2} = \Re(S) = 3.6$ W
+		\item et on vérifie \ $Q=0$~, une résistance ne consomme pas de puissance réactive;
+	\end{enumerate}
+	\item puissances instantanée et fluctuante~:
+	\begin{eqnarray*}
+		p(t) &=& P + |S|\, \cos\, (2\omega t \ + \phi_u + \phi_i )\\
+		&=& 3.6 + 3.6 \, \cos \, 2\omega t \\
+		p_f(t) &=& 3.6 \, \cos \, 2\omega t 
+	\end{eqnarray*}
+\end{enumerate}
+{\em B.  Impédance} \ $Z_1 = R_1 + j\omega L_1$
+\begin{enumerate}
+	\item puissance complexe~:
+	\begin{eqnarray*}
+		S_{Z_1} \: = \: \bar{U}_{Z_1} \, \bar{I}^{\ast} &=& Z_1 \, \bar{I} \, \bar{I}^{\ast}\\&=& Z_1 I^2\\
+		&=& R_1 I^2 + j\omega L_1I^2\\
+		&=& 0.386 + j\, 0.002 \, \text{VA} 
+	\end{eqnarray*}
+	\item puissance active~:
+	\[ P_{R_1} \, = \, R_1 I^2 \, = \, 0.386\, \text{W~.} \]
+	dissipée uniquement dans \, $R_1$
+	\item puissance réactive~:
+	\[ Q_{L_1} \, = \, \omega L_1 I^2 \, = \, 0.002\, \text{Var} \]
+	consommée par l'inductance\ $L_1~$
+	\item puissances instantanée et fluctuante~:
+	\begin{eqnarray*}
+		p(t) &=& 0.386 + 0.386 \, \cos \, (2\omega t - 35.3^{\circ} - 35.6^{\circ})\\
+		p_f(t) &=& 0.386 \, \cos \, (2\omega t - 35.3^{\circ} - 35.6^{\circ})~.
+	\end{eqnarray*}
+\end{enumerate}
+
+{\em C.  Impédance} \ $Z$
+
+A l'exercice 2.3, nous avons déduit la composition de cette impédance~:
+\[ Z = (5 +j5) \, 10^3\, \Omega \]
+représentée par
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex2-5-2}
+\end{center}
+
+\begin{enumerate}
+	\item puissances complexe, active et réactive~:
+	\begin{eqnarray*}
+		S_Z &=& \bar{U}_Z \, \bar{I}^{\ast}\\
+		&=& 0.966 + j \, 0.966\, \text{VA}\\
+		P_R &=& 0.966 \, \text{W} \\
+		& & \text{consommée par la résistance~}R\\
+		Q_{LC} & = &0.966 \, \text{Var} \\
+		& & \text{consommée par le dipôle~}LC.
+	\end{eqnarray*}
+	Dans ce dipôle, \ $L$ \ consomme de la puissance réactive et \ $C$ \ en produit.
+	Déterminons ces puissances réactives. On a pour \ $L$~:
+	\[ Q_L = \omega L\, I_L^2 \]
+	avec \ $\bar{I}_L$ \ le courant parcourant l'inductance;\\
+	et pour \ $C$~: 
+	\[ Q_C = -\, \omega C \, U_C^2 \]
+	avec \ $\bar{U}_C$ \ la tension aux bornes du condensateur \ $C$~.
+	
+	On calcule~:
+	\begin{eqnarray*}
+		\bar{U}_C &=& \bar{U}_{LC} \: = \: j5 \, 10^3 \, \bar{I} \\
+		\mbox{et} ~~\bar{I}_L &=& \frac{\bar{U}_{LC}}{j\omega L} \: = \: \frac{5.10^3}{\omega L} 
+		\, \bar{I} \: = \: 250\, \bar{I}~.
+	\end{eqnarray*}
+	Dès lors~:
+	\begin{eqnarray*}
+		Q_L &=& \omega LI_L^2 \: = \: \omega L(250)^2 I^2 \: = \: 241.513 \, \text{Var}\\
+		Q_C &=& -\, \omega C U_C^2 \: = \, - \, \omega C \, 25\, 10^6 \, I^2 
+		\: = \, -\, 240.546\, \text{Var~.}
+	\end{eqnarray*}
+	$L$ \ consomme \ 241.513$\,$ Var \ et \ $C$ \ produit \ 240.546$\,$ Var~. On vérifie~: 
+	\[ Q_L + Q_C \, = \, Q_{LC}~. \]
+\end{enumerate}
+
+{\bf 2. Puissances fournies par la source} \ $\bar{E}$
+
+\parbox[c]{4cm}{
+	\hfill
+	\includegraphics[width=0.9\linewidth]{sol_exercices/ex2-5-3}
+}
+\parbox[c]{8cm}{
+	\begin{eqnarray*}
+		\bar{I}_E &=& \bar{I} + \bar{I}_{R_2} \: = \: \bar{I} + \dfrac{\bar{E}}{R_2}\\
+		&=& 41.3\, 10^{-3} - j\, 8.11 \, 10^{-3}\\
+		&=& 42.1 \, 10^{-3} \angle -11.1^{\circ}
+\end{eqnarray*}}
+
+\begin{enumerate}
+	\item puissances complexe, active et réactive~:
+	\begin{eqnarray*}
+		S_E &=& \bar{E} \, \bar{I}_E^{\ast} \: = \ 4.956 + j\, 0.973 \, \text{VA}\\
+		P_E &=& 4.956 \, \text{W}\\
+		Q_E &=& 0.973 \, \text{Var}
+	\end{eqnarray*}
+	$E$ \, produit 0.973$\,$ Var et 4.956$\,$ W
+	\item puissances instantanée et fluctuante~:
+	\begin{eqnarray*}
+		p(t) &=& 4.956 + 5.05\, \cos \, (2\omega t - 11.1^{\circ})\\
+		p_f(t) &=& 5.05 \, \cos \, (2\omega t - 11.1^{\circ})~.
+	\end{eqnarray*}
+\end{enumerate}
+\noindent{\bf 3. Bilans de puissances}
+\begin{enumerate}
+	\item Puissance active~:
+	\[ P_E \: = \: P_{R_1} + P_{R_2} + P_R \]
+	\item Puissance réactive~:
+	\[ Q_E \: = \: Q_{L_1} + Q_L + Q_C~. \]
+\end{enumerate}
+
+\paragraph{Exercice~\ref{ex:RSE-6}}~\\%
+{\bf 1. Détermination de la pulsation $\omega$}
+
+La puissance fournie à la charge $Z_L$ sera purement active si
+l'impédance $Z_L$ (et donc aussi son inverse $Y_L$) est purement
+réelle.
+On a : 
+\begin{align*}
+	Z_L&=\frac{1}{j\omega C_L +\frac{1}{R_L+j\omega L_L}} \\
+	Y_L & = j\omega C_L +\frac{1}{R_L+j\omega L_L}\\
+	& = j\omega C_L  + \frac{R_L-j\omega L_L}{R_L^2+\omega^2 L_L^2}
+\end{align*}
+Il faut :
+\begin{gather*}
+	Im(Y_L)= 0 \Leftrightarrow 
+	\omega C_L -\frac{\omega L_L}{R_L^2+\omega^2 L_L^2}=0\\
+	\omega=\sqrt{\frac{1}{L_LC_L}-\frac{R_L^2}{L_L^2}} = 9.95\, 10^4 \text{~rad/s}
+\end{gather*}
+A cette pulsation, l'impédance $Z_L$ se réduit à la résistance :
+\[Z_L=\frac{R_L^2+\omega^2L_L^2}{R_L}=500\,\, \Omega\]
+
+{\bf 2. Puissances consommées par $Z_L$}
+
+Dans le domaine fréquentiel à la pulsation $\omega$, le circuit
+est représenté par le schéma suivant
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex2-6-1} 
+\end{center}
+
+Posons :
+\begin{gather*}
+	Z_1=\frac{1}{j\omega C_1}=-j\, 20.1 \\
+	Z_2=R_2+j\omega L_2=20+j\, 9.95
+\end{gather*}
+
+Transformant la partie gauche du circuit comme suit (e.g. par équivalences de source et association en parallèle) :
+\begin{center}
+\includegraphics[width=\linewidth]{sol_exercices/ex2-6-2}
+\end{center}
+on dérive :
+\[\bar{I}=\frac{\bar{E}^{'}}{Z^{'}+Z_2+Z_L}=(30.2-j\, 15.4)10^{-3}\]
+
+La puissance complexe  consommée par la charge $Z_L$ est purement
+active et est donnée par~:
+\[S_L=P_L=Z_LI^2=0.575 \text{~W}\]
+Détermination du courant débité par la source de tension $\bar E$ :
+\begin{gather*}
+	\bar{U}=(Z_L+Z_2)\bar{I}=15.9-j\, 7.73\\
+	\bar{I}_E= \frac{\bar{E}-\bar{U}}{R_1}=0.415+j\, 0.773
+\end{gather*}
+Les puissances complexe, active et réactive  fournies par $\bar E$ sont données par :
+\begin{align*}
+	\text{puissance complexe :}\quad & S_E=\bar{E}\bar{I}_E^*=8.3-j \,
+	15.5\text{~VA}\\
+	\text{puissance active :}\quad & P_E=Re(S_E)=8.3 \text{~W}\\
+	\text{puissance réactive :}\quad & Q_E=Im(S_E)=-15.5 \text{~var}
+\end{align*}
+La puissance fluctuante en $t=10^{-3}$ s s'exprime par :
+\begin{align*}
+	p_f& =|S_E|\cos(2\omega t + \angle \bar{E}+\angle \bar{I}_E)
+	\text{~avec~} \angle \bar{E}=0 \quad \angle \bar{I}_E=1.078
+	\text{~rad}\\
+	& = 17.55\cos(2\times 9.95\, 10^4\times 10^{-3}+1.078)\\
+	& = 9.72 \text{~W}
+\end{align*}
+On déduit la puissance instantanée en $t=10^{-3}$ s:
+\[p_E=p_f+P_E=18.02 \text{~W}\]
+
+
+\paragraph{Exercice~\ref{ex:2-10}}~\\%
+
+Il faut distinguer deux périodes temporelles :
+\begin{enumerate}
+	\item durant la période \ $t<0$~, le circuit fonctionne en régime sinusoïdal établi;
+	\item durant la période de court-circuit, \ $t\geq 0$~, le régime est
+	transitoire et le circuit se transforme en celui de la
+	figure ci-dessous. Il s'agit d'un simple circuit RL série.
+\end{enumerate}
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex3-10-1}
+\end{center}
+Soit \ $i_0$~, la valeur du courant circulant dans le circuit à
+l'instant précis du court-circuit \ $(t=0)$~.
+Nous recherchons l'expression du courant $i(t)$ durant la période
+$t\geq 0$ qui peut se mettre sous la forme générale
+\[i(t)=i_0e^{-t/\tau}+Ae^{-t/\tau}+B\cos(\omega t + \phi )\]
+avec :
+\begin{enumerate}
+	\item $\tau=L/R$ la constante de temps du circuit;
+	\item $i_{libre}=i_0e^{-t/\tau}$ la réponse libre;
+	\item $ i_{forcee}=Ae^{-t/\tau}+B\cos(\omega t + \phi )$ la réponse forcée qui comprend :
+	\begin{enumerate}
+		\item le terme $i_{transit}=Ae^{-t/\tau}$, partie transitoire de la réponse
+		forcée, constituant avec la réponse libre la solution générale de
+		l'équation différentielle homogène qui régit $i(t)$;
+		\item le terme $i_{etabli}=B\cos(\omega t + \phi )$, constituant la régime
+		permanent ou établi donné par la solution particulière de
+		l'équation différentielle non homogène. Cette partie correspond en
+		fait à la solution du circuit en régime sinosoïdal établi.  Son
+		expression peut être déterminée par une analyse en phaseurs.
+	\end{enumerate}
+\end{enumerate}
+On a,~d'après la figure
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex3-10-2}
+\end{center}
+\[
+\bar{I} = \frac{\bar{E}}{R+j\omega L}=
+= \frac{\bar{E}}{\, \sqrt{R^2 + \omega ^2L^2}\, }\, e^{-j\mbox{arctg} \frac{\omega L}{R}}
+\quad \text{avec} \quad \bar{E}= E \angle 0\]
+
+et 
+\[ i_{etabli}(t) \: =\: \frac{E}{\, \sqrt{R^2 + \omega ^2L^2}\, }\,
+\cos \left( \omega t - \mbox{arctg} \, \frac{\omega L}{R} \right)~. \]
+
+La condition initiale en $t=0$ impose :
+
+\[i_0=i_0+A+ \frac{E\, R}{R^2 + \omega ^2L^2} \quad \Rightarrow
+\quad A=\frac{-E\, R}{R^2+\omega^2L^2}\]
+Finalement :
+\[i(t)=i_0e^{-t/\tau}-\frac{E\, R}{R^2+\omega^2L^2}e^{-t/\tau}+\frac{E}{\, \sqrt{R^2 + \omega ^2L^2}\, }\,
+\cos \left( \omega t - \mbox{arctg} \, \frac{\omega L}{R} \right)\]
+Notons que seul le régime établi peut être calculé à partir des
+phaseurs. Le régime transitoire ne peut être obtenu que par une
+analyse transitoire temporelle.
+
+\paragraph{Exercice~\ref{ex:2-1}}~\\%
+a) Soient $i_1$ et $i_2$ les deux courants parcourant les 2
+inductances, comme indiqué à la figure ci-dessous. Celles-ci sont
+soumises à une même tension $u$ et le dipôle est alimenté par le
+courant $i$.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.6 \linewidth]{sol_exercices/ex3-1-1}
+	\end{center}
+	\caption{}\label{ex3-1-1s}
+\end{figure}
+Etant donné les sens choisis pour les courants \ $i_1\, , \, i_2$~,
+entrant tous deux par la borne repérée par le point \ $\bullet$~, on
+écrit~:
+\begin{eqnarray*}
+	u_1 &=& u \: = \: L_1 \dfrac{di_1}{dt} + M \dfrac{di_2}{dt}\\
+	u_2 &=& u \: = \: M \dfrac{di_1}{dt} + L_2 \dfrac{di_2}{dt}
+\end{eqnarray*}
+On déduit la relation suivante entre \ $i_1$ et $i_2$~:
+\begin{eqnarray*}
+	L_1 \dfrac{di_1}{dt} + M \dfrac{di_2}{dt} &=&  M \dfrac{di_1}{dt} + L_2 \dfrac{di_2}{dt}\\
+	\dfrac{di_1}{dt} &=& \dfrac{L_2-M}{L_1-M} \, \dfrac{di_2}{dt}
+\end{eqnarray*}
+D'autre part, la PLK écrite au noeud 1 fournit~:
+\[ i\,=\; i_1+i_2 \]
+et donc
+\[ \dfrac{di}{dt} \: = \: \dfrac{di_1}{dt} + \dfrac{di_2}{dt}~. \]
+On dérive successivement~:
+\begin{eqnarray*}
+	u &=& \left( L_1 \dfrac{L_2-M}{L_1-M} + M \right)  \dfrac{di_2}{dt}\\
+	\dfrac{di}{dt} &=& \left( \dfrac{L_2-M}{L_1-M} + 1 \right)  \dfrac{di_2}{dt} 
+\end{eqnarray*}
+et finalement, la relation \ $u-i$ \ aux bornes du dipôle s'écrit~:
+\begin{eqnarray*}
+	u &=& \left( L_1 \dfrac{L_2-M}{L_1-M} + M \right) \dfrac{1}{\dfrac{L_2-M}{L_1-M} + 1} \,
+	\dfrac{di}{dt}\\
+	&=& \dfrac{L_1L_2 - M^2}{L_1+L_2-2M} \,  \dfrac{di}{dt}~. 
+\end{eqnarray*}
+Le dipôle est donc représenté par une inductance équivalente~:
+\[ L_{eq} \: = \: \dfrac{L_1L_2-M^2}{L_1+L_2-2M}~. \]
+
+b) Si la polarité magnétique de la bobine 2 est inversée comme
+indiqué à la figure suivante,
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex3-1-2}
+\end{center}
+on écrit~: 
+\begin{eqnarray*}
+	u &=& L_1 \dfrac{di_1}{dt} - M \dfrac{di_2}{dt}\\
+	u &=& -\, M  \dfrac{di_1}{dt} + L_2  \dfrac{di_2}{dt}~.
+\end{eqnarray*}
+On dérive successivement~:
+\begin{eqnarray*}
+	\dfrac{di_1}{dt} &=& \dfrac{L_2+M}{L_1+M} \, \dfrac{di_2}{dt}\\
+	\dfrac{di}{dt} &=& \left( \dfrac{L_2+M}{M_1+M} + 1 \right) \dfrac{di_2}{dt}\\
+	u &=& \left( L_1 \dfrac{L_2+M}{L_1+M} - M \right) \dfrac{di_2}{dt}
+\end{eqnarray*}
+et finalement~:
+\begin{eqnarray*}
+	u &=& \left( L_1 \dfrac{L_2+M}{L_1+M} - M \right)   \, \dfrac{1}{L_1 \frac{L_2+M}{L_1+M} + 1} 
+	\,  \dfrac{di}{dt}\\
+	&=& \dfrac{L_1L_2 - M^2}{L_1 + L_2 + 2M} \,  \dfrac{di}{dt}~.
+\end{eqnarray*}
+L'inductance équivalente du dipôle est donc donnée par~:
+\[ L_{eq} \: = \: \dfrac{L_1L_2 - M^2}{L_1 + L_2 + 2M}~. \]
+
+
+\paragraph{Exercice~\ref{ex:2-2}}~\\%
+
+\noindent{\bf 1. Expression de \ $i_0$}\\
+Les deux inductances couplées, connectées en parallèle, peuvent être
+remplacées par l'inductance équivalente (voir exercice 3.1)~:
+\[ L_{eq} \: = \: \dfrac{L_1L_2 - M^2}{L_1+L_2 -2M} 
+\: = \: \dfrac{45-36}{18-12} \: = \: 1.5 \, \mbox{H}~. \]
+On aboutit donc au circuit \ $RL$ \ suivant : 
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex3-2}
+\end{center}
+La constante de temps de ce circuit est~:
+\[ \tau \, = \, \dfrac{L_{eq}}{R} \, = \, \dfrac{1.5}{7.5} \, = \, 0.2\, \mbox{s}~. \]
+La courant d'établissement de ce circuit est donné par~:
+\[ i_0(t) \: = \: \dfrac{E}{R} \left( 1 - e^{-t/\tau}\right) \, = \: 16-16\, e^{-5t}
+\, \mbox{A}~~,~~t\geq 0\]
+étant donné qu'il est supposé qu'aucune énergie n'est initialement stockée dans l'inductance 
+\ $(i_0(0) = 0)$~.
+
+\newpage
+
+\noindent{\bf 2. Expression de \ $v_0$}\\
+La tension \ $v_0$ \ s'obtient en appliquant la SLK dans la maille. On déduit~:
+\begin{eqnarray*}
+	v_0 &=& E - Ri_0\\
+	&=& 120 - 7.5\, i_0\\
+	&=& 120 \, e^{-5t} \, \mbox{V}~~,~~t \geq 0^+~. 
+\end{eqnarray*}
+
+\noindent{\bf 3. Expression de \ $i_1$ et $i_2$}\\
+Les courants \ $i_1$ et $i_2$ \ se déduisent des relations de branches
+relatives aux deux inductances couplées. Ainsi, on a~:
+\[ v_0 \: = \: L_1 \dfrac{di_1}{dt} + M \dfrac{di_2}{dt} 
+\: = \: M \dfrac{di_1}{dt} + L_2 \dfrac{di_2}{dt} \]
+soit
+\begin{eqnarray*}
+	3 \dfrac{di_1}{dt} + 6\dfrac{di_2}{dt} &=&  6\dfrac{di_1}{dt} + 15 \dfrac{di_2}{dt}\\
+	\mbox{ou}~~~~~~\dfrac{di_1}{dt} &=& -\, 3 \dfrac{di_2}{dt}~.
+\end{eqnarray*}
+On a aussi~: 
+\begin{eqnarray*}
+	i_0 &=& i_1+i_2\\
+	\mbox{ou}~~~~~~\dfrac{di_0}{dt} &=& \dfrac{di_1}{dt} + \dfrac{di_2}{dt}\\
+	&=& -\, 2 \dfrac{di_2}{dt}~.
+\end{eqnarray*}
+Remplaçant $\dfrac{di_0}{dt}$ par son expression, on dérive :
+\begin{eqnarray*}
+	80\,e^{-5t} & =& -2\, \dfrac{di_2}{dt}\\
+	\mbox{soit~~~~} i_2(t) &=& \int^t_0 - 40\, e^{-5x}\, dx\\
+	&=& -\, 8 + 8\, e^{-5t}\, \text{A}~~, ~~t\geq 0
+\end{eqnarray*}
+et 
+\begin{eqnarray*}
+	i_1(t) &=& i_0(t) - i_2(t)\\
+	&=& 24 - 24\,  e^{-5t}\, \text{A}~~, ~~t\geq 0~.
+\end{eqnarray*}
+
+\newpage
+
+\noindent{\bf 4. Vérification des valeurs limites}\\
+a) \ $i_0$~:
+\begin{center}
+	\begin{tabular}{lp{8cm}}
+		$t=0^+$~: & $i_0(0^+) = 0$~\\ &  on a bien \ $i_0(0^+) = i_0(0^-)$,
+		continuité du courant dans une inductance.\\ 
+		$t=\infty$~: &
+		${\displaystyle \lim_{t\rightarrow\infty}}\, i_0(t) = 16 =
+		{\displaystyle \dfrac{E}{R}}$\\ 
+		& lorsque le régime est établi,
+		l'inductance ne joue plus aucun rôle; elle ne s'oppose plus au passage
+		du courant.
+	\end{tabular}
+\end{center}
+
+\noindent b) \ $v_0\, , \, i_1\, , \, i_2$~:
+\begin{enumerate}
+	\item Remarquons tout d'abord que les expressions trouvées pour \
+	$i_1$ et $i_2$ \ sont compatibles avec celles de \ $v_0$~.
+	
+	On vérifie en effet que~:
+	\begin{eqnarray*}
+		v_0 &=& 3 \dfrac{di_1}{dt} + 6 \dfrac{di_2}{dt} \: = \: 360\, e^{-5t} - 240\, e^{-5t}\\
+		&=& 120 \, e^{-5t} \, \text{V}~~,~~ t\geq 0^+
+	\end{eqnarray*}
+	ou que
+	\begin{eqnarray*}
+		v_0 &=& 6 \dfrac{di_1}{dt} + 15 \dfrac{di_2}{dt} \: = \: 720\, e^{-5t} - 600\, e^{-5t}\\
+		&=& 120 \, e^{-5t} \, \text{V}~~,~~ t\geq 0^+~.
+	\end{eqnarray*}
+	
+	\item Les valeurs finales de \ $i_1$ et $i_2$ \ peuvent être vérifiées
+	en utilisant les flux totaux embrassés par chacune des deux bobines~:
+	\begin{enumerate}
+		\item pour la bobine 1~: 
+		\begin{eqnarray*}
+			\phi_1 &=& L_1i_1 + Mi_2\\
+			&=& 3i_1 + 6i_2 
+		\end{eqnarray*}
+		\item pour la bobine 2~: 
+		\begin{eqnarray*}
+			\phi_2 &=& Mi_1 + L_2i_2\\
+			&=& 6i_1 + 15i_2 ~~.
+		\end{eqnarray*}
+	\end{enumerate}
+	On trouve ~:
+	\[ \phi_1 \: = \: \phi_2 \: = \: 24 - 24\, e^{-5t}~~\mbox{Wb}~. \]
+	On remarque que l'on a bien~:
+	\[ v_0 \, = \, \dfrac{d\phi_1}{dt} \, = \, \dfrac{d\phi_2}{dt} 
+	\, = \, 120\, e^{-5t} \, \text{V}~~, ~~t\geq 0^+~. \]
+	Les valeurs finales des flux sont~: 
+	\[ \phi_1(\infty ) = \phi_2(\infty ) = 24~\mbox{Wb}~. \]
+	Ces valeurs sont compatibles avec les valeurs finales des courants. On vérifie en effet~: 
+	\begin{eqnarray*}
+		i_1(\infty ) \: = \: \lim_{t\rightarrow\infty} \left( 24-24\, e^{-5t} \right) \: = \: 24~\mbox{A}\\
+		i_2(\infty ) \: = \: \lim_{t\rightarrow\infty} \left( -8+8\, e^{-5t} \right) \: = \, - 8~\mbox{A}
+	\end{eqnarray*}
+	et
+	\begin{eqnarray*}
+		\phi_1(\infty )  &=& L_1i_1(\infty ) + Mi_2(\infty ) \: 
+		= \: 3\times 24 + 6\times (-8) \: = \: 24~\mbox{Wb}\\
+		\phi_2(\infty )  &=& Mi_1(\infty ) + L_2i_2(\infty ) \: 
+		= \: 6\times 24 + 15\times (-8) \: = \: 24~\mbox{Wb}
+	\end{eqnarray*}
+\end{enumerate}
+
+Il faut remarquer qu'il n'était pas possible de vérifier directement les valeurs finales de \ $ i_1$ et $i_2$ \ sans recourir au calcul des flux. En effet, pour \ $t\rightarrow\infty$, les 2 bobines se comportent comme
+des court-circuits, et il n'est pas possible de déterminer comment le courant total de c.c, $i_0$, \ se divise entre les deux bobines.
+
+

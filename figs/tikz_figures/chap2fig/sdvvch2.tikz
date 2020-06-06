@@ -1,0 +1,21 @@
+\begin{tikzpicture}[y=-1cm]
+\draw[black] (2.58889,1.98889) -- (2.88889,2.5);
+\draw[black] (2.58889,3.01111) -- (2.88889,2.5);
+\draw[black] (2.58889,1.98889) -- (2.28889,2.5);
+\draw[black] (2.58889,3.01111) -- (2.28889,2.5);
+\path (2.57778,2.36667) node[text=black,anchor=base] {+};
+\path (2.57778,2.84444) node[text=black,anchor=base] {-};
+\filldraw[black] (1.35556,1.56222) circle (0.06667cm);
+\filldraw[black] (1.35556,3.54444) circle (0.06667cm);
+\draw[black] (2.58889,1.98889) -- (2.58889,1.56222) -- (1.38889,1.56222);
+\draw[black] (2.58889,3.01111) -- (2.58889,3.56222) -- (1.38889,3.56222);
+\path (3.11111,2.70667) node[text=black,anchor=base west] {$v_s=\mu v_x$};
+\path (1.33333,1.93333) node[text=black,anchor=base] {+};
+\path (1.34444,3.38889) node[text=black,anchor=base] {-};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

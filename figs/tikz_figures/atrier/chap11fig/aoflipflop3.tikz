@@ -1,0 +1,53 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\definecolor{penColor}{rgb}{0.56471,0,0.56471}
+\filldraw[penColor] (5.1,1.96667) circle (0.06667cm);
+\draw[arrows=-triangle 45,black] (3.49556,5.61111) -- (3.49556,1.08889);
+\draw[arrows=-triangle 45,black] (2.18889,3.51111) -- (6.4,3.51111);
+\draw[black] (2.91111,5.65556) -- (4.13333,4.43333) -- (2.90222,2.56667) -- (4.37778,1.09111);
+\draw[dotted,black] (4.14444,3.44444) -- (4.14444,4.43333);
+\draw[dotted,black] (2.88889,3.54444) -- (2.88889,2.54444);
+\draw[dashed,arrows=-triangle 45,black] (3.36667,3.27778) -- (3.11111,2.88889);
+\draw[dashed,arrows=-triangle 45,black] (3.03333,2.44444) -- (3.38889,2.1);
+\draw[dashed,arrows=-triangle 45,black] (4.13333,1.32222) -- (3.71111,1.75556);
+\draw[dashed,arrows=-triangle 45,black] (3.65556,3.71111) -- (3.95556,4.16667);
+\draw[dashed,arrows=-triangle 45,black] (2.98889,5.56667) -- (3.33333,5.24444);
+\draw[dashed,arrows=-triangle 45,black] (3.52222,1.97778) -- (5.07778,1.97778);
+\draw[penColor] (4.53556,5.65556) -- (5.75778,4.43333) -- (4.52667,2.56667) -- (6.00222,1.09111);
+\draw[dashed,arrows=-triangle 45,penColor] (4.98889,2.11111) -- (4.63333,2.45556);
+\draw[dashed,arrows=-triangle 45,penColor] (4.71111,2.83333) -- (5,3.26667);
+\draw[dashed,arrows=-triangle 45,penColor] (5.47778,4) -- (5.66667,4.28889);
+\draw[dashed,arrows=-triangle 45,black] (4.10444,4.46) -- (3.78222,4.79333);
+\draw[dashed,arrows=-triangle 45,penColor] (5.74889,4.44889) -- (5.37111,4.82667);
+\draw[dashed,arrows=-triangle 45] (5.36667,4.84444) -- (3.71111,4.84444);
+\draw[arrows=-triangle 45,black] (-1.45556,3.94444) -- (-1.45556,1.96667);
+\draw[arrows=-triangle 45,black] (-1.68889,3.5) -- (0.91111,3.5);
+\draw (-0.68889,3.51111) -- (-0.68889,2.5) -- (-0.01111,2.5) -- (-0.01111,3.53333);
+\draw[dashed] (-0.67778,2.53333) -- (-1.52222,2.53333);
+\path (6.07333,3.85556) node[text=black,anchor=base east] {$v$};
+\path (2.82222,3.82222) node[text=black,anchor=base east] {$-\beta V_{sat}$};
+\path (3.36667,1.64444) node[text=black,anchor=base east] {$i$};
+\path (3.3,2.05556) node[text=blue,anchor=base east] {Q1};
+\path (4.23333,3.84444) node[text=black,anchor=base west] {$\beta V_{sat}$};
+\path (5.3,2.2) node[text=black,anchor=base west] {P$_0(t=t_1^+)$};
+\path (3.28889,5.14444) node[text=blue,anchor=base east] {Q3};
+\path (-0.68889,3.86667) node[anchor=base] {$t_1$};
+\path (-0.01111,3.86667) node[anchor=base] {$t_2$};
+\path (-1.61111,2.68889) node[anchor=base east] {$E$};
+\path (-0.32222,2.44444) node[anchor=base] {$T$};
+\path (5.23333,3.45556) node[anchor=base west] {$E$};
+\path (0.53333,3.35556) node[anchor=base west] {$t$};
+\path (-1.65556,2.16667) node[anchor=base east] {$v_s$};
+\path (3.62222,5.25556) node[text=black,anchor=base west] {P$_2(t=t_2^+)$};
+\path (5.63333,4.94444) node[text=black,anchor=base west] {P$_1(t=t_2^-)$};
+\filldraw[blue] (3.48889,1.96667) circle (0.06667cm);
+\filldraw[penColor] (5.36667,4.84444) circle (0.06667cm);
+\filldraw[blue] (3.5,5.05556) circle (0.06667cm);
+\filldraw (3.73333,4.83333) circle (0.06667cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

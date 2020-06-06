@@ -1,0 +1,818 @@
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+% !TeX root = syllabus_ELEC0053.tex
+
+
+\chapter{Lois fondamentales et composants fondamentaux}
+\label{fig:lois}
+
+\textit{Ce chapitre énonce les lois fondamentales et les modèles de composants qui permettent l'étude de circuits localisés.
+Avant d'énoncer ces lois et modèles, un bref rappel de théorie des graphes s'impose. Il sera utile pour l'ensemble du cours.
+}
+\section{Rappel de théorie des graphes}
+La théorie des graphes est une discipline de l'algèbre linéaire qui reçoit de nos jours de nombreuses applications. En théorie des circuits électriques, notamment, elle rend des services précieux. Ainsi, dans le domaine de l'analyse, elle procure un éventail de méthodes systématiques, se distinguant par la nature des variables et par le nombre d'équations y afférentes. L'existence de telles méthodes est essentielle surtout quand il
+s'agit de grands systèmes - et les circuits électriques constituent souvent de très grands systèmes ; pour ne citer qu'un exemple, les réseaux de transport d'énergie électrique à haute tension comportent couramment des centaines, voire des milliers de noeuds et bien davantage de branches et de mailles. Une systématique rigoureuse est alors indispensable pour identifier et traiter les variables électriques appropriées. Ceci explique a posteriori le fait que la théorie des graphes fut originairement ébauchée par le fondateur même de la théorie des circuits\footnote{G. KIRCHHOFF, "Über die Auflösing der Gleichungen, auf welche man bei der Untersuchungen der Linearen Verteilung Galvanischer Ströme geführt wird". Poggendorf Ann. Physik, 72, 1847.} pour les besoins de ceux-ci.
+
+\subsection{Définitions générales}
+\paragraph{Branche}\footnote{"Branch" ou "edge"en anglais.} C'est un segment de ligne dont les deux extrémités sont distinctes.
+
+\paragraph{Noeud ou sommet.}\footnote{"Node" ou "vertex" en anglais.} C'est l'extrémité d'une branche.
+En fait, on admettra également qu'un noeud peut être un point isolé.
+
+\paragraph{Graphe.} Un graphe $G$ (Figure~\ref{fig:G}) est un ensemble de noeuds dont
+certains sont reliés par des branches. On désigne par $n$ le nombre
+de noeuds et par $b$ le nombre de branches.
+\begin{marginfigure}[-1cm]
+	\centering
+	\begin{tikzpicture}
+	\node[circle, draw, fill=black, scale = 0.4] (A) at (0,0) {};
+	\node[circle, draw, fill=black, scale = 0.4] (B) at (2,0) {};
+	\node[circle, draw, fill=black, scale = 0.4] (A2) at (0,-1) {};
+	\node[circle, draw, fill=black, scale = 0.4] (B2) at (3,-1) {};
+	\node[circle, draw, fill=black, scale = 0.4] (A3) at (-1,-.5) {};
+	\node[circle, draw, fill=black, scale = 0.4] (B3) at (2,-1.5) {};
+	\draw[black] (A) -- (B) -- (A2) -- (B3) ;
+	\end{tikzpicture}
+	\caption{Un graphe $G$ avec $n=6$ et $b=4$.}
+	\label{fig:G}
+\end{marginfigure}
+
+
+\paragraph{Branche orientée.} C'est une branche possédant une orientation fixée par
+l'ordre des noeuds. Cette orientation est indiquée par une flèche pointant vers le second noeud de la paire orientée. Par exemple, la Figure~\ref{fig:G1}  désigne la branche orientée $ab$.
+Il est quelquefois utile de considérer seul le segment de ligne (branche sans ses extrémités), on parle alors d'\textbf{arc} si la branche à laquelle appartient le segment de ligne est orientée et d'\textbf{arête} si cette branche n'est pas orientée.
+\begin{marginfigure}[-1.5cm]
+	\centering
+	\begin{tikzpicture}
+	\node[circle, draw, fill=black, scale = 0.4] (A) at (0,0) {};
+	\node[circle, draw, fill=black, scale = 0.4] (B) at (2,0) {};
+	\draw[arrows=-triangle 45,black] (A) node[above] {$a$} -- (B) node[above] {$b$} ;
+	\node[circle, scale = 0.4] (A2) at (0,-0.5) {};
+	\node[circle, scale = 0.4] (B2) at (2,-.5) {};
+	\draw[arrows=-triangle 45,black] (A2) node[above] {$a$} -- (B2) node[above] {$b$} ;
+	\node[circle, scale = 0.4] (A3) at (0,-1) {};
+	\node[circle, scale = 0.4] (B3) at (2,-1) {};
+	\draw[black] (A3)  node[above] {$a$} -- (B3) node[above] {$b$} ;
+	\end{tikzpicture}
+	\caption{Branche orientée entre les noeuds $a$ et $b$, arc et arrête.}
+	\label{fig:G1}
+\end{marginfigure}
+
+\paragraph{Graphe orienté.} Un graphe est orienté lorsque toutes ses branches le sont. 
+Dans la théorie des circuits, seuls les graphes orientés nous intéressent, même si certaines définitions de ce chapitre
+s'appliquent indistinctement aux graphes orientés ou non.
+\begin{marginfigure}[-1cm]
+\centering
+\includegraphics[width=0.9\linewidth]{figs/graphes/DG}
+\caption{Graphe orienté.}
+\label{fig:DG}
+\end{marginfigure}
+
+
+\paragraph{Sous-graphe.} Un sous-graphe d'un graphe est un sous-ensemble des branches
+du graphe ; c'est lui-même un graphe. Il est dit "propre" s'il ne contient pas toutes les
+branches du graphe dont il est issu.
+\begin{marginfigure}[1cm]
+	\centering
+	\includegraphics[width=0.9\linewidth]{figs/graphes/subgraph}
+	\caption{Sous graphe (arrêtes en trait épais et noeuds incidents.)}
+	\label{fig:sous_graphe}
+\end{marginfigure}
+
+
+\paragraph{Incidence.} On dit qu'une branche $b$ est incidente à un noeud $n$ si $n$ est une
+extrémité de $b$.
+
+\paragraph{Isomorphisme.} On dit que les graphes $G$ et $G'$ sont isomorphes s'il existe
+une correspondance biunivoque entre d'une part les noeuds, d'autre part les branches
+de $G$ et de $G'$ qui préserve les relations d'incidence.
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{figs/graphes/planar}
+	\caption{Deux graphes isomorphes.}
+	\label{fig:isomo}
+\end{marginfigure}
+
+\paragraph{Parcours ou chemin.}\footnote{Path en anglais.} C'est un sous-graphe d'un graphe composé
+d'une suite ordonnée de branches dont chacune a un noeud commun avec la branche précédente et l'autre noeud commun avec la branche suivante et où chaque noeud n'apparaît qu'une fois au plus.
+\begin{marginfigure}[1cm]
+	\centering
+	\includegraphics[width=0.9\linewidth]{figs/graphes/chemin}
+	\caption{Chemin (trait épais).}
+	\label{fig:chemin}
+\end{marginfigure}
+
+\paragraph{Noeuds initial et final.} Le noeud de la première branche d'un parcours qui n'appartient pas à la seconde branche est le noeud initial ; le noeud de la dernière branche du parcours qui n'appartient pas à l'avant-dernière branche est le noeud final. Les noeuds initial et final forment les extrémités d'un chemin.
+
+\paragraph{Degré d'un noeud.} C'est le nombre de branches incidentes à ce noeud. Dans le graphe de la Figure~\ref{fig:chemin}, il y a $1$ noeud de degré $1$, $4$ noeuds de degré $2$ et $3$ noeuds de degré $3$.
+
+\paragraph{Graphe connexe.} Un graphe est dit connexe (ou simplement connexe) s'il existe toujours un parcours entre deux quelconques de ses noeuds. Intuitivement un graphe est connexe s'il est d'une pièce. Sinon, il est appelé non-connexe ou multiplement connexe.
+Dans ce dernier cas, il est constitué d'un certain nombre $p$ de parties connexes ; on dit alors que le graphe est $p-$connexe.
+Le graphe de la Figure~\ref{fig:G} est 3-connexe. 
+
+\paragraph{Rang d'un graphe.} C'est par définition la différence $n-p$ , où $n$ est le nombre
+total de noeuds du graphe.
+
+\paragraph{Maille.}\footnote{Loop en anglais.} Une maille d'un graphe est un sous-graphe connexe dont tous
+les noeuds sont de degré $2$.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\linewidth]{figs/graphes/mailles}
+\caption{Un graphes et trois mailles.}
+\label{fig:mailles}
+\end{figure}
+
+\paragraph{Coupe.}\footnote{Cut-set en anglais.} Une coupe d'un graphe est un ensemble de branches dont la suppression augmente d'une unité le nombre de connexité et tel que la suppression de toutes ces branches moins une n'altère pas le degré de connexité du graphe. Autrement dit, une coupe est un ensemble minimal de branches dont la suppression augmente d'une
+unité la connexité du graphe.
+
+En particulier, on appelle \textit{coupe nodale} l'ensemble de branches incidentes à un noeud. 
+
+Ainsi, une coupe divise les noeuds d'un graphe connexe en deux groupes. Chaque branche de la coupe a une des extrémités confondue avec un noeud appartenant à l'un des groupes, l'autre de ses extrémités étant un noeud de l'autre.
+
+\paragraph{Arbre (de recouvrement).}\footnote{Spanning-tree en anglais.} Sous-graphe connexe qui contient tous les noeuds du graphe initial et qui ne comporte aucune maille.
+Nombre de branches de l'arbre pour réseau connexe : $n-1$
+
+\paragraph{Maillon.} Les branches restantes non incluses dans l'arbre de recouvrement.
+Nombre de maillons : $b-(n-1)$
+
+\paragraph{Maille fondamentale.} Pour un arbre donné, c'est une maille formée à partir d'un seul maillon et de branches de l'arbre.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\linewidth]{figs/graphes/mailles_fondamentales}
+\caption{Gauche : Un graphe et un arbre de recouvrement (en trait épais). Droite : Maillons (trait interrompu) et mailles fondamentales correspondantes.}
+\label{fig:mailles_fondamentales}
+\end{figure}
+
+
+\subsection{Circuit et graphe}
+
+Toutes ces définitions sont utiles car on associe à un circuit électrique un graphe orienté (Figure~\ref{fig:circuit_et_graphe}), dont l'orientation des branches est donnée par le sens du courant. Un graphe "mathématique" est en quelques sorte la représentation la plus simple possible de la topologie d'un circuit. On se limite aux seuls graphes connexes, et on définit : 
+\begin{itemize}
+	\item $n$ : le nombre de noeuds du graphe ou du circuit
+	\item $b$ : le nombre de branches
+	\item le nombre de branches d'un arbre : $N=n-1$
+	\item le nombre de mailles fondamentales : $M=b-(n-1)$
+\end{itemize}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\linewidth]{figs/graphes/circuit_et_graphe}
+\caption{Un circuit et sa représentation sous forme de graphe. Il contient $n=5$ noeuds, $b=7$ branches, et $M=3$ maillons. Un arbre est constitué par les branches $1$, $2$, $3$ et $4$.} 
+\label{fig:circuit_et_graphe}
+\end{figure}
+
+
+\section{Définitions}
+\paragraph{Etat.} L'\textit{état électrique}, ou plus simplement \textit{état}, d'un réseau donné par sa topologie et ses éléments est l'ensemble des valeurs que pren\-nent les courants et les tensions de branches, $({\bf i}_B(t)$ et ${\bf u}_B(t))$, à un instant donné. L'état électrique dépend évidemment des signaux délivrés par les sources indépendantes d'énergie (excitations).
+
+\paragraph{Solution.} Dans un sens large, une \textit{solution} est l'ensemble des valeurs des courants et tensions de branches ; dans un sens plus restreint, elle est constituée des valeurs que prennent les variables linéairement indépendantes, à partir desquelles l'état électrique complet peut être déterminé.
+
+\paragraph{Réponse.} Une \textit{réponse} d'un réseau à un ensemble d'excitations est constituée d'une partie de la solution du réseau relative à ces excitations.
+
+\section{Lois de Kirchhoff}
+\label{sec:LK}
+
+Nous présentons maintenant les lois fondamentales qui permettent de déduire l'état d'un circuit.
+
+La théorie des circuits localisés postule la localisation des champs exclusivement à l'intérieur de leurs éléments. Ceci se traduit par les deux hypothèses :
+\begin{enumerate}
+\item pas d'accumulation de charges aux noeuds d'un circuit pas plus que dans les conducteurs connectant ses éléments ;
+\item  l'intégrale de ligne de l'intensité du champ électrique total le long d'un contour associé à une paire de noeuds dépend exclusivement de ces noeuds: 
+$$\int_1^2 
+\overrightarrow{E}. \overrightarrow{d\ell}$$ est indépendant du chemin suivi entre $1$ et $2$.
+\end{enumerate}
+
+Les lois de Kirchhoff reposent sur ces hypothèses. Elles sont indépendantes de la nature des éléments constituant le circuit et expriment les contraintes imposées par la manière dont les éléments sont interconnectés, i.e. par la {\em topologie} ou le graphe du circuit.
+
+\subsection{Première loi de Kirchhoff (PLK) ou loi des noeuds}
+La PLK exprime le principe de la conservation de la charge dans le cadre des
+circuits localisés.
+La Table~\ref{tab:PLK} énonce la première loi, illustrée à la Figure~\ref{fig:PLK}.
+\begin{table}[h]
+\caption{Première loi de Kirchhoff.\label{tab:PLK}}
+\begin{boxedminipage}{\textwidth}
+	{Pour tout circuit localisé, la somme algébrique des 
+		courants de toutes les branches partant d'un noeud est nulle à
+		tout instant.}
+	$$\sum_{b\in \cal{N}}i_b(t)=0$$
+\end{boxedminipage}
+\end{table}
+\begin{marginfigure}
+	\centering
+	\input{figs/tikz_figures/chap1fig/plk1ch2.tikz}
+	\caption{Première loi de Kirchhoff.\label{fig:PLK}}
+\end{marginfigure}
+
+\paragraph{Démonstration.}
+Pour démontrer cette première loi, appliquons à l'équation de Maxwell
+$$\vec{\nabla} \times \overrightarrow{H}  = 
+\overrightarrow{J} + \frac{\partial \overrightarrow{D}}{\partial t}$$
+l'identité
+$$\vec{\nabla}.\left(\vec{\nabla} \times \overrightarrow{X}\right) = 0.$$
+Ainsi
+\begin{align*}\vec{\nabla}.\left(\overrightarrow{J} + \frac{\partial \overrightarrow{D}}{\partial t}\right) &= 0 \\
+& = \vec{\nabla}.\overrightarrow{J} + \frac{\partial }{\partial t}\vec{\nabla}.\overrightarrow{D}\\
+&= \vec{\nabla}.\overrightarrow{J} + \frac{\partial \rho}{\partial t}
+\end{align*}
+Intégrant sur une surface fermée $S$ (Figure~\ref{fig:int_S}) :
+\begin{align*}
+\int_S \overrightarrow{J}.\overrightarrow{dS} 
+&= \int_V \vec{\nabla}.\overrightarrow{J} dV \\
+&= -\int_V \frac{\partial \rho}{\partial t} dV \\ 
+&= \sum_{b\in \cal{N}}i_b(t) 
+\end{align*}
+\begin{marginfigure}
+	\centering
+	\input{figs/tikz_figures/chap1fig/plkjust.tikz}
+	\caption{Intégrale sur une surface fermée $S$.} \label{fig:int_S}
+\end{marginfigure}
+Car si l'on est dans le cas d'un circuit à courant continu alors $\frac{d\rho}{dt}=0$, et sinon avec l'hypothèse du 
+circuit localisé,  $\frac{\partial \overrightarrow{D}}{\partial t}\simeq 0$ en dehors des éléments
+
+
+La PLK est donc applicable aux circuits localisés pour toute surface fermée $S$, incluant plus d'un noeud : 
+ la somme algébrique des courants de toutes les branches d'une coupe est nulle à
+ tout instant.
+
+\begin{testexample}[PLK dans une coupe.]
+Pour le circuit suivant
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{figs/ch2_figs/plk2ch2}
+\end{center}
+on a
+\[ \begin{array}{lrclr}
+\text{noeud a :~}&-i_1-i_2-i_4& =& 0 & (1)\\
+\text{noeud b :~}&i_2 + i_3 + i_5 & = & 0& (2)\\
+\text{noeud c :~}&i_1 -i_5 +i_6 & = & 0 & (3)\\
+\text{noeud d :~}&i_4-i_3-i_6 & = & 0& (4)
+\end{array}\]
+Et donc 
+\begin{center}
+(2) + (3) $\Longrightarrow i_1+i_2+i_3+i_6 = 0$
+\end{center}
+Tout est comme si on avait considéré uniquement les courants traversant la coupe en trait interrompu.
+\end{testexample}
+
+\subsection{Seconde loi de Kirchhoff (SLK) ou loi des mailles}
+La Table~\ref{tab:SLK} énonce la seconde loi, illustrée à la Figure~\ref{fig:SLK}.
+\begin{table}[h]
+	\caption{Seconde loi de Kirchhoff.\label{tab:SLK}}
+\begin{boxedminipage}{\textwidth}
+{Pour tout circuit localisé, la somme algébrique des tensions aux
+	bornes de toutes les branches constituant une maille est nulle à
+	tout instant.}
+\begin{equation}
+\sum_{b\in \cal{M}}u_b(t)=0 \label{eq:SLK}
+\end{equation}
+\end{boxedminipage}
+\end{table}
+\begin{marginfigure}
+	\centering
+	\input{figs/tikz_figures/chap1fig/slk1ch2.tikz}
+	\caption{Seconde loi de Kirchhoff.\label{fig:SLK}}
+\end{marginfigure}
+
+\begin{testexample}[SLK.]
+Par exemple, dans la figure ci-dessous 
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{figs/ch2_figs/SLK}
+\end{center}
+on a 
+\[ \begin{array}{lrcl}
+\text{maille I :~}&-u_4+u_2-u_3& =& 0 \\
+\text{maille II :}&u_3-u_5-u_6 & = & 0 \\
+\text{maille III :}&-u_2+u_1+u_5& = & 0  
+\end{array}\]
+\end{testexample}
+
+\paragraph{Démonstration.}
+La SLK est basée sur l'hypothèse 2 ci-dessus, l'identité entre d.d.p. et tension dans le cadre des circuits localisés. Ce qui suit permet de clarifier son interprétation. 
+En toute généralité, le champ électrique s'exprime par 
+$$\vec{\nabla} \times \overrightarrow{E}  = 
+- \frac{\partial \overrightarrow{B}}{\partial t}$$
+Donc, en définissant $\overrightarrow{B} = \vec{\nabla} \times \overrightarrow{A}$ ($\overrightarrow{A}$ est appelé "potentiel vecteur"), 
+$$\overrightarrow{E} =-\vec{\nabla} V -\frac{\partial \overrightarrow{A}}{\partial t}$$
+\begin{marginfigure}
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{figs/ch2_figs/tensionch2}
+\end{center}
+\caption{Tension et d.d.p.} \label{fig:int_ligne}
+\end{marginfigure}
+L'intégrale de ligne de ce champ fournit par définition la tension. Ainsi, par exemple,
+dans le cas de la Figure~\ref{fig:int_ligne} , la tension $u_{12}$ entre les noeuds $1$ et $2$ s'exprime par :
+ \[u_{12}= \int_1^2\overrightarrow{E}.\overrightarrow{d\ell} = v_1-v_2 - 
+\frac{\partial}{\partial t}\int_1^2
+\overrightarrow{A}.\overrightarrow{d\ell}\]
+Dans le cas général, tension et différence de potentiel ne coïncident pas.
+Une des conséquences pratiques de la prise en considération du terme $\frac{\partial \overrightarrow{A}}{\partial t}$ réside dans le fait que la mesure à l'aide d'un voltmètre de la tension entre deux noeuds n'est pas univoquement évaluée mais dépend de la longueur et de la forme des fils
+électriques reliant ces noeuds au voltmètre.
+
+Sur un parcours fermé $123$ (Figure~\ref{fig:int_contour}), on dérive :
+\begin{eqnarray*}
+u_{12}+u_{23}+u_{31} & = & 
+\oint_{\cal C} \vec{E} . \vec{d\ell} = \int_S (\vec{\nabla} \times \vec{E}).\vec{dS}\\
+ & = & 
+- \frac{\partial}{\partial t}\int_S  \overrightarrow{B}.\overrightarrow{dS}
+=  -\frac{\partial \phi}{\partial t}
+\end{eqnarray*}
+Or si on est en régime à courant continu, $\frac{d}{dt}=0$, et sinon sous l'hypothèse des circuits localisés,  $\frac{\partial
+\overrightarrow{B}}{\partial t}\simeq 0$ en dehors des éléments.
+\begin{marginfigure}
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{figs/ch2_figs/contour_ferme}
+	\end{center}
+	\caption{Contour fermé.} \label{fig:int_contour}
+\end{marginfigure}
+
+\paragraph{Règle d'application de la SLK à une maille.}
+\begin{enumerate}
+\item  Fixer un sens de référence pour les d.d.p. aux bornes des éléments des branches de
+la maille.
+\item  Fixer arbitrairement un sens de circulation de la maille.
+\item  Appliquer la relation (\ref{eq:SLK}) en partant d'un point "neutre" du circuit (c'est-à-dire
+situé à l'extérieur de ses éléments localisés), en parcourant la maille dans le sens de
+circulation choisi et en comptant positivement la d.d.p. aux bornes des éléments chaque
+fois que l'on rencontre d'abord la borne "$-$", négativement dans le cas contraire.
+\end{enumerate}
+
+\section{Loi d'Ohm}
+\label{sec:ohm}
+
+Démontrée dans le cas du régime stationnaire à partir de la théorie cinétique des gaz d'abord, validée par la mécanique quantique ensuite, la loi d'Ohm locale s'écrit (en régime stationnaire):
+$$\overrightarrow{J}=\sigma \overrightarrow{E},$$ 
+où $\sigma$ est la conductivité électrique du conducteur. C'est un scalaire dans le cas des conducteurs métalliques
+homogènes) : 
+$$\sigma=\frac{ne^2\lambda}{mv}$$
+avec 
+\begin{center}
+	\begin{tabular}{rl}
+		$n$& le nombre d'électrons par unité de volume \\
+		$e$& la charge de l'électron \\
+		$\lambda$& le libre parcours moyen des électrons \\
+		$v$&la vitesse moyenne des électrons \\
+		$m$&la masse de l'électron. \\
+	\end{tabular}
+\end{center}
+
+La loi d'Ohm globale s'en déduit aisément : pour un conducteur de longueur $\ell$, de section (constante) $S$ et de conductivité $\sigma$ , parcouru par un courant continu $I$, on trouve (voir Figure~\ref{fig:ohm-globale}) :
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=6cm]{figs/ch2_figs/resis.jpg}
+	\caption{Loi d'Ohm globale.} \label{fig:ohm-globale}
+\end{marginfigure}
+$$U=V_A-V_B=\int_A^B \overrightarrow{E}.\overrightarrow{d\ell}= RI 
+$$
+où 
+$$R = \displaystyle \frac{\ell}{\sigma S}$$ est la résistance de l'élément.\footnote{Par extension, la loi d'Ohm est utilisée en régime quasi-stationnaire, où cependant l'effet pelliculaire peut introduire des modifications non-négligeables. Notons également qu'appliquée au cas d'un semi-conducteur ou d'un plasma plongé dans une induction
+	magnétique, la loi d'Ohm doit être corrigée pour tenir compte de l'effet Hall.}
+
+\section{La résistance}
+
+Une résistance de résistance $R$\footnote{À noter la pauvreté du français à cet égard: résistance désigne tout aussi bien l'élément physique
+(en anglais "resistor") que la valeur électrique le caractérisant (en anglais "resistance").} est un dipôle qui, parcouru par un courant, fait
+naître à ses bornes une d.d.p. fonction de ce courant. 
+\[u(t)=R\, i(t)\]
+
+$R$ s'exprime en Ohm ($\Omega$).
+Une résistance peut être linéaire ou non, variante ou invariante (quatre combinaisons possibles).
+
+En toute généralité on a $R=f(u,i,t)$, et les cas particuliers suivants : 
+\begin{itemize}
+	\item $R=f(u,i)$ : résistance {\em autonome} ou {\em invariante}
+	les caractéristiques de l'élément ne dépendent pas du temps
+	\item $R=f(t)$ : résistance {\em linéaire}
+	\item $R= constante$ : résistance {\em linéaire et invariante}.
+\end{itemize}
+
+\begin{marginfigure}
+\begin{center}
+\includegraphics[width=0.65\linewidth]{figs/ch2_figs/RNL}
+\end{center}
+\caption{Résistance non linéaire}
+\end{marginfigure}
+\begin{marginfigure}
+	\centering
+	\input{figs/tikz_figures/chap2fig/resislinch2.tikz}
+	\caption{Résistance linéaire. Droite passant par $(0,0)$.
+		Pente de la droite = $R$}
+\end{marginfigure}
+L'hypothèse de linéarité est vraie  dans une plage de fonctionnement seulement. 
+Avec l'accroissement de la fréquence de fonctionnement d'un circuit, l'effet pelliculaire impacte la résistance des conducteurs.
+
+\paragraph{Conductance.}
+On appelle \textit{conductance} l'inverse de la résistance
+$$\quad i =\frac{1}{R}u=Gu$$
+$G$  s'exprime en Siemens (S).
+
+\paragraph{Association en série.}
+Deux résistances en série s'additionnent. Considérons le circuit de la Figure~\ref{fig:serie}.
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=0.98\linewidth]{figs/ch2_figs/serie}
+	\caption{Association en série.}
+	\label{fig:serie}
+\end{marginfigure}
+Le courant $i$ traverse les deux résistances. La résistance équivalente $R_{eq}$ doit provoquer la même chute de tension que la mise en série des deux résistances.
+On a $v_{R_1} = R_1 i$ et $v_{R_2} = R_2 i$. La chute de tension aux bornes de la résistance équivalente  est $$v_{R_{eq}} = R_{eq} i = v_{R_1} + v_{R_2} = (R_1+R_2) i.$$ 
+Donc $$R_{eq} = R_{1} + R_2.$$
+Plus généralement, la résistance équivalente $R_{eq}$ à $n$ résistances en série $R_1, R_2, ..., R_n$ est égale à $$R_{eq} = \sum_{i=1}^n R_i.$$
+Si on utilise la conductance des (éléments) résistances, on a alors 
+$$G_{eq} = \left(\sum_{i=1}^n \frac{1}{G_i}\right)^{-1} = R_{eq}^{-1}$$
+
+\paragraph{Association en parallèle.}
+
+Deux conductances en parallèle s'additionnent. Considérons le circuit de la Figure~\ref{fig:serie}.
+Soit $G_1 = R_1^{-1}$ et $G_2 = R_2^{-1}$. Par définition de la mise en parallèle, la différence de potentiel $v$ est la même aux bornes des deux éléments.  La résistance équivalente $R_{eq}$ doit être traversée par le même courant  que la mise en parallèle des deux résistances.
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=0.98\linewidth]{figs/ch2_figs/parallele}
+	\caption{Association en parallèle.}
+	\label{fig:parallele}
+\end{marginfigure}
+On a $i_1 = G_1 v$ et $i_2 = G_2 v$. Le courant dans la résistance équivalente  est $$i = G_{eq} v = i_1 + i_2 = (G_1+G_2) v.$$ 
+Donc $$G_{eq} = G_{1} + G_2, $$
+ou $$R_{eq} = \left(\frac{1}{R_1}+\frac{1}{R_2}\right)^{-1} = \frac{R_1R_2}{R_1+R_2}.$$
+Plus généralement, la conductance équivalente $G_{eq}$ à $n$ conductances en parallèle $G_1, G_2, ..., G_n$ est égale à $$G_{eq} = \sum_{i=1}^n G_i.$$
+
+\paragraph{En pratique.}
+La Figure~\ref{fig:Resistors} illustre quelques résistances marquées en utilisant un système de repérage normalisé qui permet de déduire la valeur des composant et leur degré de précision. 
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.68\linewidth]{figs/ch2_figs/Resistors}
+	\caption[Exemples de résistances marquées selon la norme CEI 60757.]{Exemples de résistances marquées selon la norme CEI 60757. Source: Wikipedia \url{https://fr.wikipedia.org/wiki/Resistance_(composant)}.}
+	\label{fig:Resistors}
+\end{figure}
+Les résistances se déclinent en pratique selon de nombreuses formes, comme par exemple 
+\begin{itemize}
+\item les résistances au carbone,
+\item les résistances à film métallique,
+\item le potentiomètre : résistance variable,
+\item les photorésistances : $R$ dépend de l'éclairement (capteur),
+\item les thermistances : $R$ dépend de la température (capteur).
+\end{itemize}
+
+\section{L'inductance}
+
+Un noyau magnétique entouré d'une bobine de $N$ spires parcourue par un courant continu $I$ fait naître dans la bobine un flux $\phi$ (flux total embrassé par toutes les spires).
+
+Une inductance est un dipôle électrique caractérisé par le fait qu'à tout instant le courant
+le parcourant et le flux magnétique associé sont reliés par une courbe dans le plan
+$(\phi, i)$, c'est précisément la courbe caractéristique de l'inductance à l'instant $t$ :
+$$\phi(t) = f[i(t)].$$
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=4cm]{figs/figs_reg_trans/bobine.pdf}
+	\caption{Bobine.}
+\end{marginfigure}
+Le coefficient de self-induction d'une bobine de (ou simplement d'un) fil électrique
+parcouru par un courant est défini à un instant donné comme étant le rapport entre les
+valeurs du flux induit par le courant et de ce courant lui-même :
+$$\phi(t) = L(t) i(t).$$
+En fait, cette relation est une relation linéaire du point de vue électrique et $L(t)$
+représente une inductance linéaire ; sa courbe caractéristique est une droite passant par
+l'origine mais dont le coefficient angulaire peut être temporellement variable.
+
+En pratique dans ce cours nous allons toujours considérer l'inductance $L$ linéaire et invariante, c'est-à-dire constante.
+La tension $u(t)$ s'exprime par
+$$u(t)=\frac{d\phi(t)}{dt}$$
+Donc 
+$$u(t)=L\frac{di(t)}{dt}$$
+ou encore
+$$i(t)=\frac{1}{L}\int_{-\infty}^t u(\tau) d\tau$$
+Ces relations sont établies selon le sens conventionnel (Figure~\ref{fig:inductance}).
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=2cm]{figs/figs_reg_trans/symbole_bobine_et_sens.pdf}
+	\caption{Symbole et sens conventionnel d'une bobine.} \label{fig:inductance}
+\end{marginfigure}
+
+Il existe cependant plusieurs causes de non-linéarité telles que l'hystérésis ou la saturation.
+En toute généralité on aura donc $L=f(u,i,t)$.
+Cas particuliers:
+\begin{itemize}
+	\item $L=f(u,i)$ : inductance  {\em autonome} ou {\em invariante}
+	\[u(t)=L(u,i)\frac{di(t)}{dt},\]
+	relation non-linéaire.
+	\item $L=f(t)$ : inductance {\em linéaire}
+	\[u(t)=\frac{dL(t)}{dt}i(t)+L(t)\frac{di(t)}{dt}\]
+\end{itemize}
+
+Le coefficient de self-induction s'exprime, en fonction des paramètres physiques de la bobine par 
+$$L=\mu \frac{N^2S}{\ell}$$
+où $\mu$ est la perméabilité magnétique du noyau, $S$ est la surface d'une spire et $\ell$ est la longueur de la bobine.
+Le coefficient de self-induction s'exprime en Henry ($H$).
+
+\subsection{En régime non stationnaire}
+Une variation du courant et donc du flux implique l'apparition d'une force
+contre-électromotrice aux bornes de la bobine (loi de Lenz).
+Au niveau de la bobine :
+\begin{itemize}
+	\item le flux qui traverse les spires est variable
+	\item selon la loi de Lenz, une {\em force
+		contre-électromotrice} $\frac{d\phi}{dt}$ apparaît
+	\item l'induction magnétique est variable à l'intérieur de la bobine
+	\[\vec{\nabla} \times \overrightarrow{E}  = -
+	\frac{\partial \overrightarrow{B}}{\partial t}\]
+\end{itemize}
+Ce flux et cette induction magnétique variables  sont
+"confinés" à l'intérieur de l'élément car on a fait l'hypothèse des circuits
+localisés.
+
+Comme illustré à la Figure~\ref{fig:inductors}, il existe beaucoup d'implémentations physiques d'inductances, tels que le solénoïde, un enroulement en Cu sur matériau ferromagnétique.
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.68\linewidth]{figs/ch2_figs/inductors}
+	\caption[Exemples d'inductances.]{Exemples d'inductances. Source: Wikipedia \url{https://en.wikipedia.org/wiki/Inductor}.}
+	\label{fig:inductors}
+\end{figure}
+Des composants normalisés existent mais en moins grand nombre que pour les résistances et les condensateurs, et de moins bonne précision.
+
+\paragraph{Remarques.}
+Les inductances à noyau ferromagnétique sont en général tributaires du phénomène
+d'hystérésis (Figure~\ref{fig:hysteresis}). La caractéristique d'un tel élément n'est pas une courbe à proprement parler et la définition même du dipôle "inductance" n'est plus valable.
+Une  technique consiste à modéliser l'inductance avec noyau par un circuit $RL$ série, où $R$ modélise les pertes par hystérésis
+(qui sont proportionnelles à l'aire de la courbe d'hystérésis) et où $L$ représente une
+courbe caractéristique "moyenne" de l'inductance réelle.
+\begin{marginfigure}
+\centering
+\includegraphics[width=0.9\linewidth]{figs/ch2_figs/hysteresis}
+\caption{Courbe d'hystérésis d'une bobine.}
+\label{fig:hysteresis}
+\end{marginfigure}
+Les inductances souffrent également de problèmes de pertes par effet Joule dans le conducteur et de l'effet pelliculaire aux hautes fréquences.
+Dans un circuit, on tentera donc au maximum d'éviter les bobines si possible.
+
+\section{Le condensateur}
+
+Un condensateur est constitué de deux plaques parallèles conductrices de surface $S$ séparées d'une
+distance $d$ et portant des charges égales et opposées $\pm q$.
+Les charges font naître une différence de potentiel $V$ entre les plaques.
+Il est caractérisé par une relation entre la charge électrique $(q_+, q_-)$
+sur ses plaques et la d.d.p. entre celles-ci (Figure~\ref{fig:condensateur}). 
+On définit le dipôle condensateur de façon analogue à celle de l'inductance. 
+Ainsi, si le condensateur est linéaire, la courbe caractéristique $q(t) = f[u(t)]$ est une droite passant par l'origine et on écrit :
+$$q(t) = C(t) u(t).$$
+$C(t)$, coefficient de proportionnalité entre $q$ et $u$, est appelé \textit{capacité du condensateur}.
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=4cm]{figs/figs_reg_trans/condensateur}
+	\caption{Condensateur plan.} \label{fig:condensateur}
+\end{marginfigure}
+En pratique dans ce cours nous allons toujours considérer la capacité $C$ linéaire et invariante, c'est-à-dire constante.
+Comme le courant $i(t)$ est défini par 
+$$i(t)=\frac{dq(t)}{dt}$$
+on a 
+$$i(t)=C\frac{du(t)}{dt}$$
+ou encore 
+$$ \quad u(t) = \frac{1}{C}\int_{-\infty}^t i(\tau) d\tau$$
+Ces relations sont établies selon le sens conventionnel (Figure~\ref{fig:capa_sens}).
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=2cm]{figs/figs_reg_trans/symbole_condensateur_et_sens.pdf}
+	\caption{Symbole et sens conventionnel d'un condensateur}\label{fig:capa_sens}
+\end{marginfigure}
+La propriété de linéarité dépend des caractéristiques du diélectrique.
+
+En toute généralité, $C$ est fonction de la tension à ses bornes, du courant et peut varier avec le temps : 
+$$C=f(u,i,t)$$
+Si on considère le condensateur linéaire mais temps variant, on a
+$$ i(t)=C(t)\frac{du(t)}{dt} + \frac{dC(t)}{dt}u(t) $$
+S'il est invariant mais fonction de la tension à ses bornes et du courant, on a $C=f(u,i)$ et 
+$$ i(t)=C(u,i)\frac{du(t)}{dt}$$
+La relation entre $i(t)$ et $u(t)$ devient donc non-linéaire.
+
+
+La capacité s'exprime, en fonction des paramètres physiques du condensateur par 
+$$C=\frac{\epsilon S}{d}$$ où $\epsilon$ est la permittivité diélectrique du matériau placé entre les plaques, $S$ la surface des plaques, et $d$ la distance entre les plaques.
+La capacité s'exprime en Farad ($F$).
+
+
+\paragraph{En régime non stationnaire.}
+Une variation du potentiel $V$ implique une modification de la charge
+portée par les plaques conductrices. Cette variation est apportée par
+un circuit extérieur débitant un courant.
+Au niveau du condensateur :
+\begin{itemize}
+	\item la différence de  potentiel à ses bornes varie
+	\item le champ électrique $\overrightarrow{E}$ dans le matériau
+	diélectrique placé entre les plaques est variable
+	\item il existe un {\em courant de déplacement}
+	\[\vec{\nabla} \times \overrightarrow{H}  = 
+	\frac{\partial \overrightarrow{D}}{\partial t}\]
+\end{itemize}
+Ce courant de déplacement et ce champ électrique variable sont
+``confinés'' à l'intérieur de l'élément car on fait l'hypothèse des circuits
+localisés.
+
+Comme illustré à la Figure~\ref{fig:capacitors}, il existe beaucoup d'implémentations physiques et chimiques de condensateur à diélectrique à film plastique (polypropylène, polyester, ...), céramique, au mica, électrolytique, à papier paraffiné, variable à lame d'air (une plaque mobile), etc. Habituellement on indique la capacité d'un condensateur en $pF$, $nF$ ou $\mu F$.
+\begin{figure}[tb]
+\centering
+\includegraphics[width=0.98\linewidth]{figs/ch2_figs/capacitors}
+\caption[Exemples des condensateurs.]{Exemples des condensateurs. Source: Wikipedia \url{https://fr.wikipedia.org/wiki/Condensateur}.\label{fig:capacitors}}
+\end{figure}
+
+\section{La diode}
+\label{sec:diode}
+Contrairement aux autres éléments passifs présentés, les résistances, condensateurs et bobines, une diode (Figure~\ref{fig:Diode}) est par essence un composant non-linéaire. Une diode laisse passer le courant selon sa polarisation, i.e. le sens et l'amplitude de la tension à ses bornes. Lorsqu'une tension positive est appliquée entre l'anode et la cathode de la diode, le courant circule (de l'anode à la cathode). Si une tension négative est appliquée entre l'anode et la cathode, aucun courant ne circule\footnote{Sauf si cette tension inverse est d'amplitude assez importante, i.e. supérieure à la tension de claquage. Mais nous n'étudierons pas ce cas d'utilisation dans ce cours.}.
+\begin{marginfigure}[-8cm]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/ch2_figs/Diode}
+	\caption{Symbole d'une diode.}
+	\label{fig:Diode}
+\end{marginfigure}
+La caractéristique d'une diode idéale est représentée à la Figure~\ref{fig:caracteristique_diode}. En pratique, selon les matériaux utilisés, la tension de polarisation est supérieure à $0V$, et la courbe $i$-$u$ suit une exponentielle et est dépendante de la température.
+\begin{marginfigure}
+\centering
+\includegraphics[width=0.7\linewidth]{figs/ch2_figs/caracteristique_diode}
+\caption{Caractéristique d'une diode idéale.}
+\label{fig:caracteristique_diode}
+\end{marginfigure}
+
+
+\section{Sources indépendantes d'énergie}
+\label{sec:sie}
+
+Une source  indépendante d'énergie est un composant capable de réaliser une conversion d'énergie de nature non électrique vers de l'énergie électrique.
+Par exemple, une batterie convertit de l'énergie chimique, une dynamo de l'énergie mécanique. Une centrale électrique convertit, selon sa source d'énergie primaire, de l'énergie nucléaire, thermique ou solaire en énergie mécanique puis en énergie électrique. 
+
+Les sources indépendantes d'énergie sont en théorie des circuits ce que les forces extérieures sont en mécanique. Deux sortes de sources indépendantes d'énergie seront considérées par la suite : sources de tension et sources de courant.
+
+\paragraph{Source idéale de tension.}
+Une source idéale de tension (Figure~\ref{fig:source_de_tension}) est un dipôle constitué par un générateur de tension de force électromotrice $e(t)$. Elle a la propriété de présenter à ses bornes une d.d.p. indépendante du courant qui la parcourt. 
+
+
+\begin{marginfigure}
+	\centering
+\includegraphics[width=0.9\linewidth]{figs/ch2_figs/sourceIndepV}
+	\caption[Représentations d'une source indépendante de tension.] {Représentations d'une source indépendante de tension : générique (gauche) et continue (droite).}
+	\label{fig:source_de_tension}
+\end{marginfigure}
+
+Les sens de référence associés sont indiqués sur la Figure~\ref{fig:source_de_tension} ; leur utilisation permet d'exprimer la puissance instantanée fournie par la source quand elle est connectée à un dipôle "charge" par le produit $e(t) i(t)$. Il s'agît ici d'une convention générateur, opposée à la convention moteur définie précédemment.
+
+Une source réelle de tension possède rarement cette caractéristique d'indépendance entre d.d.p. à ses bornes et courant, à cause de ses propres pertes. 
+On peut rendre compte de ces pertes a l'aide d'une résistance interne $R_i$ et modéliser la source réelle de tension par une f.e.m. en série avec $R_i$. La Figure~\ref{fig:source_de_tension_reelle} représente une source réelle de tension continue ; elle indique que lorsque ce dipôle est fermé sur une résistance extérieure de charge\footnote{On utilise souvent l'indice $L$ pour nommer la résistance qui \textit{charge} le circuit, car le terme \textit{charge} se traduit par \textit{load} en anglais.} $R_L$, il présente une d.d.p. fonction du courant :
+$$U= E -R_i I.$$
+\begin{marginfigure}
+	\centering
+\includegraphics[width=0.7\linewidth]{figs/ch2_figs/SourceReelleV}
+	\caption[Source indépendante de tension réelle] {Représentation d'une source indépendante de tension réelle.}
+	\label{fig:source_de_tension_reelle}
+\end{marginfigure}
+La condition sous laquelle cette source réelle se rapproche de la source idéale se déduit à partir de :
+$$U=R_L I = R_L \frac{E}{R_L+R_i} = \frac{E}{1+R_i/R_L}.$$
+Donc $U \approx E$ si $R_L \gg R_i$. 
+
+Notons que la puissance fournie par la source de tension à $R_L$ vaut
+$$UI=R_L \frac{E^2}{{(R_L+R_i)}^2}.$$
+
+La Figure~\ref{fig:source_de_tension_reelle} met en évidence un formule d'utilité pratique très fréquente lorsqu'on souhaite calculer la tension aux bornes d'une résistance en série avec une autre. Ce circuit agît comme un \textit{diviseur de tension} : 
+\begin{table}[h]
+	\caption{Formule du diviseur de tension.}
+	\begin{boxedminipage}{\linewidth}
+		$$ U = E \frac{R_L}{R_L+R_i}.$$
+	\end{boxedminipage}
+\end{table}
+
+
+\paragraph{Source idéale de courant.}
+Une source idéale de courant est un dipôle constitué par un injecteur de courant $j(t)$. 
+Elle a la propriété de fournir une intensité de courant indépendante de la d.d.p. à ses bornes. 
+La Figure~\ref{fig:source_de_courant} représente une telle source de courant ainsi que les sens conventionnels associés. 
+\begin{marginfigure}
+	\centering
+	\begin{circuitikz}
+		\draw (0, 0)  to [american current source, l=$j(t)$, v>=$e(t)$, o-o] ++(0,2.5) ;
+	\end{circuitikz}
+	\caption[Représentations d'une source indépendante de tension.] {Représentations d'une source indépendante de courant.}
+	\label{fig:source_de_courant}
+\end{marginfigure}
+De nouveau, le produit $j(t) e(t)$ représente, avec ces sens, la
+puissance fournie par la source, lorsque celle-ci est connectée à un "dipôle de charge".
+
+Une source réelle de courant possède rarement cette caractéristique d'indépendance entre courant et d.d.p. à ses bornes. On la modélise usuellement par une source idéale de courant en parallèle avec sa conductance interne. La Figure~\ref{fig:source_courant} représente une source réelle de courant, aux bornes de laquelle est connectée une "conductance de charge" $G_L$. On vérifie aisément que cette source réelle se rapproche de la source idéale lorsque $G_i \ll G_L$. En effet,
+$$i=G_L u = G_L \frac{J}{G_L+G_i} = \frac{J}{1+G_i/G_L}.$$
+\begin{marginfigure}[-2cm]
+\centering
+\includegraphics[width=0.98\linewidth]{figs/ch2_figs/sourceDeCourantReelle}
+\caption{Source réelle de courant.}
+\label{fig:source_courant}
+\end{marginfigure}
+
+Chaque type de source peut fournir un signal dont l'évolution temporelle est quelconque. Le plus souvent il sera continu (i.e. constant) ou sinusoïdal.
+
+
+La Figure~\ref{fig:source_courant} permet également de mettre en évidence un formule d'utilité pratique très fréquente lorsqu'on souhaite calculer le courant dans une branche d'un dipôle constitué de la mise en parallèle de plusieurs résistances. Ce circuit agît comme un \textit{diviseur de courant} : 
+\begin{table}[h]
+\caption{Formule du diviseur de courant.}
+\begin{boxedminipage}{\linewidth}
+$$ i = J \frac{G_L}{G_L+G_i}.$$
+\end{boxedminipage}
+\end{table}
+
+\section{Les sources dépendantes de courant et de tension}
+Une source commandée est un quadripôle unidirectionnel, non-autonome et actif ; un
+de ses accès est celui qui exerce la commande (accès de commande), l'autre est l'accès commandé. Autrement dit, la tension ou le courant délivré par la source dépend de la valeur d'une d.d.p ou d'un courant à un autre endroit du circuit.
+
+On distingue les quatre types de sources commandées idéales illustrées à la Figure~\ref{fig:VVT}.
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\linewidth]{figs/ch2_figs/SourcesCommandees}
+	\caption{Source commandées : tension-tension, courant-tension $[\rho] = \frac{[V]}{[I]}=[\Omega]$, tension-courant $[\alpha] = \frac{[I]}{[V]}=[S]$, courant-courant.}
+	\label{fig:VVT}
+\end{figure}
+Pour une source commandée tension-tension (VVT : voltage to voltage transducer), 
+$v_s$ n'est déterminé à l'instant $t$ que si la valeur $v_x(t)$ est connue.
+$v_x$ est la tension de commande et $v_s$ la tension commandée.
+Le coefficient multiplicatif $\mu$ ($\neq 0$) est sans dimension.
+De manière similaire, les trois autres combinaisons sont courant-tension (CVT), tension-courant (VCT) et  courant-courant (CCT).
+
+Puisque les relations de dépendance introduites ci-dessus sont linéaires, ces sources commandées sont des éléments linéaires. Les sources dépendantes ne sont pas des excitations. 
+Elles sont analogues à des éléments résistifs et introduisent un couplage entre
+différentes branches du circuit.
+Comme nous le verrons au Chapitre~\ref{cha:AO}, les sources commandées sont utiles pour la modélisation de circuits électroniques.
+
+
+
+\section{Passivité des éléments $R$, $L$ et $C$ linéaires et invariants}
+
+La puissance \textbf{absorbée} par une résistance linéaire est,
+en utilisant la \textbf{convention moteur} (Figure~\ref{fig:conv_r}) : 
+\begin{eqnarray*}
+p_R(t)&  =& u(t)i(t) \\ 
+& =& Ri(t)i(t) = Ri^2(t) \geq 0,
+\end{eqnarray*}
+et en utilisant la \textbf{convention générateur}:
+\begin{eqnarray*}
+p_R(t)&  =& -u(t)i(t) \\
+& =& Ri(t)i(t) = Ri^2(t) \geq 0.
+\end{eqnarray*}
+\begin{marginfigure}[-3cm]
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{figs/ch2_figs/convention_moteur}
+	\end{center}
+\caption{Conventions moteur et générateur pour un dipôle résistif. \label{fig:conv_r}}
+\end{marginfigure}
+L'énergie dissipée vaut  \[w_R(t)=\int_{-\infty}^t
+p(\tau)\, d\tau > 0.\]
+Une \textbf{résistance} $R$ est donc un élément \textbf{passif} car $w_R(t)>0$, et \textbf{dissipatif} car $p_R(t) \geq 0 $.
+
+Pour des bobines ($L$) et des condensateurs ($C$) linéaires on a (avec la convention moteur) : 
+\begin{center}
+\input{figs/tikz_figures/chap2fig/puissLCch2.tikz}
+\end{center}
+\begin{minipage}[c]{6cm}
+\begin{align*}
+p_C(t) & =Cu(t)\frac{du(t)}{dt} \gtreqless 0\\[3mm]
+w_C(t) & =\int_{-\infty}^t
+Cu(t)\frac{du(t)}{dt} \\[3mm]
+& = \frac{1}{2}C\,u^2(t) \geq 0
+\end{align*}
+\end{minipage}
+\begin{minipage}[c]{6cm}
+\begin{align*}
+p_L(t)&=Li(t)\frac{di(t)}{dt} \gtreqless 0\\[3mm]
+w_L(t) & =\int_{-\infty}^t
+Li(t)\frac{di(t)}{dt}\\[3mm]
+& = \frac{1}{2}L\,i^2(t) \geq 0
+\end{align*}
+\end{minipage}
+$L$ et $C$ sont donc des éléments \textbf{passifs} ($w(t) \geq 0$), mais \textbf{non dissipatifs},
+ils restituent de la puissance quand $p(t) < 0$.
+
+On peut donc au final classer les éléments comme indiqué à la Figure~\ref{fig:classification}.
+\begin{figure}
+	\centering
+	\includegraphics{figs/ch2_figs/puissclassi.pdf}
+	\caption{Classification énergétique des éléments.}
+	\label{fig:classification}
+\end{figure}
+
+\section{Schéma détaillé de la radio AM}
+La Figure~\ref{fig:RadioAM_diode} représente un schéma détaillé de la radio AM introduite dans la Section~\ref{sec:pratique}. Il est important de remarquer que si deux arrêtes se croisent à l'extérieur des éléments sans qu'il n'y ait de \tikzcircle{2pt} à leur intersection, alors il n'y a aucun contact électrique entre les "fils" correspondants. On omet cependant parfois le \tikzcircle{2pt} lorsque deux arrêtes forment un \textsf{T}.
+\begin{figure*}[p]
+	\centering
+	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAM_rect_1}
+	\caption{Coupe 2: première partie du circuit redresseur.}
+	\label{fig:RadioAM_diode}
+\end{figure*}
+Le graphe comporte $n=12$ noeuds, plusieurs résistances, plusieurs condensateurs (simples et électrolytiques) et deux bobines. Le switch permet de sélectionner soit le circuit LC où C est variable ($L1$, $C1$), soit le circuit LC où L est variable ($L2$, $C2$).
+
+En pratique, l'analyse de ce circuit ne se fait pas d'un bloc. Le circuit est décomposé en plusieurs étages, qui sont analysés dans les chapitres suivants.
+
+\subsection{Démodulation de la radio AM}
+À ce stade, un seul étage peut être analysé : la première partie de la démodulation illustrée par la coupe $2$ de la Figure~\ref{fig:RadioAM_diode}. 
+En supposant que le signal désiré est reçu (ce qui sera expliqué dans le Chapitre~\ref{cha:filtres}), il faut le démoduler pour l'utiliser. Bien que le récepteur à cristal soit extrêmement simple, il est l'élément le plus important du circuit.
+C'est la diode qui va extraire la modulation, c'est-à-dire le signal audio (signal modulant, voir illustration \ref{fig:mod2}), du signal radio. La démodulation consiste à détecter l'enveloppe du signal modulé. 
+\begin{figure}[h!]
+  	\centering
+  	\includegraphics[width=10cm]{figs/RadioAM/demod.png}
+  	\caption{Principe de la démodulation d'un signal radio}
+  	\label{fig:demod}
+\end{figure}
+La Figure~\ref{fig:demod} nous montre que la démodulation s'effectue en deux étapes:
+\begin{enumerate}
+  	\item le redressement du signal \textit{(Rectifier)}.
+  	\item la détection de l'enveloppe \textit{(Envelope Detector)}.
+\end{enumerate}
+La diode s'occupe par définition de l'étape 1 (Figure~\ref{fig:RadioAM_diode}). Les alternances positives d'un signal sont transmises, tandis que les négatives sont bloquées. Le signal est donc \textit{redressé}. La résistance $R1$, bien que de valeur relativement élevée, offre un chemin pour le courant. En effet nous verrons que la résistance d'entrée de l'amplificateur opérationnel $U1A$ est très grande (Chapitre~\ref{cha:AO}).
+

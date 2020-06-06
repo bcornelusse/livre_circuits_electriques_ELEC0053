@@ -1,0 +1,17 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path[draw=white,fill=black!20,dashed] (4.46667,0.63333) rectangle (6.71111,4.22222);
+\draw[arrows=-triangle 45,black] (2.98889,4.18889) -- (2.98889,0.56667);
+\draw[arrows=-triangle 45,black] (1.68889,2.77778) -- (6.72222,2.77778);
+\draw[dashed,black] (4.45556,0.88889) -- (4.45556,4.22222);
+\path (6.42222,3.16667) node[text=black,anchor=base west] {$\sigma$};
+\path (3.21111,0.71111) node[text=black,anchor=base west] {$\omega$};
+\path (4.35556,2.75556) node[text=black,anchor=base east] {k};
+\path (5.48889,1.96667) node[text=black,anchor=base] {ROC};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

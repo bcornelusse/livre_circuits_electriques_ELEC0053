@@ -1,0 +1,26 @@
+\documentclass{standalone}
+
+\input{tickz_setup.txt}
+
+% Run once then run gnuplot on the .gnuplot generated file to generate a .table aux file that contains the function values 
+% Run a second time to generate the plot
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1.5, samples=100, >=latex]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\VoltageColor{blue!90!white}
+\def\CurrentColor{myRed}
+\def\PowerColor{green}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PlotGrid{-.1}{2}{0}{1}
+\PlotAxes{-.2}{2.3}{-.2}{1.3}{$t [s]$}{$[A]$}
+\draw (0,0) node[below left]{$0$};
+\draw (0,1) node[left ]{$1$};
+\draw (1,0) node[below]{$1$};
+\draw (2,0) node[below]{$2$};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\draw[color=\CurrentColor, very thick] plot[id=currentVsTime_ex1, domain=0:2] function{10*x*exp(-5*x)} node[above] {$i(t)$};		
+\end{tikzpicture}
+
+\end{document}

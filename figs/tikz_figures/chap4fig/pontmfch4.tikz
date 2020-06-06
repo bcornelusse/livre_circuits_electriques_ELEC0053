@@ -1,0 +1,43 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (3.64444,1.41111) -- (4.46667,1.41111);
+\draw[black] (2.51111,3.51111) -- (2.51111,1.4) -- (4.83333,1.4);
+\draw[black] (5.5,3.51111) -- (5.5,1.4) -- (4.64444,1.4);
+\filldraw[black] (2.5,3.5) circle (0.06667cm);
+\filldraw[black] (5.5,3.5) circle (0.06667cm);
+\filldraw[black] (4,2.03333) circle (0.06667cm);
+\filldraw[black] (4,4.98889) circle (0.06667cm);
+\filldraw[black] (4,3.5) circle (0.06667cm);
+\draw[red] (4,2.03333) -- (4,4.64444);
+\draw[red] (4,4.52222) -- (4,5);
+\draw[black] (2.52222,3.52222) -- (3.98889,4.98889);
+\draw[black] (5.5,3.52222) -- (4.05556,4.96667);
+\draw[red] (4.02222,2.02222) -- (5.51111,3.51111);
+\draw[red] (2.53333,3.5) -- (3.98889,2.04444);
+\draw[arrows=-triangle 45,red] (2.98889,3.06667) -- (3.42222,2.63333);
+\draw[arrows=-triangle 45,black] (4.42222,4.6) -- (4.85556,4.16667);
+\draw[arrows=-triangle 45,black] (3.45556,4.45556) -- (3.05556,4.05556);
+\draw[arrows=-triangle 45,red] (4.94444,2.94444) -- (4.54444,2.54444);
+\draw[arrows=-triangle 45,red] (4.01111,3.06667) -- (4.01111,2.57778);
+\draw[arrows=-triangle 45,red] (4.01111,4.47778) -- (4.01111,3.98889);
+\draw[dashed,arrows=-triangle 45,black] (3.22222,4.01111) -- (2.95556,3.5) -- (3.37778,2.94444) -- (3.75556,3.21111) -- (3.84444,3.74444) -- (3.83333,4.42222);
+\draw[dashed,arrows=-triangle 45,black] (4.36667,4.45556) -- (5.03333,3.63333) -- (4.86667,3.01111) -- (4.3,3.02222) -- (4.08889,3.15556) -- (4.13333,3.91111);
+\draw[dashed,arrows=-triangle 45,black] (3.12222,2.22222) -- (2.67778,1.77778) -- (4.9,1.68889) -- (5.37778,2.34444) -- (4.71111,2.22222);
+\path (4.88889,2.71111) node[text=red,anchor=base west] {2};
+\path (3.06667,2.71111) node[text=red,anchor=base west] {1};
+\path (4.2,2.96667) node[text=red,anchor=base west] {3};
+\path (4.14444,4.26667) node[text=red,anchor=base west] {4};
+\path (4.83333,4.64444) node[text=black,anchor=base west] {6};
+\path (2.96667,4.51111) node[text=black,anchor=base west] {5};
+\path (4.02222,5.42667) node[text=black,anchor=base] {e};
+\path (3.91111,1.3) node[text=black,anchor=base west] {7};
+\path (3.45556,3.75556) node[text=black,anchor=base east] {I};
+\path (4.5,3.8) node[text=black,anchor=base east] {II};
+\path (3.45556,2.12222) node[text=black,anchor=base east] {III};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

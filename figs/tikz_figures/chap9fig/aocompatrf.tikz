@@ -1,0 +1,24 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (5.31111,4.61111) -- (11.27778,4.61111);
+\draw[semithick,black] (5.68889,5.6) -- (8.32222,5.6) -- (8.33333,3.61111) -- (10.81111,3.6);
+\draw[black] (8.24444,3.61111) -- (8.38889,3.61111);
+\draw[black] (8.24444,5.61111) -- (8.38889,5.61111);
+\draw[arrows=-triangle 45,black] (7.48889,6.07778) -- (7.48889,2.86667);
+\draw[dashed,black] (8.34444,3.61111) -- (7.45556,3.61111) -- (7.45556,3.57778);
+\draw[arrows=-triangle 45,black] (6.50222,3.93333) -- (8.30222,4.5);
+\path (5.82222,5.53333) node[text=black,anchor=base west] {saturation -};
+\path (9,3.46667) node[text=black,anchor=base west] {saturation +};
+\path (7.40444,3.22222) node[text=black,anchor=base east] {$v_o$};
+\path (8.5,5.01111) node[text=black,anchor=base west] {$E_T$};
+\path (7.65556,5.98889) node[text=black,anchor=base west] {$-V_{sat}$};
+\path (7.42222,3.61111) node[text=black,anchor=base east] {$V_{sat}$};
+\path (6.4,4.07778) node[text=black,anchor=base east] {lineaire};
+\path (11.23333,4.98889) node[text=black,anchor=base east] {$v_s$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,1377 @@
+% !TeX root = syllabus_ELEC0053.tex
+% !TeX encoding = ISO-8859-1
+% !TeX spellcheck = fr_FR
+
+\section{Exercices}
+\begin{exercise}{Théorème de superposition} \label{ex:thm-1}
+Déterminer la tension $V_0$ aux bornes de la résistance de 3
+k$\Omega$ du circuit ci-dessous. Réaliser ce calcul en
+utilisant le théorème de superposition. Montrer ensuite que ce
+théorème ne peut s'appliquer au calcul des puissances consommées par
+les différents éléments du circuit.
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{exercices/ex-1-10}
+\end{center}
+\rep{$V_0=7.8$ V}
+\end{exercise}
+
+\begin{exercise}{Théorème de Norton} \label{ex:thm-2}
+La tension et le courant aux bornes d'un dipôle sont mesurés
+dans différentes situations. On relève les résultats suivants :
+
+\parbox{4cm}{
+\begin{center}
+\begin{tabular}{cc}
+	$U$ (V) & $I$ (A)  \\ \hline
+	35 & -3\\
+	50 & 0\\
+	65 & 3 \\
+	80 & 6 \\
+	95 & 9\\
+	110 & 12\\
+	125 & 15
+\end{tabular}
+\end{center}}
+\parbox{4cm}{
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{exercices/ex-1-11}
+\end{center}}
+\begin{enumerate}
+	\item Construire, pour ce dipôle,  un circuit équivalent constitué
+	d'une source idéale de courant et d'une résistance.
+	\item Utiliser cet équivalent pour prédire la valeur du courant délivré
+	à une  résistance de 20 $\Omega$ connectée aux bornes du dipôle.
+\end{enumerate}
+	
+\rep{1) $I_{No}=10$ A, $R_{No}=5\,\,\Omega$\\
+	2) $I=-2$ A
+}
+\end{exercise}
+
+\begin{exercise}{Théorème de Thévenin} \label{ex:thm-3}
+La tension et le courant aux bornes d'un dipôle sont mesurés
+dans différentes situations. On relève les résultats suivants :
+
+\parbox{4cm}{
+\begin{center}
+\begin{tabular}{cc}
+	$U$ (V)& $I$ (A) \\ \hline
+	24 & 0\\
+	22 & 8 \\
+	20 & 16 \\
+	18 & 24\\
+	15 & 32\\
+	10 & 40\\
+	0 & 48
+\end{tabular}
+\end{center}}
+\parbox{4cm}{
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{exercices/ex-1-12}
+\end{center}}
+\begin{enumerate}
+	\item Est-il possible de construire un circuit équivalent, composé
+	d'une source idéale de tension et d'une résistance, traduisant le
+	fonctionnement de ce dipôle ?
+	\item Construire un tel équivalent valable dans la plage $0<I<24$ A.
+	\item Utiliser cet équivalent pour prédire la valeur du courant délivré
+	à une  résistance de 1 $\Omega$ connectée aux bornes du dipôle. Le
+	résultat trouvé est-il valide ?
+	\item Faire de même pour prédire le courant de court-circuit de ce
+	dipôle. Le
+	résultat trouvé est-il valide ?
+\end{enumerate}
+\rep{2) $V_{Th}=24$ V, $R_{Th}=\frac{1}{4}\,\,\Omega$,\,\,
+	3) $I=19.2$ A}
+\end{exercise}
+\begin{exercise}{Adaptation des impédances} \label{ex:thm-4}
+Déterminer la résistance de charge $R_L$ à connecter aux bornes
+AD du circuit ci-dessous pour soutirer au circuit le maximum de puissance.  
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{exercices/ex-1-13}
+\end{center}
+
+\rep{$R_L=3.11 \,\,\Omega$, $p_{R_L}=25.47$ W}
+\end{exercise}
+
+\begin{exercise}{Théorème de Thévenin} \label{ex:thm-5}
+Déterminer le schéma équivalent de Thévenin du circuit ci-dessous.
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{exercices/ex-1-14}
+\end{center}
+
+\rep{$V_{Th}=-5$ V, $R_{Th}=100\,\,\Omega$} 
+\end{exercise}
+
+\begin{exercise}{Théorème de Norton} \label{ex:thm-6}
+Étant donné le circuit suivant : 
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{exercices/ex-1-15}
+\end{center}
+\begin{enumerate}
+	\item Déterminer la valeur de la tension $V_0$ aux bornes de la
+	résistance de 5 $\Omega$. Déterminer tout d'abord pour cela le
+	schéma équivalent de Norton du circuit vu de l'accès AB.
+	\item Calculer les puissances fournies par les deux sources
+	indépendantes.
+	\item Si on connecte une résistance de 100 $\Omega$ en série avec la
+	source de courant de 3 A, 
+	\begin{enumerate}
+		\item que devient le schéma équivalent de Norton vu de l'accès AB ?
+		\item  Calculer dans ce cas, les puissances produites par les deux
+		sources indépendantes.
+	\end{enumerate}
+\end{enumerate}
+\rep{1) $V_0=10$ V\\
+	2) $p_J=-30$ W, $p_E=300$ W\\
+	3) $p_J=870$ W, $p_E=300$ W}
+\end{exercise}
+
+\begin{exercise}{Théorème de Thévenin} \label{ex:thm-7}
+Etant donné le circuit ci-dessous, on demande :
+\begin{enumerate}
+	\item de déterminer la valeur de la résistance $R_L$ à connecter à
+	l'accès ab de manière à soutirer au circuit une puissance maximale;
+	\item de calculer cette puissance;
+	\item de déterminer dans ces conditions, les puissances consommées par
+	les différentes résistances ainsi que les puissances fournies par
+	les différentes sources indépendantes d'énergie. 
+\end{enumerate}
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{exercices/ex-1-16}\\
+	$R_1=40$ k$\Omega \quad ; \quad R_2=60$ k$\Omega \quad 
+	; \quad R_3=25$ k$\Omega \quad ;$ \\ $\quad R_4=100$ k$\Omega
+	\quad ; \quad R_5=10$ k$\Omega$\\
+	$E=20$ V $\quad ; \quad J_1=5$ mA $\quad ; \quad J_2=2$ mA 
+\end{center}
+\rep{1) $R_L=39.4$ k$\Omega$\\
+	2) $p_{R_L}=0.17$ W}
+\end{exercise}
+
+\begin{exercise}{Théorème de Thévenin} \label{ex:thm-8}
+Le réseau $\cal R$ de la figure ci-dessous est constitué d'éléments linéaires,
+invariants et passifs et ne comporte pas de sources indépendantes
+d'énergie. La tension $U$ est égale à 10 V lorsque la
+f.e.m $E$ est égale à 0. Elle atteint 15 V lorsque la
+f.e.m $E$ est égale à 10 V. 
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{exercices/ex-1-17}\\
+	$R= 20 \; \Omega$ ; $J = 2 \;\mbox{A}$
+\end{center}
+On demande~:
+\begin{enumerate}
+	\item de déterminer le schéma équivalent de Thévenin du circuit à
+	gauche de 22$^{'}$ lorsque $E$ est égale à  30 V;
+	\item dans ces conditions, de calculer les puissances consommées ou
+	fournies par les divers éléments du circuit qu'il est possible de déterminer.
+\end{enumerate}
+\rep{1) $V_{Th}=20$ V, $R_{Th}=6.67\,\, \Omega$\\
+	2) $p_{R}=31.25$ W, $p_J=50$ W, $p_{{\cal R},E}=18.75$ W}
+\end{exercise}
+
+\begin{exercise}{Simplification pour l'étude des transitoires} \label{ex:2-4}
+	On considère le circuit suivant : 
+	\begin{center}
+		\includegraphics[width=0.65\linewidth]{exercices/ex-3-4}
+	\end{center}
+	Le condensateur $C$ est initialement porté au potentiel de 10 V. \begin{enumerate}
+		\item Déterminer l'expression de la tension $v_C$ aux bornes du condensateur.
+		\item Comment se manifeste l'influence de la source commandée ?
+		\item On suppose que le condensateur claque (se court-circuite) lorsque la tension à ses bornes atteint 150 V. Déterminer l'instant auquel ce claquage se produit.
+	\end{enumerate}
+	
+	\rep{1. $v_C=10e^{40t}$ V, $t\geq 0$\\
+		3. $t_{cc}=67.7$ ms}
+\end{exercise}
+
+
+
+\begin{exercise}{Schéma équivalent de Thévenin en régime sinusoïdal établi}\label{ex:RSE-4}
+Etant donné le circuit ci-dessous fonctionnant en
+régime sinusoïdal établi, déterminer la valeur de $\bar{E}_1$ pour que
+le circuit vu des bornes AA$^{'}$ se réduise à un schéma équivalent de
+Thévenin avec $\bar{V}_{Th}=50\angle 45^{\circ}$.
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{exercices/ex-2-5}
+\end{center}
+
+\rep{$\bar{E}_1=175.06 + j 72.12$ V} 
+\end{exercise}
+
+\begin{exercise}{Schéma équivalent de Thévenin en régime sinusoïdal établi}\label{ex:RSE-7}
+	Le circuit ci-dessous fonctionne en régime
+	sinusoïdal établi à la fréquence de 100 Hz. On demande de déterminer
+	la valeur de la f.e.m. $E$ telle que le transfert de puissance à
+	travers le transformateur idéal se réalise de la gauche vers la droite
+	avec un facteur de puissance $\cos \Phi=1$.
+	\begin{center}
+		\includegraphics[width=\linewidth]{exercices/ex-2-7}\\
+		$R_1=10\mbox{~}\Omega \quad ; \; R_2=100\mbox{~}\Omega \quad ; \;
+		L_1=20\mbox{~mH}\quad ;\; C_2= 10 \mbox{~}\mu\mbox{F}$ \\
+		$\bar{J}=1\angle 60^{\circ} \mbox{A, ~valeur efficace}$\\
+	\end{center}
+
+	
+	\rep{$E=283.5$ V}
+\end{exercise}
+
+\begin{exercise}{Schéma équivalent de Thévenin en régime sinusoïdal établi}\label{ex:RSE-8}
+	Le circuit ci-dessous est vu de l'accès 11$^{'}$ et
+	fonctionne en régime sinusoïdal établi. On demande de déterminer la
+	valeur du rapport de transformation $n$ de façon à ce que la réactance
+	de Thévenin $X_{Th}$ soit de 20 $\Omega$.
+	
+	On connecte ensuite à l'accès 11$^{'}$ un dipôle constitué de deux
+	éléments (de type $R$ et/ou $C$ et/ou $L$). Déterminer la nature et la
+	valeur de ces éléments de manière à soutirer au circuit une puissance
+	maximale. Calculer dans ce cas les puissances actives et réactives
+	consommées par ce dipôle et par l'impédance $Z_5$. Donner l'expression
+	(en fonction de $t$) de la puissance instantanée $p(t)$ consommée par
+	ces éléments ainsi que de la tension aux bornes $u(t)$ et du courant
+	$i(t)$ traversant ces éléments. 
+	\begin{center}
+		\includegraphics[width=\linewidth]{exercices/ex-2-8}\\
+		$Z_1=30\,-\,j80\,\, ,  \,\, Z_2=30\,+\,j20\,\, ,  \,\,
+		Z_3=40\,+\,j65\,\, ,  \,\,Z_4=30\,+\,j40\,\, ,  \,\,
+		Z_5=30\,+\,j80$\\
+		$\bar{E}_1=30\angle 0 \,\, , \quad \bar{J}_1=2\angle 20$\,\, \quad 
+		$[V,A,\Omega,  ^{\circ}]\,\, , \,\, \omega=10\,000 \mbox{~rad/s}$\\
+		Les grandeurs sinusoïdales sont exprimées  en valeur efficace.
+	\end{center}
+
+	\rep{$n = 1.995$, $R_L=15.44\,\,\Omega$, $C_L=5\,\,\mu$F ;
+		$S_L=20.6-j26.7$ VA, $S_{Z_5}=13.67 + j36.45$ VA}
+\end{exercise}
+
+
+
+
+\section{Exercices non résolus}
+\begin{exercise}{}\label{ex:RSE-11}
+	Le schéma équivalent de Thévenin du circuit ci-dessous, vu de l'accès 11$^{'}$, est composé d'une
+	f.e.m. $\bar{V}_{Th}= 100 \angle 0$ V en série avec l'impédance
+	$Z_{Th}= 500 + j 500 \, \Omega$. Le réseau $\cal R$ est composé
+	d'éléments linéaires et invariants. 
+	\begin{enumerate}
+		\item Déterminer les puissances complexes, actives et réactives, ainsi
+		que les puissances instantanées et fluctuantes à l'instant $t=1$ s, 
+		fournies par la source de courant $\bar J$ et le réseau $\cal R$
+		lorsque l'on ferme l'accès 11$^{'}$ sur une résistance de charge
+		$R_L= 100\,\, \Omega$.
+		\item Les données fournies permettent-elles de déterminer le schéma
+		équivalent de Thévenin du réseau $\cal R$ vu des bornes 22$^{'}$ ?
+		
+		Si oui, expliciter, sans aucun calcul numérique, la procédure
+		permettant de déterminer les paramètres de cet équivalent. Si non,
+		justifier. 
+	\end{enumerate}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth]{exercices/ex-2-11}\\
+		
+		$R_1=30\, \Omega \quad , \quad R_2=40\, \Omega
+		\quad , \quad R_3=10\, \Omega \quad , \quad R_4=100\, \Omega$\\
+		$L_1=2\, \mbox{mH} \quad , \quad L_2=4\, \mbox{mH} \quad, \quad 
+		C=80\, \mbox{nF}$\\
+		$\bar{E} = 60 \angle 0 \, \mbox{V} \quad , \quad \bar{J}=3 \angle
+		0\, \mbox{mA} \quad , \quad \omega = 1000 \, \mbox{rad.s}^{-1}$
+	\end{center}
+	
+	
+	\rep{$S_J=0.148+j0.039$ VA, $p_{fJ}=-0.091$ W , $p_J=0.057$ W\\
+		$S_{\cal R}=25.2-j4.75$ VA, $p_{f \cal R}=-23.87$ W , $p_{\cal R}=1.33$ W}
+\end{exercise}
+
+
+\section{Solution des exercices}
+\paragraph{Exercice~\ref{ex:thm-1}}~\\%
+D'après le théorème de superposition, pour tout circuit linéaire,
+toute tension ou courant dans le circuit (réponse) est égale à la
+somme des réponses obtenues lorsque chaque source indépendante de
+courant ou de tension (excitation) agit seule, les autres sources
+ayant été rendues inactives, c'est-à-dire :
+\begin{enumerate}
+	\item les sources de tension court-circuitées ($v=0$)
+	\item les sources de courant ouvertes ($i=0$)
+\end{enumerate}
+La tension cherchée $V_0$ peut donc s'écrire :
+\[V_0=V_0^{(1)}+V_0^{(2)}+V_0^{(3)}\]
+avec
+\begin{enumerate}
+	\item $V_0^{(1)}=\alpha E_1$, la tension $V_0$ si la source $E_1=10$ V agit seule;
+	\item $V_0^{(2)}=\beta E_2$, la tension $V_0$ si la source $E_2=2$ V agit seule;
+	\item $V_0^{(3)}=\gamma J$, la tension $V_0$ si la source $J=5$ mA agit seule.
+\end{enumerate}
+Chaque réponse partielle est proportionnelle à la source correspondante et
+la réponse totale s'exprime donc comme une combinaison linéaire des
+sources indépendantes.
+
+Remarquons que seules les sources indépendantes constituent des
+excitations pour le théorème de superposition et non les sources
+commandées.
+
+\noindent{\bf 1. La source $E=10$ V agit seule}
+
+La source de tension $E_2=2$ V est court-circuitée et
+la source de courant $J=5$ mA est remplacée par un circuit ouvert. 
+\begin{center}
+\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-10-1}
+\end{center}
+La SLK dans la maille gauche du circuit s'écrit :
+\[10+V_1-3V_1=0 \quad \Longrightarrow \quad V_1=5\text{~V}\]
+On déduit :
+\[I_1=-\frac{V_1}{5\, 10^3}=-1\text{~mA}\]
+et : 
+\[V_0^{(1)}= 3\, 10^3\, .\, 2I_1=-6\text{~V}\]
+
+\noindent{\bf 2. La source $E=2$ V agit seule}
+
+La source de tension $E_1=10$ V est court-circuitée et
+la source de courant $J=5$ mA est remplacée par un circuit ouvert. 
+\begin{center}
+\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-10-2}
+\end{center}
+La topologie de ce circuit est identique à celle du circuit du point 1
+: dans la maille gauche, on trouve une seule source indépendante de
+tension; la tension imposée de 10 V du point est 1 est maintenant de 2 V.
+On déduit directement :
+\[V_0^{(2)}=\frac{2}{10}V_0^{(1)}=-1.2\text{~V}\]
+
+\noindent{\bf 3. La source $J=5$ mA agit seule}
+
+Les sources de tension $E_1=10$ V et $E_2=2$ V sont court-circuitées.
+\begin{center}
+\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-10-3}
+\end{center}
+La SLK dans la maille gauche du circuit montre que $I_1=0$ :
+\[V_1-3V_1=0 \quad \Longrightarrow \quad V_1=0\,\, , \,\, I_1=0\]
+Le courant dans la résistance de 3 k$\Omega$ est donc égal à  celui
+fourni par source de courant et 
+\[V_0^{(3)}=3\, 10^3\, . \, 5\, 10^{-3}=15\text{~V}\]
+
+\noindent{\bf 4. Application du théorème de superposition}
+
+Finalement pour le circuit complet :
+\[V_0=V_0^{(1)}+V_0^{(2)}+V_0^{(3)}=7.8\text{~V}\]
+
+
+\noindent{\bf 5. Calcul de la puissance}
+
+Le théorème de superposition s'applique au calcul de courants et
+tensions dans le circuit mais ne peut être utilisé  pour
+dériver des puissances. En effet, alors que tensions et courants
+dérivent de relations linéaires (lois de Kirchhoff et loi d'Ohm),
+les puissances s'expriment sous une forme non linéaire, le produit
+d'une tension et d'un courant, forme à laquelle le principe de
+superposition ne peut évidemment s'appliquer.
+
+Ainsi, la puissance consommée par la résistance de charge $R_L=3$ k$\Omega$ est
+donnée par : 
+\[p_{R_L}=\frac{V_0^2}{R_L}= 20.3 \text{~mW}\]
+
+Les puissances consommées par cette même résistance dans les trois
+situations intermédiaires sont respectivement :
+\[p_{R_L}^{(1)}=\frac{V_0^{(1)2}}{R_L}= 12 \text{~mW} \,\, , \quad
+p_{R_L}^{(2)}=\frac{V_0^{(2)2}}{R_L}= 0.5 \text{~mW} \,\, , \quad
+p_{R_L}^{(3)}=\frac{V_0^{(3)2}}{R_L}= 75 \text{~mW} \]
+Et l'on a évidemment :
+\begin{align*}
+p_{R_L} & \neq p_{R_L}^{(1)}+p_{R_L}^{(2)}+p_{R_L}^{(2)}\\
+\frac{V_0^2}{R_L}=\frac{(V_0^{(1)}+V_0^{(2)}+V_0^{(3)})^2}{R_L} & \neq
+\frac{V_0^{(1)2}}{R_L} + \frac{V_0^{(2)2}}{R_L} + \frac{V_0^{(3)2}}{R_L}
+\end{align*}
+
+\paragraph{Exercice~\ref{ex:thm-2}}~\\%
+\noindent{\bf 1. Circuit équivalent}
+
+Dans la plage de fonctionnement considérée, la relation $I-U$ liant le
+courant à la tension aux bornes du circuit s'écrit sous la forme de
+l'équation d'une droite comme représenté ci-dessous.
+
+\begin{minipage}[c]{6cm}
+	\begin{center}
+		\includegraphics[width=\linewidth]{sol_exercices/ex1-11-1}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{4cm}
+	\[I=\frac{1}{5}U-10\]
+\end{minipage}
+
+Dans la plage de fonctionnement considérée, le circuit se comporte comme
+un circuit linéaire.
+
+La structure du circuit équivalent demandé correspond à celle d'un
+schéma équivalent de Norton.
+
+\begin{minipage}[c]{5cm}
+	\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex1-11-2}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	Pour cet équivalent, la relation $I-U$ aux bornes s'écrit :
+	\[I=-I_{No}+G_{No}U\]
+\end{minipage}
+
+On déduit :
+\begin{enumerate}
+	\item la source de courant : $I_{No}=10$ A
+	\item la résistance : $R_{No}=\frac{1}{G_{No}}=5\,\,\Omega$
+\end{enumerate}
+
+\noindent{\bf 2. Circuit fermé sur une résistance de 20 $\Omega$}
+
+\begin{minipage}[c]{5cm}
+	\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex1-11-3}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	On déduit du schéma équivalent :
+	\[U=10. (5//20)=10\frac{5\, . \, 20}{25}=40\text{~V}\]
+	\[I=-\frac{40}{20}=-2 \text{~A}\]
+\end{minipage}
+
+On vérifie que le résultat trouvé se situe dans la plage de
+fonctionnement considérée pour laquelle le schéma équivalent est
+valide.
+
+
+\paragraph{Exercice~\ref{ex:thm-3}}~\\%
+\noindent{\bf 1. Relation $U-I$} 
+\begin{center}
+\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-12-1}
+\end{center}
+
+Dans toute la plage de fonctionnement considérée, la relation $U-I$ n'est pas linéaire.
+Le circuit ne se comporte pas comme un circuit linéaire et ne peut
+donc pas être remplacé par un schéma équivalent de Norton ou de
+Thévenin.
+
+\noindent{\bf 2. Limitation de la plage de fonctionnement}\\[1mm]
+
+Dans la plage $0<I<24$ A, la relation $U-I$ est linéaire. Elle s'écrit
+: 
+\[U=24-\frac{1}{4}I\]
+Dans cette plage, le circuit
+peut être remplacé par un schéma équivalent de Thévenin. 
+
+
+\begin{minipage}[c]{5cm}
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-12-2}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	\[U=V_{Th}-R_{Th}I\]
+	On déduit :
+	\[V_{Th}=24\text{~V}\,\, , \quad R_{Th}=\frac{1}{4}\,\, \Omega\]
+\end{minipage}
+
+\noindent{\bf 3. Circuit fermé sur une résistance de 1 $\Omega$}\\[1mm]
+
+
+\begin{minipage}[c]{5cm}
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-12-3}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	On déduit du schéma équivalent :
+	\[I=\frac{V_{Th}}{1+R_{Th}}= 19.2\text{~A}\]
+\end{minipage}\\
+Le courant obtenu se trouve dans la plage de fonctionnement linéaire
+du circuit ($0<I<24$ A), le schéma équivalent et le résultat déduit
+sont valides.
+
+\noindent{\bf 4. Courant de court-circuit}\\[1mm]
+
+
+\begin{minipage}[c]{5cm}
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-12-4}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	On déduit du schéma équivalent :
+	\[I_{cc}=\frac{V_{Th}}{R_{Th}}=96\text{~A}\]
+\end{minipage}\\
+Ce résultat est différent du courant de court-circuit mentionné dans
+la table de mesures (48 A) car on se trouve en dehors du domaine de
+fonctionnement linéaire du dipôle et le schéma équivalent de Thévenin
+n'est plus valide.
+
+\paragraph{Exercice~\ref{ex:thm-4}}~\\%
+\noindent{\bf 1. Le problème de l'adaptation des impédances en régime continu}
+
+Le problème consiste à déterminer la valeur de la résistance de charge
+$R_L$ à connecter aux bornes d'un circuit linéaire comportant nécessairement
+des sources d'énergie pour que la charge soutire à ce circuit le
+maximum de puissance.
+
+Puisqu'on s'intéresse à l'action du circuit sur une charge connectée à
+ses bornes, on peut le remplacer par son schéma équivalent de
+Thévenin. 
+
+\begin{minipage}[c]{4cm}
+	\includegraphics[width=0.95\linewidth]{sol_exercices/ex1-13-1}
+\end{minipage}
+\begin{minipage}[c]{6cm}
+	Calculons la puissance transmise à la charge :
+	\begin{gather*}
+	I=\frac{V_{Th}}{R_{Th}+R_L}\\
+	p_{R_L}=R_L\, I^2 = \frac{R_L}{(R_{Th}+R_L)^2} V_{Th}^2
+	\end{gather*}
+\end{minipage}
+
+La puissance sera maximale si :
+\[
+\frac{d\, p_{R_L}}{d\, R_L}=0\]
+On dérive
+\begin{gather*}
+\frac{d\, p_{R_L}}{d\, R_L}=\frac{R_{Th}-R_L}{(R_{Th}+R_L)^3}V_{Th}^2
+\end{gather*}
+
+La valeur cherchée pour $R_L$ est par conséquent :
+\[R_L=R_{Th}\]
+
+On vérifiera que l'on a bien $\frac{d^2 p_{R_L}}{d\, R_L^2} < 0$ pour
+$R_L=R_{Th}$.
+
+La puissance fournie par le circuit à l'adaptation vaut :
+\[p_{R_L}=R_L\frac{V_{Th}^2}{4R_L^2}=\frac{V_{Th}^2}{4R_L}\]
+
+\noindent{\bf 2. Schéma équivalent de Thévenin du circuit vu des bornes AD}
+
+Dérivons tout d'abord le schéma équivalent de Thévenin du circuit en
+parallèle sur la résistance de 4 $\Omega$.
+
+La résistance de Thévenin est donnée par la résistance équivalente vue
+de l'accès du circuit passifié. On dérive :
+
+\begin{minipage}[c]{5cm}
+	\includegraphics[width=0.95\linewidth]{sol_exercices/ex1-13-2}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	\[R_{Th1}=5+6+3=14\,\, \Omega\]
+\end{minipage}
+
+La f.e.m. de Thévenin est la tension apparaissant aux bornes du
+circuit à vide. Transformons tout d'abord les branches AB et BC comme suit :
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-13-3}
+\end{center}
+
+On a :
+
+\begin{minipage}[c]{5cm}
+	\includegraphics[width=0.95\linewidth]{sol_exercices/ex1-13-4}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	\[V_{Th1}=25+11+8+4(3+6)=80 \,\, \text{V}\]
+\end{minipage}
+
+Finalement :
+
+\begin{minipage}[c]{4cm}
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-13-5}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{6cm}
+	$$R_{Th}=4//14=3.11\,\, \Omega$$
+	$$V_{Th}=4\frac{80}{4+14}=17.8\,\, \text{V}$$
+\end{minipage}
+
+\noindent{\bf 3. Réalisation de l'adaptation}
+
+
+Pour réaliser l'adaptation, on ferme le circuit sur la résistance de
+charge $R_L=R_{Th}=3.11 \,\, \Omega$.
+
+\begin{minipage}[c]{5cm}
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-13-6}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	La puissance maximale qui peut être soutirée au circuit vaut :
+	\[p_{R_L}=R_{Th}\frac{V_{Th}^2}{4R_{Th}^2}=25.47 \,\, \text{W}\]
+\end{minipage}
+
+\paragraph{Exercice~\ref{ex:thm-5}}~\\%
+La f.e.m. de Thévenin est la tension qui apparaît à vide aux bornes du circuit. 
+
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-14-1}
+\end{center}
+La résistance de $25\,\,\Omega$ étant parcourue par le courant de la
+source commandée $20I$, on écrit :
+\[V_{Th}=V=(-20I).(25)=-500I\]
+La SLK écrite dans la maille de la partie gauche du circuit fournit :
+\[I=\frac{5-3V_{Th}}{2000}\]
+On déduit $V_{Th}=-5$ V.
+
+La résistance de Thévenin peut être déduite d'un essai en
+court-circuit. 
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-14-2}
+\end{center}
+On dérive successivement :
+\[V=0 \quad \rightarrow I_{cc}=-20I \quad I=2.5\, \text{mA} \quad 
+\rightarrow I_{cc}=-50 \, \text{mA}\]
+Et finalement :
+\[R_{Th}=\frac{V_{Th}}{I_{cc}}=100\, \Omega\]
+
+Pour rechercher $R_{Th}$, on peut aussi rechercher la résistance
+d'entrée du circuit vue de l'accès mais étant donné la présence de sources
+commandées, on ne peut procéder par de simples réductions série/parallèle.
+
+Il faut alors passifier le circuit, injecter 1 A à l'accès et
+déterminer $V$, la tension à l'accès, ou appliquer une tension de 1 V à
+l'accès et déterminer $I$, le courant circulant dans cet accès. Vu la
+présence de la source comandée de type VVT dans la partie gauche du
+circuit, il est ici plus simple d'appliquer 1 V à l'accès et de
+déterminer le courant correspondant comme indiqué à la
+Fig.~\ref{ex1-11s1}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-14-3}
+	\caption{}\label{ex1-11s1}
+\end{figure}
+
+On écrit pour la partie gauche du circuit :
+\[V = 1 \,\text{V}\quad \rightarrow
+I_1=\frac{-3}{2000}=-1.5\,\text{mA} \]
+La PLK appliquée à la partie droite du circuit fournit :
+\[I=20I_1+\frac{1}{25}=10\,\text{mA}\]
+Et finalement :
+\[R_{Th}=\frac{1}{i}=100\, \Omega\]
+
+\paragraph{Exercice~\ref{ex:thm-6}}~\\%
+\noindent{\bf 1. Schéma équivalent de Norton vu de AB et calcul de $V_0$}
+
+Par transformations de sources successives, on obtient :
+
+\begin{minipage}[c]{5cm}
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-15-1}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	$$I_{No}=3\, \, \text{A}$$
+	$$G_{No}=\frac{1}{10}\,\, \text{S}$$
+\end{minipage}
+
+Connectant la résistance de 5 $\Omega$ aux bornes AB, on dérive :
+
+\begin{minipage}[c]{5cm}
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-15-2}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{5cm}
+	$$V_0(\frac{1}{5}+\frac{1}{10})=3$$$$V_0=10 \,\, \text{V}$$
+\end{minipage}
+
+\noindent{\bf 2. Puissances fournies par les sources indépendantes}
+\begin{enumerate}
+	\item source $J=3$ A:
+	
+	\begin{minipage}[c]{3cm}
+		\begin{center}
+		\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-15-3}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{7cm}
+		\[p_{J=3}= -3V_0=-30 \,\, \text{W}\]
+		Cette source consomme 30 W.
+	\end{minipage}
+	\item source $E=60$ V :
+	
+	\begin{minipage}[c]{4cm}
+		\begin{center}
+		\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-15-4}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{6cm}
+		\begin{gather*}
+		I_E=\frac{60-V_0}{10}=5\,\, \text{A}\\
+		p_{E=60}=60I_E=300\,\,\, \text{W}
+		\end{gather*}
+	\end{minipage}
+\end{enumerate}
+
+\noindent{\bf 3. Ajout d'une résistance en série avec la source de courant}
+
+Le dipôle constitué d'une source de courant en série avec une
+résistance est équivalent à une source de courant pure. En effet,
+recherchons le schéma équivalent de Norton du dipôle :
+\vspace*{-5mm}
+\begin{center}
+\includegraphics[width=0.1\linewidth]{sol_exercices/ex1-15-5}
+\end{center}
+Le courant de Norton est donné par le courant traversant l'accès 
+court-circuité, soit 3 A, le courant injecté par la source de courant
+quel que soit $R$. La conductance de Norton est donnée par la
+conductance du dipôle passifié, c'est-à-dire la conductance d'un
+circuit ouvert, soit $G_{No}=0$. 
+\begin{center}
+\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-15-6}
+\end{center}
+On a donc :
+\begin{center}
+\includegraphics[width=0.3\linewidth]{sol_exercices/ex1-15-7}
+\end{center}
+Il s'ensuit que le schéma équivalent de Norton ainsi que la valeur de
+la tension $V_0$ sont inchangés par rapport à la situation du point 1.
+
+L'état électrique du circuit connecté aux bornes de la source de courant
+est inchangé. La puissance fournie par la source $E$ est donc
+inchangée. Par contre, l'état électrique de la branche contenant la
+source de courant est modifié. Ainsi, la tension aux bornes de la
+source de courant vaut pour le circuit modifié :
+
+\begin{minipage}[c]{4cm}
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-15-8}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{6cm}
+	\[U_J=100.3-V_0=290 \,\, \text{V}\]et la puissance fournie par cette source est égale à :
+	\[p_J=3\, U_J=870  \,\, \text{W}\]La résistance de 100 $\Omega$ consomme : 
+	$p_{R=100}=100(3)^2=900$ W. 
+\end{minipage}
+
+On remarque que globalement, la branche $R-J$ consomme une puissance de
+900-870=30 W, égale à la puissance consommée par la source $J$ dans la
+situation initiale. 
+
+\paragraph{Exercice~\ref{ex:thm-7}}~\\%
+\noindent{\bf 1. Résistance équivalente de Thévenin
+$R_{Th}$ vue des bornes ab et adaptation}
+
+Pour obtenir l'adaptation, il faut choisir une résistance de charge
+$R_L=R_{Th}$.
+
+On détermine le schéma équivalent de Thévenin du circuit vu des bornes
+ab par transformations successives (équivalences de sources, schémas
+équivalents de Thévenin ou de Norton successifs). 
+
+\begin{enumerate}
+\item 
+\parbox[c]{5cm}{
+\includegraphics[width=\linewidth]{sol_exercices/ex1-16-1}}
+\parbox[c]{5cm}{Schéma de Thévenin équivalent.\\A vide, on a : $V_{BA}=E$\\
+La résistance équivalente vue de AB si $E$ est passifié (remplacé par
+un court-circuit) est nulle. }
+
+\item 
+\parbox[c]{5cm}{\includegraphics[width=\linewidth]{sol_exercices/ex1-16-2}}
+\parbox[c]{5cm}{Schéma de Norton équivalent.\\Si l'on court-circuite les bornes AC,
+on a~: $I_{cc}=J_2$. La conductance équivalente vue de AC si $J$ est
+passifié (remplacé par un circuit ouvert) est nulle.}
+
+\item 
+\parbox[c]{5cm}{\includegraphics[width=\linewidth]{sol_exercices/ex1-16-3}}
+\parbox[c]{5cm}{Equivalence source de courant - source de tension.}
+
+Le circuit se transforme en le circuit équivalent :
+\begin{center}
+\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-16-4}
+\end{center}
+
+\item ~\\
+\begin{center}
+\includegraphics[width=\linewidth]{sol_exercices/ex1-16-5}
+\end{center}
+\item Finalement, le circuit devient :
+\begin{center}
+\includegraphics[width=0.65\linewidth]{sol_exercices/ex1-16-6}
+\end{center}
+et vu de ab:
+\[V_{Th}=R_4\frac{E+R_1J_1+R_3J_2}{R_1+R_3+R4}=163.6\,\text{V}\]
+\[R_{Th}=R4//(R_1+R_3)=\frac{R_4(R_1+R_3)}{R_4+R_1+R_3}=39.4 \, 10^3\, \Omega\]
+\end{enumerate}
+
+Pour soutirer au circuit une puissance maximale, il faut donc
+connecter une résistance de charge~:
+\[R_L=R_{Th}=39.4 \, \text{k}\Omega\]
+\parbox[c]{5cm}{
+\begin{center}
+\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-16-7}
+\end{center}}
+\parbox[c]{5cm}{
+$I_L=\dfrac{V_{Th}}{2R_{Th}}=2.08$ mA\\
+Puissance consommée par la charge : $P_L=R_LI_L^2=0.17$ W.}
+
+
+\noindent{\bf 2. Etat électrique complet du circuit}
+
+La d.d.p. aux bornes de la charge est donnée par :
+\[U_{L}=R_LI_L=81.8\,\, \text{V}\]
+
+A partir de la connaissance de $I_L$ et $U_L$, on détermine
+successivement, en ``remontant'' dans le circuit, l'état électrique des
+différentes branches.
+\begin{center}
+\includegraphics[width=0.65\linewidth]{sol_exercices/ex1-16-8}
+\end{center}
+
+\begin{enumerate}
+\item branche $R_4$
+
+\parbox{4cm}{
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-16-9}
+\end{center}}
+\parbox[c]{6cm}{
+	$U_{R_4}=U_L\, ,  \quad I_{R_4}=\dfrac{U_{R_4}}{R_4}=0.82$ mA\\
+	Puissance consommée par la résistance $R_4$:
+	\[p_{R_4}=\frac{U_{R_4}^2}{R_4}=R_4I_{R_4}^2= 0.067 \,\, \text{W}\]
+}
+
+\item branche $R_3$
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex1-16-10}
+\end{center}
+PLK au noeud C : $I_{R_3}=I_{R_4}+I_L-J_2=0.9$ mA et
+$U_{R_3}=R_3I_{R_3}=22.5$ V\\
+Puissance consommée par $R_3$ : 
+\[p_{R_3}=\frac{U_{R_3}^2}{R_3}=R_3I_{R_3}^2= 0.02 \,\, \text{W}\]
+
+\item branche $R_5-J_2$
+
+\parbox{5cm}{\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-16-11}}
+\parbox{5cm}{Puissance consommée par $R_5$ :
+	\[p_{R_5}=R_5J_2^2= 0.04 \,\, \text{W}\]
+	On a : $U_{R_5}=R_5J_2=20$ V\\
+	Par la SLK : $U_{J2}=U_{R_5}-R_3I_{R_3}=-2.5$ V
+	Puissance délivrée par la source $J_2$ :
+	\[p_{J_2}=J_2U_{J_2}= -0.005 \,\, \text{W}\]
+	La source $J_2$ consomme de la puissance !}
+
+\item branche $J_1$ :
+
+\parbox{5cm}{\includegraphics[width=0.8\linewidth]{sol_exercices/ex1-16-12}}
+\parbox{5cm}{SLK dans la maille DCA : \\$U_{J_1}=U_{R_4}+U_{R_3}=104.3$ V\\
+	Puissance délivrée par la source $J_1$ :
+	\[p_{J_1}=J_1U_{J_1}= 0.52 \,\, \text{W}\]}
+
+\item branche $R_1$ :
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-16-13}
+\end{center}
+PLK au noeud D : $I_{R_1}=J_1-I_{R_4}-I_L=2.1$ mA
+et $U_{R_1}=R_1I_{R_1}=84$ V\\
+Puissance consommée par $R_1$ : 
+\[p_{R_1}=\frac{U_{R_1}^2}{R_1}=R_1I_{R_1}^2= 0.176 \,\, \text{W}\]
+
+\item branches $E$ et $R_2$ :
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-16-14}
+\end{center}
+On a : $I_{R_2}=\dfrac{E}{R_2}=0.33$ mA ($U_{R_2}=E$ !)\\
+Puissance  consommée par $R_2$ : 
+\[p_{R_2}=R_2I_{R_2}^2= 0.007 \,\, \text{W}\]
+
+PLK au noeud B : $I_E=I_{R_2}-I_{R_1}=-1.77$ mA\\
+Vérification : PLK au noeud A :
+$I_E+J_1=I_{R_2}+J_2+I_{R_3}$\\
+Puissance délivrée par la source $E$ :
+\[p_{E}=EI_{E}= -0.035 \,\, \text{W}\]
+On vérifie le bilan de puissance :
+\[p_{R_L}+p_{R_4}+p_{R_3}+p_{R_5}+p_{R_1}+p_{R_2}=
+p_{J_2}+p_{J_1}+p_E\]
+
+\end{enumerate}
+\paragraph{Exercice~\ref{ex:thm-8}}~\\%
+\noindent{\bf 1. Schéma équivalent de Thévenin}\\[2mm]
+
+\noindent\parbox[c]{6cm}{
+	Le circuit à gauche de 22$^{'}$ est linéaire et résistif, il
+	peut donc être remplacé par un schéma équivalent de Thévenin
+	comprenant une source de tension  $V_{Th}$ en série avec
+	une résistance $R_{Th}$.}
+\parbox[c]{5cm}{\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-17-1}}
+
+De plus, puisque $E$ est la seule source indépendante d'énergie
+présente dans le circuit à gauche de 22$^{'}$, $V_{Th}$ est
+directement proportionnelle à $E$ :
+\[V_{Th}=\alpha E\]
+
+\begin{enumerate}
+\item[(a)] Détermination de $R_{Th}$ : lorsque $E=0$, l'équivalent de Thévenin se
+simplifie en la seule résistance $R_{Th}$. Le circuit complet prend
+ainsi la forme :
+
+~~~~~~\parbox[c]{4cm}{\includegraphics[width=\linewidth]{sol_exercices/ex1-17-2}}
+~~\parbox[c]{5cm}{
+\begin{eqnarray*}
+	\text{On a : }\quad I_{E=0}&=&J-\frac{U_{E=0}}{R}\\
+	& = & 2-\frac{10}{20}=1.5\text{~A}
+\end{eqnarray*}
+\[\text{et}\quad
+R_{Th}=\frac{U_{E=0}}{I_{E=0}}=\frac{10}{1.5}=\frac{20}{3}=6.67\,\, \Omega\]}
+\item[(b)] Détermination de $V_{Th}$ pour $E=30$ V.
+
+Deux procédures équivalentes sont possibles. 
+\begin{enumerate}
+\item[i.] Déterminer le coefficient $\alpha$ sur base de la valeur de $U$
+lorsque $E=10$ V et en déduire $V_{Th}$ correspondant à $E=30$ V. 
+
+Si $E=10$ V, on a $U_{E=10}=15$ V
+
+\parbox{5cm}{\includegraphics[width=\linewidth]{sol_exercices/ex1-17-3}}
+\parbox{5cm}{
+	\begin{eqnarray*}
+		I_{E=10}&=&J-\frac{U_{E=10}}{R}\\
+		& = & 2-\frac{15}{20}=1.25\text{~A}\\
+		V_{Th}&=&U_{E=10}-R_{Th}I_{E=10}\\
+		& =& \frac{20}{3}=\alpha E \quad \rightarrow \alpha=\frac{2}{3}
+	\end{eqnarray*}}
+	
+	Finalement, pour  $E=30$ V, $V_{Th}=\alpha E=20$ V
+	
+	\item[ii.] Déterminer la valeur de $U$ correspondant à $E=30$ V et en
+	déduire directement la valeur de $V_{Th}$ pour cette valeur de $E$.
+	
+	Le circuit étant linéaire, d'après le théorème de superposition, $U$
+	peut s'écrire
+	\[U = \alpha^{'}E+\beta^{'}J=\alpha^{'}E+\beta \quad \text{puisque $J$
+		est fixé}\]
+	Des deux conditions
+	\begin{align*}
+	E=0 &\leftrightarrow U=10 \text{~V}\\
+	E=10 \text{~V} & \leftrightarrow U=15 \text{~V}
+	\end{align*}
+	On déduit
+	\[U=0.5 E + 10 \quad \text{et donc pour $E=30$ V, $U=25$ V}\]
+	
+	On a : 
+	
+	\parbox{5cm}{\includegraphics[width=\linewidth]{sol_exercices/ex1-17-4}}
+	\parbox{5cm}{
+		\begin{eqnarray*}
+			I_{E=30}&=&J-\frac{U_{E=30}}{R}\\
+			& = & 2-\frac{25}{20}=0.75\text{~A}\\
+			V_{Th}&=&U_{E=30}-R_{Th}I_{E=30} = 20 \text{~V}\\
+		\end{eqnarray*}}
+	\end{enumerate}
+\end{enumerate}
+
+\noindent{\bf 2. Calcul des puissances.}
+
+Il est possible de déterminer :
+\begin{enumerate}
+	\item la puissance consommée par la résistance $R$ :
+	\[p_R=\frac{U_{E=30}^2}{R}=\frac{25^2}{20}=31.25 \text{~W}\]
+	\item la puissance fournie par la source $J$ :
+	\[p_J=J.U_{E=30}=2.25=50\text{~W}\]
+	\item il n'est par contre pas possible de déterminer la puissance
+	fournie par la source $E$ : la constitution du circuit résistif
+	compris entre les accès 11$^{'}$ et 22$^{'}$ étant inconnue, le
+	courant débité par $E$ ne peut être déterminé;
+	\item la bilan de puissance pour le circuit complet permet seulement de
+	déduire que la puissance consommée par le circuit à gauche de
+	22$^{'}$ est égale à :
+	\[p= p_J-p_R=50-31.25=18.75\text{~W}\]
+	\item c'est également la puissance consommée par le schéma équivalent
+	de Thévenin. Par contre, la puissance fournie par la source de
+	Thévenin $V_{Th}$ et la puissance consommée par la résistance de
+	Thévenin $R_{Th}$ considérées isolément n'ont pas de signification physique.
+\end{enumerate}
+
+\paragraph{Exercice~\ref{ex:2-4}}~\\%
+\noindent{\bf 1. Schéma équivalent de Thévenin vu des bornes de la capacité}
+
+Réduisons tout d'abord le circuit à droite de la capacité à son schéma équivalent de Thévenin. Ce circuit ne comporte pas de source
+indépendante et donc le schéma équivalent de Thévenin se réduit à la seule résistance de Thévenin.
+
+On impose une tension de 1V à l'accès comme indiqué à la
+figure ci-dessous, 
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex3-4-1}
+\end{center}
+et~on dérive successivement~:
+\begin{eqnarray*}
+	i_1 &=& \dfrac{1}{R_1} \: = \: \dfrac{1}{10^{4}}= 10^{-4} \, \mbox{A}\\
+	i_{\Delta} &=& \dfrac{1}{2.10^4} \: = \: 0.5\, 10^{-4}\, \mbox{A}
+\end{eqnarray*}
+et par application de la PLK~: 
+\begin{eqnarray*}
+	i &=& 10^{-4} + 0.5\, 10^{-4} - 7.(0.5)\, 10^{-4}\\
+	&=& -\, 2.10^{-4}~\, \mbox{A}.
+\end{eqnarray*}
+On déduit~:
+\[ R_{Th} \: = \: \frac{1}{-2.10^{-4}} \: = \, -5\,\mbox{k}\Omega~. \]
+
+
+\noindent{\bf 2. Expression de \ $v(t)$ \ aux bornes de condensateur}\\
+Le circuit se  réduit au circuit ci-dessous avec
+$v(0)=v_0=10$ V.
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex3-4-2}
+\end{center}
+La résistance équivalente de Thévenin présente une valeur négative
+suite à la présence de la source commandée. Le circuit est un circuit
+actif qui n'est pas nécessairement stable. En conséquence, la
+constante de temps du circuit sera elle aussi négative, ce qui
+implique que la tension \ $v$ \ aux bornes de C sera croissante.
+
+Écrivons l'équation différentielle qui gouverne la tension \ $v$~,
+dérivée de l'expression de la PLK.~:
+\begin{eqnarray*}
+	C \, \dfrac{dv}{dt} + \frac{v}{R_{Th}} &=& 0\\
+	(5.10^{-6}) \, \dfrac{dv}{dt} - \dfrac{v}{5.10^3} &=& 0\\
+	\dfrac{dv}{dt} - 40\, v &=& 0~.
+\end{eqnarray*}
+La solution de cette équation s'écrit~:
+\begin{eqnarray*}
+	v &=& v_0\, e^{40t}~~~\mbox{avec}~~v_0 = v(0) = 10\,\mbox{V}\\
+	&=& 10\, e^{40t} \: \mbox{V} ~~, ~~t\geq 0~.
+\end{eqnarray*}
+
+\noindent{\bf 3. Instant où l'on court-circuite \ $C$}\\
+La capacité court-circuite lorsque \ $v$ \ atteint 150$\,$V soit pour
+\ $t=t_1$ \ tel que~:
+\begin{eqnarray*}
+	10\, e^{40t_1} &=& 150\\
+	t_1 &=& \dfrac{\mbox{ln}\, 15}{40} \: = \: 67.7\, \mbox{ms}
+\end{eqnarray*}
+
+
+\noindent{\bf 4. Tracé de \ $v(t)$}
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex3-4-3}
+\end{center}
+
+
+\paragraph{Exercice~\ref{ex:RSE-4}}~\\%
+Dans le domaine fréquentiel,
+le circuit est représenté par le schéma suivant : 
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{sol_exercices/ex2-4-1}
+\end{center}
+Les impédances du circuit sont données par :
+\begin{eqnarray*}
+	Z_1 &=& 50 + j\, 30\, \Omega\\
+	Z_{C_1} &=& -\, j\, 50 \,\Omega\\
+	Z_{C_2} &=& -\, j\, 20\, \Omega\\
+	Z_L &=&  j\, 10 \,\Omega
+\end{eqnarray*}
+
+\begin{enumerate}
+	\item[a)]Recherchons tout d'abord le schéma équivalent de Thévenin de	la partie de circuit ci-dessous
+	\begin{center}
+		\includegraphics[width=\linewidth]{sol_exercices/ex2-4-2}
+	\end{center}
+	
+	On a~:
+	\[ \begin{array}{rclcl}
+	\bar{I} &=& \dfrac{\bar{E}_1}{Z_1 + Z_{C_1} + Z_{C_2}} \\
+	\bar{V}_{Th}^{(1)} &=& \dfrac{Z_{C_1}}{Z_1+ Z_{C_1} + Z_{C_2}}\bar{E}_1
+	&=& \dfrac{-\, 1\, 50}{50 - j\, 40} \bar{E}_1\\
+	&&&=& (0.488 - j\, 0.61) \, \bar{E}_1
+	\end{array} \]
+	et
+	\begin{eqnarray*}
+		Z_{Th}^{(1)} &=& Z_{C_1} \, // \, (Z_1 + Z_{C_2})\\
+		&=& \frac{Z_{C_1} \, (Z_1 + Z_{C_2})}{Z_{C_1}+ Z_1 + Z_{C_2}}\\
+		&=& \frac{-\, j\, 50 \, (50 + j\, 10)}{50 - j\, 40}\\
+		&=& 30.5 - j\, 25.6 \, \Omega
+	\end{eqnarray*}
+	
+	\item[b)] Le circuit complet se réduit alors à celui de la
+	figure suivante et son schéma équivalent vu de l'accès \
+	$AA^{'}$\ est~donné par :
+	\begin{center}
+		\includegraphics[width=\linewidth]{sol_exercices/ex2-4-3}
+	\end{center}
+	\begin{eqnarray*}
+		\bar{I}_0 &=&  \dfrac{\bar{V}_{Th}^{(1)} - \bar{E}_2}{Z_{Th}^{(1)}+ Z_L} 
+		\: = \: \dfrac{(0.488 - j\, 0.61) \, \bar{E}_1 - 30}{30.5 - j\, 15.6}\\
+		\mbox{et}~~\bar{V}_{Th} &=& \bar{E}_2 + j\, 10 \, \bar{I}_0 \\
+		&=&  30 + \dfrac{j\, 10}{30.5 - j\, 15.6} 
+		\left( (0.488 - j\, 0.61) \, \bar{E}_1 - 30 \right) \text{~~(1)}
+	\end{eqnarray*}
+	On demande d'avoir \ $\bar{V}_{Th} = 50 \angle 45^{\circ}\, \text{V}$~.
+	On déduit la valeur de $\bar{E}_1$ de (1) :
+	\[\bar{E}_1=175.06 + j 72.12 = 189.33 \angle 22.4^{\circ}\,\, \text{V~.}\]
+	
+	
+	La recherche de \ $Z_{Th}$ \ n'est pas nécessaire. Elle vaut~:
+	\[ Z_{Th} \: = \: \dfrac{j\, 10 \, Z_{Th}^{(1)}}{Z_{Th}^{(1)}+ j\, 10} 
+	\: = \: 2.6 + j\, 11.3\, \Omega~. \]
+\end{enumerate}
+
+\paragraph{Exercice~\ref{ex:RSE-7}}~\\%
+Le transfert de puissance à travers la section \ $S$ \ du
+circuit ci-dessous est donné par
+\[ S = \bar{V}_1 \, \bar{I}_1^{\ast}~. \]
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex2-7-1}
+\end{center}
+On a~:
+\begin{eqnarray*}
+	Z_1 &=& R_1 + j\omega L_1 \: = \: 10 + j\, 12.566\,\, \Omega\\
+	Z_2 &=& \dfrac{1}{~j\omega C_2 + \dfrac{1}{R_2}~}
+	\: = \: \dfrac{1}{10^{-2} + j\, 6.283 \, 10^{-3}}\,\, \Omega~.
+\end{eqnarray*}
+
+\noindent{\bf 1. Schéma équivalent de Thévenin vu de l'accès gauche du transformateur}
+
+Pour la partie du circuit à droite du transformateur, on écrit~:
+\[ \bar{V}_2 \: = \: \bar{J} Z_2 + Z_2 \bar{I}_2~. \]
+Tenant compte des contraintes imposées par le transformateur idéal, on dérive~:
+\begin{eqnarray*}
+	\bar{V}_1 &=& 2\bar{V}_2\\
+	\bar{I}_1 &=& \frac{1}{2} \bar{I}_2\\
+	\mbox{soit}~~\bar{V}_1 &=& 2 \, \bar{J} Z_2 + 4\, Z_2\bar{I}_1~.
+\end{eqnarray*}
+\begin{enumerate}
+	\item $2 \bar{J} Z_2$ \ représente la f.e.m. de Thévenin équivalente
+	vue de l'accès 1 (gauche) du transformateur.
+	\item $4 Z_2$ \ est l'impédance équivalente de Thévenin
+	correspondante.
+\end{enumerate}
+
+\noindent{\bf 2. Puissance traversant la section S}
+
+La SLK dans la partie gauche du circuit s'écrit~:
+\begin{eqnarray*}
+	\bar{E} &=& Z_1\bar{I}_1 + \bar{V}_1\\
+	&=& Z_1 \bar{I}_1 + 2\bar{J}Z_2 + 4Z_2\bar{I}_1~.
+\end{eqnarray*}
+On déduit~:
+\begin{eqnarray*}
+	\bar{I}_1 &=& \frac{\bar{E} - 2\bar{J} Z_2}{Z_1 + 4Z_2}\\
+	&=& \alpha \bar{E} + \beta\\
+	\mbox{avec} ~~\alpha &=& (2.555 + j \, 1.4428) \, 10^{-3}\\
+	\beta &=& -\, (2.683 + j\, 4.182)\, 10^{-1}
+\end{eqnarray*}
+et
+\begin{eqnarray*}
+	\bar{V}_1 &=& 2\bar{J}Z_2 + 4Z_2\bar{I}_1\\
+	&=& \alpha ' \bar{E} + \beta '\\
+	\mbox{avec} ~~\alpha ' &=& 0.993 - j \, 0.0465\\
+	\beta ' &=& -\, 2.572 + j\, 7.553~.
+\end{eqnarray*}
+La puissance traversant la section \ $S$ \ de la gauche vers la droite est égale à~:
+\begin{eqnarray*}
+	S &=& \bar{V}_1 \, \bar{I}_1^{\ast}\\
+	&=& (\alpha ' \bar{E} + \beta ')\, (\alpha \bar{E} + \beta )^{\ast}\\
+	&=& \alpha ' \alpha^{\ast} E^2 + 
+	(\beta ' \alpha^{\ast} + \alpha ' \beta^{\ast})\, \bar{E} + \beta ' \beta^{\ast}\\
+	&=& (2.468 \, 10^{-3} \, E^2 - 0.2425\, E - 2.4685) 
+	+ j\, (-\, 1.551\, 10^{-3} \, E^2 + 0.4506\, E - 3.1019)~.
+\end{eqnarray*}
+Le transfert de puissance se réalise avec un \ $\cos \,\phi = 1$\ si \
+$S = P+j0$~, c'est-à-dire si la puissance complexe est réelle et se
+réduit à la puissance active.
+
+Il faut donc~:
+\[ -\, 1.551\, 10^{-3} \, E^2 + 0.4506\, E - 3.1019 \: = \: 0 \]
+soit
+\[ E \: = \: 
+\begin{cases}
+7.055\, & \text{V} \\
+283.5\, & \text{V}
+\end{cases}\]
+
+On détermine, pour chaque valeur de \ $E$~, la puissance active qui
+transite de la gauche vers la droite
+\begin{enumerate}
+	\item pour \ $E_1 = 7.055$~V, on trouve~:
+	\begin{eqnarray*}
+		P(E_1) &=& 2.468\, 10^{-3} \, E_1^2 - 0.2425\, E_1 - 2.4685\\
+		&=& -\, 4.06 < 0 
+	\end{eqnarray*}
+	le signe négatif de cette puissance indique qu'elle transite en
+	réalité de la droite vers la gauche. La solution \ $E_1 = 7.055$ V \
+	est donc à rejeter;
+	\item pour \ $E_2 = 283.5\, V$~, on trouve~:
+	\[ P(E_2) \: = \: 127.1 \, \text{W} > 0 \]
+	puissance qui transite effectivement de la gauche vers la droite. La solution est donc~:
+	\[ E = 283.5\, \text{V~.} \]
+\end{enumerate}
+
+
+
+\paragraph{Exercice~\ref{ex:RSE-8}}~\\%
+\noindent{\bf 1. Schéma équivalent de Thévenin vu du secondaire du transformateur}
+
+Par transformation de source successives, on dérive~:
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex2-8-1}
+\end{center}
+avec
+\begin{eqnarray*}
+	Z^{'}_1 & = &\dfrac{Z_3(Z_1+Z_2)}{Z_3+Z_1+Z_2}\,\, \Omega\\\
+	\bar{E}^{'}_1 & = & \dfrac{Z^{'}_1}{Z_1+Z_2}\bar{E}_1+Z^{'}_1\bar{J}_1 \,\, \text{V~.}
+\end{eqnarray*}
+On calcule~les paramètres du schéma équivalent de Thévenin :
+\begin{eqnarray*}
+	Z_{Th}^{(1)} &=& Z_4 + \frac{Z_5( Z_4 + Z'_1)}{Z_5 + Z_4 + Z'_1} 
+	\: = \: 61.44 + j\, 79.63 \,\, \Omega\\
+	\bar{E}_{Th}^{(1)} &=& Z_5 \, . \,  \frac{\bar{E}'_1}{Z_5 + Z_4 + Z'_1}
+	\: = \: 38.93 + j\, 59.51 \,\, \text{V~.}
+\end{eqnarray*}
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex2-8-2}
+\end{center}
+
+\noindent{\bf 2. Schéma équivalent de Thévenin vu du primaire du transformateur}
+
+Le circuit se réduit au schéma ci-dessous.
+\begin{center}
+	\includegraphics[width=\linewidth]{sol_exercices/ex2-8-3}
+\end{center}
+\begin{enumerate}
+	\item La f.e.m. de Thévenin est la tension qui appara\^{\i}t à vide à
+	l'accès 11'~:
+	\[ \mbox{accès à vide} \: \Rightarrow \: \bar{I}_1 = 0 \: \Rightarrow 
+	\: \bar{I}_2 = 0 \: \Rightarrow \: \bar{U}_2 = \bar{E}_{Th}^{(1)}~. \]
+	Le transformateur impose la relation suivante entre les tensions 
+	$\bar{U}_1$ et $\bar{U}_2$ :
+	\[\bar{U}_1=\dfrac{1}{n}\bar{U}_2 \: \Rightarrow 
+	\: \bar{E}_{Th}=\dfrac{\bar{E}_{Th}^{(1)}}{n}\]
+	\item L'impédance équivalente de Thévenin est l'impédance vue de
+	l'accès 11' lorsque le circuit est passifié, c'est-à-dire lorsque \
+	$\bar{E}_{Th}^{(1)} = 0$~.
+	\begin{center}
+		\includegraphics[width=\linewidth]{sol_exercices/ex2-8-4}
+	\end{center}
+	Par définition, \ $Z_{Th} =
+	\dfrac{\bar{U}_1}{\bar{I}_1}$, or 
+	\begin{eqnarray*}
+		\bar{U}_1&  =  &\dfrac{1}{n} \bar{U}_2\\
+		\mbox{et} \,\,\, \bar{I}_1 & = & n\bar{I}_2
+	\end{eqnarray*}
+	On déduit~:
+	\[ Z_{Th} \: = \: \dfrac{1}{n^2} \, \dfrac{\bar{U}_2}{\bar{I}_2} 
+	\: = \: \dfrac{Z_{Th}^{(1)}}{n^2} \]
+	puisque le rapport \ $\dfrac{\bar{U}_2}{\bar{I}_2}$ \ représente l'impédance \ $Z_{Th}^{(1)}$~.
+\end{enumerate}
+\noindent{\bf 3. Détermination du rapport de transformation} \ $n$
+
+On impose que la réactance de Thévenin soit de \ $20\, \Omega$~. Il faut donc
+\[ X_{Th} \: = \: Im(Z_{Th}) \: = \: \dfrac{79.63}{n^2} \: = \: 20~\,\, \Omega\,. \]
+On déduit~: 
+\[ n \: = \: \sqrt{~\dfrac{79.63}{20}~} \, = \: 1.995~. \]
+L'impédance équivalente de Thévenin vaut~: 
+\[ Z_{Th} \: = \: \dfrac{61.44}{n^2} + j\, 20 \: = \: 15.44 + j\, 20 \,\, \Omega \]
+et la f.e.m. de Thévenin~:
+\[ \bar{E}_{Th} \: = \: \dfrac{38.93 + j\, 59.51}{n} \: = \: 19.51 + j\, 29.83 \,\, \text{V~.} \]
+\noindent{\bf 4. Réalisation de l'adaptation}
+
+Pour soutirer au circuit une puissance maximale, on connecte une impédance de charge
+\[ Z_L \: = Z_{Th}^{\ast} \, = \, 15.44 - j\, 20\, \, \Omega~. \]
+Cette impédance peut être réalisée au moyen d'un dipôle RC série~:
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{sol_exercices/ex2-8-5}
+\end{center}
+\begin{eqnarray*}
+	\text{avec}\,\, R_L &=& 15.44 \, \Omega\\
+	C_L &=& \frac{1}{20\omega} \: = \: 5\, \mu\text{F~.}
+\end{eqnarray*}
+{\bf 5. Puissances consommées par} \ $Z_L$
+
+On connecte l'impédance de charge $Z_L$ à
+l'accès 11$^{'}$  : 
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{sol_exercices/ex2-8-6}
+\end{center}
+\begin{enumerate}
+	\item Impédance $Z_L$ 
+	\begin{eqnarray*}
+		\bar{I} &=& \dfrac{\bar{E}_{Th}}{Z_{Th} + Z_L} \: = \: 
+		\dfrac{\bar{E}_{Th}}{2R_{Th}} \: = \: 0.632 + j\, 0.966 
+		\: = \: 1.155 \angle 56.8^{\circ}\, \text{A}\\
+		\bar{U}_{Z_L} &=& Z_L \bar{I} \: = \: 29.08 + j\, 2.27 
+		\: = \: 29.17 \angle 4.46^{\circ}\, \text{V}
+	\end{eqnarray*}
+	La puissance complexe consommée par \ $Z_L$ \ vaut~:
+	\[ S_{Z_L} \, = \, Z_L I^2 \, = \, Z_{Th}^* \, 
+	\dfrac{E_{Th}^2}{4R_{Th}^2} \, = \, 20.6 - j\, 26.7 = \, 33.7 
+	\angle -52.3^{\circ} \, \text{VA}\, . \]
+	\begin{enumerate}
+		\item puissance active~: \ $P_{Z_L} = 20.6 \, \text{W} = P_{R_L}$
+		\item puissance réactive~: \ $Q_{Z_L} = -\, 26.7 \, \text{Var} = Q_{C_L}$~.
+	\end{enumerate}
+	La puissance instantanée s'écrit~:
+	\begin{eqnarray*}
+		p_{Z_L}(t) &=& P_{Z_L} + |S_{Z_L}| \, \cos \, (2\omega t + 4.46^{\circ} + 56.8^{\circ})\\
+		&=& 20.6 + 33.7 \, \cos \, (2\omega t + 61.26^{\circ}) \, \text{W~.}
+	\end{eqnarray*}
+	Les tension et courant s'écrivent~:
+	\begin{eqnarray*}
+		u_{Z_L}(t) &=& \sqrt{2} \, . \, 29.17\, \cos\, (\omega t + 4.46^{\circ})\\
+		&=& 41.25\, \cos \, (\omega t + 4.46^{\circ})\, \text{V}\\
+		i_{Z_L}(t) &=& \sqrt{2} \, . \, 1.155\, \cos \, (\omega t + 56.8^{\circ})\\
+		&=& 1.633 \, \cos \, (\omega t + 56.8^{\circ}) \, \, \text{A}~.
+	\end{eqnarray*}
+	\item Résistance $R_L$
+	\begin{xalignat*}{2}
+		\bar{I}_{R_L} &=  \bar{I} &      S_{R_L}  & =  20.6 + j0\,\, \text{VA}\\
+		i_{R_L} &= i_{Z_L} & P_{R_L} & = 20.6\,\, \text{W} \qquad Q_{R_L} = 0\\
+	\end{xalignat*}
+	\begin{eqnarray*}
+		\bar{U}_{R_L} &=& R_L \bar{I} \: = \: 9.75 + j\, 14.9 \,\, \text{V}\\
+		u_{R_L} &=& R_L i_{R_L} \: = \:  25.197 \, \cos\, (\omega t + 56.8^{\circ}) \,\, \text{V}
+	\end{eqnarray*}
+	Le courant \ $i_{R_L}$ \ et la tension \ $u_{R_L}$  \ sont bien évidemment en phase.
+	\begin{eqnarray*}
+		p_{R_L} &=& 20.6 + 20.6 \cos\, (2\omega t + 56.8^{\circ} + 56.8^{\circ} )\\
+		&=& 20.6 + 20.6 \cos \, (2\omega t + 113.6^{\circ}) \, \, \text{W}~.
+	\end{eqnarray*}
+	
+	\item Capacité $C_L$
+	\begin{eqnarray*}
+		S_{C_L} &=& 0 - j\, 26.7\,\, \text{VA}\\
+		P_{C_L} &=& 0 \\
+		Q_{C_L} &=& -\, 26.7 \, \text{Var}\\
+		\bar{I}_{C_L} &=& \bar{I}\\
+		i_{C_L} &=& i_{Z_L}\\
+		\bar{U}_{CL} &=& \dfrac{-j}{\omega C_L} \, \bar{I} \: = \: 19.37 - j\, 12.64 \, \text{V}\\
+		u_{C_L}(t) &=& \dfrac{1.633}{\omega C_L} \, \cos \, (\omega t + 56.8^{\circ} - 90^{\circ})
+		\: = \: 32.66\, \cos \, (\omega t - 33.2^{\circ}) \,\, \text{V}
+	\end{eqnarray*}
+	La tension est en retard de $90^{\circ}$ par rapport au courant.
+	\begin{eqnarray*}
+		p_{C_L} &=& 26.7  \cos \,(2\omega t + 56.8^{\circ} - 33.2^{\circ})\\
+		&=& 26.7 \cos \, (2\omega t + 23.6^{\circ}) \,\, \text{W}
+	\end{eqnarray*}
+\end{enumerate}
+{\bf 6. Puissances consommées par l'impédance} \ $Z_5$
+
+Il faut déterminer le courant $\bar{I}_{Z_5}$  et la tension 
+$\bar{U}_{Z_5}$~comme indiqué à la figure ci-dessous :
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{sol_exercices/ex2-8-7}
+\end{center}
+Connaissant \ $\bar{I}$~, on déduit
+\[ \bar{I}^{'}_2 \: = \: \dfrac{1}{n} \, \bar{I} \: = \: 0.317 + j\, 0.484 \, \text{A} \]
+De \ $\bar{U}_{Z_L}$~, on déduit~:
+\[\bar{U}_2 \: = \: n \, \bar{U}_{Z_L} \: = \: 58.03 + j\, 4.53 \, \text{V} \]
+et
+\begin{eqnarray*}
+	\bar{U}_{Z_5} &=& \bar{U}_2 + Z_4 \bar{I}'_2 \: = \: 48.16 + j\, 31.73 
+	\: = \: 57.67 \angle 33.38^{\circ} \,\, \text{V}\\
+	\bar{I}_{Z_5} &=& \dfrac{\bar{U}_{Z_5}}{Z_5} \: = \: 0.546 - j\, 0.397  
+	\: = \: 0.675 \angle -36.1^{\circ} \, \text{A}~.
+\end{eqnarray*}
+On calcule successivement~:
+\begin{eqnarray*}
+	u_{Z_5}(t)&=& 81.56 \, \cos \, (\omega t + 33.38^{\circ}) \,\, \text{V}\\
+	i_{Z_5}(t) &=& 0.954 \, \cos \, (\omega t - 36.1^{\circ}) \,\, \text{A}\\
+	S_{Z_5} &=& \bar{U}_{Z_5} \bar{I}_{Z_5}^{\ast} 
+	\: = \: 13.67 + j\, 36.45 \: = \: 38.93 \angle -69.4^{\circ} \, \text{VA}\\
+	P_{Z_5} &=& 13.67 \,\, \text{W}\\
+	Q_{Z_5} &=& 36.45 \,\, \text{Var}\\
+	p_{Z_5}(t) &=& 13.67 + 38.93 \, \cos \, (2\omega t - 2.68^{\circ})\,\, \text{W}~.
+\end{eqnarray*}
+
+
+
+

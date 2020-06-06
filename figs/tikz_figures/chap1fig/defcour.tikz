@@ -1,0 +1,18 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (2.48444,7.76889) ellipse (0.30222cm and 0.50222cm);
+\draw[black] (3.2,7.36222) ellipse (0.25556cm and 0.33333cm);
+\draw[black] (3.72889,6.95333) ellipse (0.17778cm and 0.21111cm);
+\draw[black] (2.47333,7.26889) .. controls (3.08667,7.07778) .. (3.63333,6.76667);
+\draw[black] (2.57333,8.27111) .. controls (3.4,7.63556) .. (3.88,7.11111);
+\draw[dashed,black] (2.39556,7.60222) .. controls (3.18889,7.34444) .. (3.76889,6.92222);
+\draw[dashed,black] (2.50667,8.00444) .. controls (3.35556,7.53556) .. (3.88,7);
+\draw[arrows=-triangle 45,black] (3.9,6.86667) .. controls (4.21556,6.68222) .. (4.38222,6.48222);
+\path (4.26667,7.13333) node[text=black,anchor=base] {$i$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

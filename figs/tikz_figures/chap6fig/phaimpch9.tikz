@@ -1,0 +1,17 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=triangle 45-triangle 45,black] (7.10586,5.0186) +(-99:0.45772) arc (-99:21:0.45772);
+\draw[arrows=-triangle 45,black] (6.5,5.68222) -- (6.5,3.21556);
+\draw[arrows=-triangle 45,black] (6.36667,5.51556) -- (9.36667,5.51556);
+\draw[arrows=-triangle 45,blue] (6.51556,5.5) -- (7.66667,3.4);
+\draw[arrows=-triangle 45,red] (6.54889,5.48222) -- (8.08222,5);
+\path (7.93333,5.4) node[text=red,anchor=base west] {$\bar I$};
+\path (7.26667,3.88222) node[text=blue,anchor=base east] {$\bar U$};
+\path (7.56667,4.76667) node[text=black,anchor=base west] {$\angle Z$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,49 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (4.46667,4.17333) node[text=black,anchor=base east] {$\hat{i}_1$};
+\path (6.94667,5.29111) node[text=black,anchor=base] {état électrique $\hat{\bf u}, \hat{\bf i}$};
+\draw[arrows=-triangle 45,black] (4.56222,3.77556) -- (4.56222,4.47778);
+\path (1.28889,5.29111) node[text=black,anchor=base] {état électrique ${\bf u}, {\bf i}$};
+\path (6.96444,4.21111) node[text=black,anchor=base] {Q};
+\path (1.23111,4.21111) node[text=black,anchor=base] {Q};
+\path (9.68889,4.18) node[text=black,anchor=base west] {$e_0$};
+\path (3.76667,4.17333) node[text=black,anchor=base west] {$i_2$};
+\draw[arrows=-triangle 45,black] (3.61556,3.77556) -- (3.61556,4.47778);
+\path (-1.33111,4.12444) node[text=black,anchor=base east] {$e_0$};
+\draw[black] (-0.87111,4.40222) -- (-0.87111,4.61333);
+\draw[black] (-0.85333,3.76) -- (-0.85333,3.48222);
+\draw[black] (3.49333,3.52222) -- (3.49333,4.61333);
+\draw[black] (9.11111,3.78) -- (9.11111,3.54889);
+\draw[black] (9.11111,4.62) -- (9.11111,4.42889);
+\draw[black] (4.75111,3.52222) -- (4.75111,4.61333);
+\path (-0.85778,4.36444) node[text=black,anchor=base] {-};
+\path (-0.86222,4.00222) node[text=black,anchor=base] {+};
+\draw[black] (-0.86222,4.07333) ellipse (0.33111cm and 0.33111cm);
+\draw[black] (2.40444,3.53111) -- (3.48667,3.53111);
+\draw[black] (2.39333,4.62) -- (3.47556,4.62);
+\draw[black] (-0.85333,3.53111) -- (0.22667,3.53111);
+\draw[black] (-0.85333,4.60889) -- (0.22667,4.60889);
+\draw[black] (0.23778,3.35333) rectangle (2.39556,4.80889);
+\filldraw[black] (3.49333,4.62) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (3.50444,3.53111) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (-0.87111,4.62) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (-0.87111,3.50889) ellipse (0.06667cm and 0.06667cm);
+\draw[black] (8.02444,3.53111) -- (9.10667,3.53111);
+\path (9.10667,4.40667) node[text=black,anchor=base] {-};
+\path (9.10222,4.04444) node[text=black,anchor=base] {+};
+\draw[black] (9.10222,4.11556) ellipse (0.33111cm and 0.33111cm);
+\draw[black] (8.01333,4.62) -- (9.09556,4.62);
+\draw[black] (4.76444,3.53111) -- (5.84667,3.53111);
+\draw[black] (4.76444,4.60889) -- (5.84667,4.60889);
+\draw[black] (5.85778,3.35333) rectangle (8.01556,4.80889);
+\filldraw[black] (9.1,4.62) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (9.11111,3.51778) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (4.74667,4.62) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (4.74667,3.50889) ellipse (0.06667cm and 0.06667cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,48 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[black] (-0.62667,3.07556) -- (2.56889,3.07556) -- (2.62,3.23333) -- (2.72222,2.91556) -- (2.82444,3.23333) -- (2.92444,2.91556) -- (3.02667,3.23333) -- (3.12889,2.91556) -- (3.23111,3.23333) -- (3.33111,2.91556) -- (3.38222,3.07556) -- (6.62889,3.07556);
+\draw[black] (2.38889,3.07778) -- (2.38889,3.38444) -- (2.23111,3.43556) -- (2.54889,3.53778) -- (2.23111,3.64) -- (2.54889,3.74) -- (2.23111,3.84222) -- (2.54889,3.94444) -- (2.23111,4.04667) -- (2.54889,4.14667) -- (2.38889,4.19778) -- (2.38889,4.50667);
+\draw[black] (3.57556,3.07556) -- (3.57556,3.38222) -- (3.41778,3.43333) -- (3.73556,3.53556) -- (3.41778,3.63778) -- (3.73556,3.73778) -- (3.41778,3.84) -- (3.73556,3.94222) -- (3.41778,4.04444) -- (3.73556,4.14444) -- (3.57556,4.19556) -- (3.57556,4.50444);
+\draw[arrows=-triangle 45,black] (5.31778,3.96667) -- (5.31778,3.51111);
+\draw[arrows=-triangle 45,black] (0.67333,3.96667) -- (0.67333,3.51111);
+\filldraw[black] (-0.67111,3.06667) circle (0.06667cm);
+\path (-0.67111,3.46667) node[text=black,anchor=base] {+};
+\filldraw[black] (-0.64889,4.46667) circle (0.06667cm);
+\path (-0.64889,4.30222) node[text=black,anchor=base] {-};
+\filldraw[black] (0.67333,3.08889) circle (0.06667cm);
+\filldraw[black] (0.67333,4.47778) circle (0.06667cm);
+\filldraw[black] (5.31778,4.47778) circle (0.06667cm);
+\filldraw[black] (5.31778,3.07778) circle (0.06667cm);
+\filldraw[black] (6.64,3.07778) circle (0.06667cm);
+\filldraw[black] (6.64,4.48889) circle (0.06667cm);
+\filldraw[black] (2.38444,4.48889) circle (0.06667cm);
+\filldraw[black] (2.38444,3.07778) circle (0.06667cm);
+\filldraw[black] (3.57333,3.06667) circle (0.06667cm);
+\filldraw[black] (3.57333,4.47778) circle (0.06667cm);
+\draw[black] (-0.61556,4.48889) -- (6.66222,4.48889);
+\draw[black] (0.67333,3.4) -- (0.67333,3.07778);
+\draw[black] (0.68444,4.07778) -- (0.68444,4.48889);
+\draw[black] (5.30667,3.4) -- (5.30667,3.08889);
+\draw[black] (5.31778,4.07778) -- (5.31778,4.48889);
+\draw[arrows=-triangle 45,black] (-0.88222,2.86667) -- (-0.12667,2.86667);
+\draw[arrows=-triangle 45,black] (6.71778,2.83333) -- (6.00667,2.83333);
+\path (2.96222,2.8) node[text=black,anchor=base] {$G_{12}$};
+\path (-0.53778,2.81111) node[text=black,anchor=base] {$i_1$};
+\path (-0.61556,3.9) node[text=black,anchor=base east] {$u_1$};
+\path (6.67333,3.41111) node[text=black,anchor=base] {+};
+\path (6.64,4.37778) node[text=black,anchor=base] {-};
+\path (6.68444,3.94444) node[text=black,anchor=base west] {$u_2$};
+\path (6.38444,2.75556) node[text=black,anchor=base] {$i_2$};
+\path (0.21778,3.87778) node[text=black,anchor=base east] {$i_{No1}$};
+\path (5.74,3.86667) node[text=black,anchor=base west] {$i_{No2}$};
+\path (3.74,4.23333) node[text=black,anchor=base west] {\small{}$G_{22}-G_{12}$};
+\path (2.26222,4.24444) node[text=black,anchor=base east] {\small{}$G_{11}-G_{12}$};
+\draw[black] (5.32,3.73556) circle (0.33111cm);
+\draw[black] (0.67556,3.73556) circle (0.33111cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

@@ -1,0 +1,16 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\draw[arrows=-triangle 45,black] (1.14667,6.14444) -- (1.14667,1.66667);
+\draw[arrows=-triangle 45,black] (0.94667,5.91111) -- (7.50222,5.91111);
+\draw[dashed,black] (1.13556,2.56667) -- (6.62444,2.56667);
+\draw[black] (1.14667,5.93333) -- (1.28,5.51111) -- (1.42444,5.13333) -- (1.59111,4.68889) -- (1.85778,4.18889) -- (2.21333,3.67778) -- (2.38,3.51111) -- (2.59111,3.33333) -- (2.91333,3.11111) -- (3.33556,2.92222) -- (3.82444,2.8) -- (4.36889,2.7) -- (4.95778,2.64444) -- (5.71333,2.62222) -- (6.41333,2.62222) -- (6.63556,2.62222);
+\path (7.26889,6.3) node[text=black,anchor=base east] {$t$};
+\path (0.93556,1.97778) node[text=black,anchor=base east] {$i$};
+\path (1.01333,2.74444) node[text=black,anchor=base east] {$i_{\infty}$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

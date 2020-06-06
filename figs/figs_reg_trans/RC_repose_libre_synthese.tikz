@@ -1,0 +1,10 @@
+\begin{circuitikz}
+	\draw
+	(0,0)
+	to[american voltage source, l=$e(t)$] ++(0,1.8)
+	to[R, l=$R$, i>=$i(t)$] ++(4,0) coordinate (A)
+	to[C, v^<=$v_c(t)$] ++(0,-1.8)
+	--(0,0)
+	;
+\end{circuitikz}
+

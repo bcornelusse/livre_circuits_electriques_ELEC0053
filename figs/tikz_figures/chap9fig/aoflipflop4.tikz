@@ -1,0 +1,46 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (2.73333,2.15556) node[text=black,anchor=base east] {P$_{1}(t=t_{2}^{-})$};
+\path (4.97778,2.27778) node[text=black,anchor=base west] {P$_{2}(t=t_{2}^{+})$};
+\path (2.76667,5.08889) node[text=black,anchor=base east] {P$_{0}(t=t_{1}^{+})$};
+\path (5.05556,5.22222) node[text=black,anchor=base west] {\textcolor{blue}{Q3}};
+\path (4.85556,1.73333) node[text=black,anchor=base east] {\textcolor{blue} {Q1}};
+\path (4.77778,1.31111) node[text=black,anchor=base east] {$i$};
+\path (3.18889,3.43333) node[anchor=base west] {$-E$};
+\path (0.05556,3.33333) node[anchor=base] {$t_2$};
+\path (-0.6,3.35556) node[anchor=base] {$t_1$};
+\path (-1.65556,2.16667) node[anchor=base east] {$v_s$};
+\path (0.53333,3.35556) node[anchor=base west] {$t$};
+\path (6.07333,3.85556) node[text=black,anchor=base east] {$v$};
+\draw[dashed,arrows=-triangle 45,black] (4.34,5.56667) -- (4.68444,5.24444);
+\definecolor{penColor}{rgb}{0.56471,0,0.56471}
+\draw[dashed,arrows=triangle 45-,penColor] (2.67778,2.87111) -- (2.96667,3.30444);
+\draw[dashed,arrows=-triangle 45] (4.88889,5.04444) -- (3.1,5.04444);
+\draw[dashed,arrows=triangle 45-,penColor] (2.86222,2.15333) -- (2.50667,2.49778);
+\draw[dashed,arrows=-triangle 45,black] (2.87778,2.12222) -- (4.7,2.12222);
+\draw[dashed,arrows=-triangle 45,black] (4.26889,2.55556) -- (4.62444,2.21111);
+\draw[dashed,arrows=-triangle 45,black] (5.45778,4.46) -- (5.13556,4.79333);
+\draw[dashed,arrows=-triangle 45,black] (5.01111,3.71111) -- (5.31111,4.16667);
+\draw[dashed,arrows=-triangle 45,black] (4.74667,3.27778) -- (4.49111,2.88889);
+\draw[dashed,arrows=-triangle 45,black] (5.49556,1.32222) -- (5.07333,1.75556);
+\draw[black] (4.27111,5.65556) -- (5.49333,4.43333) -- (4.26222,2.56667) -- (5.73778,1.09111);
+\draw[dashed,arrows=triangle 45-,penColor] (3.66667,4.44889) -- (3.28889,4.82667);
+\draw[dashed,arrows=triangle 45-,penColor] (3.40444,4) -- (3.59333,4.28889);
+\draw[penColor] (2.47111,5.65556) -- (3.69333,4.43333) -- (2.46222,2.56667) -- (3.93778,1.09111);
+\draw[arrows=-triangle 45,black] (4.86667,5.61111) -- (4.86667,1.08889);
+\draw (-0.66667,3.51111) -- (-0.66667,4.52222) -- (0.01111,4.52222) -- (0.01111,3.48889);
+\draw[arrows=-triangle 45,black] (-1.68889,3.5) -- (0.91111,3.5);
+\draw[arrows=-triangle 45,black] (-1.45556,4.72222) -- (-1.45556,1.96667);
+\draw[arrows=-triangle 45,black] (2.18889,3.51111) -- (6.4,3.51111);
+\filldraw[penColor] (3.11111,5.02222) ellipse (0.06667cm and 0.06667cm);
+\filldraw (4.64444,2.13333) ellipse (0.06667cm and 0.06667cm);
+\filldraw[blue] (4.85556,5.06667) ellipse (0.06667cm and 0.06667cm);
+\filldraw[penColor] (2.92222,2.11111) ellipse (0.06667cm and 0.06667cm);
+\filldraw[blue] (4.86667,1.94444) ellipse (0.06667cm and 0.06667cm);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

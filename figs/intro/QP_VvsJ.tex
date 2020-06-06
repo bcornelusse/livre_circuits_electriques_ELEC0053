@@ -1,0 +1,33 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\def\xcolorversion{2.00}
+\def\xkeyvalversion{1.8}
+\usepackage[version=0.96]{pgf}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[americanresistors,americaninductors,siunitx]{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american voltages]% or tikzpicture
+	\tikzset{quad/.style={draw, thick, minimum height=3cm, minimum width=2cm}}
+	\node[quad] (A) at (0,0) {};
+	\draw ($(A.north west)!.5!(A.west)$) to[short] ++(-.5,0) to[short,-*] ++(-0.2,0) coordinate (A1)
+	($(A.south west)!.5!(A.west)$) to[short] ++(-.5,0) to[short,-*] ++(-0.2,0) coordinate (A1')
+	($(A.north east)!.5!(A.east)$) to[short] ++(.5,0) to[short,-*] ++(0.2,0) coordinate (A2)
+	($(A.south east)!.5!(A.east)$) to[short] ++(.5,0) to[short,-*] ++(0.2,0) coordinate (A2');
+	\draw (A1') to[american current source, l^=$i_{s1}$] (A1);
+	\draw (A2) to[voltmeter, v^=$u_2^a$] (A2');
+\end{circuitikz}\hfill
+\begin{circuitikz}[american voltages]% or tikzpicture
+	\tikzset{quad/.style={draw, thick, minimum height=3cm, minimum width=2cm}}
+	\node[quad] (A) at (0,0) {};
+	\draw ($(A.north west)!.5!(A.west)$) to[short] ++(-.5,0) to[short,-*] ++(-0.2,0) coordinate (A1)
+	($(A.south west)!.5!(A.west)$) to[short] ++(-.5,0) to[short,-*] ++(-0.2,0) coordinate (A1')
+	($(A.north east)!.5!(A.east)$) to[short] ++(.5,0) to[short,-*] ++(0.2,0) coordinate (A2)
+	($(A.south east)!.5!(A.east)$) to[short] ++(.5,0) to[short,-*] ++(0.2,0) coordinate (A2');
+	\draw (A2') to[american current source, l_=$i_{s2}$] (A2);
+	\draw (A1) to[voltmeter, v^=$u_1^b$] (A1');
+\end{circuitikz}
+\end{document}

@@ -1,0 +1,37 @@
+\begin{tikzpicture}[y=-1cm]
+\sf
+\path (2.27778,4.33333) node[text=black,anchor=base east] {$v_p$};
+\path (2.27778,3.17778) node[text=black,anchor=base east] {$v_n$};
+\path (3.03333,4.75556) node[text=black,anchor=base] {$i_{p}=0$};
+\path (3.03333,2.75556) node[text=black,anchor=base] {$i_{n}=0$};
+\path (2.94444,3.73333) node[text=black,anchor=base east] {$v_d>0$};
+\draw[arrows=-triangle 45,black] (2.77778,4.42222) -- (3.42222,4.42222);
+\draw[arrows=-triangle 45,black] (2.77778,2.85556) -- (3.42222,2.85556);
+\path (5.29333,4.46667) node[text=black,anchor=base east] {$V_{sat}$};
+\path (6.61111,4.50889) node[text=black,anchor=base west] {$v_o$};
+\draw[black] (5.71556,4.68889) -- (5.71556,4.96667);
+\draw[black] (5.7,4.01111) -- (5.7,3.53111) -- (6.95556,3.53111);
+\filldraw[black] (6.98222,3.54444) ellipse (0.06667cm and 0.06667cm);
+\path (5.72222,4.64444) node[text=black,anchor=base] {-};
+\path (5.71778,4.28222) node[text=black,anchor=base] {+};
+\draw[black] (5.71778,4.35333) ellipse (0.33111cm and 0.33111cm);
+\filldraw[black] (2.55111,4.22222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (3.77333,4.22222) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (2.55111,3.03333) ellipse (0.06667cm and 0.06667cm);
+\filldraw[black] (3.77333,3.03333) ellipse (0.06667cm and 0.06667cm);
+\path (3.93778,4.33111) node[anchor=base west] {+};
+\path (3.94889,3.10667) node[anchor=base west] {-};
+\path (6.76667,5.30444) node[anchor=base west] {-};
+\path (6.69778,3.80889) node[anchor=base west] {+};
+\draw (5.64667,5.28889) -- (5.80444,5.28889);
+\draw (5.55111,5.13111) -- (5.86889,5.13111);
+\draw (5.39333,4.97111) -- (6.02667,4.97111);
+\draw (2.55111,4.22222) -- (3.70667,4.22222);
+\draw (2.55111,3.03333) -- (3.70667,3.03333);
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:
