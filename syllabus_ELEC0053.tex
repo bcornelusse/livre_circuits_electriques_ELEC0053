@@ -208,16 +208,42 @@
 
 \newcounter{exercise}[chapter]
 \renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
-\newenvironment{exercise}[1]% environment name
+\newenvironment{exercise}[1][None]% environment name
 {% begin code
 	\refstepcounter{exercise}%
 	\par\vspace{\baselineskip}\noindent
 	\textit{Exercice~\theexercise~ #1}%
-		\par\vspace{\baselineskip}\noindent\ignorespaces
-	}%
-	{% end code
+	\par\vspace{\baselineskip}\noindent\ignorespaces
+}%
+{% end code
 	\ignorespacesafterend
 }
+
+\newenvironment{exwithsol}[2]% environment name
+{% begin code
+	\refstepcounter{exercise}%
+	\par\vspace{\baselineskip}\noindent
+	\textbf{Exercice~\theexercise~ #1} \textit{Solution à la page \pageref{#2}.}%
+		\par\vspace{\baselineskip}\noindent\ignorespaces
+}%
+{% end code
+	\ignorespacesafterend
+}
+
+
+\newcounter{solexercise}[chapter]
+\renewcommand{\thesolexercise}{\thechapter.\arabic{solexercise}}
+\newenvironment{solexercise}[1]% environment name
+{% begin code
+	\refstepcounter{solexercise}%
+	\par\vspace{\baselineskip}\noindent
+	\textbf{Solution de l'exercice~#1}%
+	\par\vspace{\baselineskip}\noindent\ignorespaces
+}%
+{% end code
+	\ignorespacesafterend
+}
+
 
 \begin{document}
 

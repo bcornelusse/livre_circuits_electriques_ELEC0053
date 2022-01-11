@@ -4,7 +4,7 @@
 
 \section{Exercices}
 
-\begin{exercise}{Bilan de puissance}
+\begin{exwithsol}{Bilan de puissance}{solex:1-1}
 \label{ex:1-1}
 %\paragraph{Exercice 1.1 - Bilan de puissance.}
 Déterminer le bilan de puissance pour chacun des 3 circuits ci-dessous.
@@ -14,9 +14,9 @@ Déterminer le bilan de puissance pour chacun des 3 circuits ci-dessous.
 \rep{Circuit 1: $p_R=\frac{4}{3}$ W, $p_J=2$ W, $p_E=-\frac{2}{3}$ W \\
 circuit 2: $p_R=3$ W, $p_J=5$ W, $p_E=-2$ W \\ 
 circuit 3: $p_{1\Omega}=4$ W, $p_{3\Omega}=3$ W, $p_E=2$ W, $p_J=5$ W.}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{Lois de Kirchhoff et loi d'Ohm.}
+\begin{exwithsol}{Lois de Kirchhoff et loi d'Ohm.}{solex:1-2}
 \label{ex:1-2}
 Déterminer le courant $I_0$ débité par la source $V_s$ du
 circuit ci-dessous à l'aide des lois de Kirchhoff et de
@@ -25,9 +25,9 @@ la loi d'Ohm.
 	\includegraphics[width=0.8\textwidth]{exercices/ex-1-2}
 \end{center}
 \rep{$I_0=-3 A$}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{Association de résistances.}
+\begin{exwithsol}{Association de résistances.}{solex:1-3}
 \label{ex:1-3}
 Déterminer la résistance équivalente 
 \begin{enumerate}
@@ -46,9 +46,9 @@ Déterminer la résistance équivalente
 \rep{1) $R_{eq}=R_1+R_2+\ldots +R_n$ \\
 	2) $G_{eq}=G_1+G_2+\ldots +G_n$ \\
 	3) $R_{eq} = 12\,\, \Omega$}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{Le diviseur potentiométrique.}
+\begin{exwithsol}{Le diviseur potentiométrique.}{solex:1-4}
 \label{ex:1-4}
 \begin{enumerate}
 	\item Déterminer l'expression des tensions $V_1$ et $V_2$ aux bornes
@@ -61,20 +61,20 @@ Déterminer la résistance équivalente
 \begin{center}[h]
 	\includegraphics[width=\textwidth]{exercices/ex-1-4}
 \end{center}
-\end{exercise}
+\end{exwithsol}
 
 
-\begin{exercise}{Le diviseur de courant.}
+\begin{exwithsol}{Le diviseur de courant.}{solex:1-5}
 \label{ex:1-5}
 Déterminer l'expression des courants $I_1$ et $I_2$ parcourant les
 résistances $R_1$ et $R_2$ de la figure ci-dessous.
 \begin{center}
 	\includegraphics[width=0.55\textwidth]{exercices/ex-1-5}
 \end{center}
-\end{exercise}
+\end{exwithsol}
 
 
-\begin{exercise}{Sources réelles de tension et de courant.}
+\begin{exwithsol}{Sources réelles de tension et de courant.}{solex:1-6}
 \label{ex:1-6}
 \begin{enumerate}
 \item Montrer qu'une source réelle de tension alimentant une résistance de
@@ -85,9 +85,9 @@ charge $R_L$ se comporte comme une source idéale si $G_i \ll G_L$, cf. Figure~\r
 
 
 \rep{Voir Section~\ref{sec:sie}}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{Équivalence de sources.}
+\begin{exwithsol}{Équivalence de sources.}{solex:1-7}
 \label{ex:1-7}
 \begin{enumerate}
 \item Montrer, comme indiqué à la figure suivante, qu'un dipôle "source de tension" peut être
@@ -107,9 +107,9 @@ dipôle équivalent "source de tension" ou "source de courant".
 	\includegraphics[width=0.45\textwidth]{exercices/ex-1-7-3}
 \end{center}
 \end{enumerate}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{Équivalence de sources et réduction.}
+\begin{exwithsol}{Équivalence de sources et réduction.}{solex:1-8}
 \label{ex:1-8}
 \begin{enumerate}
 	\item Réduire le circuit de la figure ci-dessous à un dipôle
@@ -127,9 +127,9 @@ dipôle équivalent "source de tension" ou "source de courant".
 
 \rep{1) $V_{eq}= 13.125$ V, $R_{eq}=3.75\,\,\Omega$ \\
 2) $p_{R_L}=9.112$ W}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{Source commandée.}
+\begin{exwithsol}{Source commandée.}{solex:1-9}
 \label{ex:1-9}
 Calculer la valeur de la source de tension $V_s$ de la figure ci-dessous si le courant
 $I_{\phi}$ est égal à 5 A.
@@ -138,11 +138,12 @@ $I_{\phi}$ est égal à 5 A.
 \end{center}
 
 \rep{$V_s=50$ V}
-\end{exercise}
+\end{exwithsol}
 
 \section{Solution des exercices}
 
-\paragraph{Exercice~\ref{ex:1-1}}~\\
+\begin{solexercise}{\ref{ex:1-1}}
+	\label{solex:1-1}
 {\bf Circuit 1.} Choisissons le sens des courants $I$, $I_E$ et de la tension $U$ comme indiqué ci-dessous.
 \begin{center}
 	\includegraphics[width=0.5\linewidth]{sol_exercices/ex1-1-1}
@@ -279,8 +280,10 @@ Puissances fournies par les sources :
 \[p_E=U_1.I_E=2 \,\, \text{W},\quad p_J=U_J.1=5\,\, \text{W}\]
 Bilan de puissance :
 \[p_{1\Omega}+p_{3\Omega}=p_E+p_J\]
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:1-2}}~\\%
+\begin{solexercise}{\ref{ex:1-2}}
+	\label{solex:1-2}
 Adoptant les sens des courants et tensions de la
 Fig.~\ref{ex1-1sol}, on trouve successivement:
 \begin{enumerate}
@@ -311,8 +314,10 @@ On vérifie le bilan de puissance :
 \end{enumerate}
 On vérifie bien que la puissance totale produite par les
 deux sources = puissance totale consommée par les résistances: $$p_{10\Omega}+p_{50\Omega}=p_{120V}+p_{6A}.$$
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:1-3}}~\\%
+\begin{solexercise}{\ref{ex:1-3}}
+	\label{solex:1-3}
 {\bf Equivalence entre deux dipôles :}
 {\em deux dipôles sont équivalents si pour  une même
 	d.d.p aux bornes $v$, ces dipoles sont parcourus par un même courant
@@ -363,7 +368,10 @@ On calcule successivement :
 	\includegraphics[width=0.9\linewidth]{sol_exercices/ex1-3-3}
 \end{center}
 
-\paragraph{Exercice~\ref{ex:1-4}}~\\%
+\end{solexercise}
+
+\begin{solexercise}{\ref{ex:1-4}}
+	\label{solex:1-4}
 \noindent{\bf 1. Expression de $V_1$ et $V_2$}
 On dérive successivement :
 \begin{align*}
@@ -390,8 +398,10 @@ V_2 &= \frac{R_2}{R1[1+ (R_2/R_L)]+R_2}V_s
 \end{align*}
 Nous aurons donc 
 \[\frac{V_2}{V_s}\simeq \frac{R_2}{R_1+R_2} \quad \text{si} \quad R_L \gg R_2.\]
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:1-5}}~\\%
+\begin{solexercise}{\ref{ex:1-5}}
+	\label{solex:1-5}
 La tension aux bornes des deux résistances est donnée par 
 \[V=I_s\frac{R_1 R_2}{R_1+R_2}\]
 Le courant $I_s$ se divise donc comme suit :
@@ -401,11 +411,15 @@ I_s\frac{G_1}{G_1+G_2}\\
 I_2 &=\frac{V}{R_2}=I_s\frac{R_1}{R_1+R_2} \quad \text{ou} \quad
 I_s\frac{G_2}{G_1+G_2}
 \end{align*}
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:1-6}}
+\begin{solexercise}{\ref{ex:1-6}}
+	\label{solex:1-6}
 Voir Exercice précédent et /ou la Section~\ref{sec:sie}.
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:1-7}}~\\%
+\begin{solexercise}{\ref{ex:1-7}}
+	\label{solex:1-7}
 \noindent{\bf 1. Equivalence source de tension $\rightarrow$ source de
 	courant.}
 Les deux dîpôles sont équivalents si ils délivrent un même courant $I$
@@ -440,8 +454,10 @@ On transforme successivement le circuit comme suit.
 \begin{center}
 	\includegraphics[width=\linewidth]{sol_exercices/ex1-7}
 \end{center}
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:1-8}}~\\%
+\begin{solexercise}{\ref{ex:1-8}}
+	\label{solex:1-8}
 \noindent{\bf 1. Source de tension équivalente.}
 
 On transforme successivement :
@@ -454,11 +470,11 @@ On transforme successivement :
 La partie du circuit située au-dessus de AE se réduit ainsi en la
 forme
 \begin{center}
-	\includegraphics[width=\linewidth]{sol_exercices/ex1-8-3}
+	\includegraphics[width=\linewidth]{sol_exercices/ex1-8-4}
 \end{center}
 Connectant au reste du circuit, on a 
 \begin{center}
-	\includegraphics[width=\linewidth]{sol_exercices/ex1-8-4}
+	\includegraphics[width=\linewidth]{sol_exercices/ex1-8-3}
 \end{center}
 
 Finalement
@@ -475,7 +491,7 @@ la résistance de charge à l'accès 11$^{'}$.\\
 	On déduit le courant débité dans la résistance de charge :
 	\[I=\frac{V_{eq}}{R_{eq}+R_L}=0.9545\,\, \text{A}\]
 	La tension aux bornes de cette charge vaut :
-	\[U=RI=10I=9.545\,\, \text{A}\]
+	\[U=RI=10I=9.545\,\, \text{V}\]
 	La puissance consommée par la charge vaut :
 	\[p_{R_L}=R_L I^2=9.112\,\, \text{W}\]
 \end{minipage}
@@ -525,7 +541,7 @@ fournies par ces sources au reste du circuit.
 	\end{minipage}
 	\begin{minipage}[c]{5cm}
 		\begin{align*}
-		U_{CB}&=5(I_A-2)= -10.682\, \, \text{A}\\
+		U_{CB}&=5(I_A-2)= -10.682\, \, \text{V}\\
 		p_{R=5}&=\frac{U_{CB}^2}{5}=22.823\, \, \text{W}\\
 		p_{J=2}&=-2U_{CB}=21.365\, \, \text{W}
 		\end{align*}
@@ -557,15 +573,16 @@ fournies par ces sources au reste du circuit.
 		p_{J=2}&=-2U_{DE}=23.635\, \, \text{W}\\
 		p_{R_1=10}&=\frac{U_{DE}^2}{10}= 13.971\, \, \text{W}\\
 		p_{R_2=10}&=\frac{(U_{DE}+5)^2}{10}= 4.648\, \, \text{W}\\
-		I_5&=\frac{U_{DE}+5}{10}=-0.682\, \, \text{V}\\
+		I_5&=\frac{U_{DE}+5}{10}=-0.682\, \, \text{A}\\
 		p_{E=5}&=5I_5= -3.409\, \, \text{W}
 		\end{align*}
 		Cette source consomme de la puissance.
 	\end{minipage}
 \end{enumerate}
+\end{solexercise}
 
-
-\paragraph{Exercice~\ref{ex:1-9}}
+\begin{solexercise}{\ref{ex:1-9}}
+	\label{solex:1-9}
 \begin{center}
 	\includegraphics[width=0.7\linewidth]{sol_exercices/ex1-9}
 \end{center}
@@ -579,3 +596,4 @@ La SLK appliquée à la maille abca s'écrit :
 V_s+V_1+V_2=0 \quad \text{avec} \quad & V_2=10I_{\phi} = 50\\
 & V_1 = 5I_1= -100 \end{array}\]
 Finalement : $V_s=50$ V.
+\end{solexercise}
