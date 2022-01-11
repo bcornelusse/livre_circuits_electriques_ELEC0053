@@ -850,12 +850,12 @@ Le terme additionnel $- v_0$ compense la source de tension introduite.
 	$$e_1(t) - R i(t) - L \frac{di(t)}{dt} - 100 = 0,$$
 	avec $i(0^-) = 10 A$.
 	Donc 
-	$$\frac{di(t)}{dt} + \frac{R}{L} i(t)  = \frac{1}{L} (100 - e_1(t)).$$
+	$$\frac{di(t)}{dt} + \frac{R}{L} i(t)  = \frac{1}{L} (e_1(t)-100).$$
 	Cette \'equation admet comme solution particuli\`ere $i_p(t) = K_1 + K_2 e^{-10t}$.
 	Identifions les param\`etres :
 	\begin{align*}
-	\frac{1}{L} (100 - e_1(t)) &= -10 K_2 e^{-10t} + \frac{R2}{L} (K_1 + K_2 e^{-10t}) \\
-	&= K_2 e^{-10t} (\frac{R2}{L} -10 ) + \frac{R2}{L} K_1.
+	\frac{1}{L} (e_1(t)-100) &= -10 K_2 e^{-10t} + \frac{R}{L} (K_1 + K_2 e^{-10t}) \\
+	&= K_2 e^{-10t} (\frac{R}{L} -10 ) + \frac{R}{L} K_1.
 	\end{align*}
 	En identifiant la partie constante et la partie en $e^{-10t}$, on obtient 
 	$$i_p(t) = -50-40 e^{-10t}.$$
