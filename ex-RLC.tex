@@ -4,8 +4,7 @@
 
 \section{Exercices}
 
-
-\begin{exercise}{}
+\begin{exwithsol}{solex:2-3}
 	\label{ex:2-3}
 On consid\`ere le circuit suivant 
 \begin{center}
@@ -26,9 +25,9 @@ Dans ces conditions :
 \end{enumerate}
 \rep{1. $v_C(t)=400(1-e^{-100t})$ V, $0\leq t < 15$ ms \\ $v_C(t)=310.75e^{-200(t-0.015)}$ V, $t \geq 15$ ms \\
 3. $t_1=6.93$ ms, $t_2=17.2$ ms}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{}
+\begin{exwithsol}{solex:2-5}
 	\label{ex:2-5}
 D\'eterminer la r\'eponse libre du circuit suivant
 \begin{center}
@@ -43,9 +42,9 @@ en fonction des conditions initiales :
 
 \rep{$u_1(t)=2.9e^{-0.63 t}-0.91e^{-6.37 t}$ V \\
 $u_2(t)=3.46e^{-0.63 t}+1.54e^{-6.37 t}$ V}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{}
+\begin{exwithsol}{solex:2-6}
 	\label{ex:2-6}
 On consid\`ere le circuit ci-dessous.
 \begin{center}
@@ -60,10 +59,9 @@ coefficients $D_1$ et $D_2$ sachant que :
 	\item la tension initiale $v_0$ aux bornes du condensateur est \'egale \`a 25 V.
 \end{enumerate}
 \rep{$R=10$ k$\Omega$ , $C=12.5$ nF , $D_1=-5\, 10^5$ , $D_2=25$.}
-\end{exercise}
+\end{exwithsol}
 
-
-\begin{exercise}{}
+\begin{exwithsol}{solex:2-7}
 	\label{ex:2-7}
 On consid\`ere le circuit ci-dessous. 
 \begin{center}
@@ -77,9 +75,9 @@ de $v_0(t)$ pour $t\geq 0$ en fonction des param\`etres $v_g$, $\alpha$ et
 $\omega_d$.
 
 \rep{$v_0(t)=-v_g(\frac{\omega_d}{2\alpha}+\frac{\alpha}{2\omega_d}) e^{-\alpha t}\sin \omega_d t$ V, $t\geq 0$.}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{}
+\begin{exwithsol}{solex:2-8}
 	\label{ex:2-8}
 \begin{center}
 	\includegraphics[width=0.95\linewidth]{exercices/ex-3-8}
@@ -98,10 +96,10 @@ On demande de d\'eterminer l'\'evolution de la tension $u_C(t)$ pour $t>0$.
 \rep{$u_C(t)= 100(1-e^{-500t})$ V, $0\leq t < 4.6\,10^{-3}$ s \\
 $u_C(t)= 147 e^{-1.25\,10^5(t-4.6\, 10^{-3})}\sin (9.68\, 10^4(t-4.6\, 10^{-3})+0.66)$
 V, $t \geq  4.6\,10^{-3}$.}
-\end{exercise}
+\end{exwithsol}
 
-
-\begin{exercise}{} \label{ex:2-9}
+\begin{exwithsol}{solex:2-9}
+\label{ex:2-9}
 On d\'esire proc\'eder au lancement d'un moteur \`a courant
 continu en ins\'erant une r\'esistance de d\'emarrage $R_d$. Cette
 r\'esistance est mise hors-circuit lorsque le courant d\'elivr\'e par la
@@ -121,9 +119,9 @@ D\'eterminer l'\'evolution du courant $i(t)$ pour $t>0$.
 \rep{
 $i(t)=3.75 - 33.75 e^{-4t}+30e^{-\frac{2}{3}t}$ A, $0 \leq t < 1.51$ s \\
 $i(t)=7.5 - 414.2 e^{-2t}+75e^{-\frac{2}{3}t}$ A, $t \geq 1.51$ s}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{}
+\begin{exwithsol}{solex:2-11}
 	\label{ex:2-11}
 	\begin{center}
 		\includegraphics[width=0.6\linewidth]{exercices/ex-3-11}
@@ -138,9 +136,9 @@ $i(t)=7.5 - 414.2 e^{-2t}+75e^{-\frac{2}{3}t}$ A, $t \geq 1.51$ s}
 	
 	\rep{$v_{C_1}(t)= E\,\frac{R_2}{ R_1+R_2}(1-e^{-t/\tau})+v_0 e^{-t/\tau}$ V, 
 		$t\geq 0$}
-\end{exercise}
+\end{exwithsol}
 
-\begin{exercise}{}
+\begin{exwithsol}{solex:2-14}
 	\label{ex:2-14}
 	\begin{center}
 		\includegraphics[width=0.6\linewidth]{exercices/ex-3-14}
@@ -229,7 +227,9 @@ $v_C(t)= -60e^{-5t}+707.06\, e^{-5000t}\sin (5000t+\frac{\pi}{4})$ V , $t\geq 0$
 
 
 \section{Solution des exercices}
-\paragraph{Exercice~\ref{ex:2-3}}~\\%
+\begin{solexercise}{\ref{ex:2-3}}
+	\label{solex:2-3}
+
 \noindent{\bf 1. P\'eriode} \ $0 \leq t \leq 15$~ms\\
 L'interrupteur bascule en position $b$. 
 Le condensateur est initialement non charg\'e~: $$v(0) = 0 \ \text{V}.$$
@@ -294,8 +294,10 @@ atteint 200$\,$V \`a la fois dans la p\'eriode de charge \ $(0 \leq t \leq
 		t_2 &=& 17.2\,\mbox{ms}~.
 	\end{eqnarray*}
 \end{enumerate}
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:2-5}}~\\%
+\begin{solexercise}{\ref{ex:2-5}}
+	\label{solex:2-5}
 On recherche la r\'eponse libre avec les conditions initiales~:
 \begin{eqnarray*}
 	u_1(0) &=& u_{10} \: = \: 2\, \mbox{V}\\
@@ -367,8 +369,10 @@ Finalement, les expressions de \ $u_1$ et $u_2$ \ sont~:
 	u_1(t) &=& 2.9\, e^{-0.63t} - 0.91 \, e^{-6.37t}\mbox{~V}\\
 	u_2(t) &=& 3.46\, e^{-0.63t} - 1.54 \, e^{-6.37t}\mbox{~V~.}
 \end{eqnarray*}
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:2-6}}~\\%
+\begin{solexercise}{\ref{ex:2-6}}
+	\label{solex:2-6}
 De l'expression de \ $v(t)$~:
 \[ v(t) \: = \: D_1\, t\, e^{-4000t} + D_2\, e^{-4000t}~~, ~~t\geq 0~, \]
 on d\'eduit que~:
@@ -431,8 +435,10 @@ avec
 \end{eqnarray*}
 et finalement
 \[ v(t) \: = \, -\, 3.2\, 10^5\, t \, e^{-4000t} + 25\, e^{-4000t}~. \]
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:2-7}}~\\%
+\begin{solexercise}{\ref{ex:2-7}}
+	\label{solex:2-7}
 \noindent{\bf 1. P\'eriode \ $t<0$}\\
 Le circuit consid\'er\'e se r\'eduit \`a
 \begin{center}
@@ -491,9 +497,10 @@ On d\'eduit finalement l'expression de \ $v_0(t)$~:
 	&=& -\, v_g \left( \dfrac{\omega_d}{2\alpha} + 
 	\dfrac{\alpha}{2\omega_d} \right) e^{-\alpha t} \, \sin\, \omega_d t ~\mbox{~V}~, t \geq 0~.
 \end{eqnarray*}
+\end{solexercise}
 
-
-\paragraph{Exercice~\ref{ex:2-8}}~\\%
+\begin{solexercise}{\ref{ex:2-8}}
+	\label{solex:2-8}
 Il faut consid\'erer les deux p\'eriodes temporelles suivantes :
 \begin{enumerate}
 	\item $0\leq t < t_s$, avec $t_s$ l'instant auquel la tension $u_C(t)$ atteint 90\% de la
@@ -570,8 +577,10 @@ Finalement :
 \[u_C(t^{'})=147 e^{-1.25\, 10^5 t^{'}}\sin (9.68\, 10^4 t^{'}+0.66)\]
 Rempla\c{c}ant $t^{'}$ par $t-t_s$:
 \[u_C(t)=147 e^{-1.25\, 10^5 (t-4.6\, 10^{-3})}\sin (9.68\, 10^4(t-4.6\, 10^{-3})+0.66)\]
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:2-9}}~\\%
+\begin{solexercise}{\ref{ex:2-9}}
+	\label{solex:2-9}
 Il faut distinguer les deux p\'eriodes~temporelles suivantes. 
 \begin{enumerate}
 	\item P\'eriode de lancement du moteur \: $0\leq t \leq t_d$.
@@ -717,9 +726,10 @@ du moteur.
 \begin{center}
 	\includegraphics[width=\linewidth]{sol_exercices/ex3-9-4}
 \end{center}
+\end{solexercise}
 
-
-\paragraph{Exercice~\ref{ex:2-11}}~\\%
+\begin{solexercise}{\ref{ex:2-11}}
+	\label{solex:2-11}
 \begin{center}
 	\begin{circuitikz}[european voltages]
 		\draw
@@ -831,9 +841,10 @@ Tenant compte de $v_{C_1}(0-) = 0$ et par continuit\'e de la tension aux bornes 
 Finalement 
 $$ v_{C_1}(t) = \left(v_0 - \frac{R_2}{R_1+R_2} E\right) e^{-t/\tau_1} + \frac{R_2}{R_1+R_2} E \textcolor{red}{- v_0}$$
 Le terme additionnel $- v_0$ compense la source de tension introduite.
+\end{solexercise}
 
-\paragraph{Exercice~\ref{ex:2-14}}~\\%
-
+\begin{solexercise}{\ref{ex:2-14}}
+	\label{solex:2-14}
 \begin{enumerate}
 	\item Le point 1 nous dit que nous sommes en r\'egime \'etabli, la bobine se comporte comme un court-circuit et ne pr\'esente aucune ddp. Le courant $i$ est dict\'e par 
 	$$i(t) = \frac{120-100}{2} = 10 \ A, \ t < 0.$$
@@ -866,3 +877,5 @@ La dynamique est illustr\'ee \`a la figure ci-dessous.
 \begin{center}
 \includegraphics[width=0.7\linewidth]{figs/ex_RLC}
 \end{center}
+
+\end{solexercise}
