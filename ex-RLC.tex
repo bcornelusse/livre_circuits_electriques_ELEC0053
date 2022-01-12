@@ -851,7 +851,7 @@ Le terme additionnel $- v_0$ compense la source de tension introduite.
 	avec $i(0^-) = 10 A$.
 	Donc 
 	$$\frac{di(t)}{dt} + \frac{R}{L} i(t)  = \frac{1}{L} (e_1(t)-100).$$
-	Cette \'equation admet comme solution particuli\`ere $i_p(t) = K_1 + K_2 e^{-10t}$.
+	Cette \'equation admet comme solution particuli\`ere $$i_p(t) = K_1 + K_2 e^{-10t}.$$
 	Identifions les param\`etres :
 	\begin{align*}
 	\frac{1}{L} (e_1(t)-100) &= -10 K_2 e^{-10t} + \frac{R}{L} (K_1 + K_2 e^{-10t}) \\
@@ -869,7 +869,7 @@ Le terme additionnel $- v_0$ compense la source de tension introduite.
 	\item En $t_1 \approx 0.17s$, le courant vaut $-6.65 A$. C'est la condition initiale de cette derni\`ere phase. Si on translate l'origine du temps en $t_1$, on a maintenant une solution de type r\'eponse libre
 	$$\frac{di(t)}{dt} + \frac{R}{L} i(t)  = \frac{20}{L},$$
 	et donc $i(t) = \frac{20}{R} + K e^{-\frac{t}{\tau}}$ avec $\tau = \frac{L}{R}$, et donc $$K = -6.65 - \frac{20}{R} = -16.65.$$
-	Finalement, et en re-translatant l'origine des temps,  $i(t) = 10 - 16.65 e^{-4(t-t_1)}$.
+	Finalement, et en re-translatant l'origine des temps,  $$i(t) = 10 - 16.65 e^{-4(t-t_1)}.$$
 \end{enumerate}
 La dynamique est illustr\'ee \`a la figure ci-dessous.
 \begin{center}

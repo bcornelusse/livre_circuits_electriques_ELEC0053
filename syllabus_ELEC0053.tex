@@ -212,7 +212,7 @@
 {% begin code
 	\refstepcounter{exercise}%
 	\par\vspace{\baselineskip}\noindent
-	\textbf{Exercice~\theexercise~ #1}%
+	\textbf{\large Exercice~\theexercise~ #1}%
 	\par\vspace{\baselineskip}\noindent\ignorespaces
 }%
 {% end code
@@ -223,7 +223,7 @@
 {% begin code
 	\refstepcounter{exercise}%
 	\par\vspace{\baselineskip}\noindent
-	\textbf{Exercice~\theexercise~ #1} \textit{Solution à la page \pageref{#2}.}%
+	\textbf{\large Exercice~\theexercise~ #1} \textit{Solution à la page \pageref{#2}.}%
 		\par\vspace{\baselineskip}\noindent\ignorespaces
 }%
 {% end code
@@ -237,11 +237,11 @@
 {% begin code
 	\refstepcounter{solexercise}%
 	\par\vspace{\baselineskip}\noindent
-	\textbf{Solution de l'exercice~#1}%
+	\textbf{\large Solution de l'exercice~#1}%
 	\par\vspace{\baselineskip}\noindent\ignorespaces
 }%
 {% end code
-	\ignorespacesafterend
+	\ignorespacesafterend \hfill $\blacksquare$ 
 }
 
 
@@ -277,7 +277,7 @@ Copyright \copyright\ \the\year\ \thanklessauthor
 %License for the specific language governing permissions and limitations
 %under the License.\index{license}
 
-\par\textit{First printing, \monthyear}
+\par\textit{Second printing, \monthyear}
 \end{fullwidth}
 
 % r.5 contents
