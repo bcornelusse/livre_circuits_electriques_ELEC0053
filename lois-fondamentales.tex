@@ -181,7 +181,7 @@ $$\int_1^2
 \overrightarrow{E}. \overrightarrow{d\ell}$$ est indépendant du chemin suivi entre $1$ et $2$.
 \end{enumerate}
 
-Les lois de Kirchhoff reposent sur ces hypothèses. Elles sont indépendantes de la nature des éléments constituant le circuit et expriment les contraintes imposées par la manière dont les éléments sont interconnectés, i.e. par la {\em topologie} ou le graphe du circuit.
+Les lois de Kirchhoff reposent sur ces hypothèses. Elles sont indépendantes de la nature des éléments constituant le circuit et expriment les con\-traintes imposées par la manière dont les éléments sont interconnectés, i.e. par la {\em topologie} ou le graphe du circuit.
 
 \subsection{Première loi de Kirchhoff (PLK) ou loi des noeuds}
 La PLK exprime le principe de la conservation de la charge dans le cadre des
@@ -381,21 +381,22 @@ En toute généralité on a $R=f(u,i,t)$, et les cas particuliers suivants :
 \begin{itemize}
 	\item $R=f(u,i)$ : résistance {\em autonome} ou {\em invariante}
 	les caractéristiques de l'élément ne dépendent pas du temps
-	\item $R=f(t)$ : résistance {\em linéaire}
+	\item $R=f(t)$ : résistance {\em linéaire} (Figure \ref{fig:RL})
 	\item $R= constante$ : résistance {\em linéaire et invariante}.
 \end{itemize}
 
-\begin{marginfigure}
-\begin{center}
-\includegraphics[width=0.65\linewidth]{figs/ch2_figs/RNL}
-\end{center}
-\caption{Résistance non linéaire}
-\end{marginfigure}
-\begin{marginfigure}
+%\begin{marginfigure}
+%\begin{center}
+%\includegraphics[width=0.65\linewidth]{figs/ch2_figs/RNL}
+%\end{center}
+%\caption{Résistance non linéaire}
+%\end{marginfigure}
+\begin{marginfigure}[2cm]
+	\label{fig:RL}
 	\centering
 	\input{figs/tikz_figures/chap2fig/resislinch2.tikz}
 	\caption{Résistance linéaire. Droite passant par $(0,0)$.
-		Pente de la droite = $R$}
+		Pente de la droite = $R$.}
 \end{marginfigure}
 L'hypothèse de linéarité est vraie  dans une plage de fonctionnement seulement. 
 Avec l'accroissement de la fréquence de fonctionnement d'un circuit, l'effet pelliculaire impacte la résistance des conducteurs.
@@ -422,7 +423,7 @@ $$G_{eq} = \left(\sum_{i=1}^n \frac{1}{G_i}\right)^{-1} = R_{eq}^{-1}.$$
 
 \paragraph{Association en parallèle.}
 
-Deux conductances en parallèle s'additionnent. Considérons le circuit de la Figure~\ref{fig:serie}.
+Deux conductances en parallèle s'additionnent. Considérons le circuit de la Figure~\ref{fig:parallele}.
 Soit $G_1 = R_1^{-1}$ et $G_2 = R_2^{-1}$. Par définition de la mise en parallèle, la différence de potentiel $v$ est la même aux bornes des deux éléments.  La résistance équivalente $R_{eq}$ doit être traversée par le même courant  que la mise en parallèle des deux résistances.
 \begin{marginfigure}
 	\centering
@@ -519,7 +520,7 @@ Ce flux et cette induction magnétique variables  sont
 "confinés" à l'intérieur de l'élément, car on a fait l'hypothèse des circuits
 localisés.
 
-Comme illustré à la Figure~\ref{fig:inductors}, il existe beaucoup d'implémentations physiques d'inductances, tels que le solénoïde, un enroulement en Cu sur matériau ferromagnétique.
+Comme illustré à la Figure~\ref{fig:inductors}, il existe beaucoup d'implémentations physiques d'inductances, tels que le solénoïde, un enroulement en cuivre sur matériau ferromagnétique.
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.68\linewidth]{figs/ch2_figs/inductors}
@@ -612,9 +613,9 @@ Comme illustré à la Figure~\ref{fig:capacitors}, il existe beaucoup d'implémenta
 \caption[Exemples des condensateurs.]{Exemples des condensateurs. Source: Wikipedia \url{https://fr.wikipedia.org/wiki/Condensateur}.\label{fig:capacitors}}
 \end{figure}
 
-\section{La diode}
+\section{La diode idéale}
 \label{sec:diode}
-Contrairement aux autres éléments passifs présentés, les résistances, condensateurs et bobines, une diode (Figure~\ref{fig:Diode}) est par essence un composant non-linéaire. Une diode laisse passer le courant selon sa polarisation, i.e. le sens et l'amplitude de la tension à ses bornes. Lorsqu'une tension positive est appliquée entre l'anode et la cathode de la diode, le courant circule (de l'anode à la cathode). Si une tension négative est appliquée entre l'anode et la cathode, aucun courant ne circule\footnote{Sauf si cette tension inverse est d'amplitude assez importante, i.e. supérieure à la tension de claquage. Mais nous n'étudierons pas ce cas d'utilisation dans ce cours.}.
+Contrairement aux autres éléments passifs présentés, les résistances, con\-den\-sateurs et bobines, une diode (Figure~\ref{fig:Diode}) est par essence un composant non-linéaire. Une diode laisse passer le courant selon sa polarisation, i.e. le sens et l'amplitude de la tension à ses bornes. Lorsqu'une tension positive est appliquée entre l'anode et la cathode de la diode, le courant circule (de l'anode à la cathode). Si une tension négative est appliquée entre l'anode et la cathode, aucun courant ne circule\footnote{Sauf si cette tension inverse est d'amplitude assez importante, i.e. supérieure à la tension de claquage. Mais nous n'étudierons pas ce cas d'utilisation dans ce cours.}.
 \begin{marginfigure}[-8cm]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/ch2_figs/Diode}
@@ -711,7 +712,7 @@ $$ i = J \frac{G_L}{G_L+G_i}.$$
 \end{boxedminipage}
 \end{table}
 
-\section{Les sources dépendantes de courant et de tension}
+\section{Les sources commandées (ou dépendantes) de courant et de tension}
 Une source commandée est un quadripôle unidirectionnel, non-autonome et actif ; un
 de ses accès est celui qui exerce la commande (accès de commande), l'autre est l'accès commandé. Autrement dit, la tension ou le courant délivré par la source dépend de la valeur d'une d.d.p. ou d'un courant à un autre endroit du circuit.
 
@@ -722,7 +723,7 @@ On distingue les quatre types de sources commandées idéales illustrées à la Figu
 	\caption{Source commandées : tension-tension, courant-tension $[\rho] = \frac{[V]}{[I]}=[\Omega]$, tension-courant $[\alpha] = \frac{[I]}{[V]}=[S]$, courant-courant.}
 	\label{fig:VVT}
 \end{figure}
-Pour une source commandée tension-tension (VVT : voltage to voltage transducer), 
+Pour une source commandée tension-tension (VVT : \textit{voltage to voltage transducer}), 
 $v_s$ n'est déterminé à l'instant $t$ que si la valeur $v_x(t)$ est connue.
 $v_x$ est la tension de commande et $v_s$ la tension commandée.
 Le coefficient multiplicatif $\mu$ ($\neq 0$) est sans dimension.
@@ -797,9 +798,9 @@ La Figure~\ref{fig:RadioAM_diode} représente un schéma détaillé de la radio AM i
 	\caption{Coupe 2: première partie du circuit redresseur.}
 	\label{fig:RadioAM_diode}
 \end{figure*}
-Le graphe comporte $n=12$ noeuds, plusieurs résistances, plusieurs condensateurs (simples et électrolytiques) et deux bobines. Le switch permet de sélectionner soit le circuit LC où C est variable ($L1$, $C1$), soit le circuit LC où L est variable ($L2$, $C2$).
+Le graphe comporte $n=12$ noeuds, plusieurs résistances, plusieurs condensateurs (simples et électrolytiques) et deux bobines. Le \textit{switch} permet de sélectionner soit le circuit LC où C est variable ($L1$, $C1$), soit le circuit LC où L est variable ($L2$, $C2$).
 
-En pratique, l'analyse de ce circuit ne se fait pas d'un bloc. Le circuit est décomposé en plusieurs étages, qui sont analysés dans les chapitres suivants.
+En pratique, l'analyse de ce circuit ne se fait pas d'un bloc. Le circuit est décomposé en plusieurs étages, qui sont analysés dans les dans la suite du cours lorsque les notions théoriques correspondantes sont introduites.
 
 \subsection{Démodulation de la radio AM}
 À ce stade, un seul étage peut être analysé : la première partie de la démodulation illustrée par la coupe $2$ de la Figure~\ref{fig:RadioAM_diode}. 
