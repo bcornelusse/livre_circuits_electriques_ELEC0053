@@ -20,12 +20,12 @@ courants des sources d'alimentation (réponse forcée), ou dues au fait que l'éner
 	Soit un condensateur excité par un courant $i(t)$. On a 
 	\[u(t)=\frac{1}{C}\int_{-\infty}^ti(x)dx\]
 	$u(t)$ dépend non seulement de $i$ à l'instant $t$ mais aussi de
-	$i(x)$ pour $x< t$, soit de toute l''histoire'' du système.
+	$i(x)$ pour $x< t$, soit de toute ''l'histoire'' du système.
 	
 	On a aussi :
 	{\small \[u(t)=u(t_0)+\frac{1}{C}\int_{t_0}^t i(x)dx\]}
 	$u(t_0)$ résume tout le passé du système de $[-\infty,t_0]$.
-		De même pour une inductance excitée par une tension $u(t)$
+		De même, pour une inductance excitée par une tension $u(t)$
 	\[
 	i(t)=\frac{1}{L}\int_{-\infty}^tu(x)dx, \qquad
 	i(t)=i(t_0)+\frac{1}{L}\int_{t_0}^tu(x)dx.\]
@@ -40,7 +40,7 @@ courants des sources d'alimentation (réponse forcée), ou dues au fait que l'éner
 	Sinon, cela donne lieu à un courant infini (cas de l'impulsion de Dirac !).
 	Il faut donc éviter de mettre sous tension brusquement un condensateur, ou de le court-circuiter.
 
-	On suppose ici les \textbf{éléments idéaux}, c'est-à-dire \textbf{sans pertes} (voir point suivant). En tenant compte des pertes, le courant lors d'une mise sous tension brusque est très important mais reste borné !
+	On suppose ici des \textbf{éléments idéaux}, c'est-à-dire \textbf{sans pertes} (voir point suivant). En tenant compte des pertes, le courant lors d'une mise sous tension brusque est très important, mais reste borné !
 	
 \paragraph{Continuité du courant dans une bobine.}
 	Si la tension $u(t)$ aux bornes d'une inductance est bornée $\forall t$, 
@@ -73,7 +73,7 @@ courants des sources d'alimentation (réponse forcée), ou dues au fait que l'éner
 	p_L(t)&=Li\frac{di}{dt}\\
 	w_L(t_1,t_2)& =\frac{1}{2}L(i^2(t_2)-i^2(t_1))
 	\end{align*}
-	Et pour un signal périodique  on a donc également
+	Et pour un signal périodique, on a donc également
 	\[w_L(t_1,t_1+T) = 0.\]
 	
 	
@@ -98,12 +98,12 @@ $$w(t)=
 \left\{\begin{array}{ll}0 & t<0\\
 5t^2e^{-10t}& t>0
 \end{array}\right.$$
-Dans l'intervalle $[0-0.2]$ s, l'inductance stocke une certaine énergie ;
-dans l'intervalle $[0.2-\infty]$ s, cette énergie est restituée
+Dans l'intervalle $[0,0.2]$ s, l'inductance stocke une certaine énergie ;
+dans l'intervalle $[0.2,\infty]$ s, cette énergie est restituée
 On a  :
 \begin{itemize}
 	\item $w(t) \geq 0 \quad \forall t$ : élément passif
-	\item $w(\infty)=0$ : finalement aucune énergie n'est dissipée
+	\item $w(\infty)=0$ : finalement aucune énergie n'est dissipée.
 \end{itemize}
 \end{testexample}
 \begin{figure*}[bt]
@@ -111,8 +111,8 @@ On a  :
 	\subfloat[Courant (excitation)]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_courant.pdf}} 
 	\subfloat[Tension]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_tension.pdf}} \\
 	\subfloat[Puissance]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_puissance.pdf}} 
-	\subfloat[Energie]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_energie.pdf}}
-	\caption{Evolution des différentes grandeurs à travers ou eux bornes de la bobine en fonction du temps\label{fig:ex_ind}.}
+	\subfloat[Énergie]{\includegraphics[width=0.3\textwidth]{figs/figs_reg_trans/bobine_transitoire_energie.pdf}}
+	\caption{Évolution des différentes grandeurs à travers ou aux bornes de la bobine en fonction du temps\label{fig:ex_ind}.}
 \end{figure*}
 	
 \paragraph{Énergie emmagasinée.}
@@ -128,7 +128,8 @@ L'énergie maximale qui peut être extraite du condensateur est
 \[max|w_C(0,t_2)|=\frac{1}{2}CV^2.\]
 
 Il est donc essentiel de retenir les constatations de la Table~\ref{tab:energie_LC} 
-\begin{table}[tb]
+
+\begin{table}[h]
 	\caption{Energie emmagasinée dans un condensateur ou dans une bobine.\label{tab:energie_LC}}
 	\begin{boxedminipage}{\linewidth}
 		L'énergie emmagasinée dans
@@ -171,9 +172,9 @@ Ensuite, en appliquant la PLK au noeud $1$, on a
 $$C\frac{du}{dt}+\frac{u-V_s}{R_s}=0,$$
 ou encore 
 $$\frac{du}{dt}+\frac{u}{CR_s}=\frac{V_s}{CR_s}.$$
-Il s'agît d'une équation différentielle du premier ordre à coefficients constants, qui accepte une solution du type
+Il s'agit d'une équation différentielle du premier ordre à coefficients constants, qui accepte une solution du type
 \[u(t)=Ke^{-t/\tau_s}+V_s.\]
-Reste à déterminer la constant $K$. Or, $u(0-)=0$, donc $u(0+)=0$ par continuité de $u$ et finalement 
+Reste à déterminer la constante $K$. Or, $u(0-)=0$, donc $u(0+)=0$ par continuité de $u$ et finalement 
 $$ K=-V_s$$
 Il vient finalement (cf. Figure \ref{fig:RC_u})
 \begin{center}
@@ -195,7 +196,7 @@ On peut également réécrire l'évolution de $u(t)$ pour mettre en évidence le \tex
 La \textit{constante de temps} $\tau_s=R_s C$ caractérise la vitesse de la
 charge. Au-delà de $5\tau_s$, le régime transitoire est négligeable et
 $u(t)\simeq V_s$.
-Quant au courant de charge, on déduit simplement (cf. Figure~\ref{fig:RC_i})
+Quant au courant de charge, on le déduit simplement (cf. Figure~\ref{fig:RC_i})
 \[i(t)=C\frac{du}{dt}=\frac{V_s}{R_s}e^{-t/\tau_s}\]
 \[i(0-)=0,\quad i(0+)=\frac{V_s}{R_s}=i_0.\]
 \begin{figure}[ht]
@@ -205,7 +206,7 @@ Quant au courant de charge, on déduit simplement (cf. Figure~\ref{fig:RC_i})
 \end{figure}
 
 \paragraph{Bilan énergétique.}
-Il est intéressant de s'intéresser au bilan énergétique de l'opération de charge avec ce circuit:
+On peut s'intéresser au bilan énergétique de l'opération de charge avec ce circuit:
 \begin{enumerate}
 	\item 	Énergie dissipée dans la résistance $R_s$ :
 	\[p_R(t)=\frac{V_s^2}{R_s}e^{-2t/R_sC}, \quad w_R(\infty)=\int_0^\infty
@@ -215,7 +216,7 @@ Il est intéressant de s'intéresser au bilan énergétique de l'opération de charge
 	\[p_C(t)=\frac{V_s^2}{R_s}e^{-t/R_sC}(1-e^{-t/R_sC}), \quad 
 	w_C(\infty)=\int_0^\infty
 	p_C(t)dt= \frac{V_s^2C}{2} = w_R \text{~!!}\]
-	\item Énergie fournie par la pile :\\
+	\item Énergie fournie par la source :\\
 	\[w_V=w_R+w_C=V_s\int_0^\infty i(t)dt=V_s^2C\]
 	\item Le \textit{rendement} de l'opération de charge est  $\eta=\frac{w_C}{w_V}=0.5$, indépendant de $R_s$ et de $C$ !
 \end{enumerate}
@@ -303,7 +304,7 @@ On peut vérifier que la tension aux bornes du condensateur est donnée par :
 Soit le circuit de la Figure~\ref{figRLserie}.
 \begin{enumerate}
 	\item Si l'interrupteur bascule en position 1 : {\em réponse forcée}, un
-	courant dans l'inductance s'établi : $i_{\infty}=\frac{V_s}{R_s}$. L'énergie
+	courant dans l'inductance s'établit : $i_{\infty}=\frac{V_s}{R_s}$. L'énergie
 	magnétique emmagasinée vaut :
 	\[w_L=\frac{1}{2}Li_{\infty}^2\]
 	\item Si maintenant l'interrupteur bascule en position 2 : {\em réponse libre}, l'énergie
@@ -333,7 +334,7 @@ $i(0-)=0$, donc $i(0+)=0$ par continuité de $i$, et
 	
 	$\lim_{t\rightarrow \infty}i(t)=\frac{V_s}{R_s}=i_{\infty}$
 \end{center}
-\begin{figure}[tb]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figs/figs_reg_trans/RL_courant_reponse_forcee.pdf}
 	\caption{Réponse forcée d'un circuit RL, courant.}
@@ -350,12 +351,11 @@ La tension aux bornes de l'inductance est
 \[u(t)=L\frac{di}{dt}=V_s e^{-t/\tau_s}, \]
 avec
 \[u(0-)=0\quad u(0+)=V_s.\]
-\begin{figure}[ht]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figs/figs_reg_trans/RL_tension_reponse_forcee.pdf}
 	\caption{Réponse forcée d'un circuit RL, tension.}
 \end{figure}
-
 
 \paragraph{Réponse libre.}
 \begin{marginfigure}
@@ -397,7 +397,7 @@ Donc l'énergie dissipée dans l'intervalle $[0,t]$ est
 \[w(t)=\int_0^t p(x)dx=\frac{1}{2}L\,i_{\infty}^2(1-e^{-2t/\tau})\]
 \[\lim_{t\rightarrow \infty}w(t)=\frac{1}{2}L\, i_{\infty}^2\]
 L'énergie initialement emmagasinée dans l'inductance est
-finalement entièrement dissipée dans la résistance  à une vitesse
+finalement entièrement dissipée dans la résistance à une vitesse
 fixée par la constante de temps $\tau$.
 
 \begin{marginfigure}
@@ -434,7 +434,7 @@ En dérivant,
 $$L\frac{d^2i}{dt^2}+R\frac{di}{dt}+\frac{1}{C} i = 0$$
 et en divisant par $L$, on obtient 
 $$\frac{d^2i}{dt^2}+\frac{R}{L}\frac{di}{dt}+\frac{1}{LC} i = 0$$
-A priori, le système a une solution du type 
+\textit{A priori}, le système a une solution du type 
 \[K_1e^{s_1 t}+K_2e^{s_2 t}\]
 où $s_1$ et $s_2$ sont les racines de l'équation caractéristique
 \[s^2 + \frac{R}{L} s + \frac{1}{LC} = 0.\]
@@ -493,7 +493,7 @@ $$\alpha^2 - \omega_0^2 < 0 $$
 			t\geq 0$}
 	\end{center}
 
-\noindent\underline{Remarque : }
+\noindent\underline{Remarque :}
 \[\text{Si} \quad R\rightarrow 0 \text{, alors}\quad 
 \left\{
 \begin{array}{l}
@@ -689,7 +689,7 @@ Dans le cas du régime oscillatoire amorti, on trouve :
 
 \section{Détection d'enveloppe de la radio AM}
 \label{demodu2}
-Comme illustré à la Figure~\ref{fig:RadioAM_filtres}, le premier étage d'amplification (que nous analyserons au Chapitre~\ref{cha:AO}) est suivi d'un dipôle RC série (coupe 5). Ce dipôle est utilisé pour lisser le signal et ainsi terminer la démodulation du signal d'entrée. En effet, sa constante de temps vaut $\tau = R_4 C_4 = 0,0134 s$. Or, notre signal porteur a une fréquence comprise entre environ $500$ et $1600$ kHz, c'est-à-dire une période $T \in [2\times10^{-6}; 6.25\times10^-7 ] s$. Comme $\tau \gg  T$, le condensateur n'a jamais le temps de se décharger, et va toujours suivre le signal. Il va donc "lisser" le signal modulé qui est capté et ainsi fournir le signal modulant, l'enveloppe.
+Comme illustré à la Figure~\ref{fig:RadioAM_filtres}, le premier étage d'amplification (que nous analyserons au Chapitre~\ref{cha:AO}) est suivi d'un dipôle RC série (coupe 5). Ce dipôle est utilisé pour lisser le signal et ainsi terminer la démodulation du signal d'entrée. En effet, sa constante de temps vaut $\tau = R_4 C_4 = 0,0134$ s. Or, notre signal porteur a une fréquence comprise entre environ $500$ et $1600$ kHz, c'est-à-dire une période $T \in [2\times10^{-6}, 6.25\times10^-7 ]$ s. Comme $\tau \gg  T$, le condensateur n'a jamais le temps de se décharger, et va toujours suivre le signal. Il va donc "lisser" le signal modulé qui est capté et ainsi fournir le signal modulant, l'enveloppe.
 De manière générale, cette étape de la démodulation s'effectue à chaque fois que l'on rencontre un condensateur (ce qui explique leur présence abondante dans le circuit). 
 
 \begin{figure*}[h!]

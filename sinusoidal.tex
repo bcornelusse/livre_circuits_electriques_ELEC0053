@@ -90,7 +90,6 @@ a_1\text{Re}[\sqrt{2}\bar{V}_1e^{j\omega t}] +
 a_2\text{Re}[\sqrt{2}\bar{V}_2e^{j\omega t}]\]
 
 avec $a_1$ et $a_2$, 2 nombres réels.
-
 \[a_1\text{Re}[\sqrt{2}\bar{V}_1e^{j\omega t}] +
 a_2\text{Re}[\sqrt{2}\bar{V}_2e^{j\omega t}] =
 \text{Re}[\sqrt{2}(a_1\bar{V}_1+a_2\bar{V}_2)e^{j\omega t}]\]
@@ -409,7 +408,7 @@ On peut réécrire la puissance instantanée comme la somme de deux fonctions :
 représente la puissance moyenne fournie au dipôle par période,
 	et donc la puissance réellement utilisable 
 \[P=\frac{1}{T}\int_0^T p(t)\, dt.\]
-La puissance active  dépend de l'\textbf{amplitude} de $u$ et $i$ \textbf{\underline{et}} de leur \textbf{déphasage} $\phi_u-\phi_i$.
+La puissance active dépend des \textbf{amplitudes} de $u$ et $i$ \textbf{\underline{et}} de leur \textbf{déphasage} $\phi_u-\phi_i$.
 
 		
 \paragraph{Puissance fluctuante.} 
@@ -442,7 +441,7 @@ Pour distinguer ces différents types de puissance, on les exprime dans des unité
 On peut calculer les puissances active, réactive et apparente à partir des phaseurs. 
 		
 \paragraph{Puissance complexe.}
-La puissance complexe est obtenue en formant le produit hermitique :
+La puissance complexe est obtenue en formant le produit hermitien :
 \begin{eqnarray*}
 	S&=&\bar{U}\bar{I}^*\\
 	& = & Ue^{j\phi_u}\,Ie^{-j\phi_i}= U\, Ie^{j(\phi_u-\phi_i)}\\
@@ -514,7 +513,7 @@ $\phi_u-\phi_i=-90^{\circ}$
 \item $p(t)$ est de moyenne nulle  $\rightarrow P=0$ !
 \item $p_f(t)= Q \sin 2(\omega t+ \phi_u)$
 \item $Q=-\omega C\, U^2$
-\item Echanges périodiques d'énergie entre les condensateurs et le reste du circuit.
+\item Échanges périodiques d'énergie entre les condensateurs et le reste du circuit.
 \item Un condensateur produit de la puissance réactive.
 \end{itemize}
 Dans un circuit purement capacitif, la puissance instantanée oscille
@@ -587,7 +586,7 @@ Idéalement, le facteur de puissance est donc \textit{compensé}, habituellement e
 \caption{Compensation (parfaite) du facteur de puissance\label{fig:compensationPF}.}
 \end{figure}
 
-\paragraph{Expression de $P$ et $Q$ à partir de l'impédance (admittance) du	dipôle.} Soit une Impédance $Z=R + j X$ : 
+\paragraph{Expression de $P$ et $Q$ à partir de l'impédance (admittance) du	dipôle.} Soit une impédance $Z=R + j X$ : 
 \[S=\bar{U}\,\bar{I}^*=Z\bar{ I}\bar{I}^*=ZI^2= R\, I^2+jX\,I^2\]
 On peut écrire, en fonction du courant, 
 \[P=R\, I^2\qquad Q= X\,I^2\]
@@ -621,7 +620,7 @@ Dans chaque branche,  $u_i$ et $i_i$ sont choisis dans le même sens
 \quad \text{est la puissance complexe totale fournie au circuit.}\]
 
 \paragraph{Synthèse.}
-Soient $P$ et $Q$ sont les puissances consommées par le dipôle. La Table~\ref{tab:synthese} synthétise les paragraphes précédents. 
+Soient $P$ et $Q$ les puissances consommées par le dipôle. La Table~\ref{tab:synthese} synthétise les paragraphes précédents. 
 \begin{table}[htb]
 	\caption{Synthèse des valeurs admissibles du déphasage, du facteur de puissance, de la puissance active, et de la puissance réactive pour les dipôles les plus communs.\label{tab:synthese}}
 \begin{center}
@@ -823,8 +822,8 @@ et on obtient les relations qui caractérisent l'élément ``transformateur idéal''
 	
 \section{Le triphasé}
 Le transport à grande distance de l'énergie électrique s'effectue usuellement en régime
-alternatif triphasé (à la fréquence de 50 Hz, comme par exemple en Europe, où de 60
-Hz comme par exemple aux USA), à très haute tension (THT) : 700, 400, 220, 150 kV.
+alternatif triphasé (à la fréquence de 50 Hz, en Europe, où de 60
+Hz aux USA), à très haute tension (THT) : 700, 400, 220, 150 kV.
 
 La THT sert notamment à réduire les pertes par effet Joule dans les conducteurs (ces pertes sont approximativement fonction inverse du carré de la tension). Le régime alternatif permet l'utilisation de transformateurs, fournissant un moyen commode d'élever la tension à partir des centrales de production (11 à 30 kV) et d'abaisser la tension à l'autre extrémité du réseau de transport : noeuds "BT" du réseau de distribution (par exemple 60 à 6 kV). Le régime triphasé, enfin possède des avantages multiples : création aisée d'un champ tournant exploité dans les moteurs, tels les moteurs à induction ; économie substantielle en matériaux conducteurs et en frais fixes d'installation ; puissance instantanée fournie à la charge triphasée constante.
 
@@ -845,7 +844,7 @@ Ceci est illustré à la Figure~\ref{fig:triphase}.
 \end{figure}
 
 \subsection{Montage en étoile}
-Considérons le générateur représenté su la Figure~\ref{fig:gentridch11}. Il possède trois enroulements, supposés équilibrés, délivrant dès lors les forces électromotrices:
+Considérons le générateur représenté sur la Figure~\ref{fig:gentridch11}. Il possède trois enroulements, supposés équilibrés, délivrant dès lors les forces électromotrices:
 \begin{figure}[tb]
 \centering
 \includegraphics[width=0.6\linewidth]{figs/triphase/gentridch11}
@@ -873,7 +872,7 @@ Le système étant par hypothèse équilibré, les trois courants sont également temp
 \begin{marginfigure}
 	\centering
 	\input{figs/triphase/courtrich11.tikz}
-	\caption{Phaseurs de COURANT des trois phases. \label{fig:3P_courants}}
+	\caption{Phaseurs de courant des trois phases. \label{fig:3P_courants}}
 \end{marginfigure}
 
 \begin{alignat*}{2}
@@ -925,7 +924,7 @@ $\bar{U}_{ab}$, $\bar{U}_{bc}$, $\bar{U}_{ca}$ forment aussi une
 séquence directe et $U=\sqrt{3}V$.
 
 On voit ainsi que l'existence du fil neutre présente l'avantage d'offrir deux tensions distinctes, la tension simple et la tension composée, les modules de ces deux tensions étant dans le rapport $1/\sqrt{3}$.
-Dans un circuit de distribution domestique la tension de phase vaut 230 V (tension phase-neutre) et la tension de ligne vaut 400 V.
+Dans un circuit de distribution domestique, la tension de phase vaut 230 V (tension phase-neutre) et la tension de ligne vaut 400 V.
 
 \paragraph{Le neutre à la terre.}
 Il serait en principe possible de supprimer le fil neutre et d'obtenir un réseau en étoile à trois fils. En réalité cependant, un réseau n'est jamais parfaitement équilibré. Si on souhaite se passer du fil de neutre, on doit alors connecter les neutres à la terre. Le (faible) courant de déséquilibre circule donc via la terre.
@@ -938,7 +937,7 @@ Ce montage présente un avantage en cas de court-circuit entre une phase et la te
 	négligeable circule via la terre entre le point de court-circuit et
 	le neutre, ce courant peut être détecté par une protection (disjoncteur différentiel !)
 \end{itemize}
-Ce type de raccordement à la terre (réseau dit "IT") et utilisé par exemple dans les hôpitaux car il offre plus de robustesse à des défauts (pas d'interruption totale de service, pas de surtension). Cependant dès qu'un défaut est identifié il importe de le corriger rapidement afin de restaurer le mode de fonctionnement nominal du système. Il requiert donc un monitoring et des protections plus avancées qu'un système où le neutre est distribué.
+Ce type de raccordement à la terre (réseau dit "IT") et utilisé par exemple dans les hôpitaux car il offre plus de robustesse à des défauts (pas d'interruption totale de service, pas de surtension). Cependant dès qu'un défaut est identifié il importe de le corriger rapidement afin de restaurer le mode de fonctionnement nominal du système. Il requiert donc une surveillance et des protections plus avancées qu'un système où le neutre est distribué.
 
 \subsection{Montage en triangle}
 
@@ -964,7 +963,7 @@ Chaque conducteur de ligne est traversé par un courant égal à la différence des 
 
 \subsection{Puissance}
 \paragraph{Montage en étoile.}
-La Puissance instantanée fournie à une charge triphasée connectée en
+La puissance instantanée fournie à une charge triphasée connectée en
 étoile est 
 \begin{eqnarray*}
 	p_{3\phi}(t)& =& v_ai_a+v_bi_b+v_ci_c\\

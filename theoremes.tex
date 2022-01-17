@@ -132,14 +132,14 @@ est supposée dépourvue de couplages avec $\mathcal{R}$.
 \subsection{Démonstration}
 La démonstration est constructive et se divise en trois étapes.
 
-\paragraph{Etape 1.} Par application du théorème de substitution, on remplace la charge par une source de courant (Figure~\ref{fig:th1}). Cela est possible si le réseau $\mathcal{R}$ a une solution unique -- ce qui est le cas si le réseau est linéaire -- la charge a une solution unique, et il n'y a pas de couplage entre la charge et $\mathcal{R}$.
+\paragraph{Étape 1.} Par application du théorème de substitution, on remplace la charge par une source de courant (Figure~\ref{fig:th1}). Cela est possible si le réseau $\mathcal{R}$ a une solution unique -- ce qui est le cas si le réseau est linéaire -- la charge a une solution unique, et il n'y a pas de couplage entre la charge et $\mathcal{R}$.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\linewidth]{figs/theoremes/th1}
-\caption{Etape 1 : substitution. \label{fig:th1}}
+\caption{Étape 1 : substitution. \label{fig:th1}}
 \end{figure}
 
-\paragraph{Etape 2.} On applique le théorème de superposition (Figure~\ref{fig:th2}):  
+\paragraph{Étape 2.} On applique le théorème de superposition (Figure~\ref{fig:th2}):  
 \begin{enumerate}
 	\item la source $i_L$ agit seule, les sources indépendantes de $\mathcal{R}$ sont passifiées,
 	\item la source $i_L$ est passifiée, les sources indépendantes de $\mathcal{R}$ sont actives.
@@ -152,15 +152,15 @@ On a
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{figs/theoremes/th2}
-	\caption{Etape 2 : superposition. \label{fig:th2}}
+	\caption{Étape 2 : superposition. \label{fig:th2}}
 \end{figure}
 
-\paragraph{Etape 3.} On dérive le schéma équivalent de Thévenin (Figure~\ref{fig:th3}).
+\paragraph{Étape 3.} On dérive le schéma équivalent de Thévenin (Figure~\ref{fig:th3}).
 On a $$u_L = u_1 + v_{Th}$$
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.6\linewidth]{figs/theoremes/th3}
-	\caption{Etape 3 : dérivation du schéma équivalent. \label{fig:th3}}
+	\caption{Étape 3 : dérivation du schéma équivalent. \label{fig:th3}}
 \end{figure}
 Donc
 \begin{itemize}
@@ -326,7 +326,7 @@ Pour $G_{No}$, il y a trois possibilités :
 \end{enumerate}
 
 
-\subsection{Equivalence d'une source de tension et d'une source de courant}
+\subsection{Équivalence d'une source de tension et d'une source de courant}
 
 En appliquant le théorème de Thévenin à une source de courant en parallèle avec une résistance, on peut établir la relation d'équivalence suivante :
 \begin{center}
@@ -345,7 +345,7 @@ G_{No} &= \frac{1}{R_{Th}} \\
 i_{No} &= \frac{v_{Th}}{R_{Th}}.
 \end{eqnarray*}
 
-\begin{testexample}[Equivalent de Thévenin par équivalence de source.]
+\begin{testexample}[Équivalent de Thévenin par équivalence de source.]
 En revenant à notre exemple, on voit qu'il est possible dans ce cas simple d'obtenir l'équivalent de Thévenin par équivalences de source successives : 
 \begin{center}
 \includegraphics[width=0.98\linewidth]{figs/theoremes/ex_eq_source}
