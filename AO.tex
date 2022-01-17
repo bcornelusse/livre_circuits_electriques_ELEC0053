@@ -16,9 +16,9 @@ indispensable pour leur synthèse. Par contre, on ne peut en aucune façon suppose
 réciproques.}
 
 \section{L'élément amplificateur opérationnel}
-l'AO est un composant électronique introduit dans les années 60 comme calculateur analogique.
+K'AO est un composant électronique introduit dans les années 60 comme calculateur analogique.
 C'est un amplificateur de tension possédant deux entrées différentielles et une sortie unique (cf. Figure~\ref{fig:AO}).
-En théorie des circuits, on ne s'intéresse pas à sa constitution interne mais à son fonctionnement, observé d'un certain nombre de ses
+En théorie des circuits, on ne s'intéresse pas à sa constitution interne, mais à son fonctionnement, observé d'un certain nombre de ses
 bornes :
 \begin{itemize}
 	\item entrée inverseuse ($v_n$)
@@ -57,14 +57,14 @@ Formellement, on a
 \textcolor{blue}{A}(v_p-v_n) & -V_{sat}\leq \textcolor{blue}{A}(v_p-v_n)\leq V_{sat}\\
 +V_{sat}& \textcolor{blue}{A}(v_p-v_n)> V_{sat}
 \end{cases}\]
-En ce qui concerne les courants, la PLK s'applique mais il ne faut pas oublier de prendre en compte l'alimentation :
+En ce qui concerne les courants, la PLK s'applique, mais il ne faut pas oublier de prendre en compte l'alimentation :
 \[i_p+i_n+i_o+\underbrace{i_{c+}+i_{c-}}_{\text{Alimentation !}}=0.\]
 
 
 %-------------------------------------------------------------------
 
 \subsection{Modèle idéal}
-En pratique les valeurs typiques des paramètres d'un AO sont :
+En pratique, les valeurs typiques des paramètres d'un AO sont :
 \begin{itemize}
 	\item $V_{sat} < 20$ V
 	\item $A$ de l'ordre de $10^4$ à $10^5$
@@ -75,7 +75,7 @@ En pratique les valeurs typiques des paramètres d'un AO sont :
 L'amplificateur opérationnel idéal est supposé avoir un gain infini. Ses caractéristiques sont les suivantes :
 \begin{enumerate}
 \item c'est un élément linéaire ;
-\item le gain $A$ est infini. Ceci a pour conséquence que la tension d'entrée doit être nulle pour que la tension de sortie soit finie. La tension de sortie est indéterminée et indépendante de la charge. Ce sont les éléments placés entre les entrées et la sortie (boucle de retour - feedback) qui permettront de fixer la tension et les courants dans le circuit comportant l'amplificateur idéal :
+\item le gain $A$ est infini. Ceci a pour conséquence que la tension d'entrée doit être nulle pour que la tension de sortie soit finie. La tension de sortie est indéterminée et indépendante de la charge. Ce sont les éléments placés entre les entrées et la sortie (boucle de retour -- \textit{feedback} qui permettront de fixer la tension et les courants dans le circuit comportant l'amplificateur idéal :
 $$A=\infty \rightarrow \epsilon=0, \quad v_p=v_n$$
 \item l'impédance d'entrée est infinie, car les courants d'entrée sont nuls :
 $$i_p=i_n=0 \rightarrow Z_{in}=\infty$$
@@ -99,15 +99,15 @@ En résumé, les conséquences de ces hypothèses sont que :
 Remarques importantes : 
 \begin{itemize}
 	\item En mode de fonctionnement linéaire, $v_o$ est fixé par le circuit
-		extérieur à l'AO car il y a le plus souvent la présence d'une contre-réaction négative (cf. plus bas).
-	\item \alert{Attention : $i_o\neq 0$} car il existe un courant débité par les sources d'alimentation
+		extérieur à l'AO, car il y a le plus souvent la présence d'une contre-réaction négative (cf. plus bas).
+	\item \alert{Attention : $i_o\neq 0$}, car il existe un courant débité par les sources d'alimentation.
 \end{itemize}
 
 On notera que l'amplificateur peut être représenté schématiquement comme à la Figure~\ref{fig:AO_equiv} :
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{figs/AO/OpAmpEquivalent}
-	\caption{Schéma équivalent}
+	\caption{Schéma équivalent.}
 	\label{fig:AO_equiv}
 \end{figure}
 
@@ -188,7 +188,7 @@ On a donc
  \[i_s=\frac{v_s-v_o}{R_s+R_f}\]
 et
 	\[v_n=v_s\frac{R_f}{R_f+R_s}+v_o\frac{R_s}{R_f+R_s}\]
-Le taux de contre réaction vaut $$\frac{ R_s}{R_f+R_s}.$$
+Le taux de contre-réaction vaut $$\frac{ R_s}{R_f+R_s}.$$
 
 \paragraph{Résistance d'entrée.}
 Résistance vue de la source $v_s$ :
@@ -315,7 +315,7 @@ Les sources commandées (cf. Figure~\ref{fig:VVT}) peuvent être réalisées au moye
 \end{center}
 
 \section{Filtre actif}
-Le montage de la figure suivante 
+Le montage de la Figure suivante 
 \begin{center}
 	\includegraphics[width=0.5\linewidth]{figs/filtres/filtre_actif}
 \end{center}
@@ -326,9 +326,9 @@ Sa pulsation de coupure à -3 dB vaut
 \[\omega_c=\frac{1}{R_iC_i}.\]
 
 
-\section{Le montage amplificateur non-inverseur}
+\section{Le montage amplificateur non inverseur}
 
-La tension $v_g$ à amplifier est connectée à l'entrée non inverseuse de l'ampli.
+La tension $v_g$ à amplifier est connectée à l'entrée non inverseuse de l'amplificateur.
 
 \subsection{Caractéristiques}
 
@@ -384,7 +384,7 @@ Le gain en tension est
 \end{center}
 On voit de suite que 
 \[v_n=v_o\frac{R_s}{R_f+R_s}\]
-Le taux de contre réaction est donc $\frac{R_s}{R_f+R_s}$
+Le taux de contre-réaction est donc $\frac{R_s}{R_f+R_s}$
 
 \paragraph{Résistance d'entrée.}
 La résistance vue de la source $v_g$ est infinie puisque $i_p=0$. Donc $R_{in}=\infty$.
@@ -429,7 +429,7 @@ Ce montage permet d'isoler deux parties de circuit, ceci grâce à l'impédance d'e
 \section{Addition et soustraction}
 \subsection{Additionneur}
 
-Par application du théorème de superposition (qui sera énoncé au Chapitre~\ref{sec:theoremes}), en supposant toujours se trouver dans la plage de fonctionnement linéaire de l'AO, le circuit ci-dessous implique 
+Par application du théorème de superposition (énoncé au Chapitre~\ref{sec:theoremes}), en supposant toujours se trouver dans la plage de fonctionnement linéaire de l'AO, le circuit ci-dessous implique 
 \begin{center}
 \includegraphics[width=0.8\linewidth]{figs/AO/AO_add}
 \end{center}
@@ -528,25 +528,25 @@ Un AO peut se matérialiser sous différentes formes, comme représenté à la Figure
 	\label{AO1}
 \end{marginfigure}
 La coupe $3$ de la Figure~\ref{fig:RadioAM_AOs} représente le deuxième étage de la radio AM.
-Le premier amplificateur opérationnel est utilisé dans un montage non-inverseur (Figure~\ref{AO1}).
-On obtient alors la fonction de transfert $H(\omega)$ qui exprime le gain en amplitude:
+Le premier amplificateur opérationnel est utilisé dans un montage non inverseur (Figure~\ref{AO1}).
+On obtient alors la fonction de transfert $H(\omega)$ qui exprime le gain en amplitude :
 $$
 H(\omega) = \frac{V_s}{V_e} = \frac{Z_1 + Z_2}{Z_2} = 1 + \frac{Z_1}{Z_2}
 $$
 Avec $Z_1 = \frac{R_3}{1+j \omega R_3 C_3}$ qui dépend de la fréquence du signal d'entrée, et $Z_2 = R_1$.
 Quand $\omega R_3 C_3 \gg 1$, on a $|Z_1| \sim 0$ et $H(\omega) \sim 1$. Par contre, si $\omega R_3 C_3 \ll 1$, on a $|Z_1| \sim R_3$ et $H(\omega) = 1 + \frac{R_3}{R_2} = 1 + \frac{1000}{4,7} = 213,76$.
-C'est la caractéristique d'un filtre passe-bas mais qui va, au lieu d'atténuer les fréquences non voulues comme le fait un filtre passif, amplifier les fréquences souhaitées. La fréquence de coupure est ici de $\frac{1}{2 \pi R_3 C_3} = 1591 Hz$ qui correspond bien à une borne supérieure d'une fréquence AM.
+C'est la caractéristique d'un filtre passe-bas mais qui va, au lieu d'atténuer les fréquences non voulues comme le fait un filtre passif, amplifier les fréquences souhaitées. La fréquence de coupure est ici de $\frac{1}{2 \pi R_3 C_3} = 1591 kHz$ qui correspond bien à une borne supérieure pour les fréquences AM.
 
 \begin{figure*}[p]
 	\centering
 	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAM_AOs}
-	\caption{Deuxième étage d'amplification de la radio AM.}
+	\caption{Étages d'amplification de la radio AM.}
 	\label{fig:RadioAM_AOs}
 \end{figure*}
 
 \subsection{Étage 3.}
 La coupe $6$ de la Figure~\ref{fig:RadioAM_AOs} représente le troisième étage de la radio AM.
-Le deuxième AO est utilisé dans un montage inverseur un peu particulier. En effet, l'entrée non-inverseuse n'est pas connectée à la terre. En réalité, elle est connectée à la sortie d'un diviseur potentiométrique, illustré par la coupe 4 de la Figure~\ref{fig:RadioAM_AOs}.
+Le deuxième AO est utilisé dans un montage inverseur un peu particulier. En effet, l'entrée non inverseuse n'est pas connectée à la terre. En réalité, elle est connectée à la sortie d'un diviseur potentiométrique, illustré par la coupe 4 de la Figure~\ref{fig:RadioAM_AOs}.
 En appliquant la formule d'un diviseur potentiométrique, si $Z_1 = R_5$ et $Z_2$ la mise en parallèle de $C_5$ et $R_6$, on obtient
 \begin{align*}
 V_{off} &= \frac{Z_2}{Z_1+Z_2} E \\ &= \frac{R_6}{R_6 + R_5 + j\omega R_5 R_6 C_5} E \\ &= \frac{1}{1 + \frac{R_5}{R_6} + j\omega R_5 C_5} E\\ & = \frac{1}{2 + j \omega R_5 C_5} E
@@ -557,7 +557,7 @@ V_{off} &= \frac{Z_2}{Z_1+Z_2} E \\ &= \frac{R_6}{R_6 + R_5 + j\omega R_5 R_6 C_
 	\caption{Diviseur potensiométrique et définition de $V_{off}$.}
 \end{figure}
 La sortie dépend donc de la fréquence. En effet, si $\omega R_5 C_5 \gg 2, V_2 \sim 0$ et si $\omega R_5 C_5 \ll 2, V_s \sim \frac{E}{2}$. Ce dispositif est donc utilisé comme filtre passe-bas de fréquence de coupure égale à $f_0 = \frac{2}{2 \pi R_5 C_5} = 0,14\, Hz$. 
-Il permet en réalité de filtrer toutes les composantes alternatives présentes dans le circuit et d'ainsi avoir une sortie quasi continue et égale à $\frac{E}{2}$. On supposera donc pour la suite que $V_{off}$ est constant et égal à $\frac{E}{2} = 4,5$ V. Dans notre circuit, ce diviseur va donc fixer la référence des tensions mesurées à l'entrée du deuxième AO à $V_{off}=4,5 V$. Cela permet d'utiliser cet AO dans l'ensemble de sa plage linéaire. En effet, la diode avait supprimé toutes les composantes négatives du signal d'entrée, et donc à la sortie du premier AO, on ne retrouve que des tensions positives. En fixant la référence à $4,5 V$, on permet de multiplier par $2$ la plage utilisée par l'AO car les tensions inférieures à cette référence seront considérées comme négatives et celles supérieures seront positives mais diminuées de cet \textit{offset} de $4,5$ V.
+Il permet en réalité de filtrer toutes les composantes alternatives présentes dans le circuit et d'ainsi avoir une sortie quasi continue et égale à $\frac{E}{2}$. On supposera donc pour la suite que $V_{off}$ est constant et égal à $\frac{E}{2} = 4,5$ V. Dans notre circuit, ce diviseur va donc fixer la référence des tensions mesurées à l'entrée du deuxième AO à $V_{off}=4,5 V$. Cela permet d'utiliser cet AO dans l'ensemble de sa plage linéaire. En effet, la diode avait supprimé toutes les composantes négatives du signal d'entrée, et donc à la sortie du premier AO, on ne retrouve que des tensions positives. En fixant la référence à $4,5 V$, on permet de multiplier par $2$ la plage utilisée par l'AO, car les tensions inférieures à cette référence seront considérées comme négatives et celles supérieures seront positives, mais diminuées de cet \textit{offset} de $4,5$ V.
 
 Le deuxième AO est donc simplement utilisé dans un montage inverseur dont on a modifié la référence. Il peut facilement être montré que, à la sortie du deuxième AO, si $V_e$ est la tension d'entrée comme représenté à la Figure~\ref{AOinv}, la tension vaut
 $$

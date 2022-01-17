@@ -94,7 +94,7 @@ Le théorème de superposition est valable pour tout circuit à éléments localisés,
 linéaires et initialement relaxés, puisqu'il est basé sur le caractère linéaire et homogène
 des relations fournies par les lois de Kirchhoff et des relations $u$ -- $i$ de ses branches.
 
-\begin{testexample}[Illustration du théorème de superposition]
+\begin{testexample}[Illustration du théorème de superposition.]
 \begin{center}
 	\includegraphics[width=0.9\linewidth]{figs/theoremes/superposition_illu}
 \end{center}
@@ -102,7 +102,7 @@ des relations fournies par les lois de Kirchhoff et des relations $u$ -- $i$ de 
 
 \section{Théorème de Thévenin}
 
-Le théorème de Thévenin a de nombreuses applications aussi bien pratiques que théoriques. Par exemple on peut citer le problème de l'adaptation (cf. Section~\ref{sec:adaptation}) et les analyses de sensibilités.
+Le théorème de Thévenin a de nombreuses applications aussi bien pratiques que théoriques. Par exemple, on peut citer le problème de l'adaptation (cf. Section~\ref{sec:adaptation}) et les analyses de sensibilités.
 
 \subsection{Énoncé}
 Le théorème est énoncé dans la Table~\ref{tab:thevenin} et illustré à la Figure~\ref{fig:thevenin}.
@@ -156,7 +156,7 @@ On a
 \end{figure}
 
 \paragraph{Étape 3.} On dérive le schéma équivalent de Thévenin (Figure~\ref{fig:th3}).
-On a $$u_L = u_1 + v_{Th}$$
+On a $$u_L = u_1 + v_{Th}.$$
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.6\linewidth]{figs/theoremes/th3}
@@ -172,7 +172,7 @@ Donc
 \subsection{Détermination des paramètres $v_{Th}$ et $R_{Th}$}
 
 
-Pour déterminer $v_{Th}$, il suffit de déterminer la d.d.p aux  bornes du circuit à vide, i.e. lorsqu'aucune charge n'y est connectée.
+Pour déterminer $v_{Th}$, il suffit de déterminer la d.d.p. aux  bornes du circuit à vide, i.e. lorsqu'aucune charge n'y est connectée.
 
 Pour $R_{Th}$, on peut utiliser une des trois méthodes suivantes :
 \begin{enumerate}
@@ -187,7 +187,7 @@ Pour $R_{Th}$, on peut utiliser une des trois méthodes suivantes :
 \end{enumerate}
 
 
-\begin{testexample}[Résistances linéaires et sources indépendantes]
+\begin{testexample}[Résistances linéaires et sources indépendantes.]
 
 Déterminons le schéma équivalent de Thévenin du circuit :
 \begin{center}
@@ -197,16 +197,15 @@ $v_{Th}$ est la tension à vide à l'accès, donc, comme le courant dans la résista
 \[v_{Th}=v_{3A}\] 
 Par application de la PLK, on a 
 $$\frac{v_{Th}-25}{5}+\frac{v_{Th}}{20}-3=0 $$
-et donc $v_{Th}=32 \, \text{V}$
+et donc $v_{Th}=32 \, \text{V}.$
 
-On détermine ensuite $R_{Th}$ par essai en court-circuit et donc le calcul de $i_{cc}$ :
+On détermine ensuite $R_{Th}$ par essai en court-circuit, ainsi que $i_{cc}$ par la PLK,
 \begin{center}
 \includegraphics[width=0.6\linewidth]{figs/theoremes/ex_Th_2}
 \end{center}
-Par la PLK,
 $$\frac{v_{3A}-25}{5}+\frac{v_{3A}}{20}-3 +
 \frac{v_{3A}}{4}=0 $$
-Donc
+donc
 $$v_{3A}=16\, \text{V}$$
 et
 $$i_{cc}=\frac{16}{4}=4 \,\text{A}.$$
@@ -214,9 +213,9 @@ Finalement,
 $$ R_{Th}=\frac{v_{Th}}{i_{cc}}=8\, \Omega.$$
 \end{testexample}
 
-\begin{testexample}[Détermination de $R_{Th}$ par passification et réduction]
+\begin{testexample}[Détermination de $R_{Th}$ par passification et réduction.]
 Le circuit de l'exemple précédent ne comporte que des résistances et aucune source commandée. 
-Dans ce cas, il est plus simple de rechercher la résistance équivalente du circuit passifié
+Dans ce cas, il est plus simple de rechercher la résistance équivalente du circuit passifié.
 \begin{center}
 \includegraphics[width=0.6\linewidth]{figs/theoremes/ex_Th_3}
 \end{center}
@@ -226,7 +225,7 @@ Vue de l'accès, la résistance de $4 \,\Omega$ est en série avec la mise en paral
 
 \subsection{Adaptation et transfert de puissance maximum}
 \label{sec:adaptation}
-Soit le circuit quelconque mais linéaire et invariant de la Figure~\ref{fig:adaptation}. On désire déterminer la valeur de l'impédance de charge $Z_L$ qui permet de soutirer à ce circuit le maximum de puissance (active). Deux cas peuvent se présenter: (1) soit on a une connaissance précise de la composition du circuit, (2) soit on n'a accès au circuit que depuis l'accès où est connecté $Z_L$ sans connaître sa composition. Dans les deux cas, l'utilisation du théorème de Théveninin est intéressante. Dans le cas (1), il permet de simplifier la condition de transfert maximum de puissance. Dans le cas (2) son utilisation est obligatoire car il permet, par expérimentation (mesure), d'identifier les paramètres du système inconnu. Supposons donc que l'équivalent de Thévenin est établi, décrit par une source de tension $\bar{V}_{Th}$ et une impédance $Z_{Th}$ :
+Soit le circuit quelconque, mais linéaire et invariant de la Figure~\ref{fig:adaptation}. On désire déterminer la valeur de l'impédance de charge $Z_L$ qui permet de soutirer à ce circuit le maximum de puissance (active). Deux cas peuvent se présenter: (1) soit on a une connaissance précise de la composition du circuit, (2) soit on n'a accès au circuit que depuis l'accès où est connecté $Z_L$ sans connaître sa composition. Dans les deux cas, l'utilisation du théorème de Théveninin est intéressante. Dans le cas (1), il permet de simplifier la condition de transfert maximum de puissance. Dans le cas (2) son utilisation est obligatoire, car il permet, par expérimentation (mesure), d'identifier les paramètres du système inconnu. Supposons donc que l'équivalent de Thévenin est établi, décrit par une source de tension $\bar{V}_{Th}$ et une impédance $Z_{Th}$ :
 \begin{marginfigure}
 	\centering
 	\includegraphics[width=0.98\linewidth]{figs/ch4_figs/adaptation_1}
