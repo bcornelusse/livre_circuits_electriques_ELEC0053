@@ -1,6 +1,105 @@
 % !TeX root = syllabus_ELEC0053.tex
 % !TeX encoding = ISO-8859-1
 % !TeX spellcheck = fr_FR
+\section{Exercices résolus}
+
+\begin{exwithsol}{Modèles "complet" et idéal.}{solex:7-1}
+\label{ex:7-1}
+\begin{center}
+	\includegraphics{exercices/ex-AO1}
+\end{center}
+\begin{enumerate}
+	\item Remplacer l'A.O. par son modèle complet et calculer le gain d'amplification. \begin{itemize}
+	\item $R_{in} = 2~M\Omega$~;
+	\item $A = 2\cdot10^5$~;
+	\item $R_{out} = 50~\Omega$.
+	\end{itemize}
+	\item Faire l'hypothèse d'A.O. idéal. Calculer le gain d'amplification. \begin{itemize}
+		\item $R_{in} \rightarrow \inf$~;
+		\item $A \rightarrow \inf$~;
+		\item $R_{out} \rightarrow 0$.
+		\end{itemize}
+	\item Comparer les deux solutions si la tension d'entrée vaut 2 V.
+\end{enumerate}
+
+\rep{1) $\textstyle\frac{v_o}{v_s} = 1.999$\\
+2) $\textstyle\frac{v_o}{v_s} = 2$\\\
+3) $v_{o,1}=-3.999$ V, $v_{o,2} = -4$ V}
+\end{exwithsol}
+
+
+\begin{exwithsol}{Montage non-inverseur.}{solex:7-2}
+\label{ex:7-2}
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{exercices/ex-AO2}
+\end{center}
+En considérant l'A.O. comme idéal, déterminer l'expression du gain et du courant de sortie de l'amplificateur. 
+
+\rep{1) $\frac{v_o}{v_s} = 9 \\
+2) i_o = 6,5\,10^{-4}v_s$ A}
+\end{exwithsol}
+
+
+\begin{exwithsol}{Cascade de montages non-inverseurs.}{solex:7-3}
+	\label{ex:7-3}
+	On considère le montage suivant~:
+	\begin{center}
+		\includegraphics{exercices/ex-AO3}
+	\end{center}
+	En considérant les amplificateurs comme idéaux, déterminer $v_o$, $v_a$ et le gain total du montage en cascade. La tension d'alimentation est de $5$ V pour chacun des AOs.
+	\rep{1) $v_a = 100$ mV et $v_o = 350$ mV\\
+	2) $\frac{v_o}{v_s} = 17,5$}
+\end{exwithsol}
+
+
+\begin{exwithsol}{Réponse fréquentielle, filtre actif.}{solex:7-4}
+	\label{ex:7-4}
+	On considère le montage suivant~:
+	\begin{center}
+		\includegraphics{exercices/ex-AO4}
+	\end{center}
+	\begin{enumerate}
+		\item Montrer que $H(j\omega) = \left.\frac{\bar{U}_2}{\bar{U}_1} \right|_{\bar{I}_2 = 0}$
+		\item Calculer la tension de sortie si la tension d'entrée est un signal sinusoïdal de fréquence $f = 1$ kHz et d'amplitude $V_g = 1$ V.
+	\end{enumerate}
+	\rep{1) \\
+	2)}
+	
+\end{exwithsol}
+
+\begin{exwithsol}{Modèle non-idéal.}{solex:7-5}
+	\label{ex:7-5}
+	On considère le montage suivant~:
+	\begin{center}
+		\includegraphics{exercices/ex-AO5}
+	\end{center}
+	\rep{1) \\
+		2)}
+	
+\end{exwithsol}
+
+\begin{exwithsol}{Réponse fréquentielle, filtre actif.}{solex:7-4}
+	\label{ex:7-4}
+	On considère le montage suivant~:
+	\begin{center}
+		\includegraphics{exercices/ex-AO4}
+	\end{center}
+	\begin{enumerate}
+		\item Montrer que $H(j\omega) = \frac{2j\omega\omega_o}{\omega^2_o - \omega^2 + j\omega\omega_o}$
+		\item Déterminer des valeurs plausibles pour $R$ et $C$ si $\omega_o = 5000$ rad/s.
+		\item Calculer les zéros et les fréquences naturelles (pôles) du circuit.
+		\item Calculer $u_2(t)$ si $u_1(t) = 20\cos(\omega t + \frac{\pi}{3})$. Pour $f_1 = 800$ Hz et $f_2 = $.
+	\end{enumerate}
+	\rep{1) Voir solution.\\
+	2) $C = 200$ nF.\\
+	3) Zéros~: 0 et $+\inf$;\\
+	   Pôles~: $s_{1,2} = -\frac{\omega_o}{2} \pm j\omega_o\frac{\sqrt{3}}{2}$.\\
+	4) $u_2(t) = 40 cos(\omega_1 t + 1,0366)$\\
+	   $u_2(t) = 0,5 cos(\omega_2 t + 2,605)$}
+	
+\end{exwithsol}
+
+
 
 \section{Exercices non résolus}
 \begin{exercise}{}
@@ -11,8 +110,8 @@ isolateur représenté ci-dessous lorsque :
 	\item le gain en boucle ouverte de l'AO $\quad A=10^5$;
 	\item l'impédance d'entrée différentielle de l'AO $\quad Z_i=R_{i}=100$
 	k$\Omega$;
-	\item l'impédance  de sortie de l'AO $\quad Z_o=R_{o}=10\,\,\Omega$;
-	\item l'impédance  interne de la source $\quad Z_s=R_s=1$ k$\Omega$;
+	\item l'impédance de sortie de l'AO $\quad Z_o=R_{o}=10\,\,\Omega$;
+	\item l'impédance interne de la source $\quad Z_s=R_s=1$ k$\Omega$;
 	\item l'impédance de charge  $\quad Z_L=R_L=1$ k$\Omega$.
 \end{enumerate}
 \begin{center}
@@ -29,7 +128,7 @@ On considère le circuit suivant
 \begin{center}
 	\includegraphics[width=0.6\textwidth]{exercices/ex-4-7}
 \end{center}
-avec 
+avec
 \[R_0=1\,\,\mbox{k}\Omega \,\, , R_1=100\,\,\Omega \,\, , C_0=10\,\,\mu\mbox{F}\,\, , 
 	C_1=1\,\,\mu\mbox{F}\,\, , R_2=10\,\,\mbox{k}\Omega \]
 
@@ -47,3 +146,143 @@ Déterminer
 	$v_0(t)=1.43 \cos (100 t +\frac{\pi}{4})$
 }
 \end{exercise}
+
+
+
+
+\section{Solution des exercices}
+\begin{solexercise}{\ref{ex:7-1}}
+	\label{solex:7-1}
+\noindent{\bf 1. Modèle "complet".}
+\begin{center}
+	\includegraphics{exercices/ex-AO1-sol}
+\end{center}
+On remarque que $v_+ = 0$.
+
+PLK en A~:
+\[  \frac{v_s - v_-}{10^4} &= \frac{v_}{2\, 10^6} + \frac{v_- - v_o}{2\, 10^4}.\]
+\[ 200v_s &= 301 v_- - 100 v_o \]
+\[ 2v_s &\simeq 3v_- - v_o\] 
+
+PLK en B~: 
+\[ \frac{v_- - v_o}{2\, 10^4} = \frac{v_o + Av_-}{R_{out}}\]
+\[ v_- - v_o = 400(v_o + 2\, 10^5 v_-)\]
+
+En utilisant la valeur de $v_-$ de la première expression dans la deuxième~:
+\[\frac{v_o}{v_s} = -1.999\ldots\]  
+
+\noindent{\bf 2. Modèle idéal.}
+
+Ces hypothèses reviennent à dire que~:\begin{itemize}
+\item $i_+ = i_- = 0$, il n'y a pas de courant d'entrée, car la résistance est infinie~;
+\item $v_+ = v_-$, la différence de potentiel d'entrée est nulle, car il n'y a pas de courant dans la résistance d'entrée.
+\end{itemize}
+
+En utilisant ces hypothèses et $v_- = v_+ = 0$ V, la PLK en A devient~:
+\[\frac{v_s - v_-}{10^4} = \frac{v_- - v_o}{2\,10^4}\]
+\[ \frac{v_s}{10^4} = -\frac{v_s}{2\,10^4}\]
+\[ \frac{v_o}{v_s} = -2\]
+
+Pour utiliser ces hypothèses, il faut vérifier que l'A.O. n'est pas en saturation et qu'il fonctionne dans sa plage linéaire.
+Ce qui est le cas quand la tension de sortie est comprise entre $V_{cc}^-$ et $V_{cc}^+$, les tensions d'alimentation de l'amplificateur.
+
+\noindent{\bf 3. Comparaison.}
+
+Pour une tension d'entrée de 2 V~:
+\begin{itemize}
+	\item Modèle "complet"~: $v_o = -3.999\ldots$ V~;
+	\item Modèle idéal~: $v_o = -4$ V.
+\end{itemize}
+\end{solexercise}
+
+\begin{solexercise}{\ref{ex:7-2}}
+	\label{solex:7-2}
+\begin{center}
+	\includegraphics{exercices/ex-AO2-sol}
+\end{center}
+
+\noindent{\bf 1. Gain d'amplification.}
+
+Hypothèses de l'A.O. idéal~: $v_+ = v_- = v_s$ et $i_+ = i_- = 0$.
+
+La formule du diviseur de tension donne~: $v_- = \frac{5k}{40k+5k}v_o = \frac{v_o}{9}$.
+
+Dès lors, $v_- = v_s = \frac{v_o}{9} \rightarrow \frac{v_o}{v_s} = 9$. 
+
+\noindent{\bf 2. Courant de sortie.}
+
+On a $i_o = i_1 + i_2 = \frac{v_o}{45k} + \frac{v_o}{25k} = \frac{13v_o}{180k} = \frac{13v_s}{20k} = 6.5\,10^{-4}v_s$ A.
+
+\end{solexercise}
+
+\begin{solexercise}{\ref{ex:7-3}}
+	\label{solex:7-3}
+\begin{center}	
+	\includegraphics{exercices/ex-AO3-sol}
+\end{center}
+
+En utilisant la formule de l'amplificateur non-inverseur telle que vue au précédent exercice~:
+
+Étage 1~: $\frac{v_a}{v_s} = \frac{12k+3k}{3k} = 5 \rightarrow v_a = 100$ mV.
+
+Étage 2~: $\frac{v_o}{v_a} = \frac{10k+4k}{4k} = 3,5 \rightarrow v_o = 350$ mV.
+
+Gain de la mise en série~: $\frac{v_o}{v_s} = \frac{v_o}{v_a} \frac{v_a}{v_s} = 3,5\cdot 5 = 17,5$.
+
+Vérifions que nous ne sommes pas en saturation~: 
+\begin{itemize}
+	\item $100$ mV $\ll 5$ V~;
+	\item $350$ mV $\ll 5$ V.
+\end{itemize}
+La tension de sortie est largement inférieure à la tension d'alimentation pour les deux amplificateurs.
+\end{solexercise}
+
+
+\begin{solexercise}{\ref{ex:7-4}}
+	\label{solex:7-4}
+\begin{center}
+	\includegraphics{exercices/ex-AO4-sol}
+\end{center}
+\noindent{\bf 1. Calcul de $\mathbf{H(j\omega)}$.}
+On utilise l'hypothèse de l'A.O. idéal~: $\bar{V}_+ = \bar{V}_-$ et $\bar{I}_+ = \bar{I}_- = 0$ A.
+
+On peut calculer la tension de l'entrée non-inverseuse en utilisant la formule du diviseur de tension~: 
+$$\bar{V}_+ = \frac{R}{2R} \bar{U}_2 = \frac{\bar{U}_2}{2} = \bar{V}_-$$
+
+En utilisant la PLK en A, on obtient~: $\bar{I}_1 = \bar{I}_3 + \bar{I}_4 + \bar{I}_5$. Où~:
+
+$$\bar{I}_1 = \frac{\bar{U}_1 - \bar{V}_A}{R} \text{ ; }\bar{I}_3 = j\omega C\bar{V}_A \text{ ; } \bar{I}_4 = \frac{\bar{V}_-}{2R} \text{ ; } \bar{I}_5 = \frac{\bar{V}_A-\bar{U}_2}{R}$$
+
+Pour résoudre le circuit complet, il manque la tension au noeud A~: 
+$$\bar{V}_A = \frac{1}{j\omega C} \bar{I}_4 + 2R \bar{I}_6 \text{. Avec }\bar{I}_- = 0 \rightarrow \bar{I}_4 = \bar{I}_6 \text{, on a~: }\bar{V}_A = 2R + \frac{1}{j\omega C} \bar{I}_4.$$
+
+En réinsérant ces valeurs dans l'équation de la PLK, on obtient~: 
+$$\bar{U}_1 = \frac{\bar{U}_2}{2} + \frac{\bar{U}_2}{2j\omega RC} + j\omega RC \frac{\bar{U}_2}{2}.$$
+
+On cherche à calculer $H(j\omega) = \frac{\bar{U}_2}{\bar{U}_1}$. Après quelques manipulations, on obtient~:
+\[H(j\omega ) = \frac{\bar{U}_2}{\bar{U}_1} = \frac{2j\omega/RC}{(1/RC)^2 + (j\omega/RC)-\omega^2}\]
+
+Ou encore, avec $\omega_o = 1/RC$~:
+\[H(j\omega ) = \frac{2j\omega\omega_o}{\omega^2_o - \omega^2 + j\omega\omega_o}.\]
+\noindent{\bf 2. Valeurs plausibles pour R et C.}
+Avec $\omega_o = 1/RC = 5000$ rad/s, on peut choisir une capacité de 200 nF et trouver la résistance correspondante~: $5000 = \frac{1}{200\,10^{-9}R} \rightarrow R = 1$ k$\Omega$.
+
+\noindent{\bf 3. Zéros et fréquences naturelles du circuit.}
+\begin{itemize}
+	\item Zéros~: Le numérateur nous donne directement $\omega = 0$, l'analyse du dénominateur montre aussi que le terme tend vers 0 pour $\omega$ tendant vers l'infini.
+	\item Fréquences naturelles~: Les pôles sont les solutions de l'équation $\omega^2_o - \omega^2 + j\omega\omega_o = 0$. En résolvant cette équation pour $s=j\omega$, on trouve $s_{1,2} = -\frac{\omega_o}{2} \pm j\omega\frac{\sqrt{3}}{2}$.
+\end{itemize}
+
+\noindent{\bf 4. Réponse à un signal.}
+On a $\bar{U}_2 = H(j\omega) \bar{U}_1$, avec $\bar{U}_1 = \frac{20}{\sqrt{2}}e^{j\pi/3}$.
+\begin{itemize}
+	\item Si $f_1 = 800$ Hz, alors $\omega = 2\pi 800$ et~:\\
+	$H(j\omega_1) = 2 - j0,0212 = 2\angle-0,0106$. \\
+	Dès lors, $\bar{U}_2 = \frac{40}{\sqrt{2}} e^{j(\pi/3 - 0,0106)}$ et $u_2(t) = 40 cos(\omega_1 t + 1,0366)$.
+	\item Si $f_2 = 10$ Hz, alors $\omega = 20\pi$ et~:\\
+	$H(j\omega_1) = 3\,10^{4} - j2,51\,10^{-2} = 2,51\,10^{-2}\angle1,558$. \\
+	Dès lors, $\bar{U}_2 = \frac{0,5}{\sqrt{2}} e^{j(\pi/3 + 1,558)}$ et $u_2(t) = 0,5 cos(\omega_2 t + 2,605)$.
+\end{itemize}
+
+\end{solexercise}
+
