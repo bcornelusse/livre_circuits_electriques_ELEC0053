@@ -4,3 +4,9 @@
 *.gz
 *.toc
 syllabus_ELEC0053.pdf
+syllabus_ELEC0053.fls
+syllabus_ELEC0053.fdb_latexmk
+syllabus_ELEC0053.blg
+syllabus_ELEC0053.bbl
+figs/.DS_Store
+.DS_Store

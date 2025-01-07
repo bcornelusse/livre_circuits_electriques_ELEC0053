@@ -1,44 +1,42 @@
-% !TeX encoding = ISO-8859-1
-% !TeX spellcheck = fr_FR
-% !TeX root = syllabus_ELEC0053.tex
 
-\chapter{MÃ©thodes matricielles  d'analyse et\\ de reprÃ©sentation des circuits}
+
+\chapter{Méthodes matricielles  d'analyse et\\ de représentation des circuits}
 \label{sec:methodes-generales}
 
-\textit{La mise en Ã©quation de circuits sous forme matricielle et les mÃ©thodes de rÃ©solution correspondantes ont plusieurs utilitÃ©s. PremiÃ¨rement, elles permettent de systÃ©matiser l'approche d'analyse d'un circuit. DeuxiÃ¨mement, par des manipulations matricielles, elles permettent de reprÃ©senter un circuit via un Ã©quivalent de ThÃ©venin ou de Norton, mais Ã  plus d'un accÃ¨s. Ceci est particuliÃ¨rement intÃ©ressant, par exemple, si on souhaite rÃ©duire un circuit Ã  un quadripÃ´le. Finalement, cela ouvre la porte Ã  la rÃ©solution numÃ©rique de circuits.
-L'analyse prÃ©sentÃ©e dans ce chapitre se limite Ã  une reprÃ©sentation  en courant continu. Les mÃ©thodes sont cependant directement extensibles au cas du rÃ©gime sinusoÃ¯dal avec l'emploi des phaseurs, et mÃªme Ã  l'analyse transitoire en utilisant la reprÃ©sentation dans le domaine de Laplace, mais ce dernier point est hors du cadre de ce cours. }
+\textit{La mise en équation de circuits sous forme matricielle et les méthodes de résolution correspondantes ont plusieurs utilités. Premièrement, elles permettent de systématiser l'approche d'analyse d'un circuit. Deuxièmement, par des manipulations matricielles, elles permettent de représenter un circuit via un équivalent de Thévenin ou de Norton, mais à plus d'un accès. Ceci est particulièrement intéressant, par exemple, si on souhaite réduire un circuit à un quadripôle. Finalement, cela ouvre la porte à la résolution numérique de circuits.
+L'analyse présentée dans ce chapitre se limite à une représentation  en courant continu. Les méthodes sont cependant directement extensibles au cas du régime sinusoïdal avec l'emploi des phaseurs, et même à l'analyse transitoire en utilisant la représentation dans le domaine de Laplace, mais ce dernier point est hors du cadre de ce cours. }
 
-\section{La mÃ©thode des noeuds}
+\section{La méthode des noeuds}
 
-Les variables considÃ©rÃ©es dans cette mÃ©thode sont les variables relatives aux noeuds du rÃ©seau : potentiel de chacun des noeuds par rapport Ã  celui de rÃ©fÃ©rence, et courants de noeuds, ceux-ci Ã©tant prÃ©cisÃ©s ultÃ©rieurement.
+Les variables considérées dans cette méthode sont les variables relatives aux noeuds du réseau : potentiel de chacun des noeuds par rapport à celui de référence, et courants de noeuds, ceux-ci étant précisés ultérieurement.
 
-\subsection{Vue gÃ©nÃ©rale de la mÃ©thode}
-Pour dÃ©terminer l'Ã©tat Ã©lectrique d'un systÃ¨me, la mÃ©thode des noeuds consiste Ã  rÃ©soudre le systÃ¨me linÃ©aire suivant : 
+\subsection{Vue générale de la méthode}
+Pour déterminer l'état électrique d'un système, la méthode des noeuds consiste à résoudre le système linéaire suivant : 
 $$\mathbf{G}_N \mathbf{v}_N = \mathbf{i}_{sN}.$$
-oÃ¹ 
+où 
 \begin{itemize}
 \item L'indice $N$ signifie "Noeud".
-\item $\mathbf{i}_{sN}$ est le vecteur des injections de courant aux noeuds. DÃ©terminÃ© par inspection, il caractÃ©rise l'impact des sources indÃ©pendantes de courant.
-\item $\mathbf{v}_N$ est le vecteur des potentiels de noeuds. Il contient les $n-1$ variables du systÃ¨me (tous les noeuds sauf un noeud de rÃ©fÃ©rence), et les courants de branches en dÃ©coulent, via la loi d'Ohm.
-\item $\mathbf{G}_N$ est la matrice de conductances aux noeuds. DÃ©terminÃ©e par inspection ou par expÃ©rimentation, elle caractÃ©rise le graphe du circuit passifiÃ©.
+\item $\mathbf{i}_{sN}$ est le vecteur des injections de courant aux noeuds. Déterminé par inspection, il caractérise l'impact des sources indépendantes de courant.
+\item $\mathbf{v}_N$ est le vecteur des potentiels de noeuds. Il contient les $n-1$ variables du système (tous les noeuds sauf un noeud de référence), et les courants de branches en découlent, via la loi d'Ohm.
+\item $\mathbf{G}_N$ est la matrice de conductances aux noeuds. Déterminée par inspection ou par expérimentation, elle caractérise le graphe du circuit passifié.
 \end{itemize}
 
-Algorithmiquement, la mÃ©thode se rÃ©sume aux cinq Ã©tapes principales dÃ©crites dans la Table~\ref{tab:methode_noeuds}.
+Algorithmiquement, la méthode se résume aux cinq étapes principales décrites dans la Table~\ref{tab:methode_noeuds}.
 \begin{table}[tb]
-	\caption{Vue algorithmique de la mÃ©thode des noeuds. \label{tab:methode_noeuds}}
+	\caption{Vue algorithmique de la méthode des noeuds. \label{tab:methode_noeuds}}
 	\begin{boxedminipage}{\textwidth}
 	\begin{enumerate}
-	\item Choisir un noeud de rÃ©fÃ©rence,
-	\item dÃ©terminer la matrice $\mathbf{G}_N$,
-	\item dÃ©terminer le vecteur $\mathbf{i}_{sN}$,
-	\item rÃ©soudre le systÃ¨me $$\mathbf{G}_N \mathbf{v}_N = \mathbf{i}_{sN}$$ pour obtenir les potentiels de noeuds,
-	\item dÃ©duire de $\mathbf{v}_N$ les courants dans les branches.
+	\item Choisir un noeud de référence,
+	\item déterminer la matrice $\mathbf{G}_N$,
+	\item déterminer le vecteur $\mathbf{i}_{sN}$,
+	\item résoudre le système $$\mathbf{G}_N \mathbf{v}_N = \mathbf{i}_{sN}$$ pour obtenir les potentiels de noeuds,
+	\item déduire de $\mathbf{v}_N$ les courants dans les branches.
 	\end{enumerate}
 	\end{boxedminipage}
 \end{table}
-Cette mÃ©thode est applicable si le circuit est linÃ©aire et s'il ne comporte que des sources indÃ©pendantes de courant\footnote{ Nous verrons plus tard comment gÃ©rer les sources indÃ©pendantes de tension et les source commandÃ©es de courant (VCT).}.
+Cette méthode est applicable si le circuit est linéaire et s'il ne comporte que des sources indépendantes de courant\footnote{ Nous verrons plus tard comment gérer les sources indépendantes de tension et les source commandées de courant (VCT).}.
 
-\subsection{DÃ©rivation de la mÃ©thode des noeuds}
+\subsection{Dérivation de la méthode des noeuds}
 
 Les trois relations suivantes, reposant sur la matrice d'incidence et la matrice de conductance, traduisent respectivement la PLK (\ref{eq:MN_1}), le lien entre tension de branche et potentiel de noeud (\ref{eq:MN_2}), et la loi d'Ohm (\ref{eq:MN_3}) :
 \begin{align}
@@ -46,7 +44,7 @@ Les trois relations suivantes, reposant sur la matrice d'incidence et la matrice
 \mathbf{u}_B &= \mathbf{A}^T \mathbf{v}_{N} \label{eq:MN_2}\\
 \mathbf{i}_B &= \mathbf{G}_B \mathbf{u}_{B} \label{eq:MN_3}
 \end{align}
-On Ã©tablit ensuite le systÃ¨me rÃ©solu par la mÃ©thode des noeuds sur base de ces trois relations par simples manipulations et en dÃ©finissant la \textit{matrice de conductance aux noeuds} $\mathbf{G}_N.$
+On établit ensuite le système résolu par la méthode des noeuds sur base de ces trois relations par simples manipulations et en définissant la \textit{matrice de conductance aux noeuds} $\mathbf{G}_N.$
 \begin{align}
 (\ref{eq:MN_3}) \rightarrow (\ref{eq:MN_1}) \quad \mathbf{A} \mathbf{G}_B \mathbf{u}_{B} &= \mathbf{i}_{sN} \label{eq:MN_4}\\
 (\ref{eq:MN_2}) \rightarrow (\ref{eq:MN_4}) \quad \mathbf{A} \mathbf{G}_B \mathbf{A}^T \mathbf{v}_{N} &= \mathbf{i}_{sN} \label{eq:MN_5}\\
@@ -55,34 +53,34 @@ On Ã©tablit ensuite le systÃ¨me rÃ©solu par la mÃ©thode des noeuds sur base de c
 \end{align}
 
 \subsection{Matrice d'incidence}
-Les relations de base sont les expressions faisant intervenir la matrice d'incidence rÃ©duite, dÃ©finie ci-dessous.
+Les relations de base sont les expressions faisant intervenir la matrice d'incidence réduite, définie ci-dessous.
 
 
-Nous considÃ©rons un graphe orientÃ© Ã  $n$ noeuds et $b$ branches
-et dÃ©finissons des matrices dÃ©crivant les relations d'appartenance noeuds-branches\footnote{Dans la mÃ©thodes des mailles (Section~\ref{sec:MM}), nous nous intÃ©resserons Ã  la relation branches-mailles.}.
-Un intÃ©rÃªt tout particulier est rÃ©servÃ© Ã  la recherche de matrices qui contiennent le nombre nÃ©cessaire et
-suffisant de relations, c'est-Ã -dire Ã  la dÃ©termination du rang de chacune de ces matrices.
+Nous considérons un graphe orienté à $n$ noeuds et $b$ branches
+et définissons des matrices décrivant les relations d'appartenance noeuds-branches\footnote{Dans la méthodes des mailles (Section~\ref{sec:MM}), nous nous intéresserons à la relation branches-mailles.}.
+Un intérêt tout particulier est réservé à la recherche de matrices qui contiennent le nombre nécessaire et
+suffisant de relations, c'est-à-dire à la détermination du rang de chacune de ces matrices.
 
-\paragraph{Matrice d'incidence complÃ¨te $\mathbf{A}_a$.} C'est une matrice d'ordre $n \times b$ oÃ¹ chaque Ã©lÃ©ment $a_{ij}$ est dÃ©fini comme suit:
+\paragraph{Matrice d'incidence complète $\mathbf{A}_a$.} C'est une matrice d'ordre $n \times b$ où chaque élément $a_{ij}$ est défini comme suit:
 \begin{enumerate}
-\item $a_{ij} = -1$ si la branche $j$ est incidente au noeud $i$ et est orientÃ©e vers lui ;
-\item $a_{ij} = +1$ si la branche $j$ est incidente au noeud $i$ et est orientÃ©e en sens opposÃ© ;
+\item $a_{ij} = -1$ si la branche $j$ est incidente au noeud $i$ et est orientée vers lui ;
+\item $a_{ij} = +1$ si la branche $j$ est incidente au noeud $i$ et est orientée en sens opposé ;
 \item $a_{ij} = 0$ si la branche $j$ n'est pas incidente au noeud $i$
 \end{enumerate}
 
-Par construction, chaque ligne de $\mathbf{A}_a$ correspond ainsi Ã  un noeud, ses Ã©lÃ©ments non
-nuls identifiant les branches incidentes Ã  celui-ci. De mÃªme, chaque colonne correspond
-Ã  une branche. Elle comporte donc nÃ©cessairement deux Ã©lÃ©ments non nuls, un $+1$ et
-un $- 1$ , dont la somme est Ã©videmment nulle. Cette derniÃ¨re observation conduit Ã  la conclusion que $\mathbf{A}_a$ comporte un nombre
-surabondant de relations et que le rang de $\mathbf{A}_a$ est infÃ©rieur Ã  $n$.
+Par construction, chaque ligne de $\mathbf{A}_a$ correspond ainsi à un noeud, ses éléments non
+nuls identifiant les branches incidentes à celui-ci. De même, chaque colonne correspond
+à une branche. Elle comporte donc nécessairement deux éléments non nuls, un $+1$ et
+un $- 1$ , dont la somme est évidemment nulle. Cette dernière observation conduit à la conclusion que $\mathbf{A}_a$ comporte un nombre
+surabondant de relations et que le rang de $\mathbf{A}_a$ est inférieur à $n$.
 
 \begin{testexample}[Matrice d'incidence.]
-Soit le rÃ©seau ci-dessous et sa reprÃ©sentation sous forme de graphe orientÃ© (Ã  droite).
+Soit le réseau ci-dessous et sa représentation sous forme de graphe orienté (à droite).
 \begin{center}
 \centering
 \includegraphics[width=0.9\linewidth]{figs/graphes/circuit_et_graphe}
 \end{center}
-Il comporte $n=5$ noeuds. La PLK en chacun des noeuds s'Ã©crit
+Il comporte $n=5$ noeuds. La PLK en chacun des noeuds s'écrit
 $${\small 
 \begin{array}{rccccccccccccccccl}
 	a & : &  &i_1&  &   &  &   &  &   & - & i_5 & &   & + & i_7 & = & 0\\ 
@@ -92,7 +90,7 @@ $${\small
 	e & : &  &   &  &   &  &   &  &i_4& + & i_5 &+&i_6&   &     & = & 0
 \end{array}}
 $$
-Ce qui conduit Ã  la matrice d'incidence
+Ce qui conduit à la matrice d'incidence
 $$\mathbf{A}_a = \left[\begin{array}{rrrrrrr}
 	1 & 0 & 0 & 0 & -1 & 0 & 1\\
 	-1&-1 & -1& 0 & 0  & 0 & 0\\
@@ -100,16 +98,16 @@ $$\mathbf{A}_a = \left[\begin{array}{rrrrrrr}
 	0 & 0 & 1 &-1 & 0 & 0 & 0\\
 	0 & 0 & 0 & 1 & 1 & 1 &0
 \end{array}\right]$$
-On voit directement que la derniÃ¨re ligne est l'opposÃ© de la somme des quatres premiÃ¨res.
+On voit directement que la dernière ligne est l'opposé de la somme des quatres premières.
 \end{testexample}
 
 
 
-\paragraph{Matrice d'incidence (rÃ©duite) $\mathbf{A}$.}
-En choisissant un noeud de rÃ©fÃ©rence puis en Ã©liminant la relation liÃ©e Ã  ce noeud, on obtient la  matrice $\mathbf{A}$ issue de $\mathbf{A}_a$ et d'ordre $(n-1) \times b$. On peut montrer que cette matrice est de rang $n-1$, en tous les cas si le graphe est connexe.
+\paragraph{Matrice d'incidence (réduite) $\mathbf{A}$.}
+En choisissant un noeud de référence puis en éliminant la relation liée à ce noeud, on obtient la  matrice $\mathbf{A}$ issue de $\mathbf{A}_a$ et d'ordre $(n-1) \times b$. On peut montrer que cette matrice est de rang $n-1$, en tous les cas si le graphe est connexe.
   
-\begin{testexample}[Matrice d'incidence rÃ©duite.]
-Dans l'exemple prÃ©cÃ©dent, choisissons le noeud $e$ comme noeud de rÃ©fÃ©rence. Cela implique que l'on supprime la relation liÃ©e Ã  ce noeud, et que $e$ sera considÃ©rÃ© comme rÃ©fÃ©rentiel de tension, c'est-Ã -dire que $v_e = 0$. Le rang de cette matrice est $n-1$.
+\begin{testexample}[Matrice d'incidence réduite.]
+Dans l'exemple précédent, choisissons le noeud $e$ comme noeud de référence. Cela implique que l'on supprime la relation liée à ce noeud, et que $e$ sera considéré comme référentiel de tension, c'est-à-dire que $v_e = 0$. Le rang de cette matrice est $n-1$.
 \[ {\bf A} = 
 \left[\begin{array}{rrrrrrr}
 1 & 0 & 0 & 0 & -1 & 0 & 1\\
@@ -119,14 +117,14 @@ Dans l'exemple prÃ©cÃ©dent, choisissons le noeud $e$ comme noeud de rÃ©fÃ©rence.
 \end{array}\right] \]
 Le rang de la matrice est $4$.
 \end{testexample}
-On peut maintenant Ã©crire $${\bf A}\, {\bf i}_B =  {\bf 0},$$
-avec $n-1$ relations linÃ©airement indÃ©pendantes, oÃ¹
-${\bf i}_B$ est le vecteur des courants de branches orientÃ©s selon le sens que l'on a choisi pour construire ${\bf A}$.
+On peut maintenant écrire $${\bf A}\, {\bf i}_B =  {\bf 0},$$
+avec $n-1$ relations linéairement indépendantes, où
+${\bf i}_B$ est le vecteur des courants de branches orientés selon le sens que l'on a choisi pour construire ${\bf A}$.
 
-\subsection{Vecteur d'injections de courant} Nous avons jusqu'Ã  prÃ©sent considÃ©rÃ© le graphe passifiÃ©. ConsidÃ©rons maintenant l'impact des sources indÃ©pendantes de courant Ã  travers le vecteur ${\bf i}_{sN}$ de taille $n-1$ qui caractÃ©rise les courants injectÃ©s aux diffÃ©rents noeuds (sauf le noeud de rÃ©fÃ©rence) par les sources indÃ©pendantes. Une injection est prise avec le signe "$+$" si le courant est orientÃ© vers le noeud, "$-$" sinon.
+\subsection{Vecteur d'injections de courant} Nous avons jusqu'à présent considéré le graphe passifié. Considérons maintenant l'impact des sources indépendantes de courant à travers le vecteur ${\bf i}_{sN}$ de taille $n-1$ qui caractérise les courants injectés aux différents noeuds (sauf le noeud de référence) par les sources indépendantes. Une injection est prise avec le signe "$+$" si le courant est orienté vers le noeud, "$-$" sinon.
 
 \begin{testexample}[Vecteur $\mathbf{i}_{sN}$.]
-Soit le circuit suivant, oÃ¹ le noeud $d$ est pris comme rÃ©fÃ©rence.
+Soit le circuit suivant, où le noeud $d$ est pris comme référence.
 \begin{center}
 \includegraphics[width=0.8\linewidth]{figs/methodes-generales/exemple_iSN}
 \end{center}
@@ -143,16 +141,16 @@ Avec ces conventions, on a
 $${\bf A}\, {\bf i}_B =  {\bf i}_{sN}.$$
 
 \subsection{Tensions de branches}
-Par dÃ©finition, la matrice d'incidence caractÃ©rise Ã©galement la relation entre potentiels de noeuds et tension de branche (d.d.p. entre les extrÃ©mitÃ©s d'une branche) : 
+Par définition, la matrice d'incidence caractérise également la relation entre potentiels de noeuds et tension de branche (d.d.p. entre les extrémités d'une branche) : 
 $$\mathbf{u}_B = \mathbf{A}^T \mathbf{v}_{N}.$$
-La convention moteur est utilisÃ©e, selon le sens qui a Ã©tÃ© choisi pour orienter (le courant dans) les branches.
+La convention moteur est utilisée, selon le sens qui a été choisi pour orienter (le courant dans) les branches.
 
 \begin{testexample}
 Soit le graphe suivant : 
 \begin{center}
 \includegraphics[width=0.4\linewidth]{figs/methodes-generales/exemple_tension_branche}
 \end{center}
-Le noeud $e$ Ã©tant pris comme rÃ©fÃ©rence, on a 
+Le noeud $e$ étant pris comme référence, on a 
 {\small $$
 \left[\begin{array}{c}
 u_1 \\
@@ -182,7 +180,7 @@ v_d
 
 \subsection{Matrice de conductance}
 \paragraph{Matrice de conductance de branches.} %
-Appliquer la loi d'Ohm dans chaque branche permet de remplacer les courants de branches ${\bf i}_B$ par les tensions de branche ${\bf u}_B$. Si le circuit comporte uniquement des rÃ©sistances linÃ©aires, on dÃ©finit la matrice de conductances de branches ${\bf G}_B$ de dimension $b \times b$ comme la matrice diagonale suivante
+Appliquer la loi d'Ohm dans chaque branche permet de remplacer les courants de branches ${\bf i}_B$ par les tensions de branche ${\bf u}_B$. Si le circuit comporte uniquement des résistances linéaires, on définit la matrice de conductances de branches ${\bf G}_B$ de dimension $b \times b$ comme la matrice diagonale suivante
 \[{\bf G}_B = \left[
 \begin{array}{cccc}
 G_1 & \\
@@ -215,8 +213,8 @@ G_5 u_5+G_6 u_6 & = & i_{s3}-i_{s2}
 \end{testexample}
 
 \paragraph{Matrice de conductance aux noeuds.} %
-Comme illustrÃ© aux Ã©tapes (\ref{eq:MN_5}) et (\ref{eq:MN_6}) de la dÃ©rivation de la mÃ©thode des noeuds, on peut remplacer les tensions de branches ${\bf u}_B$ par les potentiels de noeuds ${\bf v}_N$ :
-\begin{testexample}[Matrice de conductance aux noeuds.] Pour le mÃªme exemple que celui qui a servi Ã  illustrer $\mathbf{G}_B$, on a 
+Comme illustré aux étapes (\ref{eq:MN_5}) et (\ref{eq:MN_6}) de la dérivation de la méthode des noeuds, on peut remplacer les tensions de branches ${\bf u}_B$ par les potentiels de noeuds ${\bf v}_N$ :
+\begin{testexample}[Matrice de conductance aux noeuds.] Pour le même exemple que celui qui a servi à illustrer $\mathbf{G}_B$, on a 
 
 $$u_1 =  v_a, \quad 
 u_2 =  v_b-v_a, \quad 
@@ -238,30 +236,30 @@ ce qui se traduit sous forme matricielle par
 \end{center}
 \end{testexample}
 
-Ceci illustre une premiÃ¨re maniÃ¨re de construire la matrice de conductance aux noeuds : 
+Ceci illustre une première manière de construire la matrice de conductance aux noeuds : 
 \begin{enumerate}
 \item construire $\mathbf{A}$,
 \item construire $\mathbf{G}_B$,
 \item calculer $\mathbf{G}_N = {\bf A}\,{\bf G}_B {\bf A}^T$
 \end{enumerate}
-Il existe des mÃ©thodes parfois plus directes pour construire $\mathbf{G}_N$.
+Il existe des méthodes parfois plus directes pour construire $\mathbf{G}_N$.
 
-\subsection{DÃ©termination de $\mathbf{G}_N$ par inspection}
-Appliquer $${\bf G}_N= {\bf A} {\bf G}_B {\bf A}^T$$ revient, lorsque $\mathbf{G}_B$ est diagonale\footnote{Ce qui n'est pas le cas avec des sources commandÃ©es.}, Ã  appliquer la rÃ¨gle d'inspection de la Table~\ref{tab:inspectionG} : 
+\subsection{Détermination de $\mathbf{G}_N$ par inspection}
+Appliquer $${\bf G}_N= {\bf A} {\bf G}_B {\bf A}^T$$ revient, lorsque $\mathbf{G}_B$ est diagonale\footnote{Ce qui n'est pas le cas avec des sources commandées.}, à appliquer la règle d'inspection de la Table~\ref{tab:inspectionG} : 
 \begin{table}
-\caption{RÃ¨gle d'inspection pour dÃ©terminer les Ã©lÃ©ments de $\mathbf{G}_N$.}\label{tab:inspectionG}
+\caption{Règle d'inspection pour déterminer les éléments de $\mathbf{G}_N$.}\label{tab:inspectionG}
 \begin{boxedminipage}{\textwidth}
 \begin{itemize}
 	\item $G_{ii}$ est la somme des conductances des branches incidentes au
 	noeud~$i$
-	\item $G_{ik}$ est l'opposÃ© de la somme des
+	\item $G_{ik}$ est l'opposé de la somme des
 	conductances des branches liant les noeuds $i$ et $k$
 \end{itemize}
 \end{boxedminipage}
 \end{table}
 
-\begin{testexample}[DÃ©termination de $\mathbf{G}_N$ par inspection.]
-Pour l'exemple prÃ©cÃ©dent, on a directement 
+\begin{testexample}[Détermination de $\mathbf{G}_N$ par inspection.]
+Pour l'exemple précédent, on a directement 
 \[
 {\bf G}_N =
 \left[ \begin{array}{ccc}
@@ -271,50 +269,50 @@ G_1+G_2+G_4 & -(G_2+G_4) & 0 \\
 \end{array} \right]. \]
 \end{testexample}
 
-\subsection{RÃ©seau Ã©quivalent}
-Lorsque le circuit est mis en Ã©quation grÃ¢ce Ã  la mÃ©thode des noeuds, il peut Ãªtre remplacÃ© par un circuit Ã©quivalent constituÃ© du
-circuit passifiÃ© vu de $n-1$ accÃ¨s auxquels agissent des sources
-indÃ©pendantes de courant Ã©quivalentes regroupant les sources
-indÃ©pendantes du circuit original (Figure~\ref{fig:reseau_equivalent_MN}).
+\subsection{Réseau équivalent}
+Lorsque le circuit est mis en équation grâce à la méthode des noeuds, il peut être remplacé par un circuit équivalent constitué du
+circuit passifié vu de $n-1$ accès auxquels agissent des sources
+indépendantes de courant équivalentes regroupant les sources
+indépendantes du circuit original (Figure~\ref{fig:reseau_equivalent_MN}).
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.6\linewidth]{figs/methodes-generales/reseau_equivalent_MN}
-	\caption{RÃ©seau Ã©quivalent.}
+	\caption{Réseau équivalent.}
 	\label{fig:reseau_equivalent_MN}
 \end{figure}
-Il s'agit d'un rÃ©seau passifiÃ© avec un accÃ¨s entre chaque noeud et le noeud de
-rÃ©fÃ©rence, et une source indÃ©pendante de courant agissant Ã  chaque accÃ¨s. correspondant aux composantes de ${\bf i}_{sN}$.
-\begin{testexample}[RÃ©seau Ã©quivalent.]
+Il s'agit d'un réseau passifié avec un accès entre chaque noeud et le noeud de
+référence, et une source indépendante de courant agissant à chaque accès. correspondant aux composantes de ${\bf i}_{sN}$.
+\begin{testexample}[Réseau équivalent.]
 	\centering
 	\includegraphics[width=0.9\linewidth]{figs/methodes-generales/ex_reseau_equivalent_MN}
 \end{testexample}
 
-\subsection{DÃ©termination de $\mathbf{G}_N$ par expÃ©rimentation}
-La derniÃ¨re mÃ©thode pour dÃ©terminer $\mathbf{G}_N$ consiste Ã  exploiter la reprÃ©sentation du circuit par un rÃ©seau Ã©quivalent. En effet, ${\bf G}_N$ caractÃ©rise le circuit passifiÃ©. Les relations $i-u$ aux $n-1$ accÃ¨s s'Ã©crivent : 
+\subsection{Détermination de $\mathbf{G}_N$ par expérimentation}
+La dernière méthode pour déterminer $\mathbf{G}_N$ consiste à exploiter la représentation du circuit par un réseau équivalent. En effet, ${\bf G}_N$ caractérise le circuit passifié. Les relations $i-u$ aux $n-1$ accès s'écrivent : 
 \begin{eqnarray*}
 	i_{1} & = & G_{11}v_{1} + G_{12}v_{2}+ \ldots \\
 	i_{2} & = & G_{21}v_{1} + G_{22}v_{2}+ \ldots 
 \end{eqnarray*}
-oÃ¹ ${\bf i}$ est le vecteur des courants injectÃ©s aux
-accÃ¨s, ${\bf v}$ est le vecteur des tensions aux accÃ¨s.
+où ${\bf i}$ est le vecteur des courants injectés aux
+accès, ${\bf v}$ est le vecteur des tensions aux accès.
 \begin{marginfigure}[-2cm]
 	\centering
 	\includegraphics[width=\linewidth]{figs/methodes-generales/experimentation_ii} 
 	\includegraphics[width=0.95\linewidth]{figs/methodes-generales/experimentation_ij}
-	\caption{Illustration de la mÃ©thode d'expÃ©rimenation pour les Ã©lÃ©ments diagonaux (haut) et hors diagonale (bas).}
+	\caption{Illustration de la méthode d'expérimenation pour les éléments diagonaux (haut) et hors diagonale (bas).}
 	\label{fig:experimentation}
 \end{marginfigure}
 
-Les Ã©lÃ©ments de ${\bf G}_N$ sont alors dÃ©terminÃ©s par des essais
-successifs, cf. Figure~\ref{fig:experimentation} et Table~\ref{tab:experimentation_G}. Cette mÃ©thode se rÃ©vÃ¨le incontournable quand le circuit comporte des couplages entre branches ou quand, tout simplement, on n'a pas accÃ¨s aux paramÃ¨tres du circuit et on l'identifie par des mesures "physiques".
+Les éléments de ${\bf G}_N$ sont alors déterminés par des essais
+successifs, cf. Figure~\ref{fig:experimentation} et Table~\ref{tab:experimentation_G}. Cette méthode se révèle incontournable quand le circuit comporte des couplages entre branches ou quand, tout simplement, on n'a pas accès aux paramètres du circuit et on l'identifie par des mesures "physiques".
 \begin{table}[htb]
-	\caption{RÃ¨gle d'expÃ©rimentation pour dÃ©terminer les Ã©lÃ©ments de $\mathbf{G}_N$.}\label{tab:experimentation_G}
+	\caption{Règle d'expérimentation pour déterminer les éléments de $\mathbf{G}_N$.}\label{tab:experimentation_G}
 	\begin{boxedminipage}{\textwidth}
 \[G_{ij}= i_{i}|_{v_{j}=1, v_{k}=0,k\neq j}\]
 \begin{itemize}
-	\item Imposer une tension de $1 V$ Ã  l'accÃ¨s $j$
-	\item Court-circuiter les autres accÃ¨s
-	\item DÃ©terminer dans ces conditions le courant Ã  l'accÃ¨s $i$
+	\item Imposer une tension de $1 V$ à l'accès $j$
+	\item Court-circuiter les autres accès
+	\item Déterminer dans ces conditions le courant à l'accès $i$
 \end{itemize}
 \end{boxedminipage}
 \end{table}
@@ -324,9 +322,9 @@ Soit le circuit de la figure suivante, comportant une source VCT :
 \begin{center}
 	\includegraphics[width=0.7\linewidth]{figs/methodes-generales/ex_exp_0}
 \end{center}
-Calculons quelques Ã©lÃ©ments de ${\bf G}_N$. CommenÃ§ons par 
+Calculons quelques éléments de ${\bf G}_N$. Commençons par 
 \[G_{31}=i_{3}|_{v_{1}=1,v_{2}=v_{3}=0}\]
-ce qui se traduit par l'expÃ©rience suivante : 
+ce qui se traduit par l'expérience suivante : 
 \begin{center}
 \includegraphics[width=0.7\linewidth]{figs/methodes-generales/ex_exp_1}
 \end{center}
@@ -338,7 +336,7 @@ u_2&=-1 \\
 i_6&=-g_mu_2=g_m \\
 G_{31} &= i_{3}= i_5+i_6=g_m
 \end{align*}
-De mÃªme pour \[G_{32}=i_{3}|_{v_{2}=1,v_{1}=v_{3}=0}\]
+De même pour \[G_{32}=i_{3}|_{v_{2}=1,v_{1}=v_{3}=0}\]
 \begin{center}
 	\includegraphics[width=0.7\linewidth]{figs/methodes-generales/ex_exp_2}
 \end{center}
@@ -365,8 +363,8 @@ G_{33} &= i_{3}= i_5+i_6=G_5.
 \end{testexample}
 
 
-\subsection{Gestion des sources dÃ©pendantes de type VCT}
-L'exemple de la section prÃ©cÃ©dente nous a montrÃ© comment gÃ©rer une source de type VCT. On peut Ã©galement les traiter avec la mÃ©thode de base, lors de la construction de la matrice $\mathbf{G}_B$, la matrice ${\bf A}$ Ã©tant indÃ©pendante de la nature des Ã©lÃ©ments qui constituent les branches. 
+\subsection{Gestion des sources dépendantes de type VCT}
+L'exemple de la section précédente nous a montré comment gérer une source de type VCT. On peut également les traiter avec la méthode de base, lors de la construction de la matrice $\mathbf{G}_B$, la matrice ${\bf A}$ étant indépendante de la nature des éléments qui constituent les branches. 
 
 \begin{testexample}
 Soit le circuit de la figure suivante, comportant une source VCT :
@@ -384,7 +382,7 @@ G_1 & 0 & 0 & 0 & 0 & 0\\
 0 & -g_m& 0 & 0 & 0 & 0
 \end{array}\right]\]
 
-DÃ¨s lors, 
+Dès lors, 
 \[{\bf G}_N={\bf A}{\bf G}_B{\bf A}^T= 
 \left[
 \begin{array}{ccc}
@@ -393,53 +391,53 @@ G_1+G_2+G_4 & -(G_2+G_4) & 0 \\
 g_m & -(G_5+g_m) & G_5
 \end{array}\right]\]
 
-${\bf G}_B$ et  ${\bf G}_N$ ne sont plus des matrices symÃ©triques.
+${\bf G}_B$ et  ${\bf G}_N$ ne sont plus des matrices symétriques.
 \end{testexample}
 
-Par contre,  ${\bf G}_N$ ne peut plus Ãªtre dÃ©terminÃ©e par inspection, ou en tous les cas pas totalement\footnote{Dans l'exemple prÃ©cÃ©dent, on peut se rendre compte que la source VCT agit sur le courant injectÃ© au noeud $c$ en fonction du potentiel des noeuds $a$ et $b$, d'oÃ¹ le fait que seuls les Ã©lÃ©ments de la ligne $3$ ($c$) et des colonnes $1$ ($a$) et $2$ ($b$) soient impactÃ©s.}.
+Par contre,  ${\bf G}_N$ ne peut plus être déterminée par inspection, ou en tous les cas pas totalement\footnote{Dans l'exemple précédent, on peut se rendre compte que la source VCT agit sur le courant injecté au noeud $c$ en fonction du potentiel des noeuds $a$ et $b$, d'où le fait que seuls les éléments de la ligne $3$ ($c$) et des colonnes $1$ ($a$) et $2$ ($b$) soient impactés.}.
 
-\subsection{Gestion des sources indÃ©pendantes de tension}
+\subsection{Gestion des sources indépendantes de tension}
 
-Pour gÃ©rer les sources indÃ©pendantes de tension, on peut transformer le circuit comme suit : 
+Pour gérer les sources indépendantes de tension, on peut transformer le circuit comme suit : 
 \begin{itemize}
-	\item si une source est en sÃ©rie avec une rÃ©sistance,  transformer la source de tension en une source de courant Ã©quivalente
-	\item si une source est seule dans une branche, transformer le circuit comme indiquÃ© Ã  la Figure~\ref{fig:transformation_SIV}.
+	\item si une source est en série avec une résistance,  transformer la source de tension en une source de courant équivalente
+	\item si une source est seule dans une branche, transformer le circuit comme indiqué à la Figure~\ref{fig:transformation_SIV}.
 \end{itemize}
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.95\linewidth]{figs/methodes-generales/transformation_SIV}
-\caption{Gestion des sources indÃ©pendantes de tension dans la mÃ©thode des noeuds.}
+\caption{Gestion des sources indépendantes de tension dans la méthode des noeuds.}
 \label{fig:transformation_SIV}
 \end{figure}
 
-On vÃ©rifie que dans le reste du circuit, les lois de Kirchhoff sont inchangÃ©es. La branche dans laquelle se trouve la f.e.m. ne doit pas Ãªtre couplÃ©e avec le reste du circuit (par une source commandÃ©e par exemple).
+On vérifie que dans le reste du circuit, les lois de Kirchhoff sont inchangées. La branche dans laquelle se trouve la f.e.m. ne doit pas être couplée avec le reste du circuit (par une source commandée par exemple).
 
-\subsection{GÃ©nÃ©ralisation du ThÃ©orÃ¨me de Norton Ã  plusieurs accÃ¨s}
-ConsidÃ©rons le schÃ©ma Ã©quivalent du circuit dÃ©duit de la mÃ©thode des noeuds (Figure~\ref{fig:nortonMM}), avec $N=n-1$ accÃ¨s ; un accÃ¨s entre chaque noeud et le noeud de rÃ©fÃ©rence, aux bornes de chaque source Ã©quivalente de courant.
-Les relations $i-u$ pour les $N$ accÃ¨s sont
+\subsection{Généralisation du Théorème de Norton à plusieurs accès}
+Considérons le schéma équivalent du circuit déduit de la méthode des noeuds (Figure~\ref{fig:nortonMM}), avec $N=n-1$ accès ; un accès entre chaque noeud et le noeud de référence, aux bornes de chaque source équivalente de courant.
+Les relations $i-u$ pour les $N$ accès sont
 \[{\bf i}=-{\bf i}_{sN}+{\bf G}_N{\bf v}_N\]
 ou encore
 \[{\bf i}=-{\bf i}_{sN}+{\bf G}_N{\bf u}\]
-On en dÃ©duit le schÃ©ma Ã©quivalent de Norton Ã  $N$ accÃ¨s par simple identification :
+On en déduit le schéma équivalent de Norton à $N$ accès par simple identification :
 \[ {\bf i}_{No} = {\bf i}_{sN}\,\, , \quad \quad {\bf G}_{No}={\bf G}_{N}\]
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.7\linewidth]{figs/methodes-generales/norton}
-\caption{GÃ©nÃ©ralisation du ThÃ©orÃ¨me de Norton Ã  plusieurs accÃ¨s.}
+\caption{Généralisation du Théorème de Norton à plusieurs accès.}
 \label{fig:nortonMM}
 \end{figure}
 
-\subsection{RÃ©duction du nombre d'accÃ¨s}
-On cherche Ã  obtenir un schÃ©ma Ã©quivalent de Norton Ã  $a$ accÃ¨s (intÃ©ressants), avec $a<N$.
-Les $N-a$ accÃ¨s inintÃ©ressants sont laissÃ©s ouverts (ce qui ne dÃ©nature pas la topologie du circuit) : 
+\subsection{Réduction du nombre d'accès}
+On cherche à obtenir un schéma équivalent de Norton à $a$ accès (intéressants), avec $a<N$.
+Les $N-a$ accès inintéressants sont laissés ouverts (ce qui ne dénature pas la topologie du circuit) : 
 \[i_{a+1},\ldots,i_N=0\]
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.7\linewidth]{figs/methodes-generales/reduction}
-\caption{Illustration de la rÃ©duction du nombre d'accÃ¨s.}
+\caption{Illustration de la réduction du nombre d'accès.}
 \label{fig:reduction}
 \end{figure}
-Utilisons les indices $\mathbf{a}$ et $\mathbf{b}$ pour partitionner les vecteurs en parties intÃ©ressantes et non-intÃ©ressantes. Les relations $i-u$ de la mÃ©thode des noeuds deviennent : 
+Utilisons les indices $\mathbf{a}$ et $\mathbf{b}$ pour partitionner les vecteurs en parties intéressantes et non-intéressantes. Les relations $i-u$ de la méthode des noeuds deviennent : 
 {
 \[\left[
 \begin{array}{c}
@@ -461,7 +459,7 @@ Utilisons les indices $\mathbf{a}$ et $\mathbf{b}$ pour partitionner les vecteur
 {\bf u}_{\bf a}\\
 {\bf u}_{\bf b}
 \end{array}\right]\]
-Par hypothÃ¨se, 
+Par hypothèse, 
 \[
 {\bf i}_{\bf b}=0 =-{\bf i}_{s{\bf b}}+{\bf G}_{\bf b,a}{\bf u}_{\bf a}+{\bf
 	G}_{\bf b,b}{\bf u}_{\bf b}\]
@@ -473,32 +471,32 @@ et
 +({\bf G}_{\bf a,a}-{\bf G}_{\bf a,b}{\bf G}_{\bf b,b}^{-1}{\bf
 	G}_{\bf b,a}){\bf
 	u}_{\bf a}\]
-Finalement, comme on souhaite Ã©tablir un modÃ¨le du type 
+Finalement, comme on souhaite établir un modèle du type 
 \[ {\bf i}_{\bf a}=-{\bf i}_{No}+{\bf G}_{No}{\bf u}_{\bf a}\]}
 on a 
 
 \begin{itemize}
-\item le vecteur des sources Ã©quivalentes de Norton :
+\item le vecteur des sources équivalentes de Norton :
 \[{\bf i}_{No}={\bf i}_{s{\bf a}}-{\bf G}_{\bf a,b}{\bf G}_{\bf b,b}^{-1}{\bf
 	i}_{s{\bf b}}\]
-c'est le vecteur des courants parcourant les  accÃ¨s court-circuitÃ©s (${\bf u}_{\bf a}={\bf 0}$)
+c'est le vecteur des courants parcourant les  accès court-circuités (${\bf u}_{\bf a}={\bf 0}$)
 \item la matrice de conductances  de Norton, soit la 
-matrice de conductances ``rÃ©duite'' aux accÃ¨s :
+matrice de conductances ``réduite'' aux accès :
 \[{\bf G}_{No}={\bf G}_{\bf a,a}-{\bf G}_{\bf a,b}{\bf G}_{\bf b,b}^{-1}{\bf
 	G}_{\bf b,a}\]
-qui peut Ãªtre dÃ©terminÃ©e par expÃ©rimentation, mais jamais par inspection.
+qui peut être déterminée par expérimentation, mais jamais par inspection.
 \end{itemize}
 
-\begin{testexample}[Conversion Ã©toile-triangle.]
-Un circuit en Ã©toile Ã  trois branches peut Ãªtre remplacÃ© par un
-circuit Ã©quivalent en triangle et inversement :
+\begin{testexample}[Conversion étoile-triangle.]
+Un circuit en étoile à trois branches peut être remplacé par un
+circuit équivalent en triangle et inversement :
 \begin{center}
 \includegraphics[width=0.9\linewidth]{figs/methodes-generales/e2t_3}
 \end{center}
-La condition d'Ã©quivalence est que les deux circuits aient la mÃªme matrice de conductances vue de deux accÃ¨s (par exemple, $1-3$ et $2-3$)
+La condition d'équivalence est que les deux circuits aient la même matrice de conductances vue de deux accès (par exemple, $1-3$ et $2-3$)
 
-La matrice de conductances aux accÃ¨s du triangle ${\bf G}_T$ est la matrice de conductances au noeuds du circuit avec $3$ comme
-noeud de rÃ©fÃ©rence :
+La matrice de conductances aux accès du triangle ${\bf G}_T$ est la matrice de conductances au noeuds du circuit avec $3$ comme
+noeud de référence :
 \begin{center}
 \begin{minipage}[c]{0.33 \textwidth}
 	\begin{center}
@@ -515,7 +513,7 @@ noeud de rÃ©fÃ©rence :
 \end{minipage}
 \end{center}
 
-Construisons maintenant la matrice de conductances aux noeuds du triangle ${\bf G}_{NE}$ avec $3$ comme noeud de rÃ©fÃ©rence.
+Construisons maintenant la matrice de conductances aux noeuds du triangle ${\bf G}_{NE}$ avec $3$ comme noeud de référence.
 \begin{center}
 	\begin{minipage}[c]{0.33 \textwidth}
 		\begin{center}
@@ -536,8 +534,8 @@ Construisons maintenant la matrice de conductances aux noeuds du triangle ${\bf 
 	\end{minipage}
 \end{center}
 	
-Ã‰liminons l'accÃ¨s $S-3$ en rÃ©duisant ${\bf G}_{NE}$ aux 2 accÃ¨s
-``intÃ©ressants'' : 
+Éliminons l'accès $S-3$ en réduisant ${\bf G}_{NE}$ aux 2 accès
+``intéressants'' : 
 \begin{eqnarray*}
 	{\bf G}_E &=&
 	\left[
@@ -556,62 +554,62 @@ Construisons maintenant la matrice de conductances aux noeuds du triangle ${\bf 
 		-\frac{G_1G_2}{G_1+G_2+G_3} & \displaystyle \frac{G_1G_2+G_2G_3}{G_1+G_2+G_3} 
 	\end{array}\right]
 \end{eqnarray*}
-Par identification, on a  pour la transformation Ã©toile $\rightarrow$ triangle :
+Par identification, on a  pour la transformation étoile $\rightarrow$ triangle :
 \[\begin{array}{c}
 G_{12}=\frac{G_1G_2}{G_1+G_2+G_3}\\[4mm]
 G_{13}=\frac{G_1G_3}{G_1+G_2+G_3}\\[4mm]
 G_{23}=\frac{G_2G_3}{G_1+G_2+G_3}
 \end{array}\]
-ou en utilisant les rÃ©sistances des branches : 
+ou en utilisant les résistances des branches : 
 \[\begin{array}{c}
 R_{12}=\frac{R_1R_2+R_2R_3+R_1R_3}{R_3}\\[4mm]
 R_{13}=\frac{R_1R_2+R_2R_3+R_1R_3}{R_2}\\[4mm]
 R_{23}=\frac{R_1R_2+R_2R_3+R_1R_3}{R_1}
 \end{array} \]
-On peut de la mÃªme maniÃ¨re Ã©tablir les conditions pour la transformation inverse.
+On peut de la même manière établir les conditions pour la transformation inverse.
 \end{testexample}
 
-\section{La mÃ©thode des mailles}
+\section{La méthode des mailles}
 \label{sec:MM}
 
-La mÃ©thode des mailles exploite la SLK et les variables principales sont les courants de maille. L'exposÃ© de cette mÃ©thode suit la mÃªme structure que celui de la mÃ©thode des noeuds.
+La méthode des mailles exploite la SLK et les variables principales sont les courants de maille. L'exposé de cette méthode suit la même structure que celui de la méthode des noeuds.
 
 
-\subsection{Vue gÃ©nÃ©rale de la mÃ©thode}
-Pour dÃ©terminer l'Ã©tat Ã©lectrique d'un systÃ¨me, la mÃ©thode des mailles consiste Ã  rÃ©soudre le systÃ¨me linÃ©aire suivant : 
+\subsection{Vue générale de la méthode}
+Pour déterminer l'état électrique d'un système, la méthode des mailles consiste à résoudre le système linéaire suivant : 
 $$\mathbf{R}_M \mathbf{i}_M = \mathbf{v}_{sM}.$$
-oÃ¹ 
+où 
 \begin{itemize}
 	\item L'indice $M$ signifie "Maille".
-	\item $\mathbf{v}_{sM}$ est le vecteur des sources indÃ©pendantes de tension agissant dans les mailles. DÃ©terminÃ© par inspection, il caractÃ©rise l'impact des sources indÃ©pendantes de tension.
-	\item $\mathbf{i}_M$ est le vecteur des courants de maille. Il contient les $b-n-1$ variables du systÃ¨me, et les tensions de branches en dÃ©coulent, via la loi d'Ohm.
-	\item $\mathbf{R}_M$ est la matrice de rÃ©sistances de mailles. DÃ©terminÃ©e par inspection ou par expÃ©rimentation, elle caractÃ©rise le graphe du circuit passifiÃ©.
+	\item $\mathbf{v}_{sM}$ est le vecteur des sources indépendantes de tension agissant dans les mailles. Déterminé par inspection, il caractérise l'impact des sources indépendantes de tension.
+	\item $\mathbf{i}_M$ est le vecteur des courants de maille. Il contient les $b-n-1$ variables du système, et les tensions de branches en découlent, via la loi d'Ohm.
+	\item $\mathbf{R}_M$ est la matrice de résistances de mailles. Déterminée par inspection ou par expérimentation, elle caractérise le graphe du circuit passifié.
 \end{itemize}
 
-Algorithmiquement, la mÃ©thode se rÃ©sume aux cinq Ã©tapes principales dÃ©crites dans la Table~\ref{tab:methode_mailles}.
+Algorithmiquement, la méthode se résume aux cinq étapes principales décrites dans la Table~\ref{tab:methode_mailles}.
 \begin{table}[tb]
-	\caption{Vue algorithmique de la mÃ©thode des mailles. \label{tab:methode_mailles}}
+	\caption{Vue algorithmique de la méthode des mailles. \label{tab:methode_mailles}}
 	\begin{boxedminipage}{\textwidth}
 		\begin{enumerate}
-			\item Choisir un arbre orientÃ© dans le graphe du circuit de rÃ©fÃ©rence,
-			\item dÃ©terminer la matrice $\mathbf{R}_M$,
-			\item dÃ©terminer le vecteur $\mathbf{v}_{sM}$,
-			\item rÃ©soudre le systÃ¨me $$\mathbf{R}_M \mathbf{i}_M = \mathbf{v}_{sM}$$ pour obtenir les courants de branches,
-			\item dÃ©duire de $\mathbf{i}_M$ l'Ã©tat du circuit.
+			\item Choisir un arbre orienté dans le graphe du circuit de référence,
+			\item déterminer la matrice $\mathbf{R}_M$,
+			\item déterminer le vecteur $\mathbf{v}_{sM}$,
+			\item résoudre le système $$\mathbf{R}_M \mathbf{i}_M = \mathbf{v}_{sM}$$ pour obtenir les courants de branches,
+			\item déduire de $\mathbf{i}_M$ l'état du circuit.
 		\end{enumerate}
 	\end{boxedminipage}
 \end{table}
-Cette mÃ©thode est applicable si le circuit est linÃ©aire et s'il ne comporte que des sources indÃ©pendantes de tension\footnote{ Nous verrons plus tard comment gÃ©rer les sources indÃ©pendantes de courant et les source commandÃ©es de courant (CVT).}.
+Cette méthode est applicable si le circuit est linéaire et s'il ne comporte que des sources indépendantes de tension\footnote{ Nous verrons plus tard comment gérer les sources indépendantes de courant et les source commandées de courant (CVT).}.
 
-\subsection{DÃ©rivation de la mÃ©thode des noeuds}
+\subsection{Dérivation de la méthode des noeuds}
 
-Les trois relations suivantes, reposant sur la matrice des mailles et la matrice de rÃ©sistance de branches, traduisent respectivement la SLK (\ref{eq:MM_1}), le lien entre courants de branche et courants de maille (\ref{eq:MM_2}), et la loi d'Ohm (\ref{eq:MN_3}) :
+Les trois relations suivantes, reposant sur la matrice des mailles et la matrice de résistance de branches, traduisent respectivement la SLK (\ref{eq:MM_1}), le lien entre courants de branche et courants de maille (\ref{eq:MM_2}), et la loi d'Ohm (\ref{eq:MN_3}) :
 \begin{align}
 \mathbf{B} \mathbf{u}_B &= \mathbf{v}_{sM} \label{eq:MM_1}\\
 \mathbf{i}_B &= \mathbf{B}^T \mathbf{i}_{M} \label{eq:MM_2}\\
 \mathbf{u}_B &= \mathbf{R}_B \mathbf{i}_{B} \label{eq:MM_3}
 \end{align}
-On Ã©tablit ensuite le systÃ¨me rÃ©solu par la mÃ©thode des mailles sur base de ces trois relations par simples manipulations et en dÃ©finissant la \textit{matrice de rÃ©sistances de mailles} $\mathbf{R}_M.$
+On établit ensuite le système résolu par la méthode des mailles sur base de ces trois relations par simples manipulations et en définissant la \textit{matrice de résistances de mailles} $\mathbf{R}_M.$
 \begin{align}
 (\ref{eq:MM_3}) \rightarrow (\ref{eq:MM_1}) \quad \mathbf{B} \mathbf{R}_B \mathbf{i}_{B} &= \mathbf{v}_{sM} \label{eq:MM_4}\\
 (\ref{eq:MM_2}) \rightarrow (\ref{eq:MM_4}) \quad \mathbf{B} \mathbf{R}_B \mathbf{B}^T \mathbf{i}_{M} &= \mathbf{v}_{sM} \label{eq:MM_5}\\
@@ -620,26 +618,26 @@ On Ã©tablit ensuite le systÃ¨me rÃ©solu par la mÃ©thode des mailles sur base de 
 \end{align}
 
 \subsection{Matrice des mailles}
-C'est une formulation duale Ã  celle de la matrice d'incidence rÃ©duite.
-Nous considÃ©rons un graphe orientÃ© Ã  $n$ noeuds, $m$ mailles et $b$ branches et dÃ©finissons des matrices dÃ©crivant les relations d'appartenance mailles-branches.
+C'est une formulation duale à celle de la matrice d'incidence réduite.
+Nous considérons un graphe orienté à $n$ noeuds, $m$ mailles et $b$ branches et définissons des matrices décrivant les relations d'appartenance mailles-branches.
 
-\paragraph{Matrice des mailles $\mathbf{B}_a$.} C'est une matrice d'ordre $m \times b$ oÃ¹ chaque Ã©lÃ©ment $b_{ij}$ est dÃ©fini comme suit:
+\paragraph{Matrice des mailles $\mathbf{B}_a$.} C'est une matrice d'ordre $m \times b$ où chaque élément $b_{ij}$ est défini comme suit:
 \begin{enumerate}
-	\item $b_{ij} = -1$ si la branche $j$ appartient Ã  la maille $i$ et est orientÃ©e dans le mÃªme sens ;
-	\item $b_{ij} = +1$ si la branche $j$ appartient Ã  la maille $i$ et est orientÃ©e en sens opposÃ© ;
-	\item $b_{ij} = 0$ si la branche $j$ n'appartient pas Ã  la maille $i$
+	\item $b_{ij} = -1$ si la branche $j$ appartient à la maille $i$ et est orientée dans le même sens ;
+	\item $b_{ij} = +1$ si la branche $j$ appartient à la maille $i$ et est orientée en sens opposé ;
+	\item $b_{ij} = 0$ si la branche $j$ n'appartient pas à la maille $i$
 \end{enumerate}
 
-Contrairement Ã  la matrice d'incidence complÃ¨te dont le nombre de lignes est Ã©gal
-Ã  $n$ (nombre de noeuds du graphe), il n'existe pas d'expression analytique simple du nombre total de lignes de $\mathbf{B}_a$ (c'est-Ã -dire du nombre total de mailles) en fonction de $n$ et $b$.
+Contrairement à la matrice d'incidence complète dont le nombre de lignes est égal
+à $n$ (nombre de noeuds du graphe), il n'existe pas d'expression analytique simple du nombre total de lignes de $\mathbf{B}_a$ (c'est-à-dire du nombre total de mailles) en fonction de $n$ et $b$.
 
 \begin{testexample}[Matrice des mailles.]
-	Soit le rÃ©seau ci-dessous et sa reprÃ©sentation sous forme de graphe orientÃ© (Ã  droite).
+	Soit le réseau ci-dessous et sa représentation sous forme de graphe orienté (à droite).
 	\begin{center}
 		\centering
 		\includegraphics[width=0.9\linewidth]{figs/methodes-generales/m_mailles_1}
 	\end{center}
-	Il comporte $n=5$ noeuds, $b=7$ branches, et \underline{au moins} les $4$ mailles reprÃ©sentÃ©es. La SLK dans chacune de ces $4$ mailles s'Ã©crit
+	Il comporte $n=5$ noeuds, $b=7$ branches, et \underline{au moins} les $4$ mailles représentées. La SLK dans chacune de ces $4$ mailles s'écrit
 	$$
 	{\small
 		\begin{array}{rcccccccccl}
@@ -653,34 +651,34 @@ Contrairement Ã  la matrice d'incidence complÃ¨te dont le nombre de lignes est Ã
 		& = & 0
 		\end{array}}
 	$$
-	On voit directement que la derniÃ¨re ligne est la diffÃ©rence des deux premiÃ¨res.
+	On voit directement que la dernière ligne est la différence des deux premières.
 \end{testexample}
 
 
 \paragraph{Matrice des mailles fondamentales $\mathbf{B}$.}
 
-Des mailles sont dites indÃ©pendantes lorsque les lignes de la matrice $\mathbf{B}_a$ qui leur sont associÃ©es sont elles-mÃªmes linÃ©airement indÃ©pendantes. Il est Ã©vident que le nombre total de mailles comprises dans $\mathbf{B}_a$ est supÃ©rieur au nombre de mailles indÃ©pendantes.
-Sur base des mailles fondamentales associÃ©es Ã  un arbre ainsi que leur matrice correspondante, $\mathbf{B}$, en remarquant que ces mailles constituent un sous-ensemble des mailles incluses dans $\mathbf{B}_a$, on peut 
-dÃ©montrer que ces mailles fondamentales sont les mailles indÃ©pendantes cherchÃ©es ;
-les relations qu'elles fournissent permettent dÃ¨s lors de reconstituer les relations branches-mailles de toutes les mailles du graphe.
+Des mailles sont dites indépendantes lorsque les lignes de la matrice $\mathbf{B}_a$ qui leur sont associées sont elles-mêmes linéairement indépendantes. Il est évident que le nombre total de mailles comprises dans $\mathbf{B}_a$ est supérieur au nombre de mailles indépendantes.
+Sur base des mailles fondamentales associées à un arbre ainsi que leur matrice correspondante, $\mathbf{B}$, en remarquant que ces mailles constituent un sous-ensemble des mailles incluses dans $\mathbf{B}_a$, on peut 
+démontrer que ces mailles fondamentales sont les mailles indépendantes cherchées ;
+les relations qu'elles fournissent permettent dès lors de reconstituer les relations branches-mailles de toutes les mailles du graphe.
 
-Pour dÃ©finir les mailles fondamentales associÃ©es Ã  un arbre, on procÃ¨de comme indiquÃ© dans la Table~\ref{tab:mailles_fondamentales}.
+Pour définir les mailles fondamentales associées à un arbre, on procède comme indiqué dans la Table~\ref{tab:mailles_fondamentales}.
 \begin{table}[ht]
 	\caption{Construction de la matrice des mailles fondamentales $\mathbf{B}$.\label{tab:mailles_fondamentales}}
 \begin{boxedminipage}{\textwidth}
 \begin{enumerate}
-\item Identifier toutes les branches du graphe en rÃ©servant les premiers numÃ©ros (ou lettres) aux branches de l'arbre ;
-\item former une maille fondamentale Ã  partir d'un seul maillon et de branches de l'arbre ; son orientation coÃ¯ncide avec celle du maillon ;
+\item Identifier toutes les branches du graphe en réservant les premiers numéros (ou lettres) aux branches de l'arbre ;
+\item former une maille fondamentale à partir d'un seul maillon et de branches de l'arbre ; son orientation coïncide avec celle du maillon ;
 \item utiliser successivement tous les maillons, chacun une seule fois ;
-\item numÃ©roter les mailles fondamentales et disposer les lignes correspondantes en respectant le mÃªme ordre que celui utilisÃ© pour la formation des colonnes relatives aux maillons correspondants.
+\item numéroter les mailles fondamentales et disposer les lignes correspondantes en respectant le même ordre que celui utilisé pour la formation des colonnes relatives aux maillons correspondants.
 \end{enumerate}
 \end{boxedminipage}
 \end{table}
-La matrice $\mathbf{B}$ ainsi formÃ©e a $[b - (n - 1)]$ lignes et $b$ colonnes correspondant aux $b$ branches du graphe connexe.
+La matrice $\mathbf{B}$ ainsi formée a $[b - (n - 1)]$ lignes et $b$ colonnes correspondant aux $b$ branches du graphe connexe.
 
 
 \begin{testexample}[Matrice des mailles fondamentales.]
-	Dans l'exemple prÃ©cÃ©dent, choisissons l'arbre  formÃ© des branches $1$, $2$, $3$ et $4$. 		
+	Dans l'exemple précédent, choisissons l'arbre  formé des branches $1$, $2$, $3$ et $4$. 		
 	\begin{center}
 	\includegraphics[width=0.4\linewidth]{figs/methodes-generales/m_mailles_2}
 	\end{center}
@@ -693,23 +691,23 @@ La matrice $\mathbf{B}$ ainsi formÃ©e a $[b - (n - 1)]$ lignes et $b$ colonnes c
 	\end{array}\right] \]
 	Le rang de la matrice est $3=7-(5-1)$.
 \end{testexample}
-On peut maintenant Ã©crire $${\bf B}\, {\bf u}_B =  {\bf 0},$$
-avec $b-(n-1)$ relations linÃ©airement indÃ©pendantes, oÃ¹
-${\bf u}_B$ est le vecteur des tensions de branches orientÃ©es selon le sens choisi pour construire ${\bf B}$.
+On peut maintenant écrire $${\bf B}\, {\bf u}_B =  {\bf 0},$$
+avec $b-(n-1)$ relations linéairement indépendantes, où
+${\bf u}_B$ est le vecteur des tensions de branches orientées selon le sens choisi pour construire ${\bf B}$.
 
-\subsection{Vecteur des sources indÃ©pendantes de tension} Nous avons jusqu'Ã  prÃ©sent considÃ©rÃ© le graphe passifiÃ©. ConsidÃ©rons maintenant l'impact des sources indÃ©pendantes de tension dans les mailles Ã  travers le vecteur ${\bf v}_{sM}$. 
+\subsection{Vecteur des sources indépendantes de tension} Nous avons jusqu'à présent considéré le graphe passifié. Considérons maintenant l'impact des sources indépendantes de tension dans les mailles à travers le vecteur ${\bf v}_{sM}$. 
 
-Un Ã©lÃ©ment de ${\bf v}_{sM}$ est la  somme des tensions imposÃ©es dans chaque maille par les sources. Une source est prise avec le signe "$+$" si elle est orientÃ©e dans le sens de parcours de la maille, "$-$" sinon. 
+Un élément de ${\bf v}_{sM}$ est la  somme des tensions imposées dans chaque maille par les sources. Une source est prise avec le signe "$+$" si elle est orientée dans le sens de parcours de la maille, "$-$" sinon. 
 
 Avec ces conventions, on a 
 $${\bf B}\,{\bf u}_B = {\bf v}_{sM}$$
 
 \begin{testexample}[Vecteur $\mathbf{v}_{sM}$.]
-	Reprenons le circuit prÃ©cÃ©dent et l'arbre illustrÃ© en rouge.
+	Reprenons le circuit précédent et l'arbre illustré en rouge.
 	\begin{center}
 	\includegraphics[width=0.5\linewidth]{figs/methodes-generales/m_mailles_3}
 	\end{center}
-	 La source de tension qui agit dans les mailles $I$ et $II$ est orientÃ©e en sens opposÃ© Ã  celui de ces mailles, donc  
+	 La source de tension qui agit dans les mailles $I$ et $II$ est orientée en sens opposé à celui de ces mailles, donc  
 	\[ {\bf v}_{sM} = 
 	\left[
 	\begin{array}{c}
@@ -723,13 +721,13 @@ $${\bf B}\,{\bf u}_B = {\bf v}_{sM}$$
 	II : & u_2-u_3+u_6 & = & -v_{s1}\\
 	III : & -u_1+u_2+u_7 & = & 0
 	\end{array}
-	\] est Ã©quivalent Ã   $${\bf B}\,{\bf u}_B = {\bf v}_{sM}.$$ 
+	\] est équivalent à  $${\bf B}\,{\bf u}_B = {\bf v}_{sM}.$$ 
 \end{testexample}
 
 \subsection{Courant de maille}
-On appelle \textit{courant de maille} le courant "virtuel" circulant Ã  travers une maille. C'est en fait le courant qui circule dans le maillon qui dÃ©finit la maille.  La matrice des mailles fait le lien entre ces courants "virtuels" et les courants de branche : 
+On appelle \textit{courant de maille} le courant "virtuel" circulant à travers une maille. C'est en fait le courant qui circule dans le maillon qui définit la maille.  La matrice des mailles fait le lien entre ces courants "virtuels" et les courants de branche : 
 $$\mathbf{i}_B = \mathbf{B}^T \mathbf{i}_{M}.$$
-Chaque courant est considÃ©rÃ© selon le sens de parcours de la maille ou de la branche correspondante.
+Chaque courant est considéré selon le sens de parcours de la maille ou de la branche correspondante.
 \begin{testexample}
 	Soit le graphe suivant et l'arbre correspondant
 	\begin{center}
@@ -764,9 +762,9 @@ Chaque courant est considÃ©rÃ© selon le sens de parcours de la maille ou de la b
 		\end{array}\right]$$	
 \end{testexample}
 
-\subsection{Matrice de rÃ©sistance}
-\paragraph{Matrice de rÃ©sistance de branches.} %
-L'application de la loi d'Ohm dans chaque branche permet de remplacer les tensions de branches ${\bf u}_B$ par les courants de branches ${\bf i}_B$. Si le circuit comporte uniquement des rÃ©sistances linÃ©aires, on dÃ©finit la matrice de rÃ©sistance de branches ${\bf R}_B$ de dimension $b \times b$ comme la matrice diagonale suivante
+\subsection{Matrice de résistance}
+\paragraph{Matrice de résistance de branches.} %
+L'application de la loi d'Ohm dans chaque branche permet de remplacer les tensions de branches ${\bf u}_B$ par les courants de branches ${\bf i}_B$. Si le circuit comporte uniquement des résistances linéaires, on définit la matrice de résistance de branches ${\bf R}_B$ de dimension $b \times b$ comme la matrice diagonale suivante
 \[{\bf R}_B = \left[
 \begin{array}{cccc}
 R_1 & \\
@@ -797,9 +795,9 @@ R_1 & \\
 	\]}
 \end{testexample}
 
-\paragraph{Matrice de rÃ©sistance de mailles.} %
-Comme illustrÃ© aux Ã©tapes (\ref{eq:MM_5}) et (\ref{eq:MM_6}) de la dÃ©rivation de la mÃ©thode des mailles, on peut remplacer les courants de branche ${\bf i}_B$ par les courants de maille ${\bf i}_M$.
-\begin{testexample}[Matrice de rÃ©sistance de mailles.] Pour le mÃªme exemple que celui qui a servi Ã  illustrer $\mathbf{R}_B$, on a 
+\paragraph{Matrice de résistance de mailles.} %
+Comme illustré aux étapes (\ref{eq:MM_5}) et (\ref{eq:MM_6}) de la dérivation de la méthode des mailles, on peut remplacer les courants de branche ${\bf i}_B$ par les courants de maille ${\bf i}_M$.
+\begin{testexample}[Matrice de résistance de mailles.] Pour le même exemple que celui qui a servi à illustrer $\mathbf{R}_B$, on a 
 	$${\bf i}_B = {\bf B}^T {\bf i}_M$$ ou encore 
 	$$i_1 =  i_{M1}-i_{M3} \quad 
 	i_2 =  i_{M2}+i_{M3} \quad 
@@ -819,28 +817,28 @@ Comme illustrÃ© aux Ã©tapes (\ref{eq:MM_5}) et (\ref{eq:MM_6}) de la dÃ©rivation
 	\end{center}
 \end{testexample}
 
-Ceci illustre une premiÃ¨re maniÃ¨re de construire la matrice de rÃ©sistance de maille : 
+Ceci illustre une première manière de construire la matrice de résistance de maille : 
 \begin{enumerate}
 	\item construire $\mathbf{B}$,
 	\item construire $\mathbf{R}_B$,
 	\item calculer $\mathbf{R}_M = {\bf B}\,{\bf R}_B {\bf B}^T$
 \end{enumerate}
-Il existe des mÃ©thodes parfois plus directes pour construire $\mathbf{R}_M$.
+Il existe des méthodes parfois plus directes pour construire $\mathbf{R}_M$.
 
-\subsection{DÃ©termination de $\mathbf{R}_M$ par inspection}
-Appliquer $$\mathbf{R}_M = {\bf B}\,{\bf R}_B {\bf B}^T$$ revient, lorsque $\mathbf{R}_B$ est diagonale\footnote{Ce qui n'est pas le cas avec des sources commandÃ©es.}, Ã  appliquer la rÃ¨gle d'inspection de la Table~\ref{tab:inspectionR}.	 
+\subsection{Détermination de $\mathbf{R}_M$ par inspection}
+Appliquer $$\mathbf{R}_M = {\bf B}\,{\bf R}_B {\bf B}^T$$ revient, lorsque $\mathbf{R}_B$ est diagonale\footnote{Ce qui n'est pas le cas avec des sources commandées.}, à appliquer la règle d'inspection de la Table~\ref{tab:inspectionR}.	 
 \begin{table}[ht]
-	\caption{RÃ¨gle d'inspection pour dÃ©terminer les Ã©lÃ©ments de $\mathbf{R}_M$.}\label{tab:inspectionR}
+	\caption{Règle d'inspection pour déterminer les éléments de $\mathbf{R}_M$.}\label{tab:inspectionR}
 	\begin{boxedminipage}{\textwidth}
 		\begin{itemize}
-			\item $R_{ii}$ est la somme des rÃ©sistances des branches de la maille ~$i$
-			\item $R_{ik}$ est la somme des rÃ©sistances des branches communes aux mailles $i$ et $k$, prises avec le signe $+$ si les sens de parcours des deux mailles coÃ¯ncident, avec le signe $-$ dans le cas contraire.
+			\item $R_{ii}$ est la somme des résistances des branches de la maille ~$i$
+			\item $R_{ik}$ est la somme des résistances des branches communes aux mailles $i$ et $k$, prises avec le signe $+$ si les sens de parcours des deux mailles coïncident, avec le signe $-$ dans le cas contraire.
 		\end{itemize}
 	\end{boxedminipage}
 \end{table}
 
-\begin{testexample}[DÃ©termination de $\mathbf{R}_M$ par inspection.]
-	Pour l'exemple prÃ©cÃ©dent, on a directement 
+\begin{testexample}[Détermination de $\mathbf{R}_M$ par inspection.]
+	Pour l'exemple précédent, on a directement 
 	\[
 	{\bf R}_M= 
 	\left[ \begin{array}{ccc}
@@ -850,46 +848,46 @@ Appliquer $$\mathbf{R}_M = {\bf B}\,{\bf R}_B {\bf B}^T$$ revient, lorsque $\mat
 	\end{array} \right] \]
 \end{testexample}
 
-\subsection{RÃ©seau Ã©quivalent}
-Lorsque le circuit est mis en Ã©quation grÃ¢ce Ã  la mÃ©thode des mailles, il peut Ãªtre remplacÃ© par un circuit Ã©quivalent constituÃ© du
-circuit passifiÃ© vu de $M=b-(n-1)$ accÃ¨s auxquels agissent des sources
-indÃ©pendantes de tension Ã©quivalentes regroupant les sources
-indÃ©pendantes du circuit original (Figure~\ref{fig:reseau_equivalent_MM}).
+\subsection{Réseau équivalent}
+Lorsque le circuit est mis en équation grâce à la méthode des mailles, il peut être remplacé par un circuit équivalent constitué du
+circuit passifié vu de $M=b-(n-1)$ accès auxquels agissent des sources
+indépendantes de tension équivalentes regroupant les sources
+indépendantes du circuit original (Figure~\ref{fig:reseau_equivalent_MM}).
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.5\linewidth]{figs/methodes-generales/MM_equivalent}
-	\caption{RÃ©seau Ã©quivalent.}
+	\caption{Réseau équivalent.}
 	\label{fig:reseau_equivalent_MM}
 \end{figure}
-Il s'agit d'un rÃ©seau passifiÃ© avec un accÃ¨s Ã  chaque maillon (on ouvre le maillon), et une source indÃ©pendante de tension agissant Ã  chaque accÃ¨s (on ferme les maillons) correspondant aux composantes de ${\bf v}_{sM}$.
+Il s'agit d'un réseau passifié avec un accès à chaque maillon (on ouvre le maillon), et une source indépendante de tension agissant à chaque accès (on ferme les maillons) correspondant aux composantes de ${\bf v}_{sM}$.
 
-\subsection{DÃ©termination de $\mathbf{R}_M$ par expÃ©rimentation}
-La derniÃ¨re mÃ©thode pour dÃ©terminer $\mathbf{R}_M$ consiste Ã  exploiter la reprÃ©sentation du circuit par un rÃ©seau Ã©quivalent. En effet, ${\bf R}_M$ caractÃ©rise le circuit passifiÃ©. Les relations $u-i$ aux $b-(n-1)$ accÃ¨s s'Ã©crivent : 
+\subsection{Détermination de $\mathbf{R}_M$ par expérimentation}
+La dernière méthode pour déterminer $\mathbf{R}_M$ consiste à exploiter la représentation du circuit par un réseau équivalent. En effet, ${\bf R}_M$ caractérise le circuit passifié. Les relations $u-i$ aux $b-(n-1)$ accès s'écrivent : 
 \begin{eqnarray*}
 	u_{1} & = & R_{11}i_{1} + R_{12}i_{2}+ \ldots \\
 	u_{2} & = & R_{21}i_{1} + R_{22}i_{2}+ \ldots 
 \end{eqnarray*}
-oÃ¹ ${\bf i}$ est le vecteur des courants injectÃ©s aux
-accÃ¨s, ${\bf u}$ est le vecteur des tensions aux accÃ¨s.
+où ${\bf i}$ est le vecteur des courants injectés aux
+accès, ${\bf u}$ est le vecteur des tensions aux accès.
 
 \begin{marginfigure}[-1cm]
 	\centering
 	\includegraphics[width=\linewidth]{figs/methodes-generales/experimentation_MM_ii} 
 	\includegraphics[width=\linewidth]{figs/methodes-generales/experimentation_MM_ij}
-	\caption{Illustration de la mÃ©thode d'expÃ©rimenation pour les Ã©lÃ©ments diagonaux (haut) et hors diagonale (bas).}
+	\caption{Illustration de la méthode d'expérimenation pour les éléments diagonaux (haut) et hors diagonale (bas).}
 	\label{fig:experimentation_MM}
 \end{marginfigure}
 
-Les Ã©lÃ©ments de ${\bf R}_M$ sont alors dÃ©terminÃ©s par des essais
-successifs, cf. Figure~\ref{fig:experimentation_MM} et Table~\ref{tab:experimentation_MM}. Cette mÃ©thode se rÃ©vÃ¨le incontournable quand le circuit comporte des couplages entre branches ou quand, tout simplement, on n'a pas accÃ¨s aux paramÃ¨tres du circuit et on l'identifie par des mesures "physiques".
+Les éléments de ${\bf R}_M$ sont alors déterminés par des essais
+successifs, cf. Figure~\ref{fig:experimentation_MM} et Table~\ref{tab:experimentation_MM}. Cette méthode se révèle incontournable quand le circuit comporte des couplages entre branches ou quand, tout simplement, on n'a pas accès aux paramètres du circuit et on l'identifie par des mesures "physiques".
 \begin{table}[htb]
-	\caption{RÃ¨gle d'expÃ©rimentation pour dÃ©terminer les Ã©lÃ©ments de $\mathbf{R}_M$.}\label{tab:experimentation_MM}
+	\caption{Règle d'expérimentation pour déterminer les éléments de $\mathbf{R}_M$.}\label{tab:experimentation_MM}
 	\begin{boxedminipage}{\textwidth}
 		\[R_{ij}= u_{i}|_{i_{j}=1, i_{k}=0,k\neq j}\]
 		\begin{enumerate}
-			\item Imposer un courant  de $1 A$ Ã  l'accÃ¨s $j$
-			\item Laisser les autres accÃ¨s ouverts ($i=0$)
-			\item DÃ©terminer dans ces conditions la tension Ã  l'accÃ¨s $i$
+			\item Imposer un courant  de $1 A$ à l'accès $j$
+			\item Laisser les autres accès ouverts ($i=0$)
+			\item Déterminer dans ces conditions la tension à l'accès $i$
 		\end{enumerate}
 	\end{boxedminipage}
 \end{table}
@@ -899,15 +897,15 @@ successifs, cf. Figure~\ref{fig:experimentation_MM} et Table~\ref{tab:experiment
 	\begin{center}
 		\includegraphics[width=0.5\linewidth]{figs/methodes-generales/ex_exp_MM_0}
 	\end{center}
-	Calculons quelques Ã©lÃ©ments de ${\bf R}_M$. CommenÃ§ons par 
+	Calculons quelques éléments de ${\bf R}_M$. Commençons par 
 	$R_{11}=v_{I}|_{i_{I}=1,i_{II}=i_{III}=0}$
-	ce qui se traduit par l'expÃ©rience suivante : 
+	ce qui se traduit par l'expérience suivante : 
 	\begin{center}
 		\includegraphics[width=0.4\linewidth]{figs/methodes-generales/ex_exp_MM_1}
 	\end{center}
 	On a $i_6=0$ et $R_{11} = v_{I}= R_5+R_3$.
 	
-	De mÃªme pour $R_{12}=v_{I}|_{i_{II}=1,i_{I}=i_{III}=0}$
+	De même pour $R_{12}=v_{I}|_{i_{II}=1,i_{I}=i_{III}=0}$
 	\begin{center}
 		\includegraphics[width=0.4\linewidth]{figs/methodes-generales/ex_exp_MM_2}
 	\end{center}
@@ -921,8 +919,8 @@ successifs, cf. Figure~\ref{fig:experimentation_MM} et Table~\ref{tab:experiment
 \end{testexample}
 
 
-\subsection{Gestion des sources dÃ©pendantes de type CVT}
-L'exemple de la section prÃ©cÃ©dente nous a montrÃ© comment gÃ©rer un source de type CVT. On peut Ã©galement les traiter avec la mÃ©thode de base, lors de la construction de la matrice $\mathbf{R}_B$, la matrice ${\bf B}$ Ã©tant indÃ©pendante de la nature des Ã©lÃ©ments qui constituent les branches. 
+\subsection{Gestion des sources dépendantes de type CVT}
+L'exemple de la section précédente nous a montré comment gérer un source de type CVT. On peut également les traiter avec la méthode de base, lors de la construction de la matrice $\mathbf{R}_B$, la matrice ${\bf B}$ étant indépendante de la nature des éléments qui constituent les branches. 
 
 \begin{testexample}
 	Soit le circuit de la figure suivante, comportant une source CVT :
@@ -948,54 +946,54 @@ L'exemple de la section prÃ©cÃ©dente nous a montrÃ© comment gÃ©rer un source de 
 	0 & R_2-r_m & R_2+R_7
 	\end{array}\right]\]
 	
-	${\bf R}_B$ et  ${\bf R}_M$ ne sont plus des matrices symÃ©triques.
+	${\bf R}_B$ et  ${\bf R}_M$ ne sont plus des matrices symétriques.
 \end{testexample}
 
-Par contre,  ${\bf R}_M$ ne peut plus Ãªtre dÃ©terminÃ©e par inspection, ou en tous les cas pas totalement.
+Par contre,  ${\bf R}_M$ ne peut plus être déterminée par inspection, ou en tous les cas pas totalement.
 
-\subsection{Gestion des sources indÃ©pendantes de tension}
+\subsection{Gestion des sources indépendantes de tension}
 
-Pour gÃ©rer les sources indÃ©pendantes de courant, on peut transformer le circuit comme suit : 
+Pour gérer les sources indépendantes de courant, on peut transformer le circuit comme suit : 
 \begin{itemize}
-	\item pour une source en parallÃ¨le avec une rÃ©sistance : transformer la source de
-	courant en une source de tension  Ã©quivalente
-	\item pour source seule dans une branche : transformer le circuit comme indiquÃ© Ã  la Figure~\ref{fig:transformation_SIT}.
+	\item pour une source en parallèle avec une résistance : transformer la source de
+	courant en une source de tension  équivalente
+	\item pour source seule dans une branche : transformer le circuit comme indiqué à la Figure~\ref{fig:transformation_SIT}.
 \end{itemize}
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.95\linewidth]{figs/methodes-generales/transformation_SIT}
-	\caption{Gestion des sources indÃ©pendantes de courant dans la mÃ©thode des mailles.}
+	\caption{Gestion des sources indépendantes de courant dans la méthode des mailles.}
 	\label{fig:transformation_SIT}
 \end{figure}
 
-On vÃ©rifie que dans le reste du circuit, les lois de Kirchhoff sont inchangÃ©es. La branche dans laquelle se trouve la source de courant ne doit pas Ãªtre couplÃ©e avec le reste du circuit (par une source commandÃ©e, par exemple).
+On vérifie que dans le reste du circuit, les lois de Kirchhoff sont inchangées. La branche dans laquelle se trouve la source de courant ne doit pas être couplée avec le reste du circuit (par une source commandée, par exemple).
 
-\subsection{GÃ©nÃ©ralisation du ThÃ©orÃ¨me de ThÃ©venin Ã  plusieurs accÃ¨s}
-ConsidÃ©rons le schÃ©ma Ã©quivalent du circuit dÃ©duit de la mÃ©thode des mailles (Figure~\ref{fig:theveninMM}), avec $M=n-(n-1)$ accÃ¨s.
-Les relations $u-i$ pour les $M$ accÃ¨s:
+\subsection{Généralisation du Théorème de Thévenin à plusieurs accès}
+Considérons le schéma équivalent du circuit déduit de la méthode des mailles (Figure~\ref{fig:theveninMM}), avec $M=n-(n-1)$ accès.
+Les relations $u-i$ pour les $M$ accès:
 \[{\bf u}=-{\bf v}_{sM}+{\bf R}_M{\bf i}_M\]
 ou encore
 \[{\bf u}=-{\bf v}_{sM}+{\bf R}_M{\bf i}\]
-On en dÃ©duit le schÃ©ma Ã©quivalent de ThÃ©venin Ã  $M$ accÃ¨s par simple identification :
+On en déduit le schéma équivalent de Thévenin à $M$ accès par simple identification :
 \[ {\bf v}_{th} = - {\bf v}_{sM}\,\, , \quad \quad {\bf R}_{Th}={\bf R}_{M}\]
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/methodes-generales/thevenin}
-	\caption{GÃ©nÃ©ralisation du ThÃ©orÃ¨me de ThÃ©venin Ã  plusieurs accÃ¨s.}
+	\caption{Généralisation du Théorème de Thévenin à plusieurs accès.}
 	\label{fig:theveninMM}
 \end{figure}
 
-\subsection{RÃ©duction du nombre d'accÃ¨s}
-On cherche Ã  obtenir un schÃ©ma Ã©quivalent de ThÃ©venin Ã  $a$ accÃ¨s (intÃ©ressants), avec $a<M$.
-Les $M-a$ accÃ¨s inintÃ©ressants sont court-circuitÃ©s (ce qui ne dÃ©nature pas la topologie du circuit) : 
+\subsection{Réduction du nombre d'accès}
+On cherche à obtenir un schéma équivalent de Thévenin à $a$ accès (intéressants), avec $a<M$.
+Les $M-a$ accès inintéressants sont court-circuités (ce qui ne dénature pas la topologie du circuit) : 
 \[v_{a+1},\ldots,v_N=0\]
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/methodes-generales/reduction_MM}
-	\caption{Illustration de la rÃ©duction du nombre d'accÃ¨s.}
+	\caption{Illustration de la réduction du nombre d'accès.}
 	\label{fig:reduction_MM}
 \end{figure}
-Utilisons les indices $\mathbf{a}$ et $\mathbf{b}$ pour partitionner les vecteurs en parties intÃ©ressantes et non-intÃ©ressantes. Les relations $u-i$ de la mÃ©thode des mailles deviennent : 
+Utilisons les indices $\mathbf{a}$ et $\mathbf{b}$ pour partitionner les vecteurs en parties intéressantes et non-intéressantes. Les relations $u-i$ de la méthode des mailles deviennent : 
 {\small
 	\[\left[
 	\begin{array}{c}
@@ -1036,41 +1034,41 @@ Utilisons les indices $\mathbf{a}$ et $\mathbf{b}$ pour partitionner les vecteur
 	{\bf v}_{Th}+{\bf R}_{Th}{\bf i}_{\bf a}\]}
 on a 
 \begin{itemize}
-	\item le vecteur des sources Ã©quivalentes de ThÃ©venin :
+	\item le vecteur des sources équivalentes de Thévenin :
 	\[{\bf v}_{Th}=-{\bf v}_{s{\bf a}}+{\bf R}_{\bf a,b}{\bf R}_{\bf b,b}^{-1}{\bf
 		v}_{s{\bf b}}\]
-	c'est le vecteur des tensions  aux bornes des accÃ¨s Ã  vide
+	c'est le vecteur des tensions  aux bornes des accès à vide
 	(${\bf i}_{\bf a}={\bf 0}$)
-	\item la matrice de rÃ©sistances de ThÃ©venin, 
-	matrice de rÃ©sistances ``rÃ©duite'' aux accÃ¨s :
+	\item la matrice de résistances de Thévenin, 
+	matrice de résistances ``réduite'' aux accès :
 	\[{\bf R}_{Th}={\bf R}_{\bf a,a}-{\bf R}_{\bf a,b}{\bf R}_{\bf b,b}^{-1}{\bf
 		R}_{\bf b,a}\]
-	qui peut Ãªtre dÃ©terminÃ©e par expÃ©rimentation, mais jamais par inspection.
+	qui peut être déterminée par expérimentation, mais jamais par inspection.
 \end{itemize}
 
-\section{Identification des paramÃ¨tres d'un quadripÃ´le}
+\section{Identification des paramètres d'un quadripôle}
 
 
-\subsection{Objectifs de l'analyse des quadripÃ´les}
+\subsection{Objectifs de l'analyse des quadripôles}
 
-Le quadripÃ´le occupe une place de choix en thÃ©orie des circuits.
-Que ce soit en tÃ©lÃ©communications, en Ã©lectroacoustique, en Ã©lectronique ou en Ã©lectrotechnique, il est
-en effet couramment utilisÃ© comme Ã©lÃ©ment de liaison ; citons par exemple le quadripÃ´le
+Le quadripôle occupe une place de choix en théorie des circuits.
+Que ce soit en télécommunications, en électroacoustique, en électronique ou en électrotechnique, il est
+en effet couramment utilisé comme élément de liaison ; citons par exemple le quadripôle
 "filtre" aux fonctions aussi multiples qu'importantes.
-Lors de la conception d'un circuit Ã©lectrique par exemple celui illustrÃ© Ã  la Figure~\ref{fig:exemple}, on utilise souvent une approche modulaire. Chaque module est conÃ§u de maniÃ¨re indÃ©pendante, et est caractÃ©risÃ© par ses relations entrÃ©es-sorties. Moyennant certaines prÃ©cautions d'implÃ©mentation des modules, on Ã©vite de devoir traiter les dÃ©tails internes de chacun des modules lors de la conception du systÃ¨me global. Cela facilite aussi le rÃ©emploi de certains modules, le partage du travail, la rÃ©paration, l'analyse de fiabilitÃ©, etc.
+Lors de la conception d'un circuit électrique par exemple celui illustré à la Figure~\ref{fig:exemple}, on utilise souvent une approche modulaire. Chaque module est conçu de manière indépendante, et est caractérisé par ses relations entrées-sorties. Moyennant certaines précautions d'implémentation des modules, on évite de devoir traiter les détails internes de chacun des modules lors de la conception du système global. Cela facilite aussi le réemploi de certains modules, le partage du travail, la réparation, l'analyse de fiabilité, etc.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.95\linewidth]{figs/QP/exemple}
-\caption{Exemple: vue modulaire d'une unitÃ© de conversion de puissance AC-DC.}
+\caption{Exemple: vue modulaire d'une unité de conversion de puissance AC-DC.}
 \label{fig:exemple}
 \end{figure}
 
-On souhaite donc caractÃ©riser les relations ``entre accÃ¨s'':
+On souhaite donc caractériser les relations ``entre accès'':
 \begin{align*}
 f_1(u_1(t),u_2(t),i_1(t),i_2(t))& = 0\\
 f_2(u_1(t),u_2(t),i_1(t),i_2(t))& = 0
 \end{align*}
-Par exemple, pour la source commandÃ©e de type CCT illustrÃ©e Ã  la Figure~\ref{fig:CCT}, on a 
+Par exemple, pour la source commandée de type CCT illustrée à la Figure~\ref{fig:CCT}, on a 
 \begin{align*}
 u_1&=0\\
 i_2& =f(i_1).
@@ -1090,21 +1088,21 @@ i_2& =f(i_1).
 	\draw (A1') to[open,v=$u_1$] (A1);
 	\draw (A2') to[open,v^=$u_2$] (A2);
 \end{circuitikz}
-\caption{Exemple de quadripÃ´le avec une source de type CCT.}\label{fig:CCT}
+\caption{Exemple de quadripôle avec une source de type CCT.}\label{fig:CCT}
 \end{marginfigure}
 De plus, 
 \begin{itemize}
-	\item Si le quadripÃ´le est linÃ©aire : $f(i_1)=\beta(t)\, i_1$
+	\item Si le quadripôle est linéaire : $f(i_1)=\beta(t)\, i_1$
 	\item si de plus il est invariant : $f(i_1)=\beta \, i_1$
 \end{itemize}
 
 
-Si un quadripÃ´le n'est pas exclusivement rÃ©sistif (R, L, C, ...), sa caractÃ©risation est parfois trÃ¨s difficile sauf s'il est composÃ© d' Ã©lÃ©ments linÃ©aires et invariants, auquel cas on peut faire recours Ã  l'approche frÃ©quentielle.
-Par exemple, en rÃ©gime sinusoÃ¯dal Ã©tabli, on aura recours aux phaseurs, $Z$ et $Y$.
+Si un quadripôle n'est pas exclusivement résistif (R, L, C, ...), sa caractérisation est parfois très difficile sauf s'il est composé d' éléments linéaires et invariants, auquel cas on peut faire recours à l'approche fréquentielle.
+Par exemple, en régime sinusoïdal établi, on aura recours aux phaseurs, $Z$ et $Y$.
 
-\subsection{CaractÃ©risation}
-Il existe 6 maniÃ¨res de caractÃ©riser un quadripÃ´le. Elles dÃ©pendent des combinaisons possibles entre variables. 
-Chaque maniÃ¨re est caractÃ©risÃ©e par une matrice $2\times2$ exprimant les relations entre $u_1,\, i_1,\, u_2, \, i_2$.
+\subsection{Caractérisation}
+Il existe 6 manières de caractériser un quadripôle. Elles dépendent des combinaisons possibles entre variables. 
+Chaque manière est caractérisée par une matrice $2\times2$ exprimant les relations entre $u_1,\, i_1,\, u_2, \, i_2$.
 
 \begin{center}
 	\begin{tabular}{l l | c}
@@ -1118,9 +1116,9 @@ Chaque maniÃ¨re est caractÃ©risÃ©e par une matrice $2\times2$ exprimant les rela
 		$(\bar{U}_2, \bar{I}_1)$ & de $(\bar{U}_1, \bar{I}_2)$& $\mathbf{G}$
 	\end{tabular}
 \end{center}	
-On choisit l'une ou l'autre en fonction de l'application. L'objectif de ce chapitre est de montrer comment identifier les paramÃ¨tres de ces matrices et de faire le lien avec les sections prÃ©cÃ©dentes.\mytodo{Lien quadripÃ´les - mÃ©thodes gÃ©nÃ©rales d'analyse.}
+On choisit l'une ou l'autre en fonction de l'application. L'objectif de ce chapitre est de montrer comment identifier les paramètres de ces matrices et de faire le lien avec les sections précédentes.\mytodo{Lien quadripôles - méthodes générales d'analyse.}
 
-\subsection{Matrice d'impÃ©dances $\mathbf{Z}(j\omega)$}%
+\subsection{Matrice d'impédances $\mathbf{Z}(j\omega)$}%
 \[
 {\bf U}=\left(
 \begin{array}{l}
@@ -1136,9 +1134,9 @@ Z_{21}(j\omega)  &Z_{22}(j\omega)
 \bar{I}_1\\
 \bar{I}_2
 \end{array} \right)={\bf Z}(j\omega){\bf I}\]
-${\bf Z}(j\omega)$ est la matrice d'impÃ©dances du circuit rÃ©duite Ã  ses accÃ¨s $11'$
+${\bf Z}(j\omega)$ est la matrice d'impédances du circuit réduite à ses accès $11'$
 et $22'$.
-Les Ã©lÃ©ments de ${\bf Z}$ sont obtenus par essais Ã  vide :
+Les éléments de ${\bf Z}$ sont obtenus par essais à vide :
 \begin{xalignat*}{2}
 	Z_{11} &= \frac{\bar{U}_1}{\bar{I}_1}|_{\bar{I}_2=0} & Z_{22} &= \frac{\bar{U}_2}{\bar{I}_2}|_{\bar{I}_1=0}\\
 	Z_{21} &= \frac{\bar{U}_2}{\bar{I}_1}|_{\bar{I}_2=0} & Z_{12} &= \frac{\bar{U}_1}{\bar{I}_2}|_{\bar{I}_1=0}
@@ -1147,13 +1145,13 @@ Les Ã©lÃ©ments de ${\bf Z}$ sont obtenus par essais Ã  vide :
 
 %--------------------------------------------------------------------------------
 
-\paragraph{Cas du quadripÃ´le \textbf{rÃ©ciproque}.}%
-La matrice ${\bf Z}(j\omega)$ d'un quadripÃ´le rÃ©ciproque est symÃ©trique : $$Z_{12}(j\omega)=Z_{21}(j\omega)$$
+\paragraph{Cas du quadripôle \textbf{réciproque}.}%
+La matrice ${\bf Z}(j\omega)$ d'un quadripôle réciproque est symétrique : $$Z_{12}(j\omega)=Z_{21}(j\omega)$$
 
-Car, comme illustrÃ© Ã  la Figure~\ref{fig:identificationZ}, 
+Car, comme illustré à la Figure~\ref{fig:identificationZ}, 
 \[Z_{21} = \bar{U}_2|_{\bar{I}_1=1;\bar{I}_2=0}\]
 \[Z_{12} = \bar{U}_1|_{\bar{I}_1=0;\bar{I}_2=1}\]
-Et d'aprÃ¨s la condition 2 de la propriÃ©tÃ© de rÃ©ciprocitÃ© : $\bar{U}_1=Z_{12}=\bar{U}_2=Z_{21}$.
+Et d'après la condition 2 de la propriété de réciprocité : $\bar{U}_1=Z_{12}=\bar{U}_2=Z_{21}$.
 \begin{figure*}[htb]
 	\centering
 \begin{circuitikz}[american voltages]% or tikzpicture
@@ -1179,12 +1177,12 @@ Et d'aprÃ¨s la condition 2 de la propriÃ©tÃ© de rÃ©ciprocitÃ© : $\bar{U}_1=Z_{12
 \caption{Indentification de ${\bf Z}$.} \label{fig:identificationZ}
 \end{figure*}
 
-\paragraph{PropriÃ©tÃ© des "quadripÃ´les RLC".}
-Tout quadripÃ´le ne comportant que des Ã©lÃ©ments R, L, C classiques linÃ©aires et invariants \textbf{est rÃ©ciproque}.
-\footnote{Un quadripÃ´le comportant des sources commandÃ©es ou des AO peut ne pas Ãªtre rÃ©ciproque.}
+\paragraph{Propriété des "quadripôles RLC".}
+Tout quadripôle ne comportant que des éléments R, L, C classiques linéaires et invariants \textbf{est réciproque}.
+\footnote{Un quadripôle comportant des sources commandées ou des AO peut ne pas être réciproque.}
 
-\paragraph{Cas du quadripÃ´le \textbf{symÃ©trique}.}%
-Connectons aux deux accÃ¨s deux sources de courant.\\[5mm]
+\paragraph{Cas du quadripôle \textbf{symétrique}.}%
+Connectons aux deux accès deux sources de courant.\\[5mm]
 \begin{center}
 \begin{circuitikz}[american voltages]% or tikzpicture
 	\tikzset{quad/.style={draw, thick, minimum height=2.5cm, minimum width=2cm}}
@@ -1198,7 +1196,7 @@ Connectons aux deux accÃ¨s deux sources de courant.\\[5mm]
 \end{circuitikz}
 \end{center}
 \[\bar{U}_1=Z_{11}\bar{I}_1 + Z_{12} \bar{I}_2\]
-Inversons les accÃ¨s en retournant le quadripÃ´le.
+Inversons les accès en retournant le quadripôle.
 \begin{center}
 \begin{circuitikz}[american voltages]% or tikzpicture
 	\tikzset{quad/.style={draw, thick, minimum height=2.5cm, minimum width=2cm}}
@@ -1212,10 +1210,10 @@ Inversons les accÃ¨s en retournant le quadripÃ´le.
 \end{circuitikz}
 \end{center}
 \[\bar{U}_2=Z_{22}\bar{I}_1 + Z_{21}\bar{I}_2\]
-Si le quadripÃ´le est symÃ©trique, il faut
+Si le quadripôle est symétrique, il faut
 \[\bar{U}_1=\bar{U}_2 \quad \forall \bar{I}_1, \, \bar{I}_2 \quad \Rightarrow Z_{11}=Z_{22} 
 \quad \text{et} \quad Z_{12}=Z_{21}\]
-Donc $\mathbf{Z}(j\omega)$ doit Ãªtre symÃ©trique et telle que $Z_{11}=Z_{22}$.
+Donc $\mathbf{Z}(j\omega)$ doit être symétrique et telle que $Z_{11}=Z_{22}$.
 
 
 %--------------------------------------------------------------------------------
@@ -1236,23 +1234,23 @@ Y_{21}(j\omega)  &Y_{22}(j\omega)
 \bar{U}_1\\
 \bar{U}_2
 \end{array} \right)={\bf Y}(s){\bf U}(s)\]
-${\bf Y}(s)$ = matrice d'admittances du circuit rÃ©duite Ã  ses accÃ¨s 11'
+${\bf Y}(s)$ = matrice d'admittances du circuit réduite à ses accès 11'
 et 22'.
-Les Ã©lÃ©ments de ${\bf Y}$ sont obtenus par essais en court-circuit :
+Les éléments de ${\bf Y}$ sont obtenus par essais en court-circuit :
 \begin{xalignat*}{2}
 	Y_{11} &= \frac{\bar{I}_1}{\bar{U}_1}|_{\bar{U}_2=0} & Y_{22} &= \frac{\bar{I}_2}{\bar{U}_2}|_{\bar{U}_1=0}\\
 	Y_{21} &= \frac{\bar{I}_2}{\bar{U}_1}|_{\bar{U}_2=0} & Y_{12} &= \frac{\bar{I}_1}{\bar{U}_2}|_{\bar{U}_1=0}
 \end{xalignat*}
 \begin{itemize}
-	\item QuadripÃ´le \textbf{rÃ©ciproque} : $Y_{12}(j\omega)=Y_{21}(j\omega)$ (condition 1).\\
-	\item QuadripÃ´le \textbf{symÃ©trique} :  $Y_{11}(j\omega)=Y_{22}(j\omega)$ et $Y_{12}(j\omega)=Y_{21}(j\omega)$.
+	\item Quadripôle \textbf{réciproque} : $Y_{12}(j\omega)=Y_{21}(j\omega)$ (condition 1).\\
+	\item Quadripôle \textbf{symétrique} :  $Y_{11}(j\omega)=Y_{22}(j\omega)$ et $Y_{12}(j\omega)=Y_{21}(j\omega)$.
 \end{itemize}
 
 
 %--------------------------------------------------------------------------------
 
 \subsection{Matrice de transfert directe $\mathbf{T}(j\omega)$}%
-Elle relie les grandeurs d'un accÃ¨s Ã  celles de l'autre accÃ¨s :
+Elle relie les grandeurs d'un accès à celles de l'autre accès :
 \[
 \left(
 \begin{array}{l}
@@ -1274,7 +1272,7 @@ C(j\omega)  &D(j\omega)
 \bar{I}^{'}_2
 \end{array} \right)
 \]
-Les Ã©lÃ©ments de ${\bf T}$ sont obtenus par des essais Ã  vide et en court-circuit :
+Les éléments de ${\bf T}$ sont obtenus par des essais à vide et en court-circuit :
 \begin{minipage}[c]{6cm}
 	\begin{xalignat*}{2}
 		A &= \left.\frac{\bar{U}_1}{\bar{U}_2}\right|_{\bar{I}^{'}_2=0} & B &=\left.\frac{\bar{U}_1}{\bar{I}^{'}_2}\right|_{\bar{U}_2=0}\\
@@ -1290,7 +1288,7 @@ Les Ã©lÃ©ments de ${\bf T}$ sont obtenus par des essais Ã  vide et en court-circ
 
 %--------------------------------------------------------------------------------
 
-\paragraph{Relations avec les Ã©lÃ©ments des matrices ${\bf Z}$ et ${\bf Y}$.}%
+\paragraph{Relations avec les éléments des matrices ${\bf Z}$ et ${\bf Y}$.}%
 \begin{xalignat*}{2}
 	A & = \frac{Z_{11}}{Z_{21}} & C & = \frac{1}{Z_{21}}\\
 	B & = -\frac{1}{Y_{21}} & D & = -\frac{Y_{11}}{Y_{21}}
@@ -1303,8 +1301,8 @@ Comme ${\bf Z}={\bf Y}^{-1}$ et ${\bf Y}={\bf Z}^{-1}$
 
 
 \begin{itemize}
-	\item QuadripÃ´le \textbf{rÃ©ciproque} : on vÃ©rifie $\text{det}\, {\bf T}=AD-BC=1$
-	\item QuadripÃ´le \textbf{symÃ©trique} : en plus $A=D$
+	\item Quadripôle \textbf{réciproque} : on vérifie $\text{det}\, {\bf T}=AD-BC=1$
+	\item Quadripôle \textbf{symétrique} : en plus $A=D$
 \end{itemize}
 
 
@@ -1343,7 +1341,7 @@ C^{'}(j\omega)  &D^{'}(j\omega)
 \paragraph{Relation avec la matrice ${\bf T}$.}%
 
 
-De la dÃ©finition de ${\bf T}$
+De la définition de ${\bf T}$
 \[
 \begin{pmatrix}
 \bar{U}_2\\
@@ -1356,7 +1354,7 @@ D & -B\\
 \begin{pmatrix}
 \bar{U}_1\\\bar{I}_1
 \end{pmatrix}\]
-De lÃ :
+De là:
 \[
 \begin{pmatrix}
 \bar{U}_2\\
@@ -1372,18 +1370,18 @@ C & A
 
 
 \begin{itemize}
-	\item QuadripÃ´le \textbf{rÃ©ciproque} : $\text{det}\, {\bf T}_{-}=1$
-	\item QuadripÃ´le \textbf{symÃ©trique} : en plus $A^{'}=D^{'} \quad \Rightarrow \quad {\bf T}={\bf T}_{-}$
+	\item Quadripôle \textbf{réciproque} : $\text{det}\, {\bf T}_{-}=1$
+	\item Quadripôle \textbf{symétrique} : en plus $A^{'}=D^{'} \quad \Rightarrow \quad {\bf T}={\bf T}_{-}$
 \end{itemize}	
 
 
 %--------------------------------------------------------------------------------
 
 \paragraph{Remarque.}%
-La matrice de transfert ${\bf T}$ est plus gÃ©nÃ©rale que la matrice
-d'impÃ©dances ${\bf Z}$ ou la matrice d'admittances ${\bf Y}$.
+La matrice de transfert ${\bf T}$ est plus générale que la matrice
+d'impédances ${\bf Z}$ ou la matrice d'admittances ${\bf Y}$.
 
-Certains quadripÃ´les possÃ¨dent une matrice ${\bf Z}$ singuliÃ¨re et
+Certains quadripôles possèdent une matrice ${\bf Z}$ singulière et
 donc pas de matrice~${\bf Y}$  :
 \begin{center}
 \begin{circuitikz}[american voltages]% or tikzpicture
@@ -1408,7 +1406,7 @@ Z & Z
 1 & 0 \\
 \frac{1}{Z} & 1 
 \end{pmatrix}\]
-D'autres ont une matrice ${\bf Y}$ singuliÃ¨re et donc pas de matrice ${\bf Z}$. 
+D'autres ont une matrice ${\bf Y}$ singulière et donc pas de matrice ${\bf Z}$. 
 Certains n'ont ni matrice ${\bf Z}$ ni matrice ${\bf Y}$.
 Ils ont tous une matrice de transfert ${\bf T}$
 
@@ -1417,7 +1415,7 @@ Ils ont tous une matrice de transfert ${\bf T}$
 
 \subsection{Matrices hybrides}%
 
-Elles relient les grandeurs relatives Ã  des accÃ¨s diffÃ©rents et sont surtout utilisÃ©es pour les circuits Ã©lectroniques.
+Elles relient les grandeurs relatives à des accès différents et sont surtout utilisées pour les circuits électroniques.
 \[
 \left(
 \begin{array}{l}
@@ -1444,12 +1442,12 @@ Elles relient les grandeurs relatives Ã  des accÃ¨s diffÃ©rents et sont surtout 
 \end{array} \right)
 \]
 
-on a Ã©videmment 
+on a évidemment 
 \[{\bf G}={\bf H}^{-1}\]
 
-\subsection{QuadripÃ´les rÃ©ciproques usuels}
+\subsection{Quadripôles réciproques usuels}
 
-\paragraph{QuadripÃ´les en $T$ et en $\Pi$.}%
+\paragraph{Quadripôles en $T$ et en $\Pi$.}%
 \[{\bf Z}_{T}=\left(
 \begin{array}{cc}
 Z_1+Z_3 & Z_3\\
@@ -1469,7 +1467,7 @@ Z_3 & Z_2+Z_3
 \end{center}
 \caption{$T$}
 \end{marginfigure}
-\mytodo{Identification des paramÃ¨tres d'un quadripÃ´les, illustrer mÃ©thode d'expÃ©rimentation.}
+\mytodo{Identification des paramètres d'un quadripôles, illustrer méthode d'expérimentation.}
 
 
 \[
@@ -1498,8 +1496,8 @@ Y_1+Y_3 & -Y_3\\
 \end{marginfigure}
 
 
-\paragraph{QuadripÃ´le en treillis.}%
-C'est un quadripÃ´le Ã  trois mailles indÃ©pendantes. Sa matrice d'impÃ©dances rÃ©duite aux accÃ¨s 1 et 2 s'Ã©crit
+\paragraph{Quadripôle en treillis.}%
+C'est un quadripôle à trois mailles indépendantes. Sa matrice d'impédances réduite aux accès 1 et 2 s'écrit
 \begin{equation}
 {\bf Z}=\frac{1}{\sum Z}\left(
 \begin{array}{cc}
@@ -1539,11 +1537,11 @@ Avec $\sum Z=Z_1+Z_2+Z_3+Z_4$.
 		\draw (B) to[short] (X);
 	\end{circuitikz}
 \end{center}
-\caption{Treillis (gauche) et treillis symÃ©trique (droite).}
+\caption{Treillis (gauche) et treillis symétrique (droite).}
 \end{figure*}
-Un cas particulier important est le treillis symÃ©trique obtenu Ã  partir du treillis gÃ©nÃ©ral lorsque
+Un cas particulier important est le treillis symétrique obtenu à partir du treillis général lorsque
 \[Z_3=Z_1 \qquad \text{et} \qquad Z_4=Z_2\]
-Sa matrice d'impÃ©dances se rÃ©duit Ã  partir de (\ref{eq:quad_treillis}) ou plus simplement par des essais Ã  vide et en court-circuit.
+Sa matrice d'impédances se réduit à partir de (\ref{eq:quad_treillis}) ou plus simplement par des essais à vide et en court-circuit.
 \[{\bf Z}=\left(
 \begin{array}{cc}
 \frac{Z_1+Z_2}{2} & \frac{Z_2-Z_1}{2}\\
@@ -1551,11 +1549,11 @@ Sa matrice d'impÃ©dances se rÃ©duit Ã  partir de (\ref{eq:quad_treillis}) ou plu
 \end{array}\right)\]
 
 
-\subsection{Sources commandÃ©es}
+\subsection{Sources commandées}
 
-Une source commandÃ©e est en rÃ©alitÃ© un quadripÃ´le unidirectionnel, non autonome et actif ; un
-de ses accÃ¨s est celui qui exerce la commande (accÃ¨s de commande), l'autre est l'accÃ¨s
-commandÃ©. On distingue les quatre types de sources commandÃ©es idÃ©ales dÃ©crites ci-dessous. Un implÃ©mentation de chacun de ces quadripÃ´les est explicitÃ©e Ã  la Section~\ref{sec:XXT}.
+Une source commandée est en réalité un quadripôle unidirectionnel, non autonome et actif ; un
+de ses accès est celui qui exerce la commande (accès de commande), l'autre est l'accès
+commandé. On distingue les quatre types de sources commandées idéales décrites ci-dessous. Un implémentation de chacun de ces quadripôles est explicitée à la Section~\ref{sec:XXT}.
 
 \paragraph{VVT.}
 \begin{center}
@@ -1579,15 +1577,15 @@ commandÃ©. On distingue les quatre types de sources commandÃ©es idÃ©ales dÃ©crit
 
 
 
-\subsection{Associations de quadripÃ´les}
+\subsection{Associations de quadripôles}
 
-\paragraph{Association en sÃ©rie.}%
-Soient deux quadripÃ´les $Q_a$, $Q_b$ et respectivement $\mathbf{Z}_a$, $\mathbf{Z}_b$ leurs matrices d'impÃ©dances
-aux accÃ¨s. Associons-les en sÃ©rie et recherchons la matrice $\mathbf{Z}$ du quadripÃ´le rÃ©sultant (Figure~\ref{fig:quad_serie}).
+\paragraph{Association en série.}%
+Soient deux quadripôles $Q_a$, $Q_b$ et respectivement $\mathbf{Z}_a$, $\mathbf{Z}_b$ leurs matrices d'impédances
+aux accès. Associons-les en série et recherchons la matrice $\mathbf{Z}$ du quadripôle résultant (Figure~\ref{fig:quad_serie}).
 
-On voit ainsi que la matrice d'impÃ©dances du quadripÃ´le rÃ©sultant de l'association
-de deux quadripÃ´les en sÃ©rie est Ã©gale Ã  la somme des matrices d'impÃ©dances des deux
-quadripÃ´les pris sÃ©parÃ©ment:
+On voit ainsi que la matrice d'impédances du quadripôle résultant de l'association
+de deux quadripôles en série est égale à la somme des matrices d'impédances des deux
+quadripôles pris séparément:
 \begin{align}
 {\bf I}^{a}  &= {\bf I}^{b} = {\bf I}\notag\\
 {\bf U} &={\bf U}^{a}+{\bf U}^{b}={\bf Z}^{a} {\bf I}^{a} + {\bf Z}^{b}
@@ -1611,23 +1609,23 @@ quadripÃ´les pris sÃ©parÃ©ment:
 		\draw[color=myRed] (A1') to[short] (B1);
 		\draw[color=myRed] (A2') to[short] (B2);
 	\end{circuitikz}
-	\caption{Association en sÃ©rie. \label{fig:quad_serie}}
+	\caption{Association en série. \label{fig:quad_serie}}
 \end{marginfigure}
 
-Cette relation est valable pour autant que les matrices $\mathbf{Z}_a$ et $\mathbf{Z}_b$ soient identiques Ã 
-celles des quadripÃ´les pris sÃ©parÃ©ment ; autrement dit, la relation (\ref{eq:quad_serie}) n'est valable que
-si l'association des deux quadripÃ´les ne modifie pas la distribution interne des courants.
-Or ceci n'est pas souvent rÃ©alisÃ©, car la tension entre les bornes $1'$ et $2'$ du quadripÃ´le
-$Q_a$ peut ne pas Ãªtre Ã©gale Ã  la tension entre les bornes $1$ et $2$ du quadripÃ´le $Q_b$ ; la diffÃ©rence de ces tensions induira alors un courant dans la boucle constituÃ©e des bornes
-$1',2'$ de $Q_a$ et $1,2$ de $Q_b$. Dans ce cas, le courant entrant par la premiÃ¨re borne d'entrÃ©e d'un quadripÃ´le (par exemple $1$ de $Q_a$) n'est plus Ã©gal au courant sortant par la seconde borne d'entrÃ©e du mÃªme quadripÃ´le (par exemple $1'$ de $Q_a$) et il en va de mÃªme pour les courants parcourant les bornes de sortie.
+Cette relation est valable pour autant que les matrices $\mathbf{Z}_a$ et $\mathbf{Z}_b$ soient identiques à
+celles des quadripôles pris séparément ; autrement dit, la relation (\ref{eq:quad_serie}) n'est valable que
+si l'association des deux quadripôles ne modifie pas la distribution interne des courants.
+Or ceci n'est pas souvent réalisé, car la tension entre les bornes $1'$ et $2'$ du quadripôle
+$Q_a$ peut ne pas être égale à la tension entre les bornes $1$ et $2$ du quadripôle $Q_b$ ; la différence de ces tensions induira alors un courant dans la boucle constituée des bornes
+$1',2'$ de $Q_a$ et $1,2$ de $Q_b$. Dans ce cas, le courant entrant par la première borne d'entrée d'un quadripôle (par exemple $1$ de $Q_a$) n'est plus égal au courant sortant par la seconde borne d'entrée du même quadripôle (par exemple $1'$ de $Q_a$) et il en va de même pour les courants parcourant les bornes de sortie.
 
-Il existe deux cas oÃ¹ la relation (\ref{eq:quad_serie}) est sÃ»rement valable :
+Il existe deux cas où la relation (\ref{eq:quad_serie}) est sûrement valable :
 \begin{enumerate}
-\item celui oÃ¹ les branches $1'2'$ de $Q_a$ et $12$ de $Q_b$ ( Figure~\ref{fig:quad_serie}) sont des courts-circuits, car
-dans ce cas aucune tension parasite et par consÃ©quent aucun courant supplÃ©mentaire
-n'existe dans la boucle  constituÃ©e des bornes
+\item celui où les branches $1'2'$ de $Q_a$ et $12$ de $Q_b$ ( Figure~\ref{fig:quad_serie}) sont des courts-circuits, car
+dans ce cas aucune tension parasite et par conséquent aucun courant supplémentaire
+n'existe dans la boucle  constituée des bornes
 $1',2'$ de $Q_a$ et $1,2$ de $Q_b$.
-\item celui oÃ¹ un transformateur idÃ©al de rapport $1$ est insÃ©rÃ© soit Ã  l'entrÃ©e soit Ã  la sortie d'un des deux quadripÃ´les.
+\item celui où un transformateur idéal de rapport $1$ est inséré soit à l'entrée soit à la sortie d'un des deux quadripôles.
 \end{enumerate} 
 \begin{marginfigure}
 	\begin{center}
@@ -1650,9 +1648,9 @@ $1',2'$ de $Q_a$ et $1,2$ de $Q_b$.
 			\draw[color=myRed] (A2) to[short, i=$\frac{\bar{I}_1+\bar{I}_2}{2}$] (B2');
 		\end{circuitikz}
 	\end{center}
-	\caption{Association en sÃ©rie de quadripÃ´le pour laquelle la relation \ref{eq:quad_serie} ne tient pas. \label{fig:quad_serie_ce}}
+	\caption{Association en série de quadripôle pour laquelle la relation \ref{eq:quad_serie} ne tient pas. \label{fig:quad_serie_ce}}
 \end{marginfigure}
-Voici un contre-exemple. Comme illustrÃ© Ã  la Figure~\ref{fig:quad_serie_ce},
+Voici un contre-exemple. Comme illustré à la Figure~\ref{fig:quad_serie_ce},
 \[{\bf Z}^{a}={\bf Z}^{b}=
 \begin{pmatrix}
 2 & 1 \\
@@ -1666,8 +1664,8 @@ Mais
 2.5 & 3.5
 \end{pmatrix} \neq {\bf Z}^{a}+{\bf Z}^{b}.\]
 
-\paragraph{Association en parallÃ¨le.}%
-Soient deux quadripÃ´les $Q^a$, $Q^b$ et respectivement $\mathbf{Y}_a$, $\mathbf{Y}_b$ leurs matrices d'admittances aux accÃ¨s. Recherchons la matrice $\mathbf{Y}$ du quadripÃ´le rÃ©sultant de leur association en parallÃ¨le. 
+\paragraph{Association en parallèle.}%
+Soient deux quadripôles $Q^a$, $Q^b$ et respectivement $\mathbf{Y}_a$, $\mathbf{Y}_b$ leurs matrices d'admittances aux accès. Recherchons la matrice $\mathbf{Y}$ du quadripôle résultant de leur association en parallèle. 
 \begin{figure}[t]
 	\centering
 \begin{circuitikz}[american voltages, scale=0.9]% or tikzpicture
@@ -1691,7 +1689,7 @@ Soient deux quadripÃ´les $Q^a$, $Q^b$ et respectivement $\mathbf{Y}_a$, $\mathbf
 	\draw[color=blue] (3,-2) coordinate (C2') to[short, o-] (A2');
 	\draw[color=blue] (C2') to[short, o-] (B2');
 \end{circuitikz}
-\caption{Association en parallÃ¨le. \label{fig:quad_para}}
+\caption{Association en parallèle. \label{fig:quad_para}}
 \end{figure}
 Il vient (Figure~\ref{fig:quad_para}) :
 \begin{align}
@@ -1700,17 +1698,17 @@ Il vient (Figure~\ref{fig:quad_para}) :
 {\bf U}^{b}= {\bf Y}\, {\bf U} \notag\\
 {\bf Y} &={\bf Y}^{a}+{\bf Y}^{b} \label{eq:quad_para}
 \end{align}
-La relation (\ref{eq:quad_para}) est valable moyennant certaines conditions analogues Ã  celles imposÃ©es Ã  la relation (\ref{eq:quad_serie}). Ces conditions sont l'Ã©galitÃ© de la tension entre $1$ et $2$ de $Q^a$
-avec la tension entre $1$ et $2$ de $Q^b$ d'une part, l'Ã©galitÃ© de la tension entre $1'$ et $2'$ de $Q^a$
+La relation (\ref{eq:quad_para}) est valable moyennant certaines conditions analogues à celles imposées à la relation (\ref{eq:quad_serie}). Ces conditions sont l'égalité de la tension entre $1$ et $2$ de $Q^a$
+avec la tension entre $1$ et $2$ de $Q^b$ d'une part, l'égalité de la tension entre $1'$ et $2'$ de $Q^a$
 avec la tension entre $1'$ et $2'$ de $Q^b$ d'autre part.
-Il existe deux cas oÃ¹ ces conditions sont automatiquement rÃ©alisÃ©es :
+Il existe deux cas où ces conditions sont automatiquement réalisées :
 \begin{enumerate}
-\item celui oÃ¹ un transformateur idÃ©al de rapport $1$ est interposÃ© soit Ã  l'entrÃ©e soit Ã  la sortie ;
-\item celui oÃ¹ les branches $1_a2_a$ et $1_b2_b$ sont des courts-circuits.
+\item celui où un transformateur idéal de rapport $1$ est interposé soit à l'entrée soit à la sortie ;
+\item celui où les branches $1_a2_a$ et $1_b2_b$ sont des courts-circuits.
 En effet, aucun courant parasite ne parcourt alors la boucle $1_a1_b2_b2_a$ ;
-il s'ensuit qu'aucun courant parasite ne peut parcourir la boucle $1'_a1'_b2'_b2'_a$  puisque les noeuds $1'_a$ et $1'_b$ sont au potentiel $- U_1 $par rapport Ã  $1_a$ et $1_b$ et les noeuds  $2'_a$ et $2'_b$ sont au potentiel $- U_2 $par rapport Ã  $2_a$ et $2_b$.
+il s'ensuit qu'aucun courant parasite ne peut parcourir la boucle $1'_a1'_b2'_b2'_a$  puisque les noeuds $1'_a$ et $1'_b$ sont au potentiel $- U_1 $par rapport à $1_a$ et $1_b$ et les noeuds  $2'_a$ et $2'_b$ sont au potentiel $- U_2 $par rapport à $2_a$ et $2_b$.
 \end{enumerate}
-Les conclusions prÃ©cÃ©dentes restent Ã©videmment valables si l'on met en court-circuit les branches $1'_a2'_a$ et $1'_b2'_b$ au lieu des branches $1_a2_a$ et $1_b2_b$.
+Les conclusions précédentes restent évidemment valables si l'on met en court-circuit les branches $1'_a2'_a$ et $1'_b2'_b$ au lieu des branches $1_a2_a$ et $1_b2_b$.
 
 
 
@@ -1719,8 +1717,8 @@ Les conclusions prÃ©cÃ©dentes restent Ã©videmment valables si l'on met en court-
 %--------------------------------------------------------------------------------
 
 \paragraph{Association en cascade.}%
-ConsidÃ©rons deux quadripÃ´les $Q^a$, $Q^b$ ; soient respectivement $\mathbf{T}^a$ et $\mathbf{T}^b$ leurs
-matrices de transfert. Recherchons la matrice $\mathbf{T}$ du quadripÃ´le rÃ©sultant de leur association en cascade.
+Considérons deux quadripôles $Q^a$, $Q^b$ ; soient respectivement $\mathbf{T}^a$ et $\mathbf{T}^b$ leurs
+matrices de transfert. Recherchons la matrice $\mathbf{T}$ du quadripôle résultant de leur association en cascade.
 \begin{figure}[ht]
 \begin{center}
 	\begin{circuitikz}[american voltages]% or tikzpicture
@@ -1757,8 +1755,8 @@ matrices de transfert. Recherchons la matrice $\mathbf{T}$ du quadripÃ´le rÃ©sul
 \end{pmatrix}\]
 Et donc 
 \[{\bf T}={\bf T}^{a}{\bf T}^{b}\]
-On peut gÃ©nÃ©raliser : la matrice de transfert du quadripÃ´le rÃ©sultant de l'association de $n$ quadripÃ´les en chaÃ®ne vaut :
+On peut généraliser : la matrice de transfert du quadripôle résultant de l'association de $n$ quadripôles en chaîne vaut :
 $${\bf T}={\bf T}^{1}{\bf T}^{2} ... {\bf T}^{n}.$$
 
 
-\mytodo{??? Chapitre 6,3 de Pavella :RÃ©alisations d'Ã©lÃ©ments actifs au moyen d'amplis OP, Sources commandÃ©es.}
+\mytodo{??? Chapitre 6,3 de Pavella :Réalisations d'éléments actifs au moyen d'amplis OP, Sources commandées.}

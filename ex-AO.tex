@@ -1,6 +1,4 @@
-% !TeX root = syllabus_ELEC0053.tex
-% !TeX encoding = ISO-8859-1
-% !TeX spellcheck = fr_FR
+
 \section{Exercices résolus}
 
 \begin{exwithsol}{Modèles "complet" et idéal.}{solex:7-1}
@@ -133,13 +131,17 @@ Déterminer
 On remarque que $v_+ = 0$.
 
 PLK en A~:
-\[  \frac{v_s - v_-}{10^4} &= \frac{v_}{2\, 10^6} + \frac{v_- - v_o}{2\, 10^4}.\]
-\[ 200v_s &= 301 v_- - 100 v_o \]
-\[ 2v_s &\simeq 3v_- - v_o\] 
+\begin{align}
+	\frac{v_{s} - v_{-}}{10^4} &= \frac{v_{-}}{2\, 10^6} + \frac{v_{-} - v_o}{2\, 10^4} \\
+	200v_s &= 301 v_- - 100 v_o  \\
+	2v_s &\simeq 3v_- - v_o 
+\end{align}
 
-PLK en B~: 
-\[ \frac{v_- - v_o}{2\, 10^4} = \frac{v_o + Av_-}{R_{out}}\]
-\[ v_- - v_o = 400(v_o + 2\, 10^5 v_-)\]
+PLK en B~:
+\begin{align}
+\frac{v_{-} - v_o}{2\, 10^4} &= \frac{v_o + Av_{-}}{R_{out}} \\
+v_{-} - v_o &= 400(v_o + 2\, 10^5 v_{-})
+\end{align}
 
 En utilisant la valeur de $v_-$ de la première expression dans la deuxième~:
 \[\frac{v_o}{v_s} = -1.999\ldots\]  
