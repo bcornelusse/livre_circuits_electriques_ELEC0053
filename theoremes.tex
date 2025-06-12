@@ -222,7 +222,8 @@ Vue de l'accès, la résistance de $4 \,\Omega$ est en série avec la mise en paral
 
 \subsection{Adaptation et transfert de puissance maximum}
 \label{sec:adaptation}
-Soit le circuit quelconque, mais linéaire et invariant de la Figure~\ref{fig:adaptation}. On désire déterminer la valeur de l'impédance de charge $Z_L$ qui permet de soutirer à ce circuit le maximum de puissance (active). Deux cas peuvent se présenter: (1) soit on a une connaissance précise de la composition du circuit, (2) soit on n'a accès au circuit que depuis l'accès où est connecté $Z_L$ sans connaître sa composition. Dans les deux cas, l'utilisation du théorème de Théveninin est intéressante. Dans le cas (1), il permet de simplifier la condition de transfert maximum de puissance. Dans le cas (2) son utilisation est obligatoire, car il permet, par expérimentation (mesure), d'identifier les paramètres du système inconnu. Supposons donc que l'équivalent de Thévenin est établi, décrit par une source de tension $\bar{V}_{Th}$ et une impédance $Z_{Th}$ :
+Soit le circuit quelconque, mais linéaire et invariant de la Figure~\ref{fig:adaptation}. On désire déterminer la valeur de l'impédance de charge $Z_L$ qui permet de soutirer à ce circuit le maximum de puissance moyenne, donc de puissance active. 
+Deux cas peuvent se présenter: (1) soit on a une connaissance précise de la composition du circuit, (2) soit on n'a accès au circuit que depuis l'accès où est connecté $Z_L$ sans connaître sa composition. Dans les deux cas, l'utilisation du théorème de Théveninin est intéressante. Dans le cas (1), il permet de simplifier la condition de transfert maximum de puissance. Dans le cas (2) son utilisation est obligatoire, car il permet, par expérimentation (mesure), d'identifier les paramètres du système inconnu. Supposons donc que l'équivalent de Thévenin est établi, décrit par une source de tension $\bar{V}_{Th}$ et une impédance $Z_{Th}$ :
 \begin{marginfigure}
 	\centering
 	\includegraphics[width=0.98\linewidth]{figs/ch4_figs/adaptation_1}
@@ -231,50 +232,72 @@ Soit le circuit quelconque, mais linéaire et invariant de la Figure~\ref{fig:ada
 \begin{center}
 	\includegraphics[width=0.5\linewidth]{figs/ch4_figs/adaptation_2}
 \end{center}
-La puissance $P_L$ est maximale si 
+Nous allons établir que la puissance active consommée par $Z_L$, $P_L$, est maximale si 
 \begin{center}
 	\fbox{$Z_L=R_{Th}-jX_{Th}=Z_{Th}^*$}
 \end{center}
-En effet
+\paragraph{Démonstration.} Le courant circulant dans la charge $Z_L$ est donné par
+$$ \bar{I}=\frac{\bar{V}_{Th}}{Z_L+Z_{Th}} $$
+et si on note 
 \begin{align*}
 Z_L &= R_L + j X_L \\
-Z_{Th}&=R_{Th}+jX_{Th} \\
-\bar{I}&=\frac{\bar{V}_{Th}}{Z_L+Z_{Th}}\\
-P_L&=R_LI^2=\frac{R_L V_{Th}^2}{(R_L+R_{Th})^2+(X_L+X_{Th})^2}
+Z_{Th}&=R_{Th}+jX_{Th}
+\end{align*} alors la puissance active $P_L$ consommée par la charge $Z_L$ est donnée par
+\begin{align*}
+P_L=R_L I^2=\frac{R_L V_{Th}^2}{(R_L+R_{Th})^2+(X_L+X_{Th})^2}
 \end{align*}		
 $Z_L$ maximise $P_L$ si 
-$\frac{\partial P_L}{\partial R_L}=0$ et $\frac{\partial P_L}{\partial X_L}=0$. :
+$$\frac{\partial P_L}{\partial R_L}=0 \text { et } \frac{\partial P_L}{\partial X_L}=0.$$
+Commençons par la dérivée partielle par rapport à $X_L$.
+On peut écrire la puissance active $P_L$ sous la forme $$P_L = f(g(X_L))$$ avec les fonctions
 \begin{align*}
-\frac{\partial P_L}{\partial X_L}&=\frac{-V_{Th}^2 2R_L(X_L+X_{Th})}{((R_L+R_{Th})^2+(X_L+X_{Th})^2)^2} \\
-\frac{\partial P_L}{\partial X_L}&=0 \rightarrow 
-\begin{cases}
-X_L=-X_{Th}\\
-P_L=\frac{R_L
-	V_{Th}^2}{(R_L+R_{Th})^2}
-\end{cases} \\
-\frac{\partial P_L}{\partial R_L}&=\frac{V_{Th}^2(R_{Th}-R_L)}{(R_L+R_{Th})^3} \\
-\frac{\partial P_L}{\partial R_L}&=0 \rightarrow R_L=R_{Th}
+f(g)&=R_L V_{Th}^2 g^{-1} \\
+g(X_L)& = (R_L+R_{Th})^2+(X_L+X_{Th})^2.
 \end{align*}
+Par le théorème de dérivation des fonctions composées
+\begin{align*}
+\frac{\partial f}{\partial g} &= -R_L V_{Th}^2 g^{-2} \\
+\frac{\partial g}{\partial X_L}& = 2(X_L+X_{Th}) \\
+\frac{\partial P_L}{\partial X_L}&= \frac{\partial f}{\partial g}\frac{\partial g}{\partial X_L} =  \frac{-2 R_L V_{Th}^2 (X_L+X_{Th})}{\left((R_L+R_{Th})^2+(X_L+X_{Th})^2\right)^2}
+\end{align*}
+Donc $$\frac{\partial P_L}{\partial X_L}=0 \text{ si  } X_L=-X_{Th},$$ et l'expression de la puissance se simplifie en 
+$$P_L=\frac{R_L V_{Th}^2}{(R_L+R_{Th})^2}$$
+Calculons maintenant la dérivée partielle par rapport à $R_L$. Commençons par écrire
+\begin{align*}
+	\frac{\partial P_L}{\partial R_L}& = \frac{V_{Th}^2}{(R_L+R_{Th})^2} + R_L \frac{\partial}{\partial R_L} \frac{V_{Th}^2}{(R_L+R_{Th})^2}.
+\end{align*} 
+En appliquant par exemple à nouveau le théorème de dérivation des fonctions composées au deuxième terme et en simplifiant, on obtient finalement
+$$\frac{\partial P_L}{\partial R_L}=\frac{V_{Th}^2(R_{Th}-R_L)}{(R_L+R_{Th})^3} $$
+et donc $$\frac{\partial P_L}{\partial R_L} =0 \text{ si } R_L=R_{Th}.$$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
 
 \paragraph{Caractéristiques de l'adaptation.}
+Il est intéressant de noter que l'adaptation de l'impédance de charge $Z_L$ à l'impédance de Thévenin $Z_{Th}$ a les conséquences suivantes :
 \begin{enumerate}
 	\item Le courant délivré est en phase avec la source de Thévenin $$\bar{I}=\frac{\bar{V}_{Th}}{2R_L}$$
-	\item La source de Thévenin ne fournit pas de puissance réactive $$S_{s}=\bar{V}_{Th}\bar{I}^*=\frac{V_{Th}^2}{2R_L}= P_{s}$$
+	\item La source de Thévenin ne fournit pas de puissance réactive $$S_{s}=\bar{V}_{Th}\bar{I}^*=\frac{V_{Th}^2}{2R_L}= P_{s}.$$ 
+	En effet l'impédance vue par la source de Thévenin est purement résistive.
 	\item $50\%$ de la puissance est délivrée à la charge $Z_L$
 	\[P_{max}=R_LI^2=\frac{V_{Th}^2}{4R_L}=0.5P_{s}\]
-	\item La charge consomme (ou produit) de la puissance réactive: $Q_L=X_LI^2$.
+	\item Pour compenser la puissance réactive produite (ou consommée) par $X_{Th}$, la charge consomme (ou produit) de la puissance réactive: $$Q_L=X_LI^2$$.
 	\item Il y a une possibilité de surtension
 	\[U_L=|Z_L|I=|Z_L|\frac{V_{Th}}{2R_L}=\frac{V_{Th}}{2}\sqrt{1+\frac{X_L^2}{R_L^2}}
 	> V_{Th} \text{~si~}X_L>1.73R_L\]
 \end{enumerate}					
 
-\paragraph{Autres formes d'adaptation.}
-Si seul $|Z_L|$ peut varier, alors le transfert maximum de puissance se réalise si \[|Z_L|=|Z_{Th}|.\]
-
-
-Si $Z_L$ est imposée, on peut insérer un transformateur idéal de rapport $n$ entre le circuit et la
+\paragraph{Autres formes d'adaptation.} \begin{enumerate}
+	\item Si on ne peut pas agîr sur la constitution interne de la charge, mais seulement sur la "taille" de celle-ci, donc que \textbf{seul $|Z_L|$ peut varier}, alors le transfert maximum de puissance se réalise si \[|Z_L|=|Z_{Th}|.\]
+La démonstration de cette propriété est laissée à l'exercice.
+\item Si \textbf{$Z_L$ est imposée}, on peut insérer un transformateur idéal de rapport $1:n$ entre le circuit et la
 charge, avec $n$ qui réalise le transfert maximum de puissance si 
-\[n=\frac{|Z_L|}{|Z_{Th}|}.\]
+\[n^2=\frac{|Z_L|}{|Z_{Th}|}.\]
+Ceci découle du fait que le transformateur idéal permet d'amplifier l'impédance vue par l'équivalent de Thévenin d'un facteur $1/n^2$, et donc en choisissant $n^2$ de la sorte, on se retrouve dans le cas où on peut agîr sur $|Z_L|$ uniquement. 
+\end{enumerate}
+
+
+
 
 \section{Théorème de Norton}
 \subsection{Énoncé}
