@@ -788,16 +788,31 @@ On peut donc au final classer les éléments comme indiqué à la Figure~\ref{fig:cl
 \end{figure}
 
 \section{Schéma détaillé de la radio AM}
-La Figure~\ref{fig:RadioAM_diode} représente un schéma détaillé de la radio AM introduite dans la Section~\ref{sec:pratique}. Il est important de remarquer que si deux arrêtes se croisent à l'extérieur des éléments sans qu'il n'y ait de \tikzcircle{2pt} à leur intersection, alors il n'y a aucun contact électrique entre les "fils" correspondants. On omet cependant parfois le \tikzcircle{2pt} lorsque deux arrêtes forment un \textsf{T}.
+La Figure~\ref{fig:RadioAM_diode} représente un schéma détaillé de la radio AM 
+introduite dans la Section~\ref{sec:pratique}. Il est important de remarquer qu' 
+en règle général si deux arrêtes se croisent à l'extérieur des éléments sans 
+qu'il n'y ait de \tikzcircle{2pt} à leur intersection, alors il n'y a aucun 
+contact électrique entre les "fils" correspondants. On omet cependant parfois 
+le \tikzcircle{2pt} lorsque deux arrêtes se connecte l'une à la suite de 
+l'autre de manière alignée (deux composants en série), ou bien lorsque 
+\textbf{tous} les croisements d'un schéma sont des connexions électriques.
+
 \begin{figure*}[p]
 	\centering
 	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAMHarmeling_ch2}
 	\caption{Schéma détaillé d'une radio AM. Coupe 2: Démodulateur AM.}
 	\label{fig:RadioAM_diode}
 \end{figure*}
-Le graphe comporte $n=12$ noeuds, plusieurs résistances, plusieurs condensateurs (simples et électrolytiques) et deux bobines. Le \textit{switch} permet de sélectionner soit le circuit LC où C est variable ($L1$, $C1$), soit le circuit LC où L est variable ($L2$, $C2$).
+Le graphe comporte $n=15$ noeuds, plusieurs résistances, plusieurs condensateurs 
+(simples et électrolytiques), une bobine, un amplificateur audio et 
+un haut-parleur. 
+%Le \textit{switch} permet de 
+%sélectionner soit le circuit LC où C est variable ($L1$, $C1$), soit le circuit 
+%LC où L est variable ($L2$, $C2$).
 
-En pratique, l'analyse de ce circuit ne se fait pas d'un bloc. Le circuit est décomposé en plusieurs étages, qui sont analysés dans la suite du cours lorsque les notions théoriques correspondantes sont introduites.
+En pratique, l'analyse de ce circuit ne se fait pas d'un bloc. 
+Le circuit est décomposé en plusieurs étages, qui sont analysés dans la suite 
+du cours lorsque les notions théoriques correspondantes sont introduites.
 
 \subsection{Démodulation de la radio AM}
 À ce stade, un seul étage peut être analysé : la première partie de la démodulation illustrée par la coupe $2$ de la Figure~\ref{fig:RadioAM_diode}. 

@@ -1,0 +1,234 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+\usepackage[active,pdftex,tightpage]{preview}
+\usepackage{siunitx}
+\usepackage[latin1]{inputenc}
+\PreviewEnvironment{circuitikz}
+\begin{document}
+
+\def\spaceLC{2}
+\def\antennaH{1.5}
+\def\antennaHead{0.3}
+\def\xDemod{3}
+\def\heightfs{3}
+\def\heightDemod{5}
+\def\widthDemod{4}
+\def\offsetbox1{1.5}
+\def\heightLC{3.6}
+\def\widthLC{4.6}
+\def\heightHP{3.2}
+\def\widthHP{3.4}
+\def\heightAO{6.2}
+\def\widthAO{3.6}
+% \def\shifttfoconv{1}
+% \def\shiftmiddleoutside{0.25}
+% \def\shiftTopBotconv{2.4}
+% \def\shiftmiddleconv{1}
+% \def\convboxhalfsize{1}
+
+\begin{circuitikz}[scale=0.95, transform shape,american] 
+    \coordinate (RshiftLC) at (\spaceLC,0);
+    \coordinate (LshiftLC) at (-\spaceLC,0);
+    \coordinate (Ushift) at (0,\heightfs);
+    \coordinate (Dshift) at (0,-\heightfs);
+
+
+    %LC Oscillator // Bandpass
+    \draw
+    (0,0)coordinate(bl_corner) to  [vC,l2=$C_{var}$ and 10-280\si{\pico\farad} ] ++(Ushift) 
+    coordinate(tl_corner); 
+
+    \draw
+    (bl_corner) -- ++ (RshiftLC) coordinate(bCvar) to [L,l2=$L$ and 4.7\si{\milli\henry},name=L,mirror]
+    ++(Ushift) coordinate(tCvar) -- ++(LshiftLC);
+
+    %Antenna
+    \draw
+    (tl_corner)++(\spaceLC/2,0) node[circ]{} to [C,l2=$C_a$ and 100\si{\pico\farad}] ++(0,\antennaH)node[circ]{} -- ++(0,0.2) coordinate(ant)-- ++ (0,\antennaHead);
+    \draw 
+    (ant)-- ++ (0.3,\antennaHead);
+    \draw
+    (ant)-- ++ (-0.3,\antennaHead);
+    \draw 
+    (ant)++(0.3,0)node[anchor= west]{Antenna};
+
+    %Demodulator
+    \ctikzset{resistors/width=1.2, resistors/zigs=7}
+    \draw
+    (L.midtap)node[circ]{}--++(0.5,0)-- ++(0,\heightfs/2)
+    to [D,l2=$D_1$ and Diode OA85, label distance=6pt] ++(\xDemod,0) coordinate(KDiode) 
+    to[pR,l2=$R_{pot}$ and 220\si{\kilo\ohm}, wiper pos=0.2,name=P,label distance =-20pt]++(Dshift) -- (bCvar);
+    \draw 
+    (KDiode)++(-0.8,0)node[circ]{} to [C,l2_=$C_1$ and 220\si{\pico\farad}]++(Dshift)node[circ]{};
+    \ctikzset{resistors/width=0.6, resistors/zigs=3}
+
+    
+    %High Pass filter
+    \draw
+    (P.wiper)-- ++(0.5,0) 
+    to [C,l2=$C_{2}$ and 470 \si{\nano\farad},name=Condo_hp, label distance =4pt]
+     ++(1.5,0)  
+     to [R,l2=$R_{1}$ and 150\si{\ohm},name=R_1,label distance =9pt]++(1,0) 
+     to[R,l2=$R_{2}$ and 1.35\si{\kilo\ohm},name=R_2,label distance =9pt]++(2,0)
+     coordinate (rCHP);
+
+    %Audio amplifier LM386
+    \draw
+    (rCHP)-- ++(0.62,0)  node[op amp,anchor = -] (LM386) {AO} (LM386.down)
+     -- ++(0,-2)coordinate(groundAO) node[ground] {} (LM386.up) ++ (0,.5) 
+     node[above] {9\si{\volt}} -- (LM386.up);
+    
+    % %Bypass Capacitor
+    %  \draw
+    % (LM386.down) -- ++(0.65,0.375) coordinate(bypass) 
+    % to [cC,l2=$C_5$ and 10 \si{\micro\farad}](bypass |- groundAO) node[ground]{};
+    
+    %Ground
+    \draw
+    (groundAO)++(-1.5,0)node[ground,name=g+]{} ;
+    \draw
+    (g+)|-(LM386.+);
+    \draw
+    (groundAO -| bCvar)node[ground,name=gRec]{} ;
+    
+    %Ground of Receiver
+    \draw
+    (gRec)--(gRec |- bl_corner) node[circ]{};
+    
+    %(LM386.+)-- ++(-0.2,0)-- ++(0,-2) node[ground] {};
+
+    %Gain R and C
+    \draw
+    (R_1.right) ++(0.3,0) node[circ]{}  -- ++(0,1.5) 
+     to [R,l2=$R_{g}$ and 1.2\si{\kilo\ohm},name=R_gain,label distance =9pt] ++(1.2,0)
+      to [cC,l2=$C_{g}$ and 10 \si{\micro\farad},name=C_gain, label distance =4pt] 
+      ++(1.2,0) coordinate(gr) --  (LM386.-) node[circ]{} ;
+    \draw
+    (gr)node[circ]{} 
+    to [R,l2=$R_{3}$ and 30\si{\kilo\ohm},name=R_3,label distance =9pt] 
+    (C_gain.right -| LM386.out)--(LM386.out)node[circ]{} ;
+
+    
+
+    \draw
+    (LM386.out)-- ++(2,0) 
+    to [cC,l2=$C_{3}$ and 270\si{\micro\farad},name=C_3, label distance = 4pt]
+     ++(1.2,0);
+    
+    \draw [ very thick] (C_3.right)++(0.5,-0.5) rectangle ++(0.3,1);
+    
+    \draw (C_3.right)++(0.8,-0.5)  -- ++(0.5,-0.5) -- ++(0,2) -- ++(-0.5,-0.5)
+     coordinate(speaker);
+    \draw 
+    (speaker)-- (speaker |- groundAO)node[ground] {};
+    \node at ([shift={(0,1.2)}]speaker) {$R_L$ };
+    \node at ([shift={(0,0.7)}]speaker) {4-32 \si{\ohm} };
+    
+
+    \draw
+    (C_3.left)++(-1.5,0)node[circ]{}to [C,l2=$C_{4}$ and 47\si{\nano\farad},name=C_4]
+     ++(0,-1.5)to [R,l2=$R_{4}$ and 10\si{\ohm},name=R_4] ++(0,-1);
+       
+    \draw 
+    (R_4.right)--(R_4.right |- groundAO)node[ground]{};
+
+   %9V Battery
+   \draw
+    (C_3.left)++(0,2.5)node[ground]{} to[battery1, l=Pile, invert ] ++(0,0.9)++(0,0.2)node[]{$9\si{\volt}$};
+
+    % %--------------------------SURROUNDINGS ON/OFF ----------------------------
+
+    % %Surroundings LC 1
+    % \draw
+    % (bl_corner) ++(-2.2,-0.5) coordinate(startLC);
+
+    % \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    % (startLC) rectangle ++(\widthLC,\heightLC);
+
+
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (startLC) node[anchor=south west] {1 - Circuit Résonnant};
+
+
+
+
+    % %Surroundings Demod 2
+    % \draw
+    % (tCvar) ++(1,0) coordinate(startDemod);
+
+    % \draw[rounded corners=5pt, fill=blue!20, opacity=0.3, line width=0.5pt]
+    % (startDemod) 
+    % ++(0, \offsetbox1) --
+    % ++(\widthDemod, 0) --
+    % ++(0, -\heightDemod) --
+    % ++(-\widthDemod, 0) --
+    % cycle;
+
+    % % Add text in the bottom-right corner of the rectangle
+    % \draw (startDemod)++(0.99*\widthDemod,-0.99*\heightDemod+\offsetbox1) 
+    % node[anchor=south east] {2 - Démodulateur AM};
+
+
+
+    
+    % %Surroundings RC High-Pass 3
+    % \draw
+    % (Condo_hp.left) ++(-0.6,-2) coordinate(startHP);
+
+    % \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    % (startHP) rectangle ++(\widthHP,\heightHP);
+
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (startHP) node[anchor=south west] {3 - Filtre Passe Haut};
+
+
+
+
+    % %Surroundings AO 4
+    % \draw
+    % (LM386.-) ++(-0.8,-3) coordinate(startAO);
+
+    % \draw[rounded corners=5pt, fill=green!20, opacity=0.3, line width=0.5pt]
+    % (startAO) rectangle ++(\widthAO,\heightAO);
+
+
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (startAO) node[anchor=south west] {4 - Amplificateur};
+
+
+
+
+    % %Surroundings Boucherot Cell 5
+    % \draw
+    % (LM386.out) ++(0.4,-3.2) coordinate(startBC);
+
+    % \draw[rounded corners=5pt, fill=yellow!20, opacity=0.3, line width=0.5pt]
+    % (startBC) rectangle ++(2.4,2.9);
+
+
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (startBC)++(-0.3,0.4) node[anchor=west, rotate=0,text width=2.5cm,align=right] {5 - Cellule de  Boucherot};
+
+
+
+
+    % %Surroundings Speaker High-Pass 6
+    % \draw
+    % (C_3.left) ++(-0.45,-0.6) coordinate(startSHP);
+
+    % \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    % (startSHP) --
+    % ++(0,2.5)--
+    % ++(2.5,0)--
+    % ++(0,-5) coordinate(textSHP)--
+    % ++(-1.5,0)--
+    % ++(0,2.5)--
+    % cycle;
+    
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (textSHP)++(-0.3,0) node[anchor=west,rotate=90 ] {6 - Filtre Passe Haut};
+
+\end{circuitikz}
+
+
+\end{document}

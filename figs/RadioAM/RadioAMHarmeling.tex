@@ -11,8 +11,15 @@
 \def\antennaHead{0.3}
 \def\xDemod{3}
 \def\heightfs{3}
-\def\heightDemod{4.5}
+\def\heightDemod{5}
 \def\widthDemod{4}
+\def\offsetbox1{1.5}
+\def\heightLC{3.6}
+\def\widthLC{4.6}
+\def\heightHP{3.2}
+\def\widthHP{3.4}
+\def\heightAO{6.2}
+\def\widthAO{3.6}
 % \def\shifttfoconv{1}
 % \def\shiftmiddleoutside{0.25}
 % \def\shiftTopBotconv{2.4}
@@ -37,18 +44,19 @@
 
     %Antenna
     \draw
-    (tl_corner)++(\spaceLC/2,0) node[circ]{} to [C,l2=$C_a$ and 100\si{\pico\farad}] ++(0,\antennaH)coordinate(ant)-- ++ (0,\antennaHead);
+    (tl_corner)++(\spaceLC/2,0) node[circ]{} to [C,l2=$C_a$ and 100\si{\pico\farad}] ++(0,\antennaH)node[circ]{} -- ++(0,0.2) coordinate(ant)-- ++ (0,\antennaHead);
     \draw 
     (ant)-- ++ (0.3,\antennaHead);
     \draw
     (ant)-- ++ (-0.3,\antennaHead);
-
+    \draw 
+    (ant)++(0.3,0)node[anchor= west]{Antenna};
 
     %Demodulator
     \ctikzset{resistors/width=1.2, resistors/zigs=7}
     \draw
     (L.midtap)node[circ]{}--++(0.5,0)-- ++(0,\heightfs/2)
-    to [D*,l=$D_1$] ++(\xDemod,0) coordinate(KDiode) 
+    to [D,l2=$D_1$ and Diode OA85, label distance=6pt] ++(\xDemod,0) coordinate(KDiode) 
     to[pR,l2=$R_{pot}$ and 220\si{\kilo\ohm}, wiper pos=0.2,name=P,label distance =-20pt]++(Dshift) -- (bCvar);
     \draw 
     (KDiode)++(-0.8,0)node[circ]{} to [C,l2_=$C_1$ and 220\si{\pico\farad}]++(Dshift)node[circ]{};
@@ -69,7 +77,7 @@
     %Bypass Capacitor
      \draw
     (LM386.down) -- ++(0.65,0.375) coordinate(bypass) 
-    to [C,l2=$C_5$ and 10 \si{\micro\farad}](bypass |- groundAO) node[ground]{};
+    to [cC,l2=$C_5$ and 10 \si{\micro\farad}](bypass |- groundAO) node[ground]{};
     \draw
     (groundAO)++(-1.5,0)node[ground,name=g+]{} ;
     \draw
@@ -87,14 +95,14 @@
     \draw
     (LM386.up) ++(-0.4,0.26) -- ++(0,1) -- ++ (-1,0) -- ++(0,0.5)
      to [R,l2=$R_{g}$ and 1.2\si{\kilo\ohm},name=R_gain,label distance =9pt] ++(1.2,0)
-      to [C,l2=$C_{g}$ and 10 \si{\micro\farad},name=C_gain, label distance =4pt] ++(1.2,0)
+      to [cC,l2=$C_{g}$ and 10 \si{\micro\farad},name=C_gain, label distance =4pt] ++(1.2,0)
        -- ++(0,-0.5) -- ++ (-0.6,0) ;
 
     \draw
     (LM386.up)++(0.4,-0.26) -- ++(0,1.52);
 
     \draw
-    (LM386.out)-- ++(2,0) to [C,l2=$C_{3}$ and 270\si{\micro\farad},name=C_3, label distance = 4pt]
+    (LM386.out)-- ++(2,0) to [cC,l2=$C_{3}$ and 270\si{\micro\farad},name=C_3, label distance = 4pt]
      ++(1.2,0);
     
     \draw [ very thick] (C_3.right)++(0.5,-0.5) rectangle ++(0.3,1);
@@ -114,95 +122,103 @@
     \draw 
     (R_4.right)--(R_4.right |- groundAO)node[ground]{};
 
-   
+   %9V Battery
+   \draw
+    (C_3.left)++(0,2.5)node[ground]{} to[battery1, l=Pile, invert ] ++(0,0.9)++(0,0.2)node[]{$9\si{\volt}$};
 
-    %Surroundings Demod 1
+    %--------------------------SURROUNDINGS ON/OFF ----------------------------
+
+    %Surroundings LC 1
+    \draw
+    (bl_corner) ++(-2.2,-0.5) coordinate(startLC);
+
+    \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    (startLC) rectangle ++(\widthLC,\heightLC);
+
+
+    % Add text in the bottom-left corner of the rectangle
+    \draw (startLC) node[anchor=south west] {1 - Circuit Résonnant};
+
+
+
+
+    %Surroundings Demod 2
     \draw
     (tCvar) ++(1,0) coordinate(startDemod);
 
     \draw[rounded corners=5pt, fill=blue!20, opacity=0.3, line width=0.5pt]
     (startDemod) 
-    ++(0, 1) --
+    ++(0, \offsetbox1) --
     ++(\widthDemod, 0) --
     ++(0, -\heightDemod) --
     ++(-\widthDemod, 0) --
     cycle;
 
     % Add text in the bottom-right corner of the rectangle
-    \draw (startDemod)++(0.99*\widthDemod,-0.99*\heightDemod+1) 
+    \draw (startDemod)++(0.99*\widthDemod,-0.99*\heightDemod+\offsetbox1) 
     node[anchor=south east] {2 - Démodulateur AM};
+
+
+
+    
+    %Surroundings RC High-Pass 3
+    \draw
+    (Condo_hp.left) ++(-0.6,-2) coordinate(startHP);
+
+    \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    (startHP) rectangle ++(\widthHP,\heightHP);
+
+    % Add text in the bottom-left corner of the rectangle
+    \draw (startHP) node[anchor=south west] {3 - Filtre Passe Haut};
+
+
+
+
+    %Surroundings AO 4
+    \draw
+    (LM386.-) ++(-0.8,-3) coordinate(startAO);
+
+    \draw[rounded corners=5pt, fill=green!20, opacity=0.3, line width=0.5pt]
+    (startAO) rectangle ++(\widthAO,\heightAO);
+
+
+    % Add text in the bottom-left corner of the rectangle
+    \draw (startAO) node[anchor=south west] {4 - Amplificateur};
+
+
+
+
+    %Surroundings Boucherot Cell 5
+    \draw
+    (LM386.out) ++(0.4,-3.2) coordinate(startBC);
+
+    \draw[rounded corners=5pt, fill=yellow!20, opacity=0.3, line width=0.5pt]
+    (startBC) rectangle ++(2.4,2.9);
+
+
+    % Add text in the bottom-left corner of the rectangle
+    \draw (startBC)++(-0.3,0.4) node[anchor=west, rotate=0,text width=2.5cm,align=right] {5 - Cellule de  Boucherot};
+
+
+
+
+    %Surroundings Speaker High-Pass 6
+    \draw
+    (C_3.left) ++(-0.45,-0.6) coordinate(startSHP);
+
+    \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    (startSHP) --
+    ++(0,2.5)--
+    ++(2.5,0)--
+    ++(0,-5) coordinate(textSHP)--
+    ++(-1.5,0)--
+    ++(0,2.5)--
+    cycle;
+    
+    % Add text in the bottom-left corner of the rectangle
+    \draw (textSHP)++(-0.3,0) node[anchor=west,rotate=90 ] {6 - Filtre Passe Haut};
 
 \end{circuitikz}
 
-% \begin{circuitikz}
-%     % Thevenin equivalent (sinusoidal voltage source and series impedance)
-%     \draw (0,0) node [ground,name=ground] {};
-
-%     \draw (0,0) to[sV, l_=$V_{th}$] (0,3)
-%           to[generic, l_=$Z_{th}$] ++(3,0) coordinate (pcc);
-
-    
-    
-
-%     % Transformer primary winding
-   
-%     \draw (pcc) ++ (1,0) coordinate(primCenter) node[circle, draw, scale=3, name=prim] {};
-%     \draw (primCenter) node[scale = 2] {$\Delta$}; % Delta connection symbol
-%     \draw (prim.west) to[short] (pcc);
-%     % Transformer secondary windings
-    
-%     \draw (primCenter) ++(0.69,0.4) coordinate (secYcenter) node[circle, draw,scale=3, name=secY] {};
-%     \draw (secYcenter) node[scale = 2] {$Y$}; % Wye connection symbol
-
-
-%     \draw (primCenter) ++(0.69,-0.4) coordinate (secDcenter) node[circle, draw,scale=3, name=secD] {};
-%     \draw (secDcenter) node[scale = 2] {$\Delta$}; % Wye connection symbol
-
-%     % Thyristor bridges with rectangle boxes
-%     \draw (secY.east) -- ++(1,0) -- ++(0,1.2)-- ++(1,0) coordinate (westY) -- ++(0,1) -- ++(2,0) -- ++(0,-1) coordinate (eastY);
-%     \draw (eastY) -- ++(0,-1) -- ++(-1,0) coordinate (southY) -- ++(-1,0)-- ++(0,1);
-%     \draw (southY)++(0,0.5) to[thyristor, l_=$T_1$] ++(0,1);
-
-%     \draw (secD.east) -- ++(1,0) -- ++(0,-1.2) -- ++(1,0)coordinate (westD) -- ++(0,1) -- ++(2,0) -- ++(0,-1) coordinate (eastD);
-%     \draw (eastD) -- ++(0,-1) -- ++(-1,0) coordinate (southD) -- ++(-1,0)-- ++(0,1);
-%     \draw (southD)++(0,0.5) to[thyristor, l_=$T_2$] ++(0,1);
-
-%     % Add three slashes to represent three-phase wires
-%     \draw (pcc) node[] {///};
-%     \draw (westY) ++(-0.6,0)node[] {///};
-%     \draw (westD) ++(-0.6,0)node[] {///};
-    
-
-%     % Interphase inductor
-%     \draw (eastY) ++ (0,0.6) coordinate(outY+) -- ++(1,0)
-%           to[cute choke, twolineschoke, l_=$L_i$, name=Ly] ++(1,0) coordinate (LeastY);
-%     \draw (eastD) ++ (0,0.6) coordinate(outD+) -- ++(1,0)
-%           to[cute choke, twolineschoke, l_=$L_i$, name=Ld] ++(1,0) coordinate (LeastD);
-
-%     \draw (Ly.left)  ++ (-0.1,0.25) node[circle, fill, inner sep=1pt] {};
-%     \draw (Ld.right) ++ (0.1,0.25) node[circle, fill, inner sep=1pt] {};
-
-%     % DC ground 
-%     \draw (eastD) ++ (0,-0.6) coordinate(outD-) -- ++(1,0) node[sground] {};
-%     \draw (eastY) ++ (0,-0.6) coordinate(outY-) -- ++(1,0) node[sground] {};
-
-%     % Output Inductor
-%     \draw (LeastY) -- ++ (0.5,0) -- ++(0,-0.5) coordinate (out+);
-%     \draw (LeastD) -- ++ (0.5,0) -- (out+);
-%     \draw (out+) to [L, l_=$L_o$] ++(2, 0) coordinate (ely+);
-
-%     % Connecting to the Electrolyzer equivalent circuit
-%     \draw (ely+) -- ++ (0.5,0)
-%           -- ++(0,-1)
-%           to[R, l={$R_{ely}$}] ++(0,-1.5)
-%           to[battery1 , l=$V_{rev}$] ++(0,-1.5)
-%           -- ++(-0.5,0) coordinate (ely-);
-%     \draw (ely-) -- ++(-1,0) node[sground] {};
-
-%     % Add rectangle box around the Electrolyzer equivalent circuit
-%     \draw (ely-)++(2.4,-0.5) coordinate(elyboxBotRight);
-%     \draw[dashed]  (ely+)++(-0.25,0.25) coordinate(elyboxTopLeft) rectangle(elyboxBotRight);
-%     \draw (elyboxTopLeft) ++ (1.2,0.15) node[color=blue] {Electrolyzer};
-% \end{circuitikz}
 
 \end{document}

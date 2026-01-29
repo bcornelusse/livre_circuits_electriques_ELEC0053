@@ -686,8 +686,51 @@ Dans le cas du régime oscillatoire amorti, on trouve :
 
 \section{Détection d'enveloppe de la radio AM}
 \label{demodu2}
-Comme illustré à la Figure~\ref{fig:RadioAM_filtres}, le premier étage d'amplification (que nous analyserons au Chapitre~\ref{cha:AO}) est suivi d'un dipôle RC série (coupe 5). Ce dipôle est utilisé pour lisser le signal et ainsi terminer la démodulation du signal d'entrée. En effet, sa constante de temps vaut $\tau = R_4 C_4 = 0,0134$ s. Or, notre signal porteur a une fréquence comprise entre environ $500$ et $1600$ kHz, c'est-à-dire une période $T \in [2\times10^{-6}, 6.25\times10^-7 ]$ s. Comme $\tau \gg  T$, le condensateur n'a jamais le temps de se décharger, et va toujours suivre le signal. Il va donc "lisser" le signal modulé qui est capté et ainsi fournir le signal modulant, l'enveloppe.
-De manière générale, cette étape de la démodulation s'effectue à chaque fois que l'on rencontre un condensateur (ce qui explique leur présence abondante dans le circuit). 
+Comme illustré à la Figure~\ref{fig:RadioAM_diode}, la démodulateur AM est 
+composé d'un dipôle RC parallèle (coupe 2). Ce dipôle est utilisé pour lisser le signal 
+et ainsi terminer la démodulation du signal d'entrée. En effet, le circuit 
+peut-être vu selon deux modes alternant de l'un à l'autre:
+\begin{enumerate}
+	\item Lorsque la diode $D_1$ est passante (= interrupteur fermé) nous avons 
+	comme une source de tension qui provient de l'antenne en parallèle avec 
+	$C_1$ et $R_pot$.
+	Il est important de remarquer que durant cette alternance la tension aux 
+	bornes de ses trois composants sera identique puisqu'ils sont connectés 
+	aux mêmes noeuds et va théoriquement suivre celui de la source de tension 
+	vu que ce composant impose cette dernière. En pratique la diode n'est pas un
+	interrupteur idéal, et le signal de l'antenne n'est pas une source de tension
+	idéal non plus. Ce qui donne la poursuite du signal rouge par le noir 
+	illustré à la Figure~\ref{fig:lissage} lorsque ce dernier est en phase montante.
+	\item Lorsque la diode $D_1$ est bloquante (= interrupteur ouvert) nous avons
+	un circuit RC en réponse libre. Le choix des valeurs de $C_1$ et $R_{pot}$ 
+	n'est pas un hasard. Raisonnons en terme de constante de temps, 
+	$\tau = R_{pot} C_{1} = 48.4 \si{\micro\second}$. 
+	Or, notre signal porteur a une fréquence comprise entre environ $500$ et $1600$ 
+	kHz, c'est-à-dire une période $T \in [0.625 , 2 ]\si{\micro\second}$. 
+	Comme $\tau \gg  T$, le condensateur n'a jamais le temps de se décharger
+	entièrement entre deux pics de la porteuse et va ainsi éliminer la porteuse 
+	en restant proche de l'enveloppe du signal(Figure~\ref{fig:lissage}). 
+\end{enumerate}
+
+	On pourrait alors penser qu'augmenter indéfiniement la capacité $C_1$ est idéal pour la démodulation 
+	mais ce n'est pas le cas. Un signal audio étant lui même un signal oscillant 
+	à des fréquences comprises entre $5$ et $20000$ Hz, c'est-à-dire une période 
+	$T \in [50, 200000]\si{\micro\second}$. En augmentant trop la constante de 
+	temps du circuit RC on pourrait perdre ou distordre la partie la plus aigüe
+	d'un signal audio.
+% Comme illustré à la Figure~\ref{fig:RadioAM_filtres}, le premier étage 
+% d'amplification (que nous analyserons au Chapitre~\ref{cha:AO}) est suivi 
+% d'un dipôle RC série (coupe 5). Ce dipôle est utilisé pour lisser le signal 
+% et ainsi terminer la démodulation du signal d'entrée. En effet, sa constante 
+% de temps vaut $\tau = R_4 C_4 = 0,0134$ s. Or, notre signal porteur a une 
+% fréquence comprise entre environ $500$ et $1600$ kHz, c'est-à-dire une 
+% période $T \in [2\times10^{-6}, 6.25\times10^-7 ]$ s. Comme $\tau \gg  T$, 
+% le condensateur n'a jamais le temps de se décharger, et va toujours suivre 
+% le signal. Il va donc "lisser" le signal modulé qui est capté et ainsi fournir 
+% le signal modulant, l'enveloppe.
+% De manière générale, cette étape de la démodulation s'effectue à chaque fois 
+% que l'on rencontre un condensateur (ce qui explique leur présence abondante 
+% dans le circuit). 
 
 \begin{figure*}[h!]
 	\centering
