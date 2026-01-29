@@ -666,7 +666,8 @@ $$UI=R_L \frac{E^2}{{(R_L+R_i)}^2}.$$
 
 La Figure~\ref{fig:source_de_tension_reelle} met en évidence un formule d'utilité pratique très fréquente lorsqu'on souhaite calculer la tension aux bornes d'une résistance en série avec une autre. Ce circuit agit comme un \textit{diviseur de tension} : 
 \begin{table}[h]
-	\caption{Formule du diviseur de tension.}
+	
+	\caption{Formule du diviseur de tension.\label{tab:divPot}}
 	\begin{boxedminipage}{\linewidth}
 		$$ U = E \frac{R_L}{R_L+R_i}.$$
 	\end{boxedminipage}
@@ -790,8 +791,8 @@ On peut donc au final classer les éléments comme indiqué à la Figure~\ref{fig:cl
 La Figure~\ref{fig:RadioAM_diode} représente un schéma détaillé de la radio AM introduite dans la Section~\ref{sec:pratique}. Il est important de remarquer que si deux arrêtes se croisent à l'extérieur des éléments sans qu'il n'y ait de \tikzcircle{2pt} à leur intersection, alors il n'y a aucun contact électrique entre les "fils" correspondants. On omet cependant parfois le \tikzcircle{2pt} lorsque deux arrêtes forment un \textsf{T}.
 \begin{figure*}[p]
 	\centering
-	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAM_rect_1}
-	\caption{Coupe 2: première partie du circuit redresseur.}
+	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAMHarmeling_ch2}
+	\caption{Schéma détaillé d'une radio AM. Coupe 2: Démodulateur AM.}
 	\label{fig:RadioAM_diode}
 \end{figure*}
 Le graphe comporte $n=12$ noeuds, plusieurs résistances, plusieurs condensateurs (simples et électrolytiques) et deux bobines. Le \textit{switch} permet de sélectionner soit le circuit LC où C est variable ($L1$, $C1$), soit le circuit LC où L est variable ($L2$, $C2$).
@@ -813,5 +814,26 @@ La Figure~\ref{fig:demod} nous montre que la démodulation s'effectue en deux éta
   	\item le redressement du signal \textit{(Rectifier)},
   	\item la détection de l'enveloppe \textit{(Envelope Detector)}.
 \end{enumerate}
-La diode s'occupe par définition de l'étape 1 (Figure~\ref{fig:RadioAM_diode}). Les alternances positives d'un signal sont transmises, tandis que les négatives sont bloquées. Le signal est donc \textit{redressé}. La résistance $R1$, bien que de valeur relativement élevée, offre un chemin pour le courant. En effet, nous verrons que la résistance d'entrée de l'amplificateur opérationnel $U1A$ est très grande (Chapitre~\ref{cha:AO}).
+La diode s'occupe par définition de l'étape 1 (Figure~\ref{fig:RadioAM_diode}). 
+Les alternances positives d'un signal sont transmises, tandis que les négatives 
+sont bloquées. Le signal est donc \textit{redressé}. 
+Pour détecter l'enveloppe du signal, ou autrement dit enlever la composante 
+oscillante haute fréquence du signal redressé la résistance $R_{pot}$ et 
+le condensateur $C_1$ travaille ensemble. Pour faire simple $C_1$ offre un 
+chemin au courant très haute fréquence tandis que $R_{pot}$ offre un chemin au 
+plus basse fréquence soit le signal audio. Ce mécanisme sera abordé plus en 
+détails dans le domaine temporelle au chapitre suivant (Chapitre~\ref{cha:RLC}). 
+
+Enfin, la résistance $R_{pot}$ est un potentiomètre un composant que vous avez
+probablement tous rencontré si vous avez déjà tourné un bouton sur un appareil
+audio. Ce potentiomètre est une première manière d'ajuster le volume du son 
+sortant de la radio. Le curseur du potentiomètre sépare une même résitance en 2 
+parties pour créer ainsi un diviseur potentiométrique (cfr. Table~\ref{tab:divPot}). 
+La position du curseur permet de diviser la tension arrivant du détecteur, notée $V_d$,
+selon une relation linéaire, avant de la transmettre à un amplificateur 
+(Chapitre~\ref{cha:AO}). 
+Le signal de tension transmis à l'amplificateur sera donc compris entre 
+0\si{\volt} et $V_d$. 
+
+
 
