@@ -797,12 +797,7 @@ le \tikzcircle{2pt} lorsque deux arrêtes se connecte l'une à la suite de
 l'autre de manière alignée (deux composants en série), ou bien lorsque 
 \textbf{tous} les croisements d'un schéma sont des connexions électriques.
 
-\begin{figure*}[p]
-	\centering
-	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAMHarmeling_ch2}
-	\caption{Schéma détaillé d'une radio AM. Coupe 2: Démodulateur AM.}
-	\label{fig:RadioAM_diode}
-\end{figure*}
+
 Le graphe comporte $n=15$ noeuds, plusieurs résistances, plusieurs condensateurs 
 (simples et électrolytiques), une bobine, un amplificateur audio et 
 un haut-parleur. 
@@ -818,6 +813,7 @@ du cours lorsque les notions théoriques correspondantes sont introduites.
 À ce stade, un seul étage peut être analysé : la première partie de la démodulation illustrée par la coupe $2$ de la Figure~\ref{fig:RadioAM_diode}. 
 En supposant que le signal désiré est reçu (ce qui sera expliqué dans le Chapitre~\ref{cha:filtres}), il faut le démoduler pour l'utiliser. Bien que le récepteur à cristal soit extrêmement simple, il est l'élément le plus important du circuit.
 C'est la diode qui va extraire la modulation, c'est-à-dire le signal audio (signal modulant, voir Figure~\ref{fig:mod2}), du signal radio. La démodulation consiste à détecter l'enveloppe du signal modulé. 
+
 \begin{figure}[h!]
   	\centering
   	\includegraphics[width=10cm]{figs/RadioAM/demod.png}
@@ -829,6 +825,8 @@ La Figure~\ref{fig:demod} nous montre que la démodulation s'effectue en deux éta
   	\item le redressement du signal \textit{(Rectifier)},
   	\item la détection de l'enveloppe \textit{(Envelope Detector)}.
 \end{enumerate}
+
+
 La diode s'occupe par définition de l'étape 1 (Figure~\ref{fig:RadioAM_diode}). 
 Les alternances positives d'un signal sont transmises, tandis que les négatives 
 sont bloquées. Le signal est donc \textit{redressé}. 
@@ -851,4 +849,9 @@ Le signal de tension transmis à l'amplificateur sera donc compris entre
 0\si{\volt} et $V_d$. 
 
 
-
+\begin{figure*}[p]
+	\centering
+	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAMHarmeling_fond}
+	\caption{Schéma détaillé d'une radio AM. Coupe 2: Démodulateur AM.}
+	\label{fig:RadioAM_diode}
+\end{figure*}

@@ -635,6 +635,87 @@ Soient $P$ et $Q$ les puissances consommées par le dipôle. La Table~\ref{tab:syn
 \end{center}
 \end{table}
 
+
+\subsection{Exemple: Compensation de la puissance réactive d'un haut-parleur}
+
+\begin{figure*}[p]
+	\centering
+	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAMHarmeling_sinus}
+	\caption{Coupe 5: Cellule de Boucherot.}
+	\label{fig:RadioAM_Boucherot}
+\end{figure*}
+
+Dans le circuit de la radio AM rappelé à la Figure~\ref{fig:RadioAM_Boucherot},
+on peut repéré un dipôle RC série mis en parrallèle avec le haut-parleur.
+Ce dipôle est plus nommé dans le milieu de l'électronique analogique 
+"Cellule de Boucherot" ou "Réseau de Zobel". Son but est de rendre la charge vu 
+par l'amplificateur purement résistive.
+
+En effet, un haut-parleur peut être modélisé par un dipôle RL série. 
+Sa résistance modélise les pertes thermiques ainsi que l'énergie accoustique
+fournie à la membrane vibrant et créant ainsi un son. Le comportement  
+inductif du haut-parleur est lui inhérent à l'électro-aimant qui crée la 
+vibration de cette membrane.
+
+Sans la cellule de Boucherot, l'impédance vue par la sortie,$Z_L$, augmenterait 
+avec la fréquence et pourrait créer des problèmes de stabilité de l'amplificateur 
+à haute fréquence et créer par exemple un effet Larsen par exemple.
+
+$$Z_L(\omega)=Z_{hp}= R_L + j \omega L $$
+$$Z_L(\omega \rightarrow \infty) = \infty$$
+%\[R\, I^2\qquad Q= X\,I^2\]
+
+
+Cette cellule de Boucherot enlève la dépendance à la fréquence de l'impédance 
+de manière très astucieuse en choisissant correctement la valeur de $R_4$ et 
+$C_4$. Pour le démontrer prenons le réseau d'impéndance suivant, Figures~\ref{fig:Boucherot},
+réprésentant le haut-parleur et la cellule de Boucherot en parrallèle et 
+tentons d'exprimer la puissance réactive consommée par ses deux branches. (Le 
+condensateur $C_3$ est omis pour simplification pédagogique.)
+
+\begin{marginfigure}
+\centering
+\includegraphics[width=4cm]{figs/RadioAM/BoucherotCell}
+\caption{Cellule de Boucherot et haut-parleur. \label{fig:Boucherot} }
+\end{marginfigure}
+
+\begin{eqnarray*}
+	Q_{hp}& = &\omega L I_{hp}^2\\
+		  & = &\omega L \frac{V_s^2}{R_L^2 +\omega^2 L^2}\\ 
+	Q_{bc}& = &\frac{-1}{\omega C_4} I_{bc}^2\\
+		  & = &\frac{-1}{\omega C_4} \frac{V_s^2}{R_4^2 +\frac{1}{\omega^2 C_4^2}}\\
+\end{eqnarray*}
+
+On peut montrer qu'en choisissant $R_4=R_L=R$ et $C_4=\frac{L}{R^2}$, 
+les puissances réactives $Q_{hp}$ et $Q_{bc}$ s'annulent pour toutes les
+fréquences, soit $Q_{hp}(\omega)+Q_{bc}(\omega)=0$.
+
+\begin{eqnarray*}
+	0 & = & Q_{hp}+Q_{bc} \\
+	  & = &\omega L \frac{V_s^2}{R_L^2 +\omega^2 L^2} +\frac{-1}{\omega C_4} \frac{V_s^2}{R_4^2 +\frac{1}{\omega^2 C_4^2}}	  \\ 
+	  & = & \frac{\omega L}{ R_L^2 +\omega^2 L^2} - \frac{\omega C_4}{\omega^2 R_4^2 C_4^2 + 1}\\
+	  & = & \frac{ L}{ R^2 +\omega^2 L^2} - \frac{ C_4}{\omega^2 R_4^2 C_4^2 + 1}\\
+	  & = & \omega^2 R^2 L C_4^2  +L  -  R^2 C_4 - \omega^2 L^2 C_4 \\
+	  & = & \omega^2 L C_4(R^2C_4 -L) - 1(R^2 C_4-L)\\
+	  & = & (\omega^2 L C_4-1)(R^2C_4 -L)\\
+\end{eqnarray*}
+
+On constate que la puissance réactive se compense aussi à la fréquence 
+résonance entre L et C, soit lorsque $\omega^2 = \frac{1}{LC}$. 
+Ceci est toujours le cas 
+mais un signal audio étant un signal \textit{"à large bande"} 
+(= à multiple fréquence) l'impédance de la charge n'aurait été purement 
+résistive que pour une seule note.
+
+En pratique la présence du condensateur $C_3$ ainsi que les imperfections 
+d'un véritable haut-parleur détériore cette propriété d'impédance purement 
+résistive mais si les ordres de grandeurs de $R_4$ et $C_4$ sont bien choisis 
+on peut s'en approcher convenablement.
+
+Exercice : Montrer que $Z_L = (\frac{1}{Z_{hp}} + \frac{1}{Z_{bc}})^{-1} = R $,
+si $R_4=R_L=R$ et $C_4=\frac{L}{R^2}$.
+
+
 \section{Circuits magnétiquement couplés}
 
 \subsection{Inductances couplées}
@@ -1031,3 +1112,4 @@ où
 	\item $\phi_u-\phi_i$ est le déphasage entre la tension de phase et le
 	courant de phase.
 \end{itemize}
+
