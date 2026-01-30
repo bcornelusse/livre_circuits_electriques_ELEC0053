@@ -126,97 +126,97 @@
    \draw
     (C_3.left)++(0,2.5)node[ground]{} to[battery1, l=Pile, invert ] ++(0,0.9)++(0,0.2)node[]{$9\si{\volt}$};
 
-    %--------------------------SURROUNDINGS ON/OFF ----------------------------
+    % %--------------------------SURROUNDINGS ON/OFF ----------------------------
 
-    %Surroundings LC 1
-    \draw
-    (bl_corner) ++(-2.2,-0.5) coordinate(startLC);
+    % %Surroundings LC 1
+    % \draw
+    % (bl_corner) ++(-2.2,-0.5) coordinate(startLC);
 
-    \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
-    (startLC) rectangle ++(\widthLC,\heightLC);
-
-
-    % Add text in the bottom-left corner of the rectangle
-    \draw (startLC) node[anchor=south west] {1 - Circuit Résonnant};
+    % \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    % (startLC) rectangle ++(\widthLC,\heightLC);
 
 
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (startLC) node[anchor=south west] {1 - Circuit Résonnant};
 
 
-    %Surroundings Demod 2
-    \draw
-    (tCvar) ++(1,0) coordinate(startDemod);
 
-    \draw[rounded corners=5pt, fill=blue!20, opacity=0.3, line width=0.5pt]
-    (startDemod) 
-    ++(0, \offsetbox1) --
-    ++(\widthDemod, 0) --
-    ++(0, -\heightDemod) --
-    ++(-\widthDemod, 0) --
-    cycle;
 
-    % Add text in the bottom-right corner of the rectangle
-    \draw (startDemod)++(0.99*\widthDemod,-0.99*\heightDemod+\offsetbox1) 
-    node[anchor=south east] {2 - Démodulateur AM};
+    % %Surroundings Demod 2
+    % \draw
+    % (tCvar) ++(1,0) coordinate(startDemod);
+
+    % \draw[rounded corners=5pt, fill=blue!20, opacity=0.3, line width=0.5pt]
+    % (startDemod) 
+    % ++(0, \offsetbox1) --
+    % ++(\widthDemod, 0) --
+    % ++(0, -\heightDemod) --
+    % ++(-\widthDemod, 0) --
+    % cycle;
+
+    % % Add text in the bottom-right corner of the rectangle
+    % \draw (startDemod)++(0.99*\widthDemod,-0.99*\heightDemod+\offsetbox1) 
+    % node[anchor=south east] {2 - Démodulateur AM};
 
 
 
     
-    %Surroundings RC High-Pass 3
-    \draw
-    (Condo_hp.left) ++(-0.6,-2) coordinate(startHP);
+    % %Surroundings RC High-Pass 3
+    % \draw
+    % (Condo_hp.left) ++(-0.6,-2) coordinate(startHP);
 
-    \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
-    (startHP) rectangle ++(\widthHP,\heightHP);
+    % \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    % (startHP) rectangle ++(\widthHP,\heightHP);
 
-    % Add text in the bottom-left corner of the rectangle
-    \draw (startHP) node[anchor=south west] {3 - Filtre Passe Haut};
-
-
-
-
-    %Surroundings AO 4
-    \draw
-    (LM386.-) ++(-0.8,-3) coordinate(startAO);
-
-    \draw[rounded corners=5pt, fill=green!20, opacity=0.3, line width=0.5pt]
-    (startAO) rectangle ++(\widthAO,\heightAO);
-
-
-    % Add text in the bottom-left corner of the rectangle
-    \draw (startAO) node[anchor=south west] {4 - Amplificateur};
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (startHP) node[anchor=south west] {3 - Filtre Passe Haut};
 
 
 
 
-    %Surroundings Boucherot Cell 5
-    \draw
-    (LM386.out) ++(0.4,-3.2) coordinate(startBC);
+    % %Surroundings AO 4
+    % \draw
+    % (LM386.-) ++(-0.8,-3) coordinate(startAO);
 
-    \draw[rounded corners=5pt, fill=yellow!20, opacity=0.3, line width=0.5pt]
-    (startBC) rectangle ++(2.4,2.9);
-
-
-    % Add text in the bottom-left corner of the rectangle
-    \draw (startBC)++(-0.3,0.4) node[anchor=west, rotate=0,text width=2.5cm,align=right] {5 - Cellule de  Boucherot};
+    % \draw[rounded corners=5pt, fill=green!20, opacity=0.3, line width=0.5pt]
+    % (startAO) rectangle ++(\widthAO,\heightAO);
 
 
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (startAO) node[anchor=south west] {4 - Amplificateur};
 
 
-    %Surroundings Speaker High-Pass 6
-    \draw
-    (C_3.left) ++(-0.45,-0.6) coordinate(startSHP);
 
-    \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
-    (startSHP) --
-    ++(0,2.5)--
-    ++(2.5,0)--
-    ++(0,-5) coordinate(textSHP)--
-    ++(-1.5,0)--
-    ++(0,2.5)--
-    cycle;
+
+    % %Surroundings Boucherot Cell 5
+    % \draw
+    % (LM386.out) ++(0.4,-3.2) coordinate(startBC);
+
+    % \draw[rounded corners=5pt, fill=yellow!20, opacity=0.3, line width=0.5pt]
+    % (startBC) rectangle ++(2.4,2.9);
+
+
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (startBC)++(-0.3,0.4) node[anchor=west, rotate=0,text width=2.5cm,align=right] {5 - Cellule de  Boucherot};
+
+
+
+
+    % %Surroundings Speaker High-Pass 6
+    % \draw
+    % (C_3.left) ++(-0.45,-0.6) coordinate(startSHP);
+
+    % \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
+    % (startSHP) --
+    % ++(0,2.5)--
+    % ++(2.5,0)--
+    % ++(0,-5) coordinate(textSHP)--
+    % ++(-1.5,0)--
+    % ++(0,2.5)--
+    % cycle;
     
-    % Add text in the bottom-left corner of the rectangle
-    \draw (textSHP)++(-0.3,0) node[anchor=west,rotate=90 ] {6 - Filtre Passe Haut};
+    % % Add text in the bottom-left corner of the rectangle
+    % \draw (textSHP)++(-0.3,0) node[anchor=west,rotate=90 ] {6 - Filtre Passe Haut};
 
 \end{circuitikz}
 

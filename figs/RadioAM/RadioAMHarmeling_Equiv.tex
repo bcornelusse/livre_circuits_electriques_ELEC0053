@@ -16,10 +16,10 @@
 \def\offsetbox1{1.5}
 \def\heightLC{3.6}
 \def\widthLC{4.6}
-\def\heightHP{3.2}
-\def\widthHP{3.4}
+\def\heightHP{4.5}
+\def\widthHP{1.9}
 \def\heightAO{6.2}
-\def\widthAO{3.6}
+\def\widthAO{7.6}
 % \def\shifttfoconv{1}
 % \def\shiftmiddleoutside{0.25}
 % \def\shiftTopBotconv{2.4}
@@ -50,12 +50,13 @@
     \draw
     (ant)-- ++ (-0.3,\antennaHead);
     \draw 
-    (ant)++(0.3,0)node[anchor= west]{Antenna};
+    (ant)++(0.3,0)node[anchor= west]{Antenne};
 
     %Demodulator
     \ctikzset{resistors/width=1.2, resistors/zigs=7}
     \draw
-    (L.midtap)node[circ]{}--++(0.5,0)-- ++(0,\heightfs/2)
+    %(L.midtap)node[circ]{}--++(0.5,0)-- ++(0,\heightfs/2)
+    (tCvar) node[circ]{} --++(0.5,0)
     to [D,l2=$D_1$ and Diode OA85, label distance=6pt] ++(\xDemod,0) coordinate(KDiode) 
     to[pR,l2=$R_{pot}$ and 220\si{\kilo\ohm}, wiper pos=0.2,name=P,label distance =-20pt]++(Dshift) -- (bCvar);
     \draw 
@@ -67,11 +68,11 @@
     \draw
     (P.wiper)-- ++(0.5,0) 
     to [C,l2=$C_{2}$ and 470 \si{\nano\farad},name=Condo_hp, label distance =4pt]
-     ++(1.5,0)  
-     to [R,l2=$R_{1}$ and 150\si{\ohm},name=R_1,label distance =9pt]++(1,0) 
-     to[R,l2=$R_{2}$ and 1.35\si{\kilo\ohm},name=R_2,label distance =9pt]++(2,0)
-     coordinate (rCHP);
-
+    ++(1.5,0)  
+    to [R,l2=$R_{1}$ and 150\si{\ohm},name=R_1,label distance =9pt]++(2,0) 
+    to[R,l2=$R_{3}$ and 1.35\si{\kilo\ohm},name=R_3,label distance =9pt]++(2.5,0)
+    coordinate (rCHP);
+    
     %Audio amplifier LM386
     \draw
     (rCHP)-- ++(0.62,0)  node[op amp,anchor = -] (LM386) {AO} (LM386.down)
@@ -91,6 +92,12 @@
     \draw
     (groundAO -| bCvar)node[ground,name=gRec]{} ;
     
+    %Input Resistor AO
+    \draw
+    (Condo_hp.right)++(0.6,0)coordinate(Rin)node[circ]{}
+    to[R,l2=$R_{2}$ and 50\si{\kilo\ohm},name=R_2,label distance =9pt] 
+    (Rin |-groundAO)node[ground]{};
+
     %Ground of Receiver
     \draw
     (gRec)--(gRec |- bl_corner) node[circ]{};
@@ -102,10 +109,11 @@
     (R_1.right) ++(0.3,0) node[circ]{}  -- ++(0,1.5) 
      to [R,l2=$R_{g}$ and 1.2\si{\kilo\ohm},name=R_gain,label distance =9pt] ++(1.2,0)
       to [cC,l2=$C_{g}$ and 10 \si{\micro\farad},name=C_gain, label distance =4pt] 
-      ++(1.2,0) coordinate(gr) --  (LM386.-) node[circ]{} ;
+      ++(1.2,0) coordinate(gr) --  (gr |- LM386.-) node[circ]{} ;
     \draw
-    (gr)node[circ]{} 
-    to [R,l2=$R_{3}$ and 30\si{\kilo\ohm},name=R_3,label distance =9pt] 
+    %(gr)node[circ]{} 
+    (LM386.-) node[circ]{} -- ++(0,1.5)
+    to [R,l2=$R_{5}$ and 30\si{\kilo\ohm},name=R_5,label distance =9pt] 
     (C_gain.right -| LM386.out)--(LM386.out)node[circ]{} ;
 
     
@@ -173,20 +181,20 @@
     
     % %Surroundings RC High-Pass 3
     % \draw
-    % (Condo_hp.left) ++(-0.6,-2) coordinate(startHP);
+    % (Condo_hp.left) ++(-0.6,-3.2) coordinate(startHP);
 
     % \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
     % (startHP) rectangle ++(\widthHP,\heightHP);
 
     % % Add text in the bottom-left corner of the rectangle
-    % \draw (startHP) node[anchor=south west] {3 - Filtre Passe Haut};
+    % \draw (startHP) node[anchor=south west,text width=2cm,] {3 - Filtre Passe Haut};
 
 
 
 
     % %Surroundings AO 4
     % \draw
-    % (LM386.-) ++(-0.8,-3) coordinate(startAO);
+    % (R_1.left) ++(-0.2,-3) coordinate(startAO);
 
     % \draw[rounded corners=5pt, fill=green!20, opacity=0.3, line width=0.5pt]
     % (startAO) rectangle ++(\widthAO,\heightAO);
@@ -205,7 +213,6 @@
     % \draw[rounded corners=5pt, fill=yellow!20, opacity=0.3, line width=0.5pt]
     % (startBC) rectangle ++(2.4,2.9);
 
-
     % % Add text in the bottom-left corner of the rectangle
     % \draw (startBC)++(-0.3,0.4) node[anchor=west, rotate=0,text width=2.5cm,align=right] {5 - Cellule de  Boucherot};
 
@@ -215,7 +222,6 @@
     % %Surroundings Speaker High-Pass 6
     % \draw
     % (C_3.left) ++(-0.45,-0.6) coordinate(startSHP);
-
     % \draw[rounded corners=5pt, fill=red!20, opacity=0.3, line width=0.5pt]
     % (startSHP) --
     % ++(0,2.5)--
@@ -224,9 +230,8 @@
     % ++(-1.5,0)--
     % ++(0,2.5)--
     % cycle;
-    
-    % % Add text in the bottom-left corner of the rectangle
-    % \draw (textSHP)++(-0.3,0) node[anchor=west,rotate=90 ] {6 - Filtre Passe Haut};
+    % Add text in the bottom-left corner of the rectangle
+    %\draw (textSHP)++(-0.3,0) node[anchor=west,rotate=90 ] {6 - Filtre Passe Haut};
 
 \end{circuitikz}
 
