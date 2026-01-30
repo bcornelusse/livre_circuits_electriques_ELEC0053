@@ -232,11 +232,20 @@ La coupe 1 de la Figure~\ref{fig:RadioAM_filtres} illustre l'étage d'entrée de l
 \end{figure*}
 
 \subsection{Antenne}
-Tout d'abord, il faut capter un signal. Ce signal se trouve dans l'air ambiant et est capté par un simple fil. Celui-ci va en réalité capter des différences de potentiel dues à la présence des ondes qu'on souhaite capter. Ainsi, plus le fil est long, meilleure sera la réception.
-\mytodo{Comme dans Hurwitz, montrer une mesure du signal reçu par l'antenne sans et puis avec le filtre.}
+Tout d'abord, il faut capter un signal. Ce signal se trouve dans l'air ambiant 
+et est capté par un simple fil. Celui-ci va en réalité capter des différences 
+de potentiel dues à la présence des ondes électromagnétiques qu'on souhaite 
+capter. Ainsi, plus le fil est long, meilleure sera la réception. L'antenne 
+peut être vu comme un générateur de courant connecté entre la masse du circuit 
+et la connexion physique de l'antenne. 
+\mytodo{Comme dans Hurwitz(?Howatson? plutôt), montrer une mesure du signal reçu par l'antenne sans et puis avec le filtre.}
 
 \subsection{Circuit résonant}
-Le signal capté par l'antenne doit ensuite être filtré. L'antenne  capte une multitude de signaux mais seulement une partie nous intéresse. Nous cherchons à ne faire passer qu'une fréquence comprise entre 500 et 1600 kHz en AM. Pour "sélectionner" le signal porteur qui nous intéresse, nous utilisons un filtre passe-bande fait d'un dipôle LC parallèle. 
+Le signal capté par l'antenne doit ensuite être filtré. 
+L'antenne capte une multitude de signaux mais seulement une partie nous intéresse. 
+Nous cherchons à ne faire passer qu'une fréquence comprise entre 500 et 1600 kHz 
+en AM. Pour "sélectionner" le signal porteur qui nous intéresse, nous utilisons 
+un filtre passe-bande fait d'un dipôle LC parallèle. 
 L'impédance équivalente du dipôle se calcule aisément: 
 \begin{equation}
 Z_{eq} = \frac{Z_L Z_C}{Z_L + Z_C} = \frac{j\omega L\frac{1}{j \omega C}}{j \omega L + \frac{1}{j \omega C}} = \frac{\frac{L}{C}}{\frac{(1-\omega^2 LC)}{j \omega C}} = \frac{j \omega L}{1- \omega^2 LC}
@@ -248,21 +257,77 @@ f_0 = \frac{1}{2 \pi \sqrt{LC}}
 $$
 La fréquence que l'on souhaite capter peut ainsi être choisie en modifiant L et/ou C.
 
-On peut tout d'abord choisir de changer l'inductance de la bobine en utilisant un noyau en ferrite: en le faisant coulisser dans la bobine, on change la perméabilité magnétique et donc on change L. Pour notre circuit, avec un capacité fixe $C=470$ pF, on a $L\in [21, 184]$ $\mu$H. 
-On peut également faire varier C, en utilisant un condensateur à capacité variable. Par exemple, pour un L fixé à $4.7$ mH, on a $C \in [2, 22]$ pF. 
-Pour pouvoir tester ces deux possibilités, nous avons ajouté un switch dans le circuit qui permet de basculer vers un dipôle L -- C variable ou vers un dipôle L variable -- C. 
+On peut par exemple choisir de changer l'inductance de la bobine en utilisant 
+un noyau en ferrite: en le faisant coulisser dans la bobine, on change la 
+perméabilité magnétique et donc on change L. 
+%Pour notre circuit, avec un capacité fixe $C=470$ pF, on a $L\in [21, 184]$ $\mu$H. 
+On peut également faire varier C, en utilisant un condensateur à capacité variable. 
+Dans notre circuit exemple, pour un L fixé à $4.7$ mH, on a $C \in [10, 220]$ pF. 
 
-\`A la fréquence de résonance, l'impédance du dipôle est (en théorie) infinie, ne laissant donc passer aucun courant vers la prise de terre. Pour des fréquences non voulues, l'impédance sera au contraire très petite et laissera passer les signaux à travers le dipôle inductif pour les envoyer vers la terre.  
+% Pour pouvoir tester ces deux possibilités, nous avons ajouté un switch dans le 
+% circuit qui permet de basculer vers un dipôle L -- C variable ou vers un dipôle 
+% L variable -- C. 
 
-\subsection{Prise de terre}
+\`A la fréquence de résonance, l'impédance du dipôle est (en théorie) infinie,
+en pratique les imperfections des composants crèe une impédance très grande.
+Les moindre petits courants captés aux fréquences avoisinnant celle de la 
+porteuse se développent donc dans cette grande impédance et crée ainsi un signal 
+en tension suffisamment grand pour être manipulé par la suite du circuit.  
+Pour des fréquences non voulues, l'impédance sera au contraire très petite et 
+laissera passer les signaux à travers soit l'inductance $L$ ($f<f_0$) soit 
+le condensateur $C_{var}$ ($f>f_0$) sans générer de tension notable.  
 
-Il ne faut pas oublier de définir un point de potentiel de référence pour notre système, et de relier celui-ci à la terre. Il s'agit d'un circuit de retour pour le courant. Un courant ne se créera donc dans l'antenne que si celle-ci est reliée au sol. Cette terre permettra donc de "réceptionner" les signaux non voulus qui passent à travers le filtre. 
-Dans le cadre de cette expérience, nous relierons ce point de référence à la terre d'une prise électrique.
+\subsection{Masse de la Radio}
+
+Il ne faut pas oublier de définir un point de potentiel de référence pour notre 
+système. Dans notre cas la borne '-' d'une pile 9V a été choisie notre potentiel 
+de référence. Attention à ne pas confondre la \textit{masse} et la \textit{prise de terre} 
+d'un circuit. La \textit{masse} d'un appareil est plus généralement le potentiel
+de référence du circuit considéré comme étant à la tension 0V. La 
+\textit{prise de terre} désigne dans les infrastructures électriques 
+(maisons, bâtiments, pylones électrique, etc.) un conducteur physiquement 
+connecté au sol. Elle est parfois choisie comme \textit{masse} d'un appareil 
+branché dans une prise d'où la confusion mais ce n'est pas toujours le cas.
+Notre radio étant portable, une des bornes de la pile est un bon candidat pour 
+potentiel de référence. 
+%Les signaux non voulus mentionné précedemment circule donc 
+ 
+
+%Il s'agit d'un circuit de retour pour le courant. Un courant ne se 
+%créera donc dans l'antenne que si celle-ci est reliée au sol. 
+%Cette terre permettra donc de "réceptionner" les signaux non voulus qui passent 
+%à travers le filtre. 
+%Dans le cadre de cette expérience, nous relierons ce point de référence à la 
+%terre d'une prise électrique.
 
 \section{Autres filtres du circuit de réception et amplification de la radio AM}
 \subsection{Filtre passe-bas pour la démodulation}
-Une façon alternative de comprendre la détection d'enveloppe (cf. Section~\ref{demodu2}), après la rectification du signal, est de considérer le circuit de la coupe 5 de la Figure~\ref{fig:RadioAM_filtres} comme un filtre passe bas. 
+Une façon alternative de comprendre la détection d'enveloppe 
+(cf. Section~\ref{demodu2}), après la rectification du signal, 
+est de considérer le circuit de la coupe 2 de la Figure~\ref{fig:RadioAM_diode} 
+comme un filtre passe bas avec une fréquence de coupure légèrement supérieur 
+à $20\si{\kilo\hertz}$. 
 
 \subsection{Filtre passe-haut pour le haut-parleur}
-Comme on le verra au chapitre~\ref{cha:AO}, le deuxième amplificateur opérationnel ajoute un \textit{offset} de $4,5$ V au signal. Cependant, un haut-parleur ne peut recevoir qu'un signal alternatif sans composante continue, qui lui serait nuisible. Il faut donc retirer cet \textit{offset} (composante continue) et c'est à cela que sert le circuit RC série précédant le haut-parleur (coupe 8 de la Figure~\ref{fig:RadioAM_filtres}). Utilisé comme filtre passe-haut, il va éliminer l'\textit{offset} qui est de fréquence nulle en théorie et de fréquence très faible en pratique.
+Comme on le verra au chapitre~\ref{cha:AO}, le deuxième amplificateur 
+opérationnel ajoute un \textit{offset} de $4,5$ V au signal. 
+Cependant, un haut-parleur ne peut recevoir qu'un signal 
+alternatif sans composante continue, qui lui serait nuisible. 
+Il faut donc retirer cet \textit{offset} (composante continue) 
+et c'est à cela que sert le condensateur $C_5$ série précédant le 
+haut-parleur (coupe 6 de la Figure~\ref{fig:RadioAM_filtres}). 
+Utilisé comme filtre passe-haut, il va éliminer l'\textit{offset} qui est de 
+fréquence nulle en théorie et de fréquence très faible en pratique.
 
+\subsection{Filtre passe-haut avant amplification}
+Dans la même idée, le condensateur $C_2$ et la résistance $R_2$ forme un 
+filtre passe haut de premier ordre. Ce dernier élimine toute composante DC qui 
+pourrait s'introduire dans le circuit avant l'amplification. En effet, il est 
+important de rappelé que nous sommes entourés de signaux électromagnétiques et 
+que chaque morceaux de conducteurs du circuit peut former une antenne. 
+Si un parasite basse fréquence s'introduit dans le circuit entre le circuit 
+résonant et qu'on ne le filtre pas, il pourrait alors être amplifier et manger
+la part du signal audio en quelque sorte. 
+On dit qu'on filtre ces parasites très basses 
+fréquence pour éviter que l'amplificateur ne sature. La raison
+de cette saturation sera couverte au chapitre~\ref{cha:AO}.  
