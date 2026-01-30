@@ -515,7 +515,7 @@ Un AO peut se matérialiser sous différentes formes, comme représenté à la Figure
 \end{figure}
 
 \clearpage
-\section{\'Etages d'amplification de la radio AM}
+\section{\'Etage d'amplification de la radio AM}
 \label{sec:AO_radio}
 \subsection{Étage 2}
 \begin{marginfigure}
@@ -524,15 +524,22 @@ Un AO peut se matérialiser sous différentes formes, comme représenté à la Figure
 	\caption{Schéma de l'AO du circuit, avec ses tensions d'entrée et de sortie.}
 	\label{AO1}
 \end{marginfigure}
-La coupe $3$ de la Figure~\ref{fig:RadioAM_AOs} représente le deuxième étage de la radio AM.
-Le premier amplificateur opérationnel est utilisé dans un montage non inverseur (Figure~\ref{AO1}).
+La coupe $4$ de la Figure~\ref{fig:RadioAM_AOs} représente l'étage d'amplification de la radio AM.
+Le premier amplificateur opérationnel est utilisé dans un montage inverseur (Figure~\ref{AO1}).
 On obtient alors la fonction de transfert $H(\omega)$ qui exprime le gain en amplitude :
 $$
-H(\omega) = \frac{V_s}{V_e} = \frac{Z_1 + Z_2}{Z_2} = 1 + \frac{Z_1}{Z_2}
+H(\omega) = \frac{V_s}{V_e} = -\frac{Z_f}{Z_s}
 $$
-Avec $Z_1 = \frac{R_3}{1+j \omega R_3 C_3}$ qui dépend de la fréquence du signal d'entrée, et $Z_2 = R_1$.
-Quand $\omega R_3 C_3 \gg 1$, on a $|Z_1| \sim 0$ et $H(\omega) \sim 1$. Par contre, si $\omega R_3 C_3 \ll 1$, on a $|Z_1| \sim R_3$ et $H(\omega) = 1 + \frac{R_3}{R_2} = 1 + \frac{1000}{4,7} = 213,76$.
-C'est la caractéristique d'un filtre passe-bas mais qui va, au lieu d'atténuer les fréquences non voulues comme le fait un filtre passif, amplifier les fréquences souhaitées. La fréquence de coupure est ici de $\frac{1}{2 \pi R_3 C_3} = 1591 kHz$ qui correspond bien à une borne supérieure pour les fréquences AM.
+Avec $Z_s = R_1 + \frac{R_3+j\omega R_3 R_g C_g}{1+j\omega C_g (R_3 + R_g)}$ qui 
+dépend de la fréquence du signal d'entrée, et $Z_f = R_5$.
+Quand $\omega \rightarrow 0$, on a $|Z_s| \sim R_1+R_3$ et $H(\omega) \sim -\frac{R_1+R_3}{R_5} = -20$. 
+Par contre, si $\omega \rightarrow \infty$, on a 
+$|Z_s| \sim R_1 + \frac{R_3 R_g}{R_3+R_g}$ et $H(\omega) = -50$.
+%INWORK below
+C'est la caractéristique d'un filtre passe-bande mais qui va, au lieu d'atténuer 
+les fréquences non voulues comme le fait un filtre passif, amplifier les 
+fréquences souhaitées. La fréquence de coupure est ici de $\frac{1}{2 \pi R_3 C_3} 
+= 1591 kHz$ qui correspond bien à une borne supérieure pour les fréquences AM.
 
 \begin{figure*}[p]
 	\centering
