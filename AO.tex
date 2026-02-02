@@ -517,29 +517,73 @@ Un AO peut se matérialiser sous différentes formes, comme représenté à la Figure
 \clearpage
 \section{\'Etage d'amplification de la radio AM}
 \label{sec:AO_radio}
-\subsection{Étage 2}
+\subsection{Gain}
 \begin{marginfigure}
 	\centering
 	\includegraphics[width=\textwidth]{figs/RadioAM/AOHarmeling.pdf}
 	\caption{Schéma de l'AO du circuit, avec ses tensions d'entrée et de sortie.}
-	\label{AO1}
+	\label{fig:AO1}
 \end{marginfigure}
 La coupe $4$ de la Figure~\ref{fig:RadioAM_AOs} représente l'étage d'amplification de la radio AM.
-Le premier amplificateur opérationnel est utilisé dans un montage inverseur (Figure~\ref{AO1}).
+Cet amplificateur opérationnel est utilisé dans un montage inverseur (Figure~\ref{fig:AO1}).
 On obtient alors la fonction de transfert $H(\omega)$ qui exprime le gain en amplitude :
 $$
 H(\omega) = \frac{V_s}{V_e} = -\frac{Z_f}{Z_s}
 $$
-Avec $Z_s = R_1 + \frac{R_3+j\omega R_3 R_g C_g}{1+j\omega C_g (R_3 + R_g)}$ qui 
+Avec $Z_s = R_1 + (R_3 \parallel (R_g +C_g)) =  R_1 + \frac{R_3+j\omega R_3 R_g C_g}{1+j\omega C_g (R_3 + R_g)}$ qui 
 dépend de la fréquence du signal d'entrée, et $Z_f = R_5$.
-Quand $\omega \rightarrow 0$, on a $|Z_s| \sim R_1+R_3$ et $H(\omega) \sim -\frac{R_1+R_3}{R_5} = -20$. 
+Quand $\omega \rightarrow 0$, on a $|Z_s| \sim R_1+R_3$ et $H(\omega) \sim -\frac{R_5}{R_1+R_3} = -20$. 
 Par contre, si $\omega \rightarrow \infty$, on a 
-$|Z_s| \sim R_1 + \frac{R_3 R_g}{R_3+R_g}$ et $H(\omega) = -50$.
+$|Z_s| \sim R_1 + \frac{R_3 R_g}{R_3+R_g}$ et $H(\omega) \approx -40$.
 %INWORK below
-C'est la caractéristique d'un filtre passe-bande mais qui va, au lieu d'atténuer 
+
+C'est la caractéristique d'un filtre passe-haut mais qui va, au lieu d'atténuer 
 les fréquences non voulues comme le fait un filtre passif, amplifier les 
-fréquences souhaitées. La fréquence de coupure est ici de $\frac{1}{2 \pi R_3 C_3} 
-= 1591 kHz$ qui correspond bien à une borne supérieure pour les fréquences AM.
+fréquences souhaitées plus fortement que les fréquences non souhaitées. 
+La fréquence de coupure est ici lorsque 
+$|H(\omega)|= 20 \log_{10}(|-40|) -3 \si{\decibel} = 29 \si{\decibel} =27$.  
+En résolvant l'équation $|H(\omega)|=27$ on trouve une fréquence de coupure de
+de environ $10 \si{\hertz}$ qui est bien proche de la borne inférieur des 
+fréquences audible par l'homme. 
+En pratique, les composants internes de l'amplificateur opérationnel ont aussi 
+un comportement filtrant les hautes fréquences au delà des $100\si{\kilo \hertz}$.
+La raison de ce filtrage n'est pas matière de ce cours mais est abordée dans 
+le cours d'électronique analogique \textit{ELEN0075}.
+L'amplificateur peut être vu au global commme un filtre passe bande actif de 
+bande [$10, 100\,000$]  \si{\hertz}, qui amplifie bien la bande audible 
+[$5,  20\,000$] \si{\hertz}.
+Notez qu'à $R_1$, $R_3$ et $R_5$ fixe on peut contrôler le gain de la bande 
+passante en ajustant $R_g$. Remplacer $R_g$ par un potentiométre en mode 
+rhéostat aurait permis un deuxième contrôle du volume par l'utilisateur. 
+\footnote{Les potentiomètres de votre chaine Hi-Fi ou ampli de guitare avec 
+l'inscription \textit{Gain} font très probablement partie d'un circuit 
+similaire contenant des AOs.}  
+
+
+\subsection{Précisions Pratiques}
+
+La Figure~\ref{fig:RadioAM_AOs} représente en réalité un circuit équivalent du
+circuit qui a été réalisé pour confectionner la Radio AM présentée au cours. 
+En effet, le schéma électrique effectif incluant tous les composants 
+achetés et soudés sur la carte 
+du circuit imprimmé est illustré à la Figure~\ref{fig:RadioAM_real}. 
+Le composant \textit{LM386} est un circuit intégré qui contient un amplificateur 
+opérationnel pré-configuré pour les applications audio. Par exemple, 
+les résistances $R_1, R_3 et R_5$ sont intégrées (d'où le nom) dans la puce 
+noir que vous obtiendrez en achetant ce composant \textit{LM386}. D'autres 
+subtilités comme le centrage de la tension du signal de sortie par 
+rapport à l'alimentation [$0 , 9$] \si{\volt} ne sont pas visible non plus 
+sur notre schéma équivalent (Figure~\ref{fig:AO1}) mais sont bien intégrées 
+à l'intérieur du composant \textit{LM386}. Ceci est nécessaire car un 
+amplificateur opérationnel ne peut fournir une tension de sortie hors plage 
+d'alimentation. Si le gain de l'amplificateur tente de le faire, 
+la véritable tension de sortie
+observée au noeud $V_s$ sera saturée à sa borne la plus proche.
+Afin d'éviter la distortion du signal amplifié par cette limite, la conception 
+interne de l'amplificateur \textit{LM386} centre $V_s$ autour de 
+$4.5$\si{\volt}. 
+
+
 
 \begin{figure*}[p]
 	\centering
@@ -548,41 +592,54 @@ fréquences souhaitées. La fréquence de coupure est ici de $\frac{1}{2 \pi R_3 C_
 	\label{fig:RadioAM_AOs}
 \end{figure*}
 
-\subsection{Étage 3.}
-La coupe $6$ de la Figure~\ref{fig:RadioAM_AOs} représente le troisième étage de la radio AM.
-Le deuxième AO est utilisé dans un montage inverseur un peu particulier. En effet, l'entrée non inverseuse n'est pas connectée à la terre. En réalité, elle est connectée à la sortie d'un diviseur potentiométrique, illustré par la coupe 4 de la Figure~\ref{fig:RadioAM_AOs}.
-En appliquant la formule d'un diviseur potentiométrique, si $Z_1 = R_5$ et $Z_2$ la mise en parallèle de $C_5$ et $R_6$, on obtient
-\begin{align*}
-V_{off} &= \frac{Z_2}{Z_1+Z_2} E \\ &= \frac{R_6}{R_6 + R_5 + j\omega R_5 R_6 C_5} E \\ &= \frac{1}{1 + \frac{R_5}{R_6} + j\omega R_5 C_5} E\\ & = \frac{1}{2 + j \omega R_5 C_5} E
-\end{align*}
-\begin{figure}[ht]
+\begin{figure*}[p]
 	\centering
-	\includegraphics[width=0.5\linewidth]{figs/RadioAM/Diviseur.pdf}
-	\caption{Diviseur potensiométrique et définition de $V_{off}$.}
-\end{figure}
-La sortie dépend donc de la fréquence. En effet, si $\omega R_5 C_5 \gg 2, V_2 \sim 0$ et si $\omega R_5 C_5 \ll 2, V_s \sim \frac{E}{2}$. Ce dispositif est donc utilisé comme filtre passe-bas de fréquence de coupure égale à $f_0 = \frac{2}{2 \pi R_5 C_5} = 0,14\, Hz$. 
-Il permet en réalité de filtrer toutes les composantes alternatives présentes dans le circuit et d'ainsi avoir une sortie quasi continue et égale à $\frac{E}{2}$. On supposera donc pour la suite que $V_{off}$ est constant et égal à $\frac{E}{2} = 4,5$ V. Dans notre circuit, ce diviseur va donc fixer la référence des tensions mesurées à l'entrée du deuxième AO à $V_{off}=4,5 V$. Cela permet d'utiliser cet AO dans l'ensemble de sa plage linéaire. En effet, la diode avait supprimé toutes les composantes négatives du signal d'entrée, et donc à la sortie du premier AO, on ne retrouve que des tensions positives. En fixant la référence à $4,5 V$, on permet de multiplier par $2$ la plage utilisée par l'AO, car les tensions inférieures à cette référence seront considérées comme négatives et celles supérieures seront positives, mais diminuées de cet \textit{offset} de $4,5$ V.
+	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAMHarmeling}
+	\caption{Schéma électrique pratique ayant servi à la confection du 
+	circuit imprimmé du démonstrateur de la radio AM.}
+	\label{fig:RadioAM_real}
+\end{figure*}
 
-Le deuxième AO est donc simplement utilisé dans un montage inverseur dont on a modifié la référence. Il peut facilement être montré que, à la sortie du deuxième AO, si $V_e$ est la tension d'entrée comme représenté à la Figure~\ref{AOinv}, la tension vaut
-$$
-V_s = -\frac{Z''}{Z'} (V_e-V_{off})+V_{off}
-$$
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.7\textwidth]{figs/RadioAM/AO2.pdf}
-	\caption{\label{AOinv}AO inverseur.}
-\end{figure}
-$Z''$ est, de manière similaire au premier AO, la mise en parallèle d'une résistance ($R_7$) et d'un condensateur ($C_6$). Ce qui nous donne
-$$
-Z'' = \frac{R_7}{1 + j \omega C_6} = \frac{3 \cdot 10^6}{1+ j \omega \ 3 \cdot 10^6 \cdot 100 \cdot 10^{-12}} = \frac{3 \cdot 10^6}{1 + j \omega \ 3 \cdot 10^{-4}}
-$$
-Cette impédance est caractéristique d'un filtre passe-bas avec une fréquence de coupure égale à $\frac{1}{2 \pi R_7 C_6} = 530,51 Hz$.
-On peut donc voir cet AO comme un filtre passe-bas qui amplifie les signaux qui ont une fréquence inférieure à $\frac{1}{2 \pi R_7 C_6} = 530,51 Hz$ de $\frac{R_7}{R_4} = 638$. Ce deuxième AO va donc d'une part, encore faire office de filtre vis à vis des fréquences non souhaitées mais aussi d'amplificateur de signal pour qu'il soit plus facilement audible.
-$Z'$ est par contre l'impédance équivalente du circuit en amont.
+% \subsection{Étage 3.}
+% La coupe $6$ de la Figure~\ref{fig:RadioAM_AOs} représente le troisième étage 
+% de la radio AM.
+% Le deuxième AO est utilisé dans un montage inverseur un peu particulier. 
+% En effet, l'entrée non inverseuse n'est pas connectée à la terre. En réalité, 
+% elle est connectée à la sortie d'un diviseur potentiométrique, illustré par 
+% la coupe 4 de la Figure~\ref{fig:RadioAM_AOs}.
+% En appliquant la formule d'un diviseur potentiométrique, 
+% si $Z_1 = R_5$ et $Z_2$ la mise en parallèle de $C_5$ et $R_6$, on obtient
+% \begin{align*}
+% V_{off} &= \frac{Z_2}{Z_1+Z_2} E \\ &= \frac{R_6}{R_6 + R_5 + j\omega R_5 R_6 C_5} E \\ &= \frac{1}{1 + \frac{R_5}{R_6} + j\omega R_5 C_5} E\\ & = \frac{1}{2 + j \omega R_5 C_5} E
+% \end{align*}
+% \begin{figure}[ht]
+% 	\centering
+% 	\includegraphics[width=0.5\linewidth]{figs/RadioAM/Diviseur.pdf}
+% 	\caption{Diviseur potensiométrique et définition de $V_{off}$.}
+% \end{figure}
+% La sortie dépend donc de la fréquence. En effet, si $\omega R_5 C_5 \gg 2, V_2 \sim 0$ et si $\omega R_5 C_5 \ll 2, V_s \sim \frac{E}{2}$. Ce dispositif est donc utilisé comme filtre passe-bas de fréquence de coupure égale à $f_0 = \frac{2}{2 \pi R_5 C_5} = 0,14\, Hz$. 
+% Il permet en réalité de filtrer toutes les composantes alternatives présentes dans le circuit et d'ainsi avoir une sortie quasi continue et égale à $\frac{E}{2}$. On supposera donc pour la suite que $V_{off}$ est constant et égal à $\frac{E}{2} = 4,5$ V. Dans notre circuit, ce diviseur va donc fixer la référence des tensions mesurées à l'entrée du deuxième AO à $V_{off}=4,5 V$. Cela permet d'utiliser cet AO dans l'ensemble de sa plage linéaire. En effet, la diode avait supprimé toutes les composantes négatives du signal d'entrée, et donc à la sortie du premier AO, on ne retrouve que des tensions positives. En fixant la référence à $4,5 V$, on permet de multiplier par $2$ la plage utilisée par l'AO, car les tensions inférieures à cette référence seront considérées comme négatives et celles supérieures seront positives, mais diminuées de cet \textit{offset} de $4,5$ V.
 
-\subsection{Étage 4}
-La coupe 7 de la Figure~\ref{fig:RadioAM_AOs} représente le quatrième étage de la radio AM.
-Le troisième et dernier AO est utilisé en mode isolateur/suiveur. On a en effet $V_s = V_e$, et $Z_{in} = \frac{V_{in}}{I_{in}} \rightarrow \infty$. On pourrait penser que ce montage est inutile puisque le gain en tension est unitaire, mais il est de grande importance. D'une part, grâce la définition d'un AO idéal, le courant d'entrée est nul. Le circuit ne prélève donc aucun courant ni puissance sur le signal auquel il est connecté et donc, ne le perturbe pas. Le courant et la puissance de sortie viennent uniquement de l'alimentation de l'amplificateur. D'autre part, ce circuit "isolateur" permet d'isoler deux parties d'un circuit, et donc ici de protéger le haut-parleur de toute la partie gauche du circuit et inversement. 
+% Le deuxième AO est donc simplement utilisé dans un montage inverseur dont on a modifié la référence. Il peut facilement être montré que, à la sortie du deuxième AO, si $V_e$ est la tension d'entrée comme représenté à la Figure~\ref{AOinv}, la tension vaut
+% $$
+% V_s = -\frac{Z''}{Z'} (V_e-V_{off})+V_{off}
+% $$
+% \begin{figure}[ht]
+% 	\centering
+% 	\includegraphics[width=0.7\textwidth]{figs/RadioAM/AO2.pdf}
+% 	\caption{\label{AOinv}AO inverseur.}
+% \end{figure}
+% $Z''$ est, de manière similaire au premier AO, la mise en parallèle d'une résistance ($R_7$) et d'un condensateur ($C_6$). Ce qui nous donne
+% $$
+% Z'' = \frac{R_7}{1 + j \omega C_6} = \frac{3 \cdot 10^6}{1+ j \omega \ 3 \cdot 10^6 \cdot 100 \cdot 10^{-12}} = \frac{3 \cdot 10^6}{1 + j \omega \ 3 \cdot 10^{-4}}
+% $$
+% Cette impédance est caractéristique d'un filtre passe-bas avec une fréquence de coupure égale à $\frac{1}{2 \pi R_7 C_6} = 530,51 Hz$.
+% On peut donc voir cet AO comme un filtre passe-bas qui amplifie les signaux qui ont une fréquence inférieure à $\frac{1}{2 \pi R_7 C_6} = 530,51 Hz$ de $\frac{R_7}{R_4} = 638$. Ce deuxième AO va donc d'une part, encore faire office de filtre vis à vis des fréquences non souhaitées mais aussi d'amplificateur de signal pour qu'il soit plus facilement audible.
+% $Z'$ est par contre l'impédance équivalente du circuit en amont.
+
+% \subsection{Étage 4}
+% La coupe 7 de la Figure~\ref{fig:RadioAM_AOs} représente le quatrième étage de la radio AM.
+% Le troisième et dernier AO est utilisé en mode isolateur/suiveur. On a en effet $V_s = V_e$, et $Z_{in} = \frac{V_{in}}{I_{in}} \rightarrow \infty$. On pourrait penser que ce montage est inutile puisque le gain en tension est unitaire, mais il est de grande importance. D'une part, grâce la définition d'un AO idéal, le courant d'entrée est nul. Le circuit ne prélève donc aucun courant ni puissance sur le signal auquel il est connecté et donc, ne le perturbe pas. Le courant et la puissance de sortie viennent uniquement de l'alimentation de l'amplificateur. D'autre part, ce circuit "isolateur" permet d'isoler deux parties d'un circuit, et donc ici de protéger le haut-parleur de toute la partie gauche du circuit et inversement. 
 
 %-------------------------------------------------------------------
 
