@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+\usepackage[active,pdftex,tightpage]{preview}
+\usepackage{siunitx}
+\usepackage[latin1]{inputenc}
+\PreviewEnvironment{circuitikz}
+\begin{document}
+
+
+% \def\shifttfoconv{1}
+% \def\shiftmiddleoutside{0.25}
+% \def\shiftTopBotconv{2.4}
+% \def\shiftmiddleconv{1}
+% \def\convboxhalfsize{1}
+
+\begin{circuitikz}[scale=0.95, transform shape,american] 
+    \draw
+    (0,0)to [C,l=$C_{4}$,name=C_4,i>^=$\overline{I}_{bc}$]
+     ++(0,-2)to [R,l=$R_{4}$,name=R_4] ++(0,-1.7) node[ground]{};
+    \draw
+    (0,0)-- ++(2,0)to [R,l=$R_{L}$,name=R_L,i>^=$\overline{I}_{hp}$] ++(0,-2.5)
+    to [L,l=$L$,name=L] ++(0,-1.2) node[ground]{};
+    \draw
+    (-1,0)node[circ,label={[left=2pt]$V_s$}]{} --(0,0); 
+\end{circuitikz}
+
+
+\end{document}

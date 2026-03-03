@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+\usepackage[active,pdftex,tightpage]{preview}
+\usepackage{siunitx}
+\usepackage[latin1]{inputenc}
+\PreviewEnvironment{circuitikz}
+\begin{document}
+
+\begin{circuitikz}
+    % Define the nodes as coordinates for clarity
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (2.5, 0);
+    \coordinate (C) at (5, 0);
+    \coordinate (D) at (2.5, -3);
+    
+    
+
+    % Draw the components
+    \draw (A) to[R, l=$3$] ++(0,-1.5) to [vsourceAM, l=6] (A |- D)--(D);
+    \draw (A) to[R, l=$4$] (B);
+    \draw (B) to[R, l=$4$] (C);
+    \draw (B) to[R, l=$1$] (D);
+    \draw (C) to [vsourceAM, l=$10$] (C |- D)--(D);
+    \draw (A)-- ++(0,1)coordinate(Ap) to[R, l=2] (Ap -| C) -- (C);
+
+    %Draw Black dot
+    \draw (A) node[circ,label=left:A]{};
+    \draw (B) node[circ,label=above:B]{};
+    \draw (C) node[circ,label=right:C]{};
+    \draw (D) node[circ,label=below:D]{};
+
+    %Units
+    \draw (A)++(1,-3.5) node[]{[\si{\volt , \ampere, \ohm}]};
+
+\end{circuitikz}
+\end{document}
