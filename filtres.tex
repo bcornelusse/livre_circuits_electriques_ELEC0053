@@ -2,31 +2,31 @@
 \chapter{Fonctions de transfert et filtres}
 \label{cha:filtres}
 
-\mytodo{Améliorer ce chapitre et articuler autour du démodulateur AM.}
+\mytodo{AmÃ©liorer ce chapitre et articuler autour du dÃ©modulateur AM.}
 
-\textit{Ce chapitre, grâce aux notions introduites au Chapitre~\ref{sec:sinusoidal}, permet de porter un regard nouveau sur l'analyse des circuits électriques en utilisant les concepts de "Signaux et Systèmes", qui sont d'abord brièvement rappelés, puis particularisées à des circuits simples et enfin illustrés sur l'exemple de la radio AM.}
+\textit{Ce chapitre, grÃ¢ce aux notions introduites au Chapitre~\ref{sec:sinusoidal}, permet de porter un regard nouveau sur l'analyse des circuits Ã©lectriques en utilisant les concepts de "Signaux et SystÃ¨mes", qui sont d'abord briÃ¨vement rappelÃ©s, puis particularisÃ©es Ã  des circuits simples et enfin illustrÃ©s sur l'exemple de la radio AM.}
 
-\section{Réponse fréquentielle}
+\section{RÃ©ponse frÃ©quentielle}
 
-La réponse fréquentielle d'un circuit est la fonction qui permet d'analyser l'action du circuit sur un signal
-sinusoïdal donné selon sa fréquence.
-On l'écrit (cf. Figure~\ref{fig:RF})
+La rÃ©ponse frÃ©quentielle d'un circuit est la fonction qui permet d'analyser l'action du circuit sur un signal
+sinusoÃ¯dal donnÃ© selon sa frÃ©quence.
+On l'Ã©crit (cf. Figure~\ref{fig:RF})
 \[H(j\omega)=\frac{\bar{Y}(j\omega)}{\bar{X}}\]
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/filtres/FR.pdf}
-	\caption{Réponse fréquentielle d'un circuit.\label{fig:RF}}
+	\caption{RÃ©ponse frÃ©quentielle d'un circuit.\label{fig:RF}}
 \end{figure}
 
 
 
 %--------------------------------------------------------------------------------
 
-\subsection{Définition des fonctions de transfert d'un quadripôle} Pour un quadripôle on peut définir quatre fonctions de transfert :
+\subsection{DÃ©finition des fonctions de transfert d'un quadripÃ´le} Pour un quadripÃ´le on peut dÃ©finir quatre fonctions de transfert :
 \begin{align*}
 &H(j\omega)=\left.\frac{\bar{U}_2}{\bar{U}_1}\right|_{\bar{I}_2=0} \quad \text{gain en tension}\\
 &H(j\omega)=\left.\frac{\bar{I}_2}{\bar{I}_1}\right|_{\bar{U}_2=0}\quad \text{gain en courant}\\
-&H(j\omega)=\left.\frac{\bar{U}_2}{\bar{I}_1}\right|_{\bar{I}_2=0} \quad \text{impédance de transfert}\\
+&H(j\omega)=\left.\frac{\bar{U}_2}{\bar{I}_1}\right|_{\bar{I}_2=0} \quad \text{impÃ©dance de transfert}\\
 &H(j\omega)=\left.\frac{\bar{I}_2}{\bar{U}_1}\right|_{\bar{U}_2=0} \quad \text{admittance de transfert}
 \end{align*}
 \begin{marginfigure}[-3cm]
@@ -43,38 +43,38 @@ On l'écrit (cf. Figure~\ref{fig:RF})
 	\end{circuitikz}
 \end{marginfigure}
 
-\begin{testexample}[Impédance d'un circuit RL série.]
+\begin{testexample}[ImpÃ©dance d'un circuit RL sÃ©rie.]
 	Soit $x(t)=i(t)=I_m \cos(\omega t+ \phi_i)$ ou, en notation de phaseurs, 
 	$$ \bar{X}=\bar{I}=I_m  e^{j\phi_i}$$
-	Si on définit 
+	Si on dÃ©finit 
 	$$\bar{Y}(j\omega)=\bar{U}=Z(j\omega)\bar{I}=(R+j\omega L)\bar{I}$$
-	la réponse fréquentielle est tout simplement égale à l'impédance du circuit :
+	la rÃ©ponse frÃ©quentielle est tout simplement Ã©gale Ã  l'impÃ©dance du circuit :
 	$$H(j\omega)=\frac{\bar{Y}(j\omega)}{\bar{X}}=\frac{\bar{U}}{\bar{I}}=Z(j\omega)=R+j\omega L$$
 	
-	De retour dans le domaines temporel, on peut écrire : 
+	De retour dans le domaines temporel, on peut Ã©crire : 
 	\begin{align*}
 	y(t)=u(t)& = \sqrt{R^2+\omega^2L^2}I_m \cos(\omega t +\phi_i+\arctan \frac{\omega L}{R})\\
 	& = |H(j\omega)|I_m \cos(\omega t +\phi_i+\angle H(j\omega))
 	\end{align*}
-	avec $|H(j\omega)|$ la réponse en amplitude, qui indique la modification de l'amplitude du signal $x(t)$, et 
-	$\angle H(j\omega)$ la réponse en phase, qui indique la modification de la phase du signal $x(t)$.
+	avec $|H(j\omega)|$ la rÃ©ponse en amplitude, qui indique la modification de l'amplitude du signal $x(t)$, et 
+	$\angle H(j\omega)$ la rÃ©ponse en phase, qui indique la modification de la phase du signal $x(t)$.
 \end{testexample}
 
 %--------------------------------------------------------------------------------
 
-\subsection{Forme analytique, pôles et zéros}%
-Toute réponse fréquentielle d'un circuit peut se mettre sous la forme rationnelle:
+\subsection{Forme analytique, pÃ´les et zÃ©ros}%
+Toute rÃ©ponse frÃ©quentielle d'un circuit peut se mettre sous la forme rationnelle:
 \[H(j\omega)=\frac{N(j\omega)}{D(j\omega)}\]
-$N(j\omega)$ et $D(j\omega)$ sont deux polynômes en $j\omega$ à coefficients réels.
-Les racines de $D(j\omega)=0$ sont les {\it pôles} de la fonction. Ils correspondent aux fréquences naturelles du circuit.
-Les racines de $N(j\omega)=0$ sont les {\it zéros} de la fonction. À ces fréquences, $H(j\omega)=0$, donc $Y(j\omega)=0$, il y a atténuation totale.
-Pour éviter des calculs en nombres complexes, il est courant de remplacer la variable $j\omega$ par $s$.
+$N(j\omega)$ et $D(j\omega)$ sont deux polynÃ´mes en $j\omega$ Ã  coefficients rÃ©els.
+Les racines de $D(j\omega)=0$ sont les {\it pÃ´les} de la fonction. Ils correspondent aux frÃ©quences naturelles du circuit.
+Les racines de $N(j\omega)=0$ sont les {\it zÃ©ros} de la fonction. Ã€ ces frÃ©quences, $H(j\omega)=0$, donc $Y(j\omega)=0$, il y a attÃ©nuation totale.
+Pour Ã©viter des calculs en nombres complexes, il est courant de remplacer la variable $j\omega$ par $s$.
 La fonction 
 \[H(s)=H(j\omega)|_{j\omega=s}\]
-est appelée {\it fonction de transfert}.
+est appelÃ©e {\it fonction de transfert}.
 
 %--------------------------------------------------------------------------------
-\begin{testexample}[Quadripôle RC.]
+\begin{testexample}[QuadripÃ´le RC.]
 \begin{center}
 	\begin{circuitikz}[american voltages]% or tikzpicture
 		\draw (0,0) coordinate (A1)
@@ -90,19 +90,19 @@ est appelée {\it fonction de transfert}.
 \end{center}
 
 
-Par application du diviseur de tension, la réponse fréquentielle "gain en tension" est :
+Par application du diviseur de tension, la rÃ©ponse frÃ©quentielle "gain en tension" est :
 \[H(j\omega)=\left.\frac{\bar{U}_2}{\bar{U}_1}\right|_{\bar{I}_2=0}=
 \frac{1/j\omega C}{R+1/j\omega C}=\frac{1}{1+j\omega RC}\]
 La fonction de transfert correspondante est :
 \[H(s)=\frac{1}{1+sRC}\]
 \begin{itemize}
-	\item zéro : $\quad j\omega = s  \rightarrow \infty \qquad |H(j\omega)|\rightarrow 0 \text{~pour~~} \omega \rightarrow \infty$
-	\item pôle : $\quad j\omega=s= -\frac{1}{RC} \qquad \text{= fréquence naturelle}$
+	\item zÃ©ro : $\quad j\omega = s  \rightarrow \infty \qquad |H(j\omega)|\rightarrow 0 \text{~pour~~} \omega \rightarrow \infty$
+	\item pÃ´le : $\quad j\omega=s= -\frac{1}{RC} \qquad \text{= frÃ©quence naturelle}$
 \end{itemize}
 \end{testexample}
 
-On représente une réponse fréquentielle par sa réponse en amplitude et sa réponse en phase. 
-\begin{testexample}[Représentation de $H(j\omega)$.]
+On reprÃ©sente une rÃ©ponse frÃ©quentielle par sa rÃ©ponse en amplitude et sa rÃ©ponse en phase. 
+\begin{testexample}[ReprÃ©sentation de $H(j\omega)$.]
 \begin{align*}
 H &=|H(j\omega)| =\frac{1}{\sqrt{1+(\omega RC)^2}}=\frac{1}{\sqrt{1+(\omega/\omega_0)^2}} \\
 \angle H(j\omega) &=-\arctan \frac{\omega}{\omega_0}
@@ -113,18 +113,18 @@ avec
 	\includegraphics[width=\linewidth]{figs/filtres/filtre_RC}
 \end{center}
 \end{testexample}
-Lorsqu'on utilise une échelle logarithmique pour les fréquences, et qu'on représente l'amplitude en décibels, on parle de \textit{diagramme de Bode}.
+Lorsqu'on utilise une Ã©chelle logarithmique pour les frÃ©quences, et qu'on reprÃ©sente l'amplitude en dÃ©cibels, on parle de \textit{diagramme de Bode}.
 
 %--------------------------------------------------------------------------------
-\subsection{Le décibel ou dB}%
+\subsection{Le dÃ©cibel ou dB}%
 
-Le décibel est une échelle logarithmique de mesure du rapport entre deux puissances, ou du gain en puissance 
+Le dÃ©cibel est une Ã©chelle logarithmique de mesure du rapport entre deux puissances, ou du gain en puissance 
 \[G_{dB}=10\log_{10}\frac{P_2}{P_1}\]
 
 Si l'on exprime ce gain en fonction de $U$ ou $I$, on obtient :
 \[P \propto U^2, I^2 \quad \Rightarrow G_{dB}=20\log_{10}\frac{U_2}{U_1}= 20\log_{10}\frac{I_2}{I_1}\]
 
-Valeurs caractéristiques :
+Valeurs caractÃ©ristiques :
 \begin{center}
 	\begin{tabular}{ll|c}
 		&& $G_{dB}$\\ \hline
@@ -133,29 +133,29 @@ Valeurs caractéristiques :
 		$P_2=\frac{1}{10}P_1$ & $U_2=\frac{1}{\sqrt{10}}U_1$  & -10\\ \hline
 	\end{tabular} \hspace*{1cm}
 \end{center}
-Dans l'exemple précédent, pour $\omega=\omega_0$, \[20 \log_{10}\frac{|H(\omega_0)|}{|H(0)|}=-3 \, \text{dB}.\]
+Dans l'exemple prÃ©cÃ©dent, pour $\omega=\omega_0$, \[20 \log_{10}\frac{|H(\omega_0)|}{|H(0)|}=-3 \, \text{dB}.\]
 
 
 
 %--------------------------------------------------------------------------------
 
-\section{Filtres et définitions}
+\section{Filtres et dÃ©finitions}
 \paragraph{Filtre.}
-Un filtre est un circuit qui permet d'éliminer ou atténuer fortement certaines
-fréquences d'un signal tout en affectant le moins possible les autres fréquences.
+Un filtre est un circuit qui permet d'Ã©liminer ou attÃ©nuer fortement certaines
+frÃ©quences d'un signal tout en affectant le moins possible les autres frÃ©quences.
 
-Un filtre de réponse fréquentielle idéale est impossible à réaliser en pratique.
+Un filtre de rÃ©ponse frÃ©quentielle idÃ©ale est impossible Ã  rÃ©aliser en pratique.
 
-\paragraph{Pulsation de coupure à -3 dB.}
-On définit la pulsation de coupure à -3 dB qui limite la bande passante :
+\paragraph{Pulsation de coupure Ã  -3 dB.}
+On dÃ©finit la pulsation de coupure Ã  -3 dB qui limite la bande passante :
 \[\omega_c~~ \text{telle que} \quad |H(\omega_c)|=\frac{1}{\sqrt{2}}\]
 
-\paragraph{Catégories de filtres et réponses fréquentielles idéales.}%
-Ils sont illustrés à la Figure~\ref{fig:filtres}.
+\paragraph{CatÃ©gories de filtres et rÃ©ponses frÃ©quentielles idÃ©ales.}%
+Ils sont illustrÃ©s Ã  la Figure~\ref{fig:filtres}.
 \begin{figure}[h]
 \begin{center}
 	\includegraphics[width=0.98\linewidth]{figs/filtres/filtres}
-	\caption{Catégories de filtres et réponses fréquentielles idéales.}\label{fig:filtres}
+	\caption{CatÃ©gories de filtres et rÃ©ponses frÃ©quentielles idÃ©ales.}\label{fig:filtres}
 \end{center}
 \end{figure}
 
@@ -178,8 +178,8 @@ Pour le circuit ci-dessous
 \end{center}
 on a 
 $$H(j\omega) = \frac{\bar{U}_2}{\bar{U}_1} = \frac{1}{1+j\omega R C}$$
-La pulsation de coupure à -3 dB est $\omega_c=\frac{1}{RC}=\omega_0$. 
-Le filtre passe bas du premier ordre est loin du filtre idéal : 
+La pulsation de coupure Ã  -3 dB est $\omega_c=\frac{1}{RC}=\omega_0$. 
+Le filtre passe bas du premier ordre est loin du filtre idÃ©al : 
 \begin{center}
 	\includegraphics[width=0.4\linewidth]{figs/filtres/filtre_PB_ordre1}
 \end{center}
@@ -188,7 +188,7 @@ Le filtre passe bas du premier ordre est loin du filtre idéal :
 
 %--------------------------------------------------------------------------------
 
-Si on change les accès de l'exemple précédent, en prenant la tension de sortie aux bornes de la résistance, on obtient tout naturellement un filtre passe haut.
+Si on change les accÃ¨s de l'exemple prÃ©cÃ©dent, en prenant la tension de sortie aux bornes de la rÃ©sistance, on obtient tout naturellement un filtre passe haut.
 \begin{testexample}[Filtre passe-haut du premier ordre]%
 Pour le circuit ci-dessous 
 \begin{center}
@@ -208,126 +208,126 @@ Pour le circuit ci-dessous
 On a 
 $$H(j\omega) = \frac{\bar{U}_2}{\bar{U}_1} = \frac{j\omega R C}{1+j\omega R C}$$
 
-La pulsation de coupure à -3 dB est $\omega_c=\frac{1}{RC}$.
-Le filtre passe haut du premier ordre est loin du filtre idéal : 
+La pulsation de coupure Ã  -3 dB est $\omega_c=\frac{1}{RC}$.
+Le filtre passe haut du premier ordre est loin du filtre idÃ©al : 
 \begin{center}
 	\includegraphics[width=0.4\linewidth]{figs/filtres/filtre_PH_ordre1}
 \end{center}
 \end{testexample}
 
-\section{Circuits résonants}
-Les circuits résonnants sont des circuits du second ordre, constitués d'au moins une bobine et un condensateur.
-On peut grouper les nombreuses applications des circuits résonnants en deux catégories.
-L'une concerne les applications ayant trait à leur qualité de "filtre", elle-même liée à la
-notion de sélectivité. L'autre concerne le transfert de puissance et l'utilisation du circuit
-oscillant en tant qu'adaptateur d'impédances\footnote{Remarquons que le circuit résonnant est en fait un quadripôle.}.  Ces deux fonctions peuvent être remplies par le circuit résonnant série aussi bien que parallèle. Nous abordons uniquement leur utilisation en tant que filtre dans cette section, et l'illustrons directement sur l'exemple de la radio AM.
-La coupe 1 de la Figure~\ref{fig:RadioAM_filtres} illustre l'étage d'entrée de la radio AM.
-\mytodo{circuits résonants Pages 242 à 250 de Pavella.}
+\section{Circuits rÃ©sonants}
+Les circuits rÃ©sonnants sont des circuits du second ordre, constituÃ©s d'au moins une bobine et un condensateur.
+On peut grouper les nombreuses applications des circuits rÃ©sonnants en deux catÃ©gories.
+L'une concerne les applications ayant trait Ã  leur qualitÃ© de "filtre", elle-mÃªme liÃ©e Ã  la
+notion de sÃ©lectivitÃ©. L'autre concerne le transfert de puissance et l'utilisation du circuit
+oscillant en tant qu'adaptateur d'impÃ©dances\footnote{Remarquons que le circuit rÃ©sonnant est en fait un quadripÃ´le.}.  Ces deux fonctions peuvent Ãªtre remplies par le circuit rÃ©sonnant sÃ©rie aussi bien que parallÃ¨le. Nous abordons uniquement leur utilisation en tant que filtre dans cette section, et l'illustrons directement sur l'exemple de la radio AM.
+La coupe 1 de la Figure~\ref{fig:RadioAM_filtres} illustre l'Ã©tage d'entrÃ©e de la radio AM.
+\mytodo{circuits rÃ©sonants Pages 242 Ã  250 de Pavella.}
 
 \begin{figure*}[p]
 \centering
 \includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAMHarmeling_filtres}
-\caption{Coupe 1: Circuit résonant de la radio AM. Coupe 3: Filtre passe haut avant amplification. Coupe 6: Filtre passe haut avant le haut-parleur.}
+\caption{Coupe 1: Circuit rÃ©sonant de la radio AM. Coupe 3: Filtre passe haut avant amplification. Coupe 6: Filtre passe haut avant le haut-parleur.}
 \label{fig:RadioAM_filtres}
 \end{figure*}
 
 \subsection{Antenne}
 Tout d'abord, il faut capter un signal. Ce signal se trouve dans l'air ambiant 
-et est capté par un simple fil. Celui-ci va en réalité capter des différences 
-de potentiel dues à la présence des ondes électromagnétiques qu'on souhaite 
-capter. Ainsi, plus le fil est long, meilleure sera la réception. L'antenne 
-peut être vu comme un générateur de courant connecté entre la masse du circuit 
+et est captÃ© par un simple fil. Celui-ci va en rÃ©alitÃ© capter des diffÃ©rences 
+de potentiel dues Ã  la prÃ©sence des ondes Ã©lectromagnÃ©tiques qu'on souhaite 
+capter. Ainsi, plus le fil est long, meilleure sera la rÃ©ception. L'antenne 
+peut Ãªtre vu comme un gÃ©nÃ©rateur de courant connectÃ© entre la masse du circuit 
 et la connexion physique de l'antenne. 
-\mytodo{Comme dans Hurwitz(?Howatson? plutôt), montrer une mesure du signal reçu par l'antenne sans et puis avec le filtre.}
+\mytodo{Comme dans Hurwitz(?Howatson? plutÃ´t), montrer une mesure du signal reÃ§u par l'antenne sans et puis avec le filtre.}
 
-\subsection{Circuit résonant}
-Le signal capté par l'antenne doit ensuite être filtré. 
-L'antenne capte une multitude de signaux mais seulement une partie nous intéresse. 
-Nous cherchons à ne faire passer qu'une fréquence comprise entre 500 et 1600 kHz 
-en AM. Pour "sélectionner" le signal porteur qui nous intéresse, nous utilisons 
-un filtre passe-bande fait d'un dipôle LC parallèle. 
-L'impédance équivalente du dipôle se calcule aisément: 
+\subsection{Circuit rÃ©sonant}
+Le signal captÃ© par l'antenne doit ensuite Ãªtre filtrÃ©. 
+L'antenne capte une multitude de signaux mais seulement une partie nous intÃ©resse. 
+Nous cherchons Ã  ne faire passer qu'une frÃ©quence comprise entre 500 et 1600 kHz 
+en AM. Pour "sÃ©lectionner" le signal porteur qui nous intÃ©resse, nous utilisons 
+un filtre passe-bande fait d'un dipÃ´le LC parallÃ¨le. 
+L'impÃ©dance Ã©quivalente du dipÃ´le se calcule aisÃ©ment: 
 \begin{equation}
 Z_{eq} = \frac{Z_L Z_C}{Z_L + Z_C} = \frac{j\omega L\frac{1}{j \omega C}}{j \omega L + \frac{1}{j \omega C}} = \frac{\frac{L}{C}}{\frac{(1-\omega^2 LC)}{j \omega C}} = \frac{j \omega L}{1- \omega^2 LC}
 \end{equation}
 On remarque que $ Z \rightarrow \infty$ pour $ \omega^2 LC \rightarrow 1 $. 
-La fréquence de résonance $f_0$ est donnée par 
+La frÃ©quence de rÃ©sonance $f_0$ est donnÃ©e par 
 $$
 f_0 = \frac{1}{2 \pi \sqrt{LC}}
 $$
-La fréquence que l'on souhaite capter peut ainsi être choisie en modifiant L et/ou C.
+La frÃ©quence que l'on souhaite capter peut ainsi Ãªtre choisie en modifiant L et/ou C.
 
 On peut par exemple choisir de changer l'inductance de la bobine en utilisant 
 un noyau en ferrite: en le faisant coulisser dans la bobine, on change la 
-perméabilité magnétique et donc on change L. 
-%Pour notre circuit, avec un capacité fixe $C=470$ pF, on a $L\in [21, 184]$ $\mu$H. 
-On peut également faire varier C, en utilisant un condensateur à capacité variable. 
-Dans notre circuit exemple, pour un L fixé à $4.7$ mH, on a $C \in [10, 220]$ pF. 
+permÃ©abilitÃ© magnÃ©tique et donc on change L. 
+%Pour notre circuit, avec un capacitÃ© fixe $C=470$ pF, on a $L\in [21, 184]$ $\mu$H. 
+On peut Ã©galement faire varier C, en utilisant un condensateur Ã  capacitÃ© variable. 
+Dans notre circuit exemple, pour un L fixÃ© Ã  $4.7$ mH, on a $C \in [10, 220]$ pF. 
 
-% Pour pouvoir tester ces deux possibilités, nous avons ajouté un switch dans le 
-% circuit qui permet de basculer vers un dipôle L -- C variable ou vers un dipôle 
+% Pour pouvoir tester ces deux possibilitÃ©s, nous avons ajoutÃ© un switch dans le 
+% circuit qui permet de basculer vers un dipÃ´le L -- C variable ou vers un dipÃ´le 
 % L variable -- C. 
 
-\`A la fréquence de résonance, l'impédance du dipôle est (en théorie) infinie,
-en pratique les imperfections des composants crèe une impédance très grande.
-Les moindre petits courants captés aux fréquences avoisinnant celle de la 
-porteuse se développent donc dans cette grande impédance et crée ainsi un signal 
-en tension suffisamment grand pour être manipulé par la suite du circuit.  
-Pour des fréquences non voulues, l'impédance sera au contraire très petite et 
-laissera passer les signaux à travers soit l'inductance $L$ ($f<f_0$) soit 
-le condensateur $C_{var}$ ($f>f_0$) sans générer de tension notable.  
+\`A la frÃ©quence de rÃ©sonance, l'impÃ©dance du dipÃ´le est (en thÃ©orie) infinie,
+en pratique les imperfections des composants crÃ¨e une impÃ©dance trÃ¨s grande.
+Les moindre petits courants captÃ©s aux frÃ©quences avoisinnant celle de la 
+porteuse se dÃ©veloppent donc dans cette grande impÃ©dance et crÃ©e ainsi un signal 
+en tension suffisamment grand pour Ãªtre manipulÃ© par la suite du circuit.  
+Pour des frÃ©quences non voulues, l'impÃ©dance sera au contraire trÃ¨s petite et 
+laissera passer les signaux Ã  travers soit l'inductance $L$ ($f<f_0$) soit 
+le condensateur $C_{var}$ ($f>f_0$) sans gÃ©nÃ©rer de tension notable.  
 
 \subsection{Masse de la Radio}
 
-Il ne faut pas oublier de définir un point de potentiel de référence pour notre 
-système. Dans notre cas la borne '-' d'une pile 9V a été choisie notre potentiel 
-de référence. Attention à ne pas confondre la \textit{masse} et la \textit{prise de terre} 
-d'un circuit. La \textit{masse} d'un appareil est plus généralement le potentiel
-de référence du circuit considéré comme étant à la tension 0V. La 
-\textit{prise de terre} désigne dans les infrastructures électriques 
-(maisons, bâtiments, pylones électrique, etc.) un conducteur physiquement 
-connecté au sol. Elle est parfois choisie comme \textit{masse} d'un appareil 
-branché dans une prise d'où la confusion mais ce n'est pas toujours le cas.
-Notre radio étant portable, une des bornes de la pile est un bon candidat pour 
-potentiel de référence. 
-%Les signaux non voulus mentionné précedemment circule donc 
+Il ne faut pas oublier de dÃ©finir un point de potentiel de rÃ©fÃ©rence pour notre 
+systÃ¨me. Dans notre cas la borne '-' d'une pile 9V a Ã©tÃ© choisie notre potentiel 
+de rÃ©fÃ©rence. Attention Ã  ne pas confondre la \textit{masse} et la \textit{prise de terre} 
+d'un circuit. La \textit{masse} d'un appareil est plus gÃ©nÃ©ralement le potentiel
+de rÃ©fÃ©rence du circuit considÃ©rÃ© comme Ã©tant Ã  la tension 0V. La 
+\textit{prise de terre} dÃ©signe dans les infrastructures Ã©lectriques 
+(maisons, bÃ¢timents, pylones Ã©lectrique, etc.) un conducteur physiquement 
+connectÃ© au sol. Elle est parfois choisie comme \textit{masse} d'un appareil 
+branchÃ© dans une prise d'oÃ¹ la confusion mais ce n'est pas toujours le cas.
+Notre radio Ã©tant portable, une des bornes de la pile est un bon candidat pour 
+potentiel de rÃ©fÃ©rence. 
+%Les signaux non voulus mentionnÃ© prÃ©cedemment circule donc 
  
 
 %Il s'agit d'un circuit de retour pour le courant. Un courant ne se 
-%créera donc dans l'antenne que si celle-ci est reliée au sol. 
-%Cette terre permettra donc de "réceptionner" les signaux non voulus qui passent 
-%à travers le filtre. 
-%Dans le cadre de cette expérience, nous relierons ce point de référence à la 
-%terre d'une prise électrique.
+%crÃ©era donc dans l'antenne que si celle-ci est reliÃ©e au sol. 
+%Cette terre permettra donc de "rÃ©ceptionner" les signaux non voulus qui passent 
+%Ã  travers le filtre. 
+%Dans le cadre de cette expÃ©rience, nous relierons ce point de rÃ©fÃ©rence Ã  la 
+%terre d'une prise Ã©lectrique.
 
-\section{Autres filtres du circuit de réception et amplification de la radio AM}
-\subsection{Filtre passe-bas pour la démodulation}
-Une façon alternative de comprendre la détection d'enveloppe 
-(cf. Section~\ref{demodu2}), après la rectification du signal, 
-est de considérer le circuit de la coupe 2 de la Figure~\ref{fig:RadioAM_diode} 
-comme un filtre passe bas avec une fréquence de coupure légèrement supérieur 
-à $20\si{\kilo\hertz}$. 
+\section{Autres filtres du circuit de rÃ©ception et amplification de la radio AM}
+\subsection{Filtre passe-bas pour la dÃ©modulation}
+Une faÃ§on alternative de comprendre la dÃ©tection d'enveloppe 
+(cf. Section~\ref{demodu2}), aprÃ¨s la rectification du signal, 
+est de considÃ©rer le circuit de la coupe 2 de la Figure~\ref{fig:RadioAM_diode} 
+comme un filtre passe bas avec une frÃ©quence de coupure lÃ©gÃ¨rement supÃ©rieur 
+Ã  $20 \kHz$. 
 
 \subsection{Filtre passe-haut pour le haut-parleur}
-Comme on le verra au chapitre~\ref{cha:AO}, le deuxième amplificateur 
-opérationnel ajoute un \textit{offset} de $4,5$ V au signal. 
+Comme on le verra au chapitre~\ref{cha:AO}, le deuxiÃ¨me amplificateur 
+opÃ©rationnel ajoute un \textit{offset} de $4,5$ V au signal. 
 Cependant, un haut-parleur ne peut recevoir qu'un signal 
 alternatif sans composante continue, qui lui serait nuisible. 
 Il faut donc retirer cet \textit{offset} (composante continue) 
-et c'est à cela que sert le condensateur $C_5$ série précédant le 
+et c'est Ã  cela que sert le condensateur $C_5$ sÃ©rie prÃ©cÃ©dant le 
 haut-parleur (coupe 6 de la Figure~\ref{fig:RadioAM_filtres}). 
-Utilisé comme filtre passe-haut, il va éliminer l'\textit{offset} qui est de 
-fréquence nulle en théorie et de fréquence très faible en pratique.
+UtilisÃ© comme filtre passe-haut, il va Ã©liminer l'\textit{offset} qui est de 
+frÃ©quence nulle en thÃ©orie et de frÃ©quence trÃ¨s faible en pratique.
 
 \subsection{Filtre passe-haut avant amplification}
-Dans la même idée, le condensateur $C_2$ et la résistance $R_2$ forme un 
-filtre passe haut de premier ordre. Ce dernier élimine toute composante DC qui 
+Dans la mÃªme idÃ©e, le condensateur $C_2$ et la rÃ©sistance $R_2$ forme un 
+filtre passe haut de premier ordre. Ce dernier Ã©limine toute composante DC qui 
 pourrait s'introduire dans le circuit avant l'amplification. En effet, il est 
-important de rappelé que nous sommes entourés de signaux électromagnétiques et 
+important de rappelÃ© que nous sommes entourÃ©s de signaux Ã©lectromagnÃ©tiques et 
 que chaque morceaux de conducteurs du circuit peut former une antenne. 
-Si un parasite basse fréquence s'introduit dans le circuit entre le circuit 
-résonant et qu'on ne le filtre pas, il pourrait alors être amplifier et manger
+Si un parasite basse frÃ©quence s'introduit dans le circuit entre le circuit 
+rÃ©sonant et qu'on ne le filtre pas, il pourrait alors Ãªtre amplifier et manger
 la part du signal audio en quelque sorte. 
-On dit qu'on filtre ces parasites très basses 
-fréquence pour éviter que l'amplificateur ne sature. La raison
+On dit qu'on filtre ces parasites trÃ¨s basses 
+frÃ©quence pour Ã©viter que l'amplificateur ne sature. La raison
 de cette saturation sera couverte au chapitre~\ref{cha:AO}.  

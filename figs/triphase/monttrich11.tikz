@@ -1,6 +1,3 @@
-% !TeX encoding = ISO-8859-1
-% !TeX spellcheck = fr_FR
-
 \begin{tikzpicture}[y=-1cm]
 \draw[black] (4.68444,2.61778) -- (4.68444,2.93333) -- (4.58,2.96667) -- (4.78889,3.03333) -- (4.58,3.09778) -- (4.78889,3.16444) -- (4.58,3.23333) -- (4.78889,3.3) -- (4.58,3.36889) -- (4.78889,3.43333) -- (4.68444,3.46889) -- (4.68444,3.66889);
 \draw[black] (3.79111,4.18667) -- (4.05778,4.02889) -- (4.14,4.10222) -- (4.09333,3.88667) -- (4.25333,4.03556) -- (4.20667,3.82222) -- (4.37111,3.96889) -- (4.32444,3.75333) -- (4.48889,3.9) -- (4.44,3.68667) -- (4.52222,3.76) -- (4.69556,3.66);
@@ -38,7 +35,7 @@
 \path (9.83333,4.5) node[text=black,anchor=base west] {$Z_L$};
 \path (10.24889,2.7) node[text=black,anchor=base east] {$\bar{V}_a$};
 \path (8.28444,2.24889) node[text=black,anchor=base] {$\bar{U}_{ab}$};
-\path (4,0.53333) node[text=black,anchor=base] {Générateur};
+\path (4,0.53333) node[text=black,anchor=base] {GÃ©nÃ©rateur};
 \path (10.58222,0.56667) node[text=black,anchor=base] {Charge};
 \path (7.51778,0.53333) node[text=black,anchor=base] {Circuit de transmission};
 \filldraw[black] (4.67778,3.64444) circle (0.06667cm);

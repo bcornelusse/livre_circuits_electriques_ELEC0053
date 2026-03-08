@@ -5,7 +5,7 @@
 \setcounter{secnumdepth}{2} 
 % turn on numbering for parts and chapters 
 
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{amsmath}
@@ -25,8 +25,11 @@
 \usepackage{times}
 \usepackage{graphicx}
 
-\usepackage{siunitx}
-
+%\usepackage{siunitx}
+\newcommand{\dB}{\text{~dB}}
+\newcommand{\Hz}{\text{~Hz}}
+\newcommand{\kHz}{\text{~kHz}}
+\newcommand{\volt}{\text{~V}}
 
 \usetikzlibrary{arrows}
 
@@ -42,9 +45,9 @@
 
 %%
 % Book metadata
-\title{Circuits électriques}
-\author[Bertrand Cornélusse]{Bertrand Cornélusse}
-\publisher{Université de Liège}
+\title{Circuits Ã©lectriques}
+\author[Bertrand CornÃ©lusse]{Bertrand CornÃ©lusse}
+\publisher{UniversitÃ© de LiÃ¨ge}
 
 %%
 % If they're installed, use Bergamo and Chantilly from www.fontsite.com.
@@ -205,7 +208,7 @@
 %\includeonly{nomenclature, AO}
 
 \newcommand{\tikzcircle}[2][fill=black]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
-\newcommand{\rep}[1]{\marginpar{\scriptsize\textit{Réponse :\\ }#1}}%
+\newcommand{\rep}[1]{\marginpar{\scriptsize\textit{RÃ©ponse :\\ }#1}}%
 
 
 \newcounter{exercise}[chapter]
@@ -225,7 +228,7 @@
 {% begin code
 	\refstepcounter{exercise}%
 	\par\vspace{\baselineskip}\noindent
-	\textbf{\large Exercice~\theexercise~ #1} \textit{Solution à la page \pageref{#2}.}%
+	\textbf{\large Exercice~\theexercise~ #1} \textit{Solution Ã  la page \pageref{#2}.}%
 		\par\vspace{\baselineskip}\noindent\ignorespaces
 }%
 {% end code
@@ -297,7 +300,7 @@ Copyright \copyright\ \the\year\ \thanklessauthor
 \begin{doublespace}
 \noindent\fontsize{14}{18}\selectfont\itshape
 \nohyphenation
-Cet ouvrage est largement inspiré des notes de cours de mes prédécesseures à l'Institut Montefiore, Mesdames les Professeures Mania Pavela et Patricia Rousseaux.
+Cet ouvrage est largement inspirÃ© des notes de cours de mes prÃ©dÃ©cesseures Ã  l'Institut Montefiore, Mesdames les Professeures Mania Pavela et Patricia Rousseaux.
 \end{doublespace}
 \vfill
 \vfill
