@@ -278,41 +278,32 @@ laissera passer les signaux à travers soit l'inductance $L$ ($f<f_0$) soit
 le condensateur $C_{var}$ ($f>f_0$) sans générer de tension notable.  
 
 \subsection{Masse de la Radio}
-
 Il ne faut pas oublier de définir un point de potentiel de référence pour notre 
-système. Dans notre cas la borne '-' d'une pile 9V a été choisie notre potentiel 
+système. Dans notre cas, la borne '-' d'une pile 9V a été choisie comme notre potentiel 
 de référence. Attention à ne pas confondre la \textit{masse} et la \textit{prise de terre} 
 d'un circuit. La \textit{masse} d'un appareil est plus généralement le potentiel
-de référence du circuit considéré comme étant à la tension 0V. La 
+de référence du circuit considéré comme étant à la tension 0 \volt. La 
 \textit{prise de terre} désigne dans les infrastructures électriques 
 (maisons, bâtiments, pylones électrique, etc.) un conducteur physiquement 
 connecté au sol. Elle est parfois choisie comme \textit{masse} d'un appareil 
-branché dans une prise d'où la confusion mais ce n'est pas toujours le cas.
+branché dans une prise, mais ce n'est pas toujours le cas.
 Notre radio étant portable, une des bornes de la pile est un bon candidat pour 
-potentiel de référence. 
-%Les signaux non voulus mentionné précedemment circule donc 
- 
+le potentiel de référence. 
 
-%Il s'agit d'un circuit de retour pour le courant. Un courant ne se 
-%créera donc dans l'antenne que si celle-ci est reliée au sol. 
-%Cette terre permettra donc de "réceptionner" les signaux non voulus qui passent 
-%à travers le filtre. 
-%Dans le cadre de cette expérience, nous relierons ce point de référence à la 
-%terre d'une prise électrique.
 
 \section{Autres filtres du circuit de réception et amplification de la radio AM}
 \subsection{Filtre passe-bas pour la démodulation}
 Une façon alternative de comprendre la détection d'enveloppe 
 (cf. Section~\ref{demodu2}), après la rectification du signal, 
 est de considérer le circuit de la coupe 2 de la Figure~\ref{fig:RadioAM_diode} 
-comme un filtre passe bas avec une fréquence de coupure légèrement supérieur 
+comme un filtre passe bas avec une fréquence de coupure légèrement supérieure 
 à $20 \kHz$. 
 
 \subsection{Filtre passe-haut pour le haut-parleur}
 Comme on le verra au chapitre~\ref{cha:AO}, le deuxième amplificateur 
 opérationnel ajoute un \textit{offset} de $4,5$ V au signal. 
 Cependant, un haut-parleur ne peut recevoir qu'un signal 
-alternatif sans composante continue, qui lui serait nuisible. 
+alternatif, sans composante continue qui lui serait nuisible. 
 Il faut donc retirer cet \textit{offset} (composante continue) 
 et c'est à cela que sert le condensateur $C_5$ série précédant le 
 haut-parleur (coupe 6 de la Figure~\ref{fig:RadioAM_filtres}). 
@@ -320,14 +311,14 @@ Utilisé comme filtre passe-haut, il va éliminer l'\textit{offset} qui est de
 fréquence nulle en théorie et de fréquence très faible en pratique.
 
 \subsection{Filtre passe-haut avant amplification}
-Dans la même idée, le condensateur $C_2$ et la résistance $R_2$ forme un 
+Dans la même idée, le condensateur $C_2$ et la résistance $R_2$ forment un 
 filtre passe haut de premier ordre. Ce dernier élimine toute composante DC qui 
 pourrait s'introduire dans le circuit avant l'amplification. En effet, il est 
-important de rappelé que nous sommes entourés de signaux électromagnétiques et 
+important de rappeler que nous sommes entourés de signaux électromagnétiques et 
 que chaque morceaux de conducteurs du circuit peut former une antenne. 
-Si un parasite basse fréquence s'introduit dans le circuit entre le circuit 
-résonant et qu'on ne le filtre pas, il pourrait alors être amplifier et manger
-la part du signal audio en quelque sorte. 
+Si un signal parasite basse fréquence s'introduit dans le circuit entre le circuit 
+résonant et qu'on ne le filtre pas, il pourrait alors être amplifié et "manger"
+la part du signal audio. 
 On dit qu'on filtre ces parasites très basses 
 fréquence pour éviter que l'amplificateur ne sature. La raison
 de cette saturation sera couverte au chapitre~\ref{cha:AO}.  
