@@ -99,9 +99,9 @@ V, $t \geq  4.6\,10^{-3}$}
 \label{ex:2-9}
 On d\'esire proc\'eder au lancement d'un moteur \`a courant
 continu en ins\'erant une r\'esistance de d\'emarrage $R_d$. Cette
-r\'esistance est mise hors-circuit lorsque le courant d\'elivr\'e par la
+r\'esistance est mise hors circuit lorsque le courant d\'elivr\'e par la
 source devient inf\'erieur \`a 15 A. On supposera un temps mort de 0.05 s
-pour la mise hors-circuit de la r\'esistance. Le moteur est mod\'elis\'e par
+pour la mise hors circuit de la r\'esistance. Le moteur est mod\'elis\'e par
 un sch\'ema \'equivalent simplifi\'e constitu\'e d'une force
 contre-\'electromotrice, d'une r\'esistance et d'une  inductance comme
 indiqu\'e dans la figure suivante.
@@ -142,7 +142,7 @@ $i(t)=7.5 - 414.2 e^{-2t}+75e^{-\frac{2}{3}t}$ A, $t \geq 1.51$ s}
 	\end{center}
 	
 	On consid\`ere le circuit ci-dessus et les conditions de
-	fontionnement suivantes :
+	fonctionnement suivantes :
 	\begin{enumerate}
 		\item depuis un temps suppos\'e infini, le r\'egime est \'etabli avec
 		l'interrupteur $k_1$ ferm\'e et l'interrupteur $k_2$ ouvert
@@ -204,12 +204,12 @@ On consid\`ere le circuit ci-dessus et les conditions de fonctionnement suivante
 	\item depuis un temps suppos\'e infini, le r\'egime est \'etabli avec
 	l'interrupteur $k$ ouvert
 	\[e = 60\,\, V \quad , \quad j= 5 \,\, A\]
-	\item \`a l'instant $t=0$, l'interrupteur $k$ se ferme  et la f.e.m $e$
+	\item \`a l'instant $t=0$, l'interrupteur $k$ se ferme et la f.e.m. $e$
 	commence \`a d\'ecro\^itre selon 
 	\[ e(t)=60 e^{-5t}\, ,\]
 	j reste constant. L'inductance $L$ est suppos\'ee initialement relax\'ee.
 \end{enumerate}
-Questions:
+Questions~:
 \begin{enumerate}
 \item D\'eterminer l'\'evolution de la tension $v_C(t)$ aux bornes du
 condensateur $C$ pour $t \in [-\infty,+\infty]$.
@@ -302,7 +302,7 @@ comme indiqu\'e \`a la figure suivante :
 \begin{center}
 	\includegraphics[width=\linewidth]{sol_exercices/ex3-5}
 \end{center}
-La PLK \'ecrite aux noeuds \ $a$ et $b$ \ fournit~:
+La PLK \'ecrite aux nœuds \ $a$ et $b$ \ fournit~:
 \begin{eqnarray}
 C_1 \, \dfrac{du_1}{dt} + \dfrac{u_1}{R_1} + \dfrac{u_1-u_2}{R_2} 
 &=& 0 \label{1}\\C_2 \, \dfrac{du_2}{dt} +  \dfrac{u_2-u_1}{R_2} &=& 0 \label{2}
@@ -351,7 +351,7 @@ De (\ref{3}), on d\'eduit l'expression de la tension \ $u_1$~:
 	u_1 &=& (R_2C_2s_1+1) \, K_1\, e^{-0.63t} + (R_2C_2s_2+1) \, K_2 \, e^{s_2t} \\
 	&=& 0.84\, K_1 \, e^{-0.63t} - 0.59\, K_2\, e^{-6.37t}~. 
 \end{eqnarray*}
-Les constantes \ $K_1$ et $K_2$ \ se d\'eduisent des conditions innitiales pour \ $u_1$ et $u_2$~.
+Les constantes \ $K_1$ et $K_2$ \ se d\'eduisent des conditions initiales pour \ $u_1$ et $u_2$~.
 On a~:
 \begin{eqnarray*}
 	u_1(0) &=& u_{10} \: = \: 2 \: = \: 0.84\, K_1 - 0.59\, K_2\\
@@ -362,7 +362,7 @@ On trouve~:
 Finalement, les expressions de \ $u_1$ et $u_2$ \ sont~:
 \begin{eqnarray*}
 	u_1(t) &=& 2.9\, e^{-0.63t} - 0.91 \, e^{-6.37t}\mbox{~V}\\
-	u_2(t) &=& 3.46\, e^{-0.63t} - 1.54 \, e^{-6.37t}\mbox{~V~.}
+	u_2(t) &=& 3.46\, e^{-0.63t} + 1.54 \, e^{-6.37t}\mbox{~V~.}
 \end{eqnarray*}
 \end{solexercise}
 
@@ -395,7 +395,7 @@ Ses racines peuvent se mettre sous la forme~:
 \[ s_{1,2} \: = \, -\alpha \pm \sqrt{\alpha^2 - \omega_0^2\,} \]
 avec
 \begin{eqnarray*}
-	\alpha &=& \dfrac{1}{2RC}~, ~~\mbox{le coefficent d'amortissement}\\
+	\alpha &=& \dfrac{1}{2RC}~, ~~\mbox{le coefficient d'amortissement}\\
 	\omega_0 &=& \dfrac{1}{\, \sqrt{LC}\,}~, ~~\mbox{la fr\'equence de r\'esonance du circuit.}
 \end{eqnarray*}
 Dans le cas consid\'er\'e ici, nous avons~:
@@ -411,13 +411,13 @@ On d\'eduit la valeur de la capacit\'e~:
 et comme
 \[ \dfrac{1}{2RC} \, = \, 4000~,\]
 on d\'eduit la valeur de la r\'esistance
-\[ R \: = \: \dfrac{1}{2\: . \: 12.5\, 10^9\, . \, 4000} \: = \: 10\,\mbox{k}\Omega. \]
+\[ R \: = \: \dfrac{1}{2\: . \: 12.5\, 10^{-9}\, . \, 4000} \: = \: 10\,\mbox{k}\Omega. \]
 Les conditions initiales fournissent~:
 \[ v(0) \, = \, v_0 \, = \, \left. v(t)\right|_{t=0} \,=  D_2. \]
 D\`es lors,
 \[ D_2 \, = \, 25\, \mbox{V}~. \]
 D'autre part, la continuit\'e du courant dans l'inductance impose~:
-\[ i_L(^+) \, = \, i_L(0^-) \, = \, i_0 \, = \, 5\, \mbox{mA}.\]
+\[ i_L(0^+) \, = \, i_L(0^-) \, = \, i_0 \, = \, 5\, \mbox{mA}.\]
 Or
 \[ i_C(0^+) \, = -\, i_R(0^+) - i_L(0^+) \]
 avec
@@ -429,7 +429,7 @@ avec
 	&=& -\, 5\, 10^5
 \end{eqnarray*}
 et finalement
-\[ v(t) \: = \, -\, 3.2\, 10^5\, t \, e^{-4000t} + 25\, e^{-4000t}. \]
+\[ v(t) \: = \, -\, 5\, 10^5\, t \, e^{-4000t} + 25\, e^{-4000t}. \]
 \end{solexercise}
 
 \begin{solexercise}{\ref{ex:2-7}}
@@ -503,7 +503,7 @@ Il faut consid\'erer les deux p\'eriodes temporelles suivantes :
 	s'\'etablir, interrupteurs $k_1$ ferm\'e et $k_2$ ouvert;
 	\item $t_s\leq t < \infty$, interrupteurs $k_1$ ouvert et $k_2$ ferm\'e.
 \end{enumerate}
-\noindent{\bf 1\`ere p\'eriode}  : $0\leq t < t_s$
+\noindent{\bf 1\textsuperscript{re} période}  : $0\leq t < t_s$
 
 Le circuit \'etant initialement relax\'e, on a $u_C(0)=0$. Le condensateur
 se charge et la tension \`a ses  bornes s'\'ecrit (r\'eponse forc\'ee, circuit
@@ -515,7 +515,7 @@ $u_C$ serait bien entendu $E$. En $t_s$, on doit donc avoir:
 \[(1-e^{-t_s/\tau})=0.9 \leftrightarrow t_s=-\tau\ln 0.1 = 4.6\,
 10^{-3}\text{~s}\]
 
-\noindent{\bf 2\`eme  p\'eriode}  : $t_s\leq t < \infty$
+\noindent{\bf 2\textsuperscript{e} période}  : $t_s\leq t < \infty$
 
 Appliquons le changement de variable $t^{'}=t-t_s$.
 
@@ -591,7 +591,7 @@ Il faut distinguer les deux p\'eriodes~temporelles suivantes.
 \end{enumerate}
 \vspace*{1ex}
 
-{\bf 1\`ere p\'eriode~: \ $0\leq t < t_d$} 
+{\bf 1\textsuperscript{re} période~: \ $0\leq t < t_d$} 
 
 Durant cette p\'eriode, le circuit est celui repr\'esent\'e ci-dessous, avec :
 \begin{eqnarray*}
@@ -660,7 +660,7 @@ $t_a = t^{(2)} = 1.458$ s. D\`es lors :
 14.647\,$A~.
 
 \vspace{\baselineskip}
-{\bf 2\`eme p\'eriode~: \ $ t \geq  t_d$}
+{\bf 2\textsuperscript{e} période~: \ $ t \geq  t_d$}
 
 Fixons une nouvelle origine des temps en \ $t=t_d$~. Pour cela, on introduit le changement de variable
 \[ t' \, = \, t - t_d~. \]
@@ -695,7 +695,7 @@ i(t^{'}=0)=i_L(t_d)=14.647 \quad \Rightarrow \quad A=-20.3
 Le courant, exprim\'e selon la nouvelle variable temporelle $t^{'}$, s'\'ecrit~:
 \[ i(t') \: = \: 7.5 - 20.3 \, e^{-2t'} + 27.44 \,
 e^{-\frac{2}{3}t'} \,\, , \quad t'>0 \]
-o\`u, en fonction de \ $t$, en rempla{c}ant \ $t'$ \ par \ $t-t_d$~:
+o\`u, en fonction de \ $t$, en rempla\c{c}ant \ $t'$ \ par \ $t-t_d$~:
 \begin{eqnarray*}
 	i(t) &=& 7.5 - 20.297 \, e^{-2(t-t_d)} + 27.44 \,
 	e^{-\frac{2}{3}(t-t_d)} \,\, , \quad t > t_d\\
@@ -714,7 +714,7 @@ et
 \[i^{'}(t)  =  7.5 - 82.5 e^{-2t} + 75 e^{-\frac{2}{3}
 	t} \,\, , \quad t\geq 0\]
 
-La figure ci-dessous compare les 2 courants $i(t)$ et $i^{'}(t)$ 
+La figure ci-dessous compare les deux courants $i(t)$ et $i^{'}(t)$ 
 et montre l'influence de la r\'esistance \ $R_d$ \ qui permet de limiter
 l'amplitude du courant dans les premiers instants qui  suivent le d\'emarrage
 du moteur.
@@ -863,10 +863,10 @@ Le terme additionnel $- v_0$ compense la source de tension introduite.
 	\item 
 	Le courant s'annule \`a $t_0$ tel que $$100 e^{-4t_0} -50-40 e^{-10t_0} = 0,$$
 	ce qui donne $t_0 \approx 0.12 s$. 
-	\item En $t_1 \approx 0.17s$, le courant vaut $-6.65 A$. C'est la condition initiale de cette derni\`ere phase. Si on translate l'origine du temps en $t_1$, on a maintenant une solution de type r\'eponse libre
+	\item En $t_1 \approx 0.17s$, le courant vaut $-6.65 A$. C'est la condition initiale de cette derni\`ere phase. Si on translate l'origine des temps en $t_1$, on a maintenant une solution de type r\'eponse libre
 	$$\frac{di(t)}{dt} + \frac{R}{L} i(t)  = \frac{20}{L},$$
 	et donc $i(t) = \frac{20}{R} + K e^{-\frac{t}{\tau}}$ avec $\tau = \frac{L}{R}$, et donc $$K = -6.65 - \frac{20}{R} = -16.65.$$
-	Finalement, et en re-translatant l'origine des temps,  $$i(t) = 10 - 16.65 e^{-4(t-t_1)}.$$
+	Finalement, et en translatant à nouveau l'origine des temps,  $$i(t) = 10 - 16.65 e^{-4(t-t_1)}.$$
 \end{enumerate}
 La dynamique est illustr\'ee \`a la figure ci-dessous.
 \begin{center}

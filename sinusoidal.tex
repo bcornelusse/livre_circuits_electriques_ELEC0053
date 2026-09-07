@@ -86,7 +86,7 @@ Une combinaison linéaire :
 a_1\text{Re}[\sqrt{2}\bar{V}_1e^{j\omega t}] +
 a_2\text{Re}[\sqrt{2}\bar{V}_2e^{j\omega t}]\]
 
-avec $a_1$ et $a_2$, 2 nombres réels.
+avec $a_1$ et $a_2$, deux nombres réels.
 \[a_1\text{Re}[\sqrt{2}\bar{V}_1e^{j\omega t}] +
 a_2\text{Re}[\sqrt{2}\bar{V}_2e^{j\omega t}] =
 \text{Re}[\sqrt{2}(a_1\bar{V}_1+a_2\bar{V}_2)e^{j\omega t}]\]
@@ -258,7 +258,7 @@ ce dipôle, avec $\bar{U}$ et $\bar{I}$ les phaseurs correspondants.
 On appelle {\em impédance} du dipôle, le rapport des phaseurs 
 \[Z(j\omega)=\frac{\bar{U}}{\bar{I}}\, ,\quad \bar{U}=Z\,\bar{I}.\]
 
-L'inverse de l'impédance est appelée {\em admittance}
+L'inverse de l'impédance est appelé {\em admittance}
 \[Y(j\omega)=\frac{\bar{I}}{\bar{U}}\, ,\quad \bar{I}=Y\,\bar{U}.\]
 $Z$ et $Y$ sont deux nombres complexes, ce ne sont pas des phaseurs ! Ils n'ont pas de vecteur tournant ni de signal sinusoïdal associés. 
 
@@ -527,7 +527,7 @@ et l'énergie électrostatique moyenne :
 \paragraph{Résumé.} Si $\phi_u=0$, 
 \begin{center}
 \begin{tabular}{l l l}
-	Circuit  résisitf& Circuit capacitif & Circuit inductif\\
+	Circuit  résistif& Circuit capacitif & Circuit inductif\\
 	$p(t)= P + P\cos(2\omega t)$ & $p(t)=Q\sin(2\omega t)$ & $p(t)= - Q\sin(2\omega t)$\\
 	\includegraphics[width=0.3\textwidth]{figs/ch4_figs/powervstimeR.pdf} & \includegraphics[width=0.3\textwidth]{figs/ch4_figs/powervstimeC.pdf} & \includegraphics[width=0.3\textwidth]{figs/ch4_figs/powervstimeL.pdf} \\
 \end{tabular}
@@ -646,20 +646,20 @@ Soient $P$ et $Q$ les puissances consommées par le dipôle. La Table~\ref{tab:s
 \end{figure*}
 
 Dans le circuit de la radio AM rappelé à la Figure~\ref{fig:RadioAM_Boucherot},
-on peut repéré un dipôle RC série mis en parrallèle avec le haut-parleur.
-Ce dipôle est plus nommé dans le milieu de l'électronique analogique 
-"Cellule de Boucherot" ou "Réseau de Zobel". Son but est de rendre la charge vu 
+on peut repérer un dipôle RC série mis en parallèle avec le haut-parleur.
+Ce dipôle est plutôt nommé dans le milieu de l'électronique analogique 
+"Cellule de Boucherot" ou "Réseau de Zobel". Son but est de rendre la charge vue 
 par l'amplificateur purement résistive.
 
 En effet, un haut-parleur peut être modélisé par un dipôle RL série. 
-Sa résistance modélise les pertes thermiques ainsi que l'énergie accoustique
+Sa résistance modélise les pertes thermiques ainsi que l'énergie acoustique
 fournie à la membrane vibrant et créant ainsi un son. Le comportement  
-inductif du haut-parleur est lui inhérent à l'électro-aimant qui crée la 
+inductif du haut-parleur est, lui, inhérent à l'électro-aimant qui crée la 
 vibration de cette membrane.
 
-Sans la cellule de Boucherot, l'impédance vue par la sortie,$Z_L$, augmenterait 
+Sans la cellule de Boucherot, l'impédance vue par la sortie, $Z_L$, augmenterait 
 avec la fréquence et pourrait créer des problèmes de stabilité de l'amplificateur 
-à haute fréquence et créer par exemple un effet Larsen par exemple.
+à haute fréquence et créer un effet Larsen par exemple.
 
 $$Z_L(\omega)=Z_{hp}= R_L + j \omega L $$
 $$Z_L(\omega \rightarrow \infty) = \infty$$
@@ -668,9 +668,9 @@ $$Z_L(\omega \rightarrow \infty) = \infty$$
 
 Cette cellule de Boucherot enlève la dépendance à la fréquence de l'impédance 
 de manière très astucieuse en choisissant correctement la valeur de $R_4$ et 
-$C_4$. Pour le démontrer prenons le réseau d'impéndance suivant, Figures~\ref{fig:Boucherot},
-réprésentant le haut-parleur et la cellule de Boucherot en parrallèle et 
-tentons d'exprimer la puissance réactive consommée par ses deux branches. (Le 
+$C_4$. Pour le démontrer prenons le réseau d'impédances suivant, Figure~\ref{fig:Boucherot},
+représentant le haut-parleur et la cellule de Boucherot en parallèle et 
+tentons d'exprimer la puissance réactive consommée par ces deux branches. (Le 
 condensateur $C_3$ est omis pour simplification pédagogique.)
 
 \begin{marginfigure}
@@ -700,16 +700,16 @@ fréquences, soit $Q_{hp}(\omega)+Q_{bc}(\omega)=0$.
 	  & = & (\omega^2 L C_4-1)(R^2C_4 -L)\\
 \end{eqnarray*}
 
-On constate que la puissance réactive se compense aussi à la fréquence 
+On constate que la puissance réactive se compense aussi à la fréquence de
 résonance entre L et C, soit lorsque $\omega^2 = \frac{1}{LC}$. 
 Ceci est toujours le cas 
 mais un signal audio étant un signal \textit{"à large bande"} 
-(= à multiple fréquence) l'impédance de la charge n'aurait été purement 
+(= à multiples fréquences) l'impédance de la charge n'aurait été purement 
 résistive que pour une seule note.
 
 En pratique la présence du condensateur $C_3$ ainsi que les imperfections 
-d'un véritable haut-parleur détériore cette propriété d'impédance purement 
-résistive mais si les ordres de grandeurs de $R_4$ et $C_4$ sont bien choisis 
+d'un véritable haut-parleur détériorent cette propriété d'impédance purement 
+résistive mais si les ordres de grandeur de $R_4$ et $C_4$ sont bien choisis 
 on peut s'en approcher convenablement.
 
 Exercice : Montrer que $Z_L = (\frac{1}{Z_{hp}} + \frac{1}{Z_{bc}})^{-1} = R $,
@@ -727,7 +727,7 @@ si $R_4=R_L=R$ et $C_4=\frac{L}{R^2}$.
 \end{marginfigure}
 Soient deux circuits magnétiquement couplés comme indiqué à la Figure~\ref{fig:couples}.
 Le flux produit par $i_1$ embrasse la bobine 2 et inversement.
-Le courant variable $i_1$ induit donc une f.e.m aux bornes de la bobine 2.
+Le courant variable $i_1$ induit donc une f.e.m. aux bornes de la bobine 2.
 Soient $N_1$ et $N_2$ le nombre de tours de la bobine 1 et 2, respectivement.
 
 \paragraph{Relations entre courants et tensions.}
@@ -776,7 +776,7 @@ i_1\\i_2
 \begin{marginfigure}
 \centering
 \includegraphics[width=4cm]{figs/ch4_figs/CMC_schematic}
-\caption{Quadripôle repésentant deux inductances couplées.}
+\caption{Quadripôle représentant deux inductances couplées.}
 \end{marginfigure}
 			
 			
@@ -879,7 +879,7 @@ Tenant compte des idéalisations
 	u_2\\ \frac{di_2}{dt}
 	\end{array}\right]
 	\]}
-Le \textit{rapport de transformation} $n$ est définit comme 
+Le \textit{rapport de transformation} $n$ est défini comme 
 \[n=\frac{L_2}{M}=\frac{M}{L_1}=\sqrt{\frac{L_2}{L_1}}=\frac{N_2}{N_1}\]
 et on obtient les relations qui caractérisent l'élément ``transformateur idéal'' (Table~\ref{tab:tfo_ideal}), illustrées à la Figure~\ref{fig:tfo_ideal}.
 \begin{table}[h]
@@ -900,12 +900,12 @@ et on obtient les relations qui caractérisent l'élément ``transformateur idé
 	
 \section{Le triphasé}
 Le transport à grande distance de l'énergie électrique s'effectue usuellement en régime
-alternatif triphasé (à la fréquence de 50 Hz, en Europe, où de 60
+alternatif triphasé (à la fréquence de 50 Hz, en Europe, ou de 60
 Hz aux USA), à très haute tension (THT) : 700, 400, 220, 150 kV.
 
-La THT sert notamment à réduire les pertes par effet Joule dans les conducteurs (ces pertes sont approximativement fonction inverse du carré de la tension). Le régime alternatif permet l'utilisation de transformateurs, fournissant un moyen commode d'élever la tension à partir des centrales de production (11 à 30 kV) et d'abaisser la tension à l'autre extrémité du réseau de transport : noeuds "BT" du réseau de distribution (de 60 à 6 kV). Le régime triphasé, enfin possède des avantages multiples : création aisée d'un champ tournant exploité dans les moteurs, tels les moteurs à induction ; économie substantielle en matériaux conducteurs et en frais fixes d'installation ; puissance instantanée fournie à la charge triphasée constante.
+La THT sert notamment à réduire les pertes par effet Joule dans les conducteurs (ces pertes sont approximativement fonction inverse du carré de la tension). Le régime alternatif permet l'utilisation de transformateurs, fournissant un moyen commode d'élever la tension à partir des centrales de production (11 à 30 kV) et d'abaisser la tension à l'autre extrémité du réseau de transport : noeuds "BT" du réseau de distribution (de 60 à 6 kV). Le régime triphasé, enfin, possède des avantages multiples : création aisée d'un champ tournant exploité dans les moteurs, tels les moteurs à induction ; économie substantielle en matériaux conducteurs et en frais fixes d'installation ; puissance instantanée fournie à la charge triphasée constante.
 
-Dans cette section nous esquissons très brièvement certaines caractéristiques saillantes des systèmes triphasés équilibrés. Les  représentations schématiques montrées ci-dessous sont  non conformes à la réalité, car les charges d'utilisation ainsi que les centrales de production apparaissent connectées directement au réseau de transport ; le réseau lui même est représenté par des fils électriques, alors qu'une modélisation même simplifiée impliquerait l'utilisation de quadripôles équivalents en $\pi$.
+Dans cette section nous esquissons très brièvement certaines caractéristiques saillantes des systèmes triphasés équilibrés. Les  représentations schématiques montrées ci-dessous sont  non conformes à la réalité, car les charges d'utilisation ainsi que les centrales de production apparaissent connectées directement au réseau de transport ; le réseau lui-même est représenté par des fils électriques, alors qu'une modélisation même simplifiée impliquerait l'utilisation de quadripôles équivalents en $\pi$.
 
 \subsection{Systèmes triphasés équilibrés}
 Un réseau triphasé est un réseau comportant des "générateurs triphasés", des "charges triphasées" et des circuits de transmission reliant les générateurs aux charges. Un réseau triphasé est dit "équilibré" lorsque tous ses éléments le sont. Explicitons brièvement ces termes.
@@ -943,7 +943,7 @@ Considérons le générateur représenté sur la Figure~\ref{fig:gentridch11}. I
 =\sqrt{2}V\cos(\omega t+\phi_u-\frac{4\pi}{3}) \\
 & = \bar{V}_ae^{-j\frac{4\pi}{3}}& & = \sqrt{2}V\cos(\omega (t-\frac{2T}{3})+\phi_u)
 \end{alignat*}}
-On parle de \textit{séquence directe} des 3 phases $a$,$b$, et $c$ si (cf. Figure~\ref{fig:seq_directe}) un observateur placé en $O$ voit passer les vecteurs tournants dans l'ordre $a,b,c$.
+On parle de \textit{séquence directe} des trois phases $a$, $b$, et $c$ si (cf. Figure~\ref{fig:seq_directe}) un observateur placé en $O$ voit passer les vecteurs tournants dans l'ordre $a,b,c$.
 
 
 Le système étant par hypothèse équilibré, les trois courants sont également temporellement déphasés de $2\pi/3$. En adoptant $\bar{I}_a$ comme origine des phases, on écrit :
@@ -1009,13 +1009,13 @@ Il serait en principe possible de supprimer le fil neutre et d'obtenir un résea
 Ce montage présente un avantage en cas de court-circuit entre une phase et la terre, car il  évite les surtensions. Soit $\bar{V}_c=0$, 
 \begin{itemize}
 	\item si N et N$^{'}$ ne sont pas mis à la terre, il existe une 
-	différences de potentiel entre les deux autres phases et la terre égale à la tension composée, $\sqrt{3}V$, tension supérieure à la tension normale ;
+	différence de potentiel entre les deux autres phases et la terre égale à la tension composée, $\sqrt{3}V$, tension supérieure à la tension normale ;
 	\item si N et N$^{'}$ sont mis à la terre, les d.d.p. entre les deux autres phases et la terre conservent des valeurs normales,
 	un courant de ``fuite'' $i_a+i_b+i_c$ non
 	négligeable circule via la terre entre le point de court-circuit et
 	le neutre, ce courant peut être détecté par une protection (disjoncteur différentiel !)
 \end{itemize}
-Ce type de raccordement à la terre (réseau dit "IT") et utilisé par exemple dans les hôpitaux, car il offre plus de robustesse à des défauts (pas d'interruption totale de service, pas de surtension). Cependant dès qu'un défaut est identifié, il importe de le corriger rapidement afin de restaurer le mode de fonctionnement nominal du système. Il requiert donc une surveillance et des protections plus avancées qu'un système où le neutre est distribué.
+Ce type de raccordement à la terre (réseau dit "IT") est utilisé par exemple dans les hôpitaux, car il offre plus de robustesse à des défauts (pas d'interruption totale de service, pas de surtension). Cependant dès qu'un défaut est identifié, il importe de le corriger rapidement afin de restaurer le mode de fonctionnement nominal du système. Il requiert donc une surveillance et des protections plus avancées qu'un système où le neutre est distribué.
 
 \subsection{Montage en triangle}
 
@@ -1024,7 +1024,7 @@ en triangle (Figure~\ref{fig:triangle}).
 \begin{figure}[hb]
 	\centering
 	\input{figs/triphase/triangch11.tikz}
-	\caption{Connection en triangle.\label{fig:triangle}}
+	\caption{Connexion en triangle.\label{fig:triangle}}
 \end{figure}
 Dans ce cas, il y a un seul type de tension, la tension de ligne,  mais  deux courants:
 $\bar{I}_a$, $\bar{I}_b$, $\bar{I}_c$ sont les courants de ligne,

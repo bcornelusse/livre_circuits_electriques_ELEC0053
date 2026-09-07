@@ -13,7 +13,7 @@ indispensable pour leur synthèse. Par contre, on ne peut en aucune façon suppo
 réciproques.}
 
 \section{L'élément amplificateur opérationnel}
-L'AO est un composant électronique introduit dans les années 60 comme calculateur analogique.
+L'AO est un composant électronique introduit dans les années 1960 comme calculateur analogique.
 C'est un amplificateur de tension possédant deux entrées différentielles et une sortie unique (cf. Figure~\ref{fig:AO}).
 En théorie des circuits, on ne s'intéresse pas à sa constitution interne, mais à son fonctionnement, observé d'un certain nombre de ses
 bornes :
@@ -41,7 +41,7 @@ bornes :
 %--------------------------------------------------------------------------------
 
 \subsection{Caractéristiques de fonctionnement}
-Un AO présente un fonctionnement linéaire dans une plage relativement restreinte \alert{$[-\epsilon,\epsilon]$}, au-delà, l'AO fonctionne en saturation. Soit le circuit de la Figure~\ref{fig:AO_base}.
+Un AO présente un fonctionnement linéaire dans une plage relativement restreinte \alert{$[-\epsilon,\epsilon]$} ; au-delà, l'AO fonctionne en saturation. Soit le circuit de la Figure~\ref{fig:AO_base}.
 \begin{figure*}[h]
 \begin{center}
 	\includegraphics[width=0.9\linewidth]{figs/AO/AO_caracteristique}
@@ -63,16 +63,16 @@ En ce qui concerne les courants, la PLK s'applique, mais il ne faut pas oublier 
 \subsection{Modèle idéal}
 En pratique, les valeurs typiques des paramètres d'un AO sont :
 \begin{itemize}
-	\item $V_{sat} < 20$ V
+	\item $V_{sat} < 20\text{ V}$
 	\item $A$ de l'ordre de $10^4$ à $10^5$
 	\item $\rightarrow$ dans la plage de fonctionnement linéaire
-	$|v_p-v_n|< 2$ mV
-	\item $i_p$, $i_n$ de l'ordre de 0.1 mA
+	$|v_p-v_n|< 2\text{ mV}$
+	\item $i_p$, $i_n$ de l'ordre de $0{,}1\text{ mA}$
 \end{itemize}
 L'amplificateur opérationnel idéal est supposé avoir un gain infini. Ses caractéristiques sont les suivantes :
 \begin{enumerate}
 \item c'est un élément linéaire ;
-\item le gain $A$ est infini. Ceci a pour conséquence que la tension d'entrée doit être nulle pour que la tension de sortie soit finie. La tension de sortie est indéterminée et indépendante de la charge. Ce sont les éléments placés entre les entrées et la sortie (boucle de retour -- \textit{feedback} qui permettront de fixer la tension et les courants dans le circuit comportant l'amplificateur idéal :
+\item le gain $A$ est infini. Ceci a pour conséquence que la tension d'entrée doit être nulle pour que la tension de sortie soit finie. La tension de sortie est indéterminée et indépendante de la charge. Ce sont les éléments placés entre les entrées et la sortie (boucle de retour -- \textit{feedback}) qui permettront de fixer la tension et les courants dans le circuit comportant l'amplificateur idéal :
 $$A=\infty \rightarrow \epsilon=0, \quad v_p=v_n$$
 \item l'impédance d'entrée est infinie, car les courants d'entrée sont nuls :
 $$i_p=i_n=0 \rightarrow Z_{in}=\infty$$
@@ -112,12 +112,12 @@ On notera que l'amplificateur peut être représenté schématiquement comme à 
 \subsection{Taux de contre-réaction} Le \textit{taux de contre-réaction}, plus communément appelé \textit{feedback}, provient du circuit qui ramène à l'entrée une fraction du signal de sortie. La Figure~\ref{fig:feedback} représente cette contre-réaction sous forme de schéma-bloc.
 \begin{marginfigure}
 	\centering
-	\caption{Vue "système" de la contre-réaction.}
+	\caption{Vue «~système~» de la contre-réaction.}
 	\label{fig:feedback}
 	\includegraphics[width=0.9\textwidth]{figs/figs_reg_trans/feedback}
 \end{marginfigure}
 $E$ est le signal différentiel, $A$ le gain de la boucle directe, $H$ le gain de la boucle de retour ou de contre-réaction.
-Le gain global "en boucle fermée" du système se déduit comme suit :
+Le gain global «~en boucle fermée~» du système se déduit comme suit :
 $E = V_i- HV_o$, $V_o = AE$, donc $V_o = AV_i -AHV_o$.
 Ou encore 
 \begin{equation}\label{eq:feedback_1}
@@ -162,12 +162,12 @@ Et donc
 \begin{center}
 	\fbox{$\frac{\displaystyle v_o}{\displaystyle v_s}=-\frac{\displaystyle R_f}{\displaystyle R_s}$}
 \end{center}
-La borne "--" agit comme une masse virtuelle.
+La borne «~$-$~» agit comme une masse virtuelle.
 
 \paragraph{Taux de contre-réaction.}
 Le potentiel $v_o$ est fixé grâce à la boucle de retour introduite par la résistance $R_f$.
 
-Le \textit{Taux de contre-réaction du montage} est défini comme la fraction de la tension de sortie qui est ramenée aux bornes d'entrée de l'AO. 
+Le \textit{taux de contre-réaction du montage} est défini comme la fraction de la tension de sortie qui est ramenée aux bornes d'entrée de l'AO. 
 Comme $i_n=0$, tout se passe comme si $R_s$ et $R_f$ étaient connectées en série :
 \begin{center}
 	\begin{circuitikz}
@@ -202,8 +202,8 @@ sa plage de fonctionnement linéaire. Pour cela, il faut :
 
 \begin{testexample}[Valeurs typiques pour un montage inverseur.]
 \begin{itemize}
-	\item $V_{sat}=15$ V
-	\item $v_s=10$ mV
+	\item $V_{sat}=15\text{ V}$
+	\item $v_s=10\text{ mV}$
 	\item $\rightarrow  \frac{R_f}{R_s} < 1500$
 \end{itemize}
 \end{testexample}
@@ -256,7 +256,7 @@ Dans sa plage de fonctionnement linéaire, le circuit suivant dérivé du montag
 \end{circuitikz}
 \end{center}
 En ayant recours aux phaseurs et impédances, on voit tout de suite que 
-\[\frac{\bar{V}_0}{\bar{V}_s}=- \, \frac{Z_f(j\omega)}{Z_s(j\omega)}=-j\omega R_fC\]
+\[\frac{\bar{V}_o}{\bar{V}_s}=- \, \frac{Z_f(j\omega)}{Z_s(j\omega)}=-j\omega R_fC\]
 
 
 
@@ -290,7 +290,7 @@ On peut donc utiliser ce montage comme source indépendante de courant.
 
 \section{Sources commandées}
 \label{sec:XXT}
-Les sources commandées (cf. Figure~\ref{fig:VVT}) peuvent être réalisées au moyen d'AOs.
+Les sources commandées (cf. Figure~\ref{fig:VVT}) peuvent être réalisées au moyen d'AO.
 \paragraph{VVT.}
 \begin{center}
 \includegraphics[width=0.9\linewidth]{figs/AO/AO_VVT}
@@ -318,7 +318,7 @@ Le montage de la Figure suivante
 \end{center}
 représente un filtre actif de fonction de transfert 
 \[H(j\omega)=-\frac{j\omega R_fC_i}{1+j\omega R_iC_i}\]
-Comme on le verra plus en détail dans les exercices et dans la Section~\ref{sec:AO_radio}, ce montage permet d'amplifier en sélectionnant une bande de fréquence.
+Comme on le verra plus en détail dans les exercices et dans la Section~\ref{sec:AO_radio}, ce montage permet d'amplifier en sélectionnant une bande de fréquences.
 Sa pulsation de coupure à -3 dB vaut 
 \[\omega_c=\frac{1}{R_iC_i}.\]
 
@@ -381,7 +381,7 @@ Le gain en tension est
 \end{center}
 On voit de suite que 
 \[v_n=v_o\frac{R_s}{R_f+R_s}\]
-Le taux de contre-réaction est donc $\frac{R_s}{R_f+R_s}$
+Le taux de contre-réaction est donc $\frac{R_s}{R_f+R_s}.$
 
 \paragraph{Résistance d'entrée.}
 La résistance vue de la source $v_g$ est infinie puisque $i_p=0$. Donc $R_{in}=\infty$.
@@ -511,11 +511,11 @@ Un AO peut se matérialiser sous différentes formes, comme représenté à la F
 		\includegraphics[width=0.9\linewidth]{figs/AO/AO_2} \\
 		\includegraphics[width=0.9\linewidth]{figs/AO/AO_3}
 	\end{center}
-	\caption{Les AOs en pratique. \label{fig:AO_pratique}}
+	\caption{Les AO en pratique. \label{fig:AO_pratique}}
 \end{figure}
 
 \clearpage
-\section{\'Etage d'amplification de la radio AM}
+\section{Étage d'amplification de la radio AM}
 \label{sec:AO_radio}
 \subsection{Gain}
 \begin{marginfigure}
@@ -524,13 +524,13 @@ Un AO peut se matérialiser sous différentes formes, comme représenté à la F
 	\caption{Schéma de l'AO du circuit, avec ses tensions d'entrée et de sortie.}
 	\label{fig:AO1}
 \end{marginfigure}
-La coupe $4$ de la Figure~\ref{fig:RadioAM_AOs} représente l'étage d'amplification de la radio AM.
+La coupe 4 de la Figure~\ref{fig:RadioAM_AOs} représente l'étage d'amplification de la radio AM.
 Cet amplificateur opérationnel est utilisé dans un montage inverseur (Figure~\ref{fig:AO1}).
 On obtient alors la fonction de transfert $H(\omega)$ qui exprime le gain en amplitude :
 $$
 H(\omega) = \frac{V_s}{V_e} = -\frac{Z_f}{Z_s}
 $$
-Avec $Z_s = R_1 + (R_3 \parallel (R_g +C_g)) =  R_1 + \frac{R_3+j\omega R_3 R_g C_g}{1+j\omega C_g (R_3 + R_g)}$ qui 
+avec $Z_s = R_1 + (R_3 \parallel (R_g +C_g)) =  R_1 + \frac{R_3+j\omega R_3 R_g C_g}{1+j\omega C_g (R_3 + R_g)}$ qui 
 dépend de la fréquence du signal d'entrée, et $Z_f = R_5$.
 Quand $\omega \rightarrow 0$, on a $|Z_s| \sim R_1+R_3$ et $H(\omega) \sim -\frac{R_5}{R_1+R_3} = -20$. 
 Par contre, si $\omega \rightarrow \infty$, on a 
@@ -540,44 +540,44 @@ $|Z_s| \sim R_1 + \frac{R_3 R_g}{R_3+R_g}$ et $H(\omega) \approx -40$.
 C'est la caractéristique d'un filtre passe-haut mais qui va, au lieu d'atténuer 
 les fréquences non voulues comme le fait un filtre passif, amplifier les 
 fréquences souhaitées plus fortement que les fréquences non souhaitées. 
-La fréquence de coupure est ici  
-$|H(\omega)|= 20 \log_{10}(|-40|) -3 \dB = 29 \dB =27$.  
-En résolvant l'équation $|H(\omega)|=27$ on trouve une fréquence de coupure
+La fréquence de coupure correspond ici à  
+$|H(\omega)|= 20 \log_{10}(|-40|) -3\text{ dB} \approx 29\text{ dB} \approx 27$.  
+En résolvant l'équation $|H(\omega)|=27$, on trouve une fréquence de coupure
 d'environ $10 \Hz$ qui est bien proche de la borne inférieure des 
 fréquences audibles par l'homme. 
 En pratique, les composants internes de l'amplificateur opérationnel ont aussi 
-un comportement filtrant les hautes fréquences au delà des $100 \kHz$.
-La raison de ce filtrage n'est pas matière de ce cours mais est abordée dans 
+un comportement filtrant les hautes fréquences au-delà de $100 \kHz$.
+La raison de ce filtrage ne fait pas partie de la matière de ce cours mais est abordée dans 
 le cours d'électronique analogique \textit{ELEN0075}.
-L'amplificateur peut être vu au global commme un filtre passe bande actif de 
+L'amplificateur peut être vu au global comme un filtre passe-bande actif de 
 bande [$10, 100\,000$] \Hz, qui amplifie bien la bande audible 
 [$5,  20\,000$] \Hz.
 Notez qu'à $R_1$, $R_3$ et $R_5$ fixes on peut contrôler le gain de la bande 
 passante en ajustant $R_g$. Remplacer $R_g$ par un potentiomètre en mode 
 rhéostat aurait permis un deuxième contrôle du volume par l'utilisateur. 
-\footnote{Les potentiomètres de votre chaine Hi-Fi ou ampli de guitare avec 
+\footnote{Les potentiomètres de votre chaîne Hi-Fi ou ampli de guitare avec 
 l'inscription \textit{Gain} font très probablement partie d'un circuit 
-similaire contenant des AOs.}  
+similaire contenant des AO.}  
 
-\subsection{Précisions Pratiques}
+\subsection{Précisions pratiques}
 La Figure~\ref{fig:RadioAM_AOs} représente en réalité un circuit équivalent du
-circuit qui a été réalisé pour confectionner la Radio AM présentée au cours. 
+circuit qui a été réalisé pour confectionner la radio AM présentée au cours. 
 En effet, le schéma électrique effectif incluant tous les composants 
-achetés et soudés sur la carte  du circuit imprimé est illustré à la Figure~\ref{fig:RadioAM_real}. 
+achetés et soudés sur la carte du circuit imprimé est illustré à la Figure~\ref{fig:RadioAM_real}. 
 Le composant \textit{LM386} est un circuit intégré qui contient un amplificateur 
 opérationnel pré-configuré pour les applications audio. Par exemple, 
-les résistances $R_1, R_3 et R_5$ sont intégrées (d'où le nom) dans la puce 
+les résistances $R_1$, $R_3$ et $R_5$ sont intégrées (d'où le nom) dans la puce 
 noire que vous obtiendrez en achetant ce composant \textit{LM386}. D'autres 
 subtilités comme le centrage de la tension du signal de sortie par 
-rapport à l'alimentation [$0 , 9$] \volt ne sont pas visibles non plus 
+rapport à l'alimentation $[0, 9]\text{ V}$ ne sont pas visibles non plus 
 sur notre schéma équivalent (Figure~\ref{fig:AO1}) mais sont bien intégrées 
 à l'intérieur du composant \textit{LM386}. Ceci est nécessaire car un 
 amplificateur opérationnel ne peut fournir une tension de sortie hors plage 
 d'alimentation. Si le gain de l'amplificateur tente de le faire, 
-la véritable tension de sortie observée au noeud $V_s$ sera saturée à sa borne la plus proche.
-Afin d'éviter la distortion du signal amplifié par cette limite, la conception 
+la véritable tension de sortie observée au nœud $V_s$ sera saturée à sa borne la plus proche.
+Afin d'éviter la distorsion du signal amplifié par cette limite, la conception 
 interne de l'amplificateur \textit{LM386} centre $V_s$ autour de 
-$4.5 \volt$. 
+$4{,}5\text{ V}$. 
 \begin{figure*}[p]
 	\centering
 	\includegraphics[angle=90, origin=c, scale=1.4]{figs/RadioAM/RadioAMHarmeling_AO}

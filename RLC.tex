@@ -8,7 +8,7 @@ Nous avons délibérément opté pour la résolution directe des équations int�
 
 \textit{Les phénomènes transitoires sont des variations de
 courant et/ou de tension dues à des variations brusques des tensions ou des
-courants des sources d'alimentation (réponse forcée), ou dues au fait que l'énergie emmagasinée dans les inductances (sous forme magnétostatique) et condensateurs (sous forme électrostatique) est subitement relâchée et dissipée dans un circuit résistif (réponse libre).}
+courants des sources d'alimentation (réponse forcée), ou dues au fait que l'énergie emmagasinée dans les inductances (sous forme magnétostatique) et les condensateurs (sous forme électrostatique) est subitement relâchée et dissipée dans un circuit résistif (réponse libre).}
 
 
 \section{Propriétés des éléments L et C linéaires et invariants}
@@ -17,11 +17,11 @@ courants des sources d'alimentation (réponse forcée), ou dues au fait que l'é
 	Soit un condensateur excité par un courant $i(t)$. On a 
 	\[u(t)=\frac{1}{C}\int_{-\infty}^ti(x)dx\]
 	$u(t)$ dépend non seulement de $i$ à l'instant $t$ mais aussi de
-	$i(x)$ pour $x< t$, soit de toute ''l'histoire'' du système.
+	$i(x)$ pour $x< t$, soit de toute «~l'histoire~» du système.
 	
 	On a aussi :
 	{\small \[u(t)=u(t_0)+\frac{1}{C}\int_{t_0}^t i(x)dx\]}
-	$u(t_0)$ résume tout le passé du système de $[-\infty,t_0]$.
+	$u(t_0)$ résume tout le passé du système sur $[-\infty,t_0]$.
 		De même, pour une inductance excitée par une tension $u(t)$
 	\[
 	i(t)=\frac{1}{L}\int_{-\infty}^tu(x)dx, \qquad
@@ -47,7 +47,7 @@ courants des sources d'alimentation (réponse forcée), ou dues au fait que l'é
 	Sinon, il apparaît en théorie une tension infinie (cas de l'impulsion de Dirac !), et en pratique un arc de courant si on tente d'ouvrir le circuit.
 	Il faut donc en général prendre des mesures spéciales pour couper le courant dans un circuit inductif.
 
-\paragraph{$C$ et $L$ sont des éléments non-dissipatifs.}
+\paragraph{$C$ et $L$ sont des éléments non dissipatifs.}
 	La puissance consommée par un condensateur est $$ 
 	p_C(t)=u(t)i(t)=Cu\frac{du}{dt}.$$
 	L'énergie fournie au condensateur dans l'intervalle $t_1$, $t_2$ est donc
@@ -56,7 +56,7 @@ courants des sources d'alimentation (réponse forcée), ou dues au fait que l'é
 	$[t_1,t_2]$ ; 
 	$w_C(t_1,t_2)$ dépend seulement de la valeur de $u$ aux instants $t_1$ et $t_2$.
 	
-	Si considère un signal $u$ périodique de période $T$, alors
+	Si l'on considère un signal $u$ périodique de période $T$, alors
 	\[w_C(t_1,t_1+T) = 0\]
 	Ceci implique que l'élément ne dissipe pas d'énergie : 
 	\begin{itemize}
@@ -96,7 +96,7 @@ $$w(t)=
 5t^2e^{-10t}& t>0
 \end{array}\right.$$
 Dans l'intervalle $[0,0.2]$ s, l'inductance stocke une certaine énergie ;
-dans l'intervalle $[0.2,\infty]$ s, cette énergie est restituée
+dans l'intervalle $[0.2,\infty]$ s, cette énergie est restituée.
 On a  :
 \begin{itemize}
 	\item $w(t) \geq 0 \quad \forall t$ : élément passif
@@ -122,7 +122,7 @@ Si $u(t_2)<V$, $w_C(0,t_2)<0$, cela  signifie que l'énergie emmagasinée
 initialement dans le condensateur est rendue au circuit extérieur $\cal
 R$.
 L'énergie maximale qui peut être extraite du condensateur est 
-\[max|w_C(0,t_2)|=\frac{1}{2}CV^2.\]
+\[\max|w_C(0,t_2)|=\frac{1}{2}CV^2.\]
 
 Il est donc essentiel de retenir les constatations de la Table~\ref{tab:energie_LC} 
 
@@ -143,7 +143,7 @@ Il est donc essentiel de retenir les constatations de la Table~\ref{tab:energie_
 \begin{marginfigure}
 \centering
 \input{figs/tikz_figures/chap5fig/rcseriech7.tikz}
-\caption{Circuit illustrant les réponses forcées et libres d'un circuit RC}
+\caption{Circuit illustrant les réponses forcées et libres d'un circuit RC.}
 \label{fig:rcserie}
 \end{marginfigure}
 Soit le circuit de la Figure~\ref{fig:rcserie}.
@@ -152,7 +152,7 @@ Soit le circuit de la Figure~\ref{fig:rcserie}.
 	condensateur se charge. Porté finalement  au potentiel $V_s$, il emmagasine une
 	énergie
 	\[w_C=\frac{1}{2}CV_s^2\]
-	\item Si maintenant l'interrupteur bascule en position 2 : {\em réponse libre}, le condensateur se décharge, l'énergie emmagasinée dans $C$ est progressivement relachée et dissipée dans la résistance.
+	\item Si maintenant l'interrupteur bascule en position 2 : {\em réponse libre}, le condensateur se décharge, l'énergie emmagasinée dans $C$ est progressivement relâchée et dissipée dans la résistance.
 \end{enumerate}
 
 
@@ -169,7 +169,7 @@ Ensuite, en appliquant la PLK au noeud $1$, on a
 $$C\frac{du}{dt}+\frac{u-V_s}{R_s}=0,$$
 ou encore 
 $$\frac{du}{dt}+\frac{u}{CR_s}=\frac{V_s}{CR_s}.$$
-Il s'agit d'une équation différentielle du premier ordre à coefficients constants, qui accepte une solution du type
+Il s'agit d'une équation différentielle du premier ordre à coefficients constants, qui admet une solution du type
 \[u(t)=Ke^{-t/\tau_s}+V_s.\]
 Reste à déterminer la constante $K$. Or, $u(0-)=0$, donc $u(0+)=0$ par continuité de $u$ et finalement 
 $$ K=-V_s$$
@@ -409,7 +409,7 @@ Si on s'intéresse à l'établissement du courant dans une inductance parcourue 
 \end{eqnarray*}
 L'inductance initialement parcourue par un courant peut être remplacée par une
 inductance initialement relaxée en parallèle avec une source de courant
-con\-stant $i_0$.
+constante $i_0$.
 On peut vérifier que le courant parcourant l'inductance est donné par 
 \begin{eqnarray*}
 	i(t) & = & \frac{V_s}{R_s}(1- e^{-t/\tau_s}) + i_0 e^{-t/\tau_s}= 
@@ -425,7 +425,7 @@ On peut vérifier que le courant parcourant l'inductance est donné par
 	\input{figs/tikz_figures/chap5fig/rlcseriech8.tikz}
 	\caption{Circuit RLC série.} \label{fig:RLC}
 \end{marginfigure}
-Soit le circuit de la Figure~\ref{fig:RLC} avec comme condition initiales le condensateur $C$ chargé à $u_{C0}$ $V$ et l'inductance relaxée ($i_0 = 0$). Par la SLK, on a à tout instant
+Soit le circuit de la Figure~\ref{fig:RLC} avec comme conditions initiales le condensateur $C$ chargé à $u_{C0}$ $V$ et l'inductance relaxée ($i_0 = 0$). Par la SLK, on a à tout instant
 \[L\frac{di}{dt}+R\, i-u_{C0}+\frac{1}{C}\int_0^t i\, dx = 0.\]
 En dérivant, 
 $$L\frac{d^2i}{dt^2}+R\frac{di}{dt}+\frac{1}{C} i = 0$$
@@ -629,14 +629,13 @@ On obtient une racine double à l'équation caractéristique si :
 \[\frac{1}{\sqrt{LC}}=\frac{R}{2L}\]
 Pour une même valeur de $L$ et $C$ que dans l'exemple précédent, il faut :
 \[R=2000\,\, \Omega.\]
-Dans de cas :
+Dans ce cas :
 \begin{align*}
 i(t) & =1000te^{-10000t}\\
 u_R(t)& =2\, 10^6te^{-10000t}\\
 u_L(t) & = 100e^{-10000t}-10^6te^{-10000t}\\
 u_C(t) & = 100e^{-10000t}+10^6te^{-10000t}
 \end{align*}
-\[i(t)  =1000te^{-10000t}\]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{figs/figs_reg_trans/regime_aperiodique_critique}
 \end{center}
@@ -686,14 +685,14 @@ Dans le cas du régime oscillatoire amorti, on trouve :
 
 \section{Détection d'enveloppe de la radio AM}
 \label{demodu2}
-Comme illustré à la Figure~\ref{fig:RadioAM_diode}, la démodulateur AM est 
+Comme illustré à la Figure~\ref{fig:RadioAM_diode}, le démodulateur AM est 
 composé d'un dipôle RC parallèle (coupe 2). Ce dipôle est utilisé pour lisser le signal 
 et ainsi terminer la démodulation du signal d'entrée. En effet, le circuit 
-peut-être vu selon deux modes alternant de l'un à l'autre:
+peut être vu selon deux modes alternant de l'un à l'autre:
 \begin{enumerate}
 	\item Lorsque la diode $D_1$ est passante (= interrupteur fermé) 
-	le circuit ce comporte comme une source de tension qui provient de l'antenne en parallèle avec 
-	$C_1$ et $R_pot$.
+	le circuit se comporte comme une source de tension qui provient de l'antenne en parallèle avec 
+	$C_1$ et $R_{pot}$.
 	Il est important de remarquer que durant cette alternance la tension aux 
 	bornes de ces trois composants sera identique, puisqu'ils sont connectés 
 	aux mêmes noeuds.% et va théoriquement suivre celle de la source de tension vu que ce composant impose cette dernière. 
@@ -702,17 +701,17 @@ peut-être vu selon deux modes alternant de l'un à l'autre:
 	illustrée à la Figure~\ref{fig:lissage}, lorsque ce dernier est en phase montante.
 	\item Lorsque la diode $D_1$ est bloquante (= interrupteur ouvert), nous avons
 	un circuit RC en réponse libre. Le choix des valeurs de $C_1$ et $R_{pot}$ 
-	n'est pas un hasard. Raisonnons en terme de constante de temps, 
+	n'est pas un hasard. Raisonnons en termes de constante de temps, 
 	$\tau = R_{pot} C_{1} = 48.4 {\mu s}$. 
 	Or, notre signal porteur a une fréquence comprise entre environ $500$ et $1600$ 
 	kHz, c'est-à-dire une période $T \in [0.625 , 2 ] {\mu s}$. 
 	Comme $\tau \gg  T$, le condensateur n'a jamais le temps de se décharger
 	entièrement entre deux pics de la porteuse et va ainsi éliminer la porteuse 
-	en restant proche de l'enveloppe du signal(Figure~\ref{fig:lissage}). 
+	en restant proche de l'enveloppe du signal (Figure~\ref{fig:lissage}). 
 \end{enumerate}
 
-	On pourrait alors penser qu'augmenter indéfiniement la capacité $C_1$ est idéal pour la démodulation, 
-	mais ce n'est pas le cas. Un signal audio étant lui même un signal oscillant 
+	On pourrait alors penser qu'augmenter indéfiniment la capacité $C_1$ est idéal pour la démodulation, 
+	mais ce n'est pas le cas. Un signal audio étant lui-même un signal oscillant 
 	à des fréquences comprises entre $5$ et $20000$ Hz, c'est-à-dire une période 
 	$T \in [50, 200000] {\mu s}$, en augmentant trop la constante de 
 	temps du circuit RC, on pourrait perdre ou distordre la partie la plus aigüe
@@ -735,6 +734,6 @@ peut-être vu selon deux modes alternant de l'un à l'autre:
 	\centering
 	\includegraphics[width=0.4\textwidth]{figs/RadioAM/lissage_parfait.png}
 	\includegraphics[width=0.58\textwidth]{figs/RadioAM/lissage_imparfait.PNG}
-	\caption{Lissage parfait vs lissage imparfait d'un signal par un condensateur.}
+	\caption{Lissage parfait comparé au lissage imparfait d'un signal par un condensateur.}
 	\label{fig:lissage}
 \end{figure*}
